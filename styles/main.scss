@@ -24,9 +24,9 @@ $font-title: "Chonburi";
 
 
 // Wrapper 
-$wrapper--large: 0 3rem;
-$wrapper--medium: 0 2rem;
-$wrapper--small: 0 1.5rem;
+$wrapper--large: 2.2rem;
+$wrapper--medium: 2rem;
+$wrapper--small: 1.5rem;
 
 
 // --- Sass Mixins ----------------------- //
@@ -53,6 +53,16 @@ $breakpoints: (
 // Displays
 .hide {
     display: none !important;
+}
+
+.block,
+%block {
+    display: block;
+}
+
+.inline-block,
+%inline-block {
+    display: inline-block;
 }
 
 .visually-hidden {
@@ -85,6 +95,33 @@ $breakpoints: (
 }
 
 
+// Position
+.relative,
+%relative {
+    position: relative;
+}
+
+.absolute,
+%absolute {
+    position: absolute;
+}
+
+.inherit,
+%inherit {
+    position: inherit;
+}
+
+.initial,
+%initial {
+    position: initial;
+}
+
+.fixed,
+%fixed {
+    position: fixed;
+}
+
+
 // Flex
 .flex,
 %flex {
@@ -104,6 +141,16 @@ $breakpoints: (
 .justify-between,
 %justify-between {
     justify-content: space-between;
+}
+
+.justify-around,
+%justify-around {
+    justify-content: space-around;
+}
+
+.justify-evenly,
+%justify-evenly {
+    justify-content: space-evenly;
 }
 
 .justify-center,
@@ -136,6 +183,11 @@ $breakpoints: (
     align-items: flex-start;
 }
 
+.align-self-center,
+%align-self-center {
+    align-self: center;
+}
+
 
 // Grid
 .grid,
@@ -144,8 +196,13 @@ $breakpoints: (
 }
 
 .columns-2,
-%columsn-2 {
+%columns-2 {
     grid-template-columns: repeat(2,1fr);
+}
+
+.columns-3,
+%columns-3 {
+    grid-template-columns: repeat(3,1fr);
 }
 
 
@@ -170,7 +227,7 @@ $breakpoints: (
 }
 
 html {
-	font-size: 62.5%;
+	font-size: 1rem;
     font-family: $font-base;
 }
 
@@ -180,13 +237,25 @@ body {
 
 
 // --- Wrappers ------------------------- //
-.wrapper {
-    padding: $wrapper--medium;
+.wrapper,
+%wrapper {
+    padding: 0 $wrapper--medium;
     @include breakpoint('medium') {
-        padding: $wrapper--small;
+        padding: 0 $wrapper--small;
     }
     @include breakpoint('large') {
-        padding: $wrapper--large;
+        padding: 0 $wrapper--large;
+    }
+}
+
+.wrapper-top,
+%wrapper-top {
+    padding: $wrapper--medium 0;
+    @include breakpoint('medium') {
+        padding: $wrapper--small 0;
+    }
+    @include breakpoint('large') {
+        padding: $wrapper--large 0;
     }
 }
 
@@ -207,16 +276,51 @@ body {
     font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
+h1 {
+
+}
+
+h2 {
+    
+}
+
+h3 {
+    
+}
+
+h4 {
+    
+}
+
+h5 {
+    
+}
+
+h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    @include breakpoint('medium') {
+        font-size: 1rem;
+    }
+}
+
+li {
+    font-size: 1rem;
+    @include breakpoint('medium') {
+        font-size: 0.9rem;
+    }
+}
+
 
 // --- Links ------------------------- //
 a {
     color: $color-light;
     text-decoration: none;
-    position: relative;
-    display: inline-block;
+    @extend %relative,
+            %inline-block;
     &:after {
         content: '';
-        display: block;
+        @extend %block;
         border-bottom: 2px solid $color-light;
         transform: scaleX(0);  
         transform-origin: 0% 50%;
@@ -230,5 +334,156 @@ a {
     &:focus {
         outline: 3px solid $color-light;
         outline-offset: 1px;
+    }
+}
+
+
+// --- Buttons ------------------------- //
+.button {
+    background: $color-dark;
+    color: $color-light;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.main-content {
+    &:focus {
+        top: 30px;
+        left: 30px;
+        height: initial;
+        width: inherit;
+        margin: initial;
+        clip: inherit;
+        z-index: 2;
+    }
+}
+
+
+// --- Inputs ------------------------- //
+
+
+.logo,
+.logo span {
+    &:before,
+    &:after {
+        content: '';
+        width: 21px;
+        height: 3px;
+        background: $color-light;
+        @extend %absolute;
+    }
+    &:before {
+        top: 13px;
+    }
+    &:after {
+        top: 27px;
+    }
+}
+
+
+// --- Logo ------------------------- //
+.logo {
+    font-size: 40px;
+    line-height: 36px;
+    order: 1;
+    margin-bottom: 4rem;
+    @extend %align-self-center,
+            %relative;
+    &:before,
+    &:after {
+        left: -21px;
+    }
+    &:before {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    &:after {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    span {
+        &:before,
+        &:after {
+            left: 43px;
+        }
+        &:before {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &:after {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+    }
+    @include breakpoint('medium') {
+        margin-bottom: 0;
+        font-size: 30px;
+        span {
+            &:before,
+            &:after {
+                left: 31px;
+            }
+        }
+    }
+}
+
+
+
+// --- Footer ------------------------- //
+footer {
+    background: $color-dark;
+    @extend %relative;
+    * {
+        color: $color-light;
+    }
+    &:before,
+    &:after {
+        content: '';
+        @extend %absolute;
+        background: $color-light;
+        height: 4px;
+        width: 100%;
+    }
+    &:before {
+        top: 8px;
+    }
+    &:after {
+        bottom: 8px;
+    }
+    .flex {
+        @extend %flex,
+                %flex-column,
+                %items-start,
+                %justify-between;
+                padding: 2rem 2rem 0 2rem;
+    }
+    ul {
+        order: 2;
+        margin-bottom: 4rem;
+    }
+    h6,li {
+        margin-bottom: 1rem;
+    }
+    copyright {
+        @extend %block;
+        text-align: center;
+        padding: 2rem 0 1.5rem 0;
+        font-size: 11px;
+    }
+    @include breakpoint('medium') {
+        .flex {
+            width: calc(100% - 4.2rem);
+            margin: 0 auto;
+            flex-direction: row;
+            align-items: center;
+            padding: 2rem 0 0;
+        }
+        ul {
+            margin-bottom: 0;
+        }
+        ul,
+        .logo {
+            order: initial;
+        }
     }
 }
