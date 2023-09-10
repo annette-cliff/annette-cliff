@@ -3,7 +3,7 @@
 ## Structure:
 - assets
     - contains image assets
-- layout
+- layout 
     - contains index.html
 - scripts
     - contains all script files
