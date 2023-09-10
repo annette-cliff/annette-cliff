@@ -1,1 +1,1 @@
-// scripts/footer.js
+// scripts/footer.js 

@@ -1,1 +1,1 @@
-// scripts/banner.js
+// scripts/banner.js 

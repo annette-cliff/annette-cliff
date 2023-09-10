@@ -1,1 +1,1 @@
-// scripts/quote.js
+// scripts/quote.js 

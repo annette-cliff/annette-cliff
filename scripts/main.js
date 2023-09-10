@@ -1,4 +1,4 @@
-// scripts/main.js
+// scripts/main.js 
 
 import "../scripts/header.js";
 import "../scripts/animations.js";

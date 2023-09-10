@@ -1,1 +1,1 @@
-// scripts/technology.js
+// scripts/technology.js 
