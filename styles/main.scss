@@ -220,6 +220,7 @@ html {
 
 body {
     margin: 0;
+    overflow-x: hidden;
 }
 
 img {
@@ -685,6 +686,56 @@ header {
         margin-bottom: 0;
         img {
             height: 450px;
+        }
+    }
+}
+
+
+
+// --- Clients ------------------------- //
+#clients {
+    margin-top: 4rem;
+    @include breakpoint('medium') {
+        margin-top: 8rem;
+    }
+}
+
+
+// --- Slideshow ------------------------- //
+.slideshow {
+    overflow-x: scroll;
+    @extend .flex,
+            .items-center;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: $color-light;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $color-dark;
+    }
+    a {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+    .slide {
+        padding: 0 3rem;
+        margin-bottom: 4rem;
+        display: inline-block;
+        img {
+            width: 150px;
+            object-fit: contain;
+            filter: grayscale(1);
+        }
+    }
+    @include breakpoint('medium') {
+        .slide {
+            padding: 0 6rem;
         }
     }
 }

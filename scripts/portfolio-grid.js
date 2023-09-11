@@ -29,11 +29,11 @@ var portfolioItems = [
 const portfolioGrid = document.getElementById('portfolioGrid');
 
 const portfolioGridHTML = portfolioItems
-  .map(title => `<div class="grid-item">
-                    <span class="plus" data-trigger-modal="${title.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and')}"></span>
-                    <h4 class="hide">${title.title}</h4>
-                    <img src="${title.desktop_image}" alt="${title.title}'s homepage image on desktop" width="450" height="450" class="desktop-only">
-                    <img src="${title.mobile_image}" alt="${title.title}'s homepage image on mobile" width="450" height="450" class="mobile-only">
+  .map(item => `<div class="grid-item">
+                    <span class="plus" data-trigger-modal="${item.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and')}"></span>
+                    <h4 class="hide">${item.title}</h4>
+                    <img src="${item.desktop_image}" alt="${item.title}'s homepage image on desktop" width="450" height="450" class="desktop-only">
+                    <img src="${item.mobile_image}" alt="${item.title}'s homepage image on mobile" width="450" height="450" class="mobile-only">
                 </div>`)
   .join('');
 

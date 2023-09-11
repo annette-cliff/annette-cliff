@@ -101,7 +101,7 @@ table {
   position: fixed;
 }
 
-.flex, #about #banner .wrapper, .title h3, .grid-item, footer .flex {
+.flex, #about #banner .wrapper, .title h3, .grid-item, .slideshow, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,7 +154,7 @@ table {
           justify-content: flex-start;
 }
 
-.items-center, #about #banner .wrapper {
+.items-center, #about #banner .wrapper, .slideshow {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -234,6 +234,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 img {
@@ -730,6 +731,58 @@ header {
   }
 }
 
+#clients {
+  margin-top: 4rem;
+}
+
+@media (min-width: 767px) {
+  #clients {
+    margin-top: 8rem;
+  }
+}
+
+.slideshow {
+  overflow-x: scroll;
+  /* Track */
+  /* Handle */
+}
+
+.slideshow::-webkit-scrollbar {
+  width: 10px;
+}
+
+.slideshow::-webkit-scrollbar-track {
+  background: #E2ECFB;
+}
+
+.slideshow::-webkit-scrollbar-thumb {
+  background: #084DB5;
+}
+
+.slideshow a:before, .slideshow a:after {
+  display: none;
+}
+
+.slideshow .slide {
+  padding: 0 3rem;
+  margin-bottom: 4rem;
+  display: inline-block;
+}
+
+.slideshow .slide img {
+  width: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+@media (min-width: 767px) {
+  .slideshow .slide {
+    padding: 0 6rem;
+  }
+}
+
 #contact {
   margin: 4rem 0;
 }
@@ -779,7 +832,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .flex {
+footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .slideshow, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -801,7 +854,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .flex {
+  footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .slideshow, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;
