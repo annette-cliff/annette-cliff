@@ -38,15 +38,12 @@ $breakpoints: (
 
 
 @mixin breakpoint($breakpoint) {
-    // If the key exists in the map
     @if map-has-key($breakpoints, $breakpoint) {
-      // Prints a media query based on the value
       @media (min-width: map-get($breakpoints, $breakpoint)) {
         @content;
       }
     }
 }
-
 
 // --- Sass Extends ---------------------- //
 
@@ -188,6 +185,12 @@ $breakpoints: (
     align-self: center;
 }
 
+@include breakpoint('medium') {
+    .large--flex-row {
+        flex-direction: row;
+    }
+}
+
 
 // Grid
 .grid,
@@ -293,7 +296,9 @@ h4 {
 }
 
 h5 {
-    
+    font-family: $font-title;
+    color: $color-dark;
+    @extend .heading-lg;
 }
 
 h6 {
@@ -344,7 +349,31 @@ a {
     color: $color-light;
     padding: 1rem;
     border-radius: 5px;
+    border: 1px solid $color-dark;
+    font-weight: 600;
+    font-family: $font-base;
+    letter-spacing: 1px;
+    &:hover {
+        background: $color-light;
+        color: $color-dark;
+        cursor: pointer;
+    }
 }
+
+.button-wrap {
+    text-align: center;
+    margin: $wrapper--large 0;
+    .button {
+        width: 100%;
+    }
+    @include breakpoint('medium') {
+        margin: $wrapper--large;
+        .button {
+            width: auto;
+        }
+    }
+}
+
 
 .main-content {
     &:focus {
@@ -360,24 +389,30 @@ a {
 
 
 // --- Inputs ------------------------- //
+label {
+    color: $color-dark;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    @include breakpoint('medium') {
+        font-size: 14px;
+    }
+}
 
-
-.logo,
-.logo span {
-    &:before,
-    &:after {
-        content: '';
-        width: 21px;
-        height: 3px;
+input,
+textarea {
+    border: 1px solid $color-dark;
+    border-radius: 2px;
+    padding: 0.8rem;
+    font-family: $font-base;
+    &:focus {
         background: $color-light;
-        @extend %absolute;
+        color: $color-dark;
     }
-    &:before {
-        top: 13px;
-    }
-    &:after {
-        top: 27px;
-    }
+}
+
+textarea {
+    resize: none;
 }
 
 
@@ -429,6 +464,45 @@ a {
 }
 
 
+.logo,
+.logo span {
+    &:before,
+    &:after {
+        content: '';
+        width: 21px;
+        height: 3px;
+        background: $color-light;
+        @extend %absolute;
+    }
+    &:before {
+        top: 13px;
+    }
+    &:after {
+        top: 27px;
+    }
+}
+
+
+// --- Contact ------------------------- //
+#contact {
+    h5 {
+        text-align: center;
+    }
+    form {
+        padding: $wrapper--medium;
+    }
+    @include breakpoint('medium') {
+        margin: 6rem 0;
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .large--width-50 {
+            width: calc(50% - 3px);
+        }
+    }
+}
+
 
 // --- Footer ------------------------- //
 footer {
@@ -477,7 +551,7 @@ footer {
             margin: 0 auto;
             flex-direction: row;
             align-items: center;
-            padding: 2rem 0 0;
+            padding: 4rem 2rem 0;
         }
         ul {
             margin-bottom: 0;

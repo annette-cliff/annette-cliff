@@ -12,6 +12,8 @@
         <link rel="preload" as="script" href="../scripts/main.js">
         <script type="module" src="../scripts/main.js" defer="defer"></script>
 
+        <script src="https://web3forms.com/client/script.js" async defer></script>
+
         <title>Annette Cliff: Web Developer</title>
     </head>
     <body>
@@ -24,7 +26,33 @@
         <main id="mainContent">
             <section id="about"></section>
             <section id="portfolio"></section>
-            <section id="contact"></section>
+            <section id="contact">
+                <h5>Contact</h5>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="49e276a1-6fbf-43a9-a256-c471115e773b">
+                    
+                    <div class="flex large--flex-row flex-column justify-between">
+                        <div class="flex flex-column large--width-50">
+                            <label for="name">First Name</label>
+                            <input id="name" type="text" aria-label="First Name" name="name" required>
+                        </div>
+
+                        <div class="flex flex-column large--width-50">
+                            <label for="email">Email Address</label>
+                            <input id="email" type="email" aria-label="Email Address" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-column">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" autocorrect="true" rows="10" required></textarea>
+                    </div>
+
+                    <div class="button-wrap">
+                        <button type="submit" class="button">Submit Form</button>
+                    </div>
+                </form>              
+            </section>
         </main>          
         
         <footer>

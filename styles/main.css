@@ -193,6 +193,15 @@ footer .flex {
       align-self: center;
 }
 
+@media (min-width: 767px) {
+  .large--flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .grid {
   display: -ms-grid;
   display: grid;
@@ -266,7 +275,7 @@ body {
   }
 }
 
-.heading-lg {
+.heading-lg, h5 {
   font-size: clamp(2rem, 7vw, 3rem);
 }
 
@@ -276,6 +285,11 @@ body {
 
 .heading-sm {
   font-size: clamp(0.5rem, 7vw, 1rem);
+}
+
+h5 {
+  font-family: "Chonburi";
+  color: #084DB5;
 }
 
 h6 {
@@ -332,6 +346,34 @@ a:focus {
   color: #E2ECFB;
   padding: 1rem;
   border-radius: 5px;
+  border: 1px solid #084DB5;
+  font-weight: 600;
+  font-family: "Anonymous Pro";
+  letter-spacing: 1px;
+}
+
+.button:hover {
+  background: #E2ECFB;
+  color: #084DB5;
+  cursor: pointer;
+}
+
+.button-wrap {
+  text-align: center;
+  margin: 2.2rem 0;
+}
+
+.button-wrap .button {
+  width: 100%;
+}
+
+@media (min-width: 767px) {
+  .button-wrap {
+    margin: 2.2rem;
+  }
+  .button-wrap .button {
+    width: auto;
+  }
 }
 
 .main-content:focus {
@@ -344,23 +386,35 @@ a:focus {
   z-index: 2;
 }
 
-.logo:before, .logo:after,
-.logo span:before,
-.logo span:after {
-  content: '';
-  width: 21px;
-  height: 3px;
+label {
+  color: #084DB5;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+
+@media (min-width: 767px) {
+  label {
+    font-size: 14px;
+  }
+}
+
+input,
+textarea {
+  border: 1px solid #084DB5;
+  border-radius: 2px;
+  padding: 0.8rem;
+  font-family: "Anonymous Pro";
+}
+
+input:focus,
+textarea:focus {
   background: #E2ECFB;
+  color: #084DB5;
 }
 
-.logo:before,
-.logo span:before {
-  top: 13px;
-}
-
-.logo:after,
-.logo span:after {
-  top: 27px;
+textarea {
+  resize: none;
 }
 
 .logo {
@@ -408,6 +462,46 @@ a:focus {
   }
   .logo span:before, .logo span:after {
     left: 31px;
+  }
+}
+
+.logo:before, .logo:after,
+.logo span:before,
+.logo span:after {
+  content: '';
+  width: 21px;
+  height: 3px;
+  background: #E2ECFB;
+}
+
+.logo:before,
+.logo span:before {
+  top: 13px;
+}
+
+.logo:after,
+.logo span:after {
+  top: 27px;
+}
+
+#contact h5 {
+  text-align: center;
+}
+
+#contact form {
+  padding: 2rem;
+}
+
+@media (min-width: 767px) {
+  #contact {
+    margin: 6rem 0;
+  }
+  #contact form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  #contact .large--width-50 {
+    width: calc(50% - 3px);
   }
 }
 
@@ -466,7 +560,7 @@ footer copyright {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 2rem 0 0;
+    padding: 4rem 2rem 0;
   }
   footer ul {
     margin-bottom: 0;
