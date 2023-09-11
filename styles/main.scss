@@ -49,16 +49,14 @@ $breakpoints: (
 
 // Displays
 .hide {
-    display: none !important;
+    display: none;
 }
 
-.block,
-%block {
+.block {
     display: block;
 }
 
-.inline-block,
-%inline-block {
+.inline-block {
     display: inline-block;
 }
 
@@ -93,95 +91,77 @@ $breakpoints: (
 
 
 // Position
-.relative,
-%relative {
+.relative {
     position: relative;
 }
 
-.absolute,
-%absolute {
+.absolute {
     position: absolute;
 }
 
-.inherit,
-%inherit {
+.inherit {
     position: inherit;
 }
 
-.initial,
-%initial {
+.initial {
     position: initial;
 }
 
-.fixed,
-%fixed {
+.fixed {
     position: fixed;
 }
 
 
 // Flex
-.flex,
-%flex {
+.flex {
     display: flex;
 }
 
-.flex-column,
-%flex-column {
+.flex-column {
     flex-direction: column;
 }
 
-.flex-wrap,
-%flex-wrap {
+.flex-wrap {
     flex-wrap: wrap;
 }
 
-.justify-between,
-%justify-between {
+.justify-between {
     justify-content: space-between;
 }
 
-.justify-around,
-%justify-around {
+.justify-around {
     justify-content: space-around;
 }
 
-.justify-evenly,
-%justify-evenly {
+.justify-evenly {
     justify-content: space-evenly;
 }
 
-.justify-center,
-%justify-center {
+.justify-center {
     justify-content: center;
 }
 
-.justify-end,
-%justify-end {
+.justify-end {
     justify-content: flex-end;
 }
 
-.justify-start,
-%justify-start {
+.justify-start {
     justify-content: flex-start;
 }
 
-.items-center,
-%items-center {
+.items-center {
     align-items: center;
 }
 
-.items-end,
-%items-end {
+.items-end {
     align-items: flex-end;
 }
 
-.items-start,
-%items-start {
+.items-start {
     align-items: flex-start;
 }
 
-.align-self-center,
-%align-self-center {
+.align-self-center {
     align-self: center;
 }
 
@@ -193,25 +173,28 @@ $breakpoints: (
 
 
 // Grid
-.grid,
-%grid {
+.grid {
     display: grid;
 }
 
-.columns-2,
-%columns-2 {
+@include breakpoint('medium') {
+    .large--grid {
+        display: grid;
+        grid-gap: 5px;
+    }
+}
+
+.columns-2 {
     grid-template-columns: repeat(2,1fr);
 }
 
-.columns-3,
-%columns-3 {
+.columns-3 {
     grid-template-columns: repeat(3,1fr);
 }
 
 
 // Borders
-.border,
-%border {
+.border {
     border: 2px solid $color-dark;
 }
 
@@ -238,10 +221,14 @@ body {
     margin: 0;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
 
 // --- Wrappers ------------------------- //
-.wrapper,
-%wrapper {
+.wrapper {
     padding: 0 $wrapper--medium;
     @include breakpoint('medium') {
         padding: 0 $wrapper--small;
@@ -251,8 +238,7 @@ body {
     }
 }
 
-.wrapper-top,
-%wrapper-top {
+.wrapper-top {
     padding: $wrapper--medium 0;
     @include breakpoint('medium') {
         padding: $wrapper--small 0;
@@ -264,35 +250,33 @@ body {
 
 
 // --- Typography ------------------------- //
-.heading-lg,
-%heading-lg {
+.heading-lg {
     font-size: clamp(2rem, 7vw, 3rem);
 }
 
-.heading-md,
-%heading-md {
+.heading-md {
     font-size: clamp(1rem, 7vw, 1.1rem);
 }
 
-.heading-sm,
-%heading-sm {
+.heading-sm {
     font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
-h1 {
+// h1 {
 
-}
+// }
 
-h2 {
+// h2 {
     
-}
+// }
 
-h3 {
+// h3 {
     
-}
+// }
 
 h4 {
-    
+    @extend .heading-md;
+    font-weight: 600;
 }
 
 h5 {
@@ -321,11 +305,11 @@ li {
 a {
     color: $color-light;
     text-decoration: none;
-    @extend %relative,
-            %inline-block;
+    @extend .relative,
+            .inline-block;
     &:after {
         content: '';
-        @extend %block;
+        @extend .block;
         border-bottom: 2px solid $color-light;
         transform: scaleX(0);  
         transform-origin: 0% 50%;
@@ -363,11 +347,13 @@ a {
 .button-wrap {
     text-align: center;
     margin: $wrapper--large 0;
+    margin-bottom: 0;
     .button {
         width: 100%;
     }
     @include breakpoint('medium') {
         margin: $wrapper--large;
+        margin-bottom: 0;
         .button {
             width: auto;
         }
@@ -423,8 +409,8 @@ textarea {
     order: 1;
     margin-bottom: 4rem;
     color: $color-light;
-    @extend %align-self-center,
-            %relative;
+    @extend .align-self-center,
+            .relative;
     &:before,
     &:after {
         left: -21px;
@@ -472,7 +458,7 @@ textarea {
         width: 21px;
         height: 3px;
         background: $color-light;
-        @extend %absolute;
+        @extend .absolute;
     }
     &:before {
         top: 13px;
@@ -483,16 +469,93 @@ textarea {
 }
 
 
+// --- Portfolio: Grid ------------------------- //
+.grid-item {
+    margin-bottom: 10px;
+    @extend .relative,
+            .flex,
+            .justify-center,
+            .flex-column;
+    img {
+        object-fit: contain;
+    }
+    &:after {
+        content: '';
+        background: $color-light;
+        opacity: 0.8;
+        filter: opacity(0.8);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @extend .absolute;
+    }
+    .plus {
+        background: $color-dark;
+        width: 2rem;
+        height: 2rem;
+        z-index: 3;
+        @extend .absolute;
+                right: 1rem;
+                top: 1rem;
+        border-radius: 50%;
+        &:before,
+        &:after {
+            @extend .absolute;
+            content: '';
+            background: $color-light;
+            width: 1rem;
+            height: 2px;
+            top: 15px;
+            left: 8px;
+        }
+        &:after {
+            transform: rotate(90deg);
+        }
+    }
+    &:hover {
+        &:after {
+            background: $color-dark;
+            opacity: 1;
+            filter: opacity(1);
+        }
+        .plus {
+            background: $color-light;
+            &:before,
+            &:after {
+                background: $color-dark;
+            }
+        }
+        h4 {
+            @extend .block,
+                    .absolute,
+                    .align-self-center,
+                    .justify-center;
+            color: $color-light;
+            z-index: 1;
+        }
+    }
+    @include breakpoint('large') {
+        margin-bottom: 0;
+        img {
+            height: 450px;
+        }
+    }
+}
+
+
 // --- Contact ------------------------- //
 #contact {
+    margin: 4rem 0;
     h5 {
         text-align: center;
     }
     form {
         padding: $wrapper--medium;
+        padding-bottom: 0;
     }
     @include breakpoint('medium') {
-        margin: 6rem 0;
+        margin: 8rem 0;
         form {
             max-width: 700px;
             margin: 0 auto;
@@ -507,14 +570,14 @@ textarea {
 // --- Footer ------------------------- //
 footer {
     background: $color-dark;
-    @extend %relative;
+    @extend .relative;
     * {
         color: $color-light;
     }
     &:before,
     &:after {
         content: '';
-        @extend %absolute;
+        @extend .absolute;
         background: $color-light;
         height: 4px;
         width: 100%;
@@ -526,10 +589,10 @@ footer {
         bottom: 8px;
     }
     .flex {
-        @extend %flex,
-                %flex-column,
-                %items-start,
-                %justify-between;
+        @extend .flex,
+                .flex-column,
+                .items-start,
+                .justify-between;
                 padding: 2rem 2rem 0 2rem;
     }
     ul {
@@ -540,7 +603,7 @@ footer {
         margin-bottom: 1rem;
     }
     copyright {
-        @extend %block;
+        @extend .block;
         text-align: center;
         padding: 2rem 0 1.5rem 0;
         font-size: 11px;

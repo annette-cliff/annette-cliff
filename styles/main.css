@@ -39,17 +39,14 @@ table {
 }
 
 .hide {
-  display: none !important;
+  display: none;
 }
 
-.block,
-a:after,
-footer copyright {
+.block, a:after, .grid-item:hover h4, footer copyright {
   display: block;
 }
 
-.inline-block,
-a {
+.inline-block, a {
   display: inline-block;
 }
 
@@ -82,20 +79,13 @@ a {
   }
 }
 
-.relative,
-a,
-.logo,
-footer {
+.relative, a, .logo, .grid-item, footer {
   position: relative;
 }
 
-.absolute,
-.logo:before,
-.logo:after,
+.absolute, .logo:before, .logo:after,
 .logo span:before,
-.logo span:after,
-footer:before,
-footer:after {
+.logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
   position: absolute;
 }
 
@@ -111,15 +101,13 @@ footer:after {
   position: fixed;
 }
 
-.flex,
-footer .flex {
+.flex, .grid-item, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.flex-column,
-footer .flex {
+.flex-column, .grid-item, footer .flex {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -131,8 +119,7 @@ footer .flex {
       flex-wrap: wrap;
 }
 
-.justify-between,
-footer .flex {
+.justify-between, footer .flex {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -149,7 +136,7 @@ footer .flex {
           justify-content: space-evenly;
 }
 
-.justify-center {
+.justify-center, .grid-item, .grid-item:hover h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -179,15 +166,13 @@ footer .flex {
           align-items: flex-end;
 }
 
-.items-start,
-footer .flex {
+.items-start, footer .flex {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
 }
 
-.align-self-center,
-.logo {
+.align-self-center, .logo, .grid-item:hover h4 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -205,6 +190,14 @@ footer .flex {
 .grid {
   display: -ms-grid;
   display: grid;
+}
+
+@media (min-width: 767px) {
+  .large--grid {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 5px;
+  }
 }
 
 .columns-2 {
@@ -243,6 +236,11 @@ body {
   margin: 0;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .wrapper {
   padding: 0 2rem;
 }
@@ -279,12 +277,16 @@ body {
   font-size: clamp(2rem, 7vw, 3rem);
 }
 
-.heading-md {
+.heading-md, h4 {
   font-size: clamp(1rem, 7vw, 1.1rem);
 }
 
 .heading-sm {
   font-size: clamp(0.5rem, 7vw, 1rem);
+}
+
+h4 {
+  font-weight: 600;
 }
 
 h5 {
@@ -361,6 +363,7 @@ a:focus {
 .button-wrap {
   text-align: center;
   margin: 2.2rem 0;
+  margin-bottom: 0;
 }
 
 .button-wrap .button {
@@ -370,6 +373,7 @@ a:focus {
 @media (min-width: 767px) {
   .button-wrap {
     margin: 2.2rem;
+    margin-bottom: 0;
   }
   .button-wrap .button {
     width: auto;
@@ -484,17 +488,96 @@ textarea {
   top: 27px;
 }
 
+.grid-item {
+  margin-bottom: 10px;
+}
+
+.grid-item img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.grid-item:after {
+  content: '';
+  background: #E2ECFB;
+  opacity: 0.8;
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.grid-item .plus {
+  background: #084DB5;
+  width: 2rem;
+  height: 2rem;
+  z-index: 3;
+  right: 1rem;
+  top: 1rem;
+  border-radius: 50%;
+}
+
+.grid-item .plus:before, .grid-item .plus:after {
+  content: '';
+  background: #E2ECFB;
+  width: 1rem;
+  height: 2px;
+  top: 15px;
+  left: 8px;
+}
+
+.grid-item .plus:after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.grid-item:hover:after {
+  background: #084DB5;
+  opacity: 1;
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+}
+
+.grid-item:hover .plus {
+  background: #E2ECFB;
+}
+
+.grid-item:hover .plus:before, .grid-item:hover .plus:after {
+  background: #084DB5;
+}
+
+.grid-item:hover h4 {
+  color: #E2ECFB;
+  z-index: 1;
+}
+
+@media (min-width: 1024px) {
+  .grid-item {
+    margin-bottom: 0;
+  }
+  .grid-item img {
+    height: 450px;
+  }
+}
+
+#contact {
+  margin: 4rem 0;
+}
+
 #contact h5 {
   text-align: center;
 }
 
 #contact form {
   padding: 2rem;
+  padding-bottom: 0;
 }
 
 @media (min-width: 767px) {
   #contact {
-    margin: 6rem 0;
+    margin: 8rem 0;
   }
   #contact form {
     max-width: 700px;
@@ -528,7 +611,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer .flex {
+footer .grid-item, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -550,7 +633,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer .flex {
+  footer .grid-item, footer .flex {
     width: calc(100% - 4.2rem);
     margin: 0 auto;
     -webkit-box-orient: horizontal;

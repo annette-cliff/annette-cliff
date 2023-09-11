@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Annette Cliff: Web Developer</title>
 
         <!-- Styles: Main -->
         <link rel="stylesheet" type="text/css" href="../styles/main.css" />
@@ -12,10 +13,10 @@
         <link rel="preload" as="script" href="../scripts/main.js">
         <script type="module" src="../scripts/main.js" defer="defer"></script>
 
+        <!-- Scripts: Web3Forms -->
         <script src="https://web3forms.com/client/script.js" async defer></script>
-
-        <title>Annette Cliff: Web Developer</title>
     </head>
+
     <body>
         <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="visually-hidden button main-content">Skip to main content</a>
         
@@ -25,33 +26,33 @@
         
         <main id="mainContent">
             <section id="about"></section>
-            <section id="portfolio"></section>
+
+            <section id="portfolio">
+                <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
+            </section>
+
             <section id="contact">
                 <h5>Contact</h5>
                 <form action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="49e276a1-6fbf-43a9-a256-c471115e773b">
-                    
                     <div class="flex large--flex-row flex-column justify-between">
                         <div class="flex flex-column large--width-50">
                             <label for="name">First Name</label>
                             <input id="name" type="text" aria-label="First Name" name="name" required>
                         </div>
-
                         <div class="flex flex-column large--width-50">
                             <label for="email">Email Address</label>
                             <input id="email" type="email" aria-label="Email Address" name="email" required>
                         </div>
                     </div>
-
                     <div class="flex flex-column">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" autocorrect="true" rows="10" required></textarea>
                     </div>
-
                     <div class="button-wrap">
                         <button type="submit" class="button">Submit Form</button>
                     </div>
-                </form>              
+                </form>         
             </section>
         </main>          
         
@@ -63,5 +64,6 @@
             </div>
             <copyright>@copyright Annette Cliff <span id="year"></span></copyright>
         </footer>
+
     </body>
 </html>
