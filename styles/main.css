@@ -370,6 +370,7 @@ a:focus {
       -ms-flex-order: 1;
           order: 1;
   margin-bottom: 4rem;
+  color: #E2ECFB;
 }
 
 .logo:before, .logo:after {

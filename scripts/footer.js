@@ -35,15 +35,21 @@ var footerMenus = [
 ];
 
 
-const footerMainLinks = document.getElementById('mainLinks'),
-      footerSocialLinks = document.getElementById('socialLinks');
+const footerMainLinks = document.getElementById('mainLinks');
+const footerSocialLinks = document.getElementById('socialLinks');
 
-footerMenus.forEach((menu) => {
-    var constructFooterMainLinks = (menu.menu == 'menu_1');
-    constructFooterMainLinks
-    ? footerMainLinks.innerHTML += `<li><a href="${menu.url}" title="Link to the ${menu.title.toLowerCase()} section">${menu.title}</a></li>`
-    : footerSocialLinks.innerHTML += `<li><a href="${menu.url}" target="_blank" title="External link to ${menu.title.toLowerCase()}">${menu.title}</a></li>`
-});
+const mainLinksHTML = footerMenus
+  .filter(menu => menu.menu === 'menu_1')
+  .map(menu => `<li><a href="${menu.url}" title="Link to the ${menu.title.toLowerCase()} section">${menu.title}</a></li>`)
+  .join('');
+
+const socialLinksHTML = footerMenus
+  .filter(menu => menu.menu === 'menu_2')
+  .map(menu => `<li><a href="${menu.url}" target="_blank" title="External link to ${menu.title.toLowerCase()}">${menu.title}</a></li>`)
+  .join('');
+
+footerMainLinks.innerHTML += mainLinksHTML;
+footerSocialLinks.innerHTML += socialLinksHTML;
 
 
 // Copyright

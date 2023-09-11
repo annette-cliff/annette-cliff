@@ -387,6 +387,7 @@ a {
     line-height: 36px;
     order: 1;
     margin-bottom: 4rem;
+    color: $color-light;
     @extend %align-self-center,
             %relative;
     &:before,
