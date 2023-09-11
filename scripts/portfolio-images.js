@@ -1,1 +1,0 @@
-// scripts/portfolio-images.js 

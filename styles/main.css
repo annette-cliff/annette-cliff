@@ -79,13 +79,13 @@ table {
   }
 }
 
-.relative, a, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
+.relative, main, a, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
   position: relative;
 }
 
 .absolute, .logo:before, .logo:after,
 .logo span:before,
-.logo span:after, #about #banner .wrapper h2, .title h3, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
+.logo span:after, #about #banner .wrapper h2, .title .title-accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
   position: absolute;
 }
 
@@ -101,13 +101,13 @@ table {
   position: fixed;
 }
 
-.flex, #about #banner .wrapper, .title h3, .grid-item, .slideshow, footer .flex {
+.flex, #about #banner .wrapper, .title .title-accent, .grid-item, .slideshow, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.flex-column, .title h3, .grid-item, footer .flex {
+.flex-column, .title .title-accent, .grid-item, footer .flex {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -416,6 +416,10 @@ a:focus {
   margin-bottom: 0;
 }
 
+.button-wrap a:before, .button-wrap a:after {
+  display: none;
+}
+
 .button-wrap .button {
   width: 100%;
 }
@@ -473,7 +477,7 @@ textarea {
 
 header {
   background: #084DB5;
-  padding: 1rem 2.2rem 0 2.2rem;
+  padding: 1rem 2.2rem;
   text-align: center;
 }
 
@@ -481,6 +485,10 @@ header {
   header {
     text-align: left;
   }
+}
+
+header .logo {
+  margin-bottom: 0;
 }
 
 .logo {
@@ -557,6 +565,7 @@ header {
 
 #about #banner {
   background: #084DB5;
+  padding-top: 5rem;
 }
 
 #about #banner .wrapper {
@@ -598,6 +607,9 @@ header {
   #about {
     margin-bottom: 6rem;
   }
+  #about #banner {
+    padding-top: 0rem;
+  }
   #about #banner .wrapper {
     max-width: 1500px;
     margin: 0 auto;
@@ -621,7 +633,7 @@ header {
   }
 }
 
-.title h3 {
+.title .title-accent {
   top: -3.5rem;
   left: -6rem;
 }
@@ -638,7 +650,7 @@ header {
 }
 
 @media (min-width: 561px) {
-  .title h3 {
+  .title .title-accent {
     top: -4.5rem;
   }
   .title .dark {
@@ -647,7 +659,7 @@ header {
 }
 
 @media (min-width: 1024px) {
-  .title h3 {
+  .title .title-accent {
     top: -8.5rem;
     left: -10rem;
   }
@@ -728,6 +740,84 @@ header {
   }
   .grid-item img {
     height: 450px;
+  }
+}
+
+#portfolioModal.modal-is-visible {
+  position: absolute;
+  background: #fff;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+#portfolioModal .modal .video {
+  padding-bottom: 6rem;
+}
+
+#portfolioModal .modal .video video {
+  max-width: 100%;
+  width: 100vw;
+}
+
+#portfolioModal .modal .quote {
+  color: #084DB5;
+  padding: 0 2.2rem;
+  margin: 3rem 0;
+  line-height: 2rem;
+}
+
+#portfolioModal .modal .button-wrap {
+  padding: 2.2rem;
+}
+
+#portfolioModal .modal .technology {
+  background: #c1d2ec;
+  padding: 6rem;
+}
+
+#portfolioModal .modal .technology h4 {
+  text-align: center;
+  color: #084DB5;
+  font-family: "Chonburi";
+  letter-spacing: 1px;
+  font-size: clamp(1.5rem, 7vw, 1.5rem);
+}
+
+#portfolioModal .title {
+  height: 50px;
+}
+
+#portfolioModal .title .dark {
+  bottom: 0rem;
+}
+
+#portfolioModal .title .title-accent {
+  left: 0rem;
+}
+
+@media (min-width: 767px) {
+  #portfolioModal .modal .video {
+    padding-bottom: 12rem;
+  }
+  #portfolioModal .modal .quote {
+    top: 12rem;
+    padding: 0 8rem;
+    margin: 6rem auto;
+    max-width: 900px;
+  }
+  #portfolioModal .modal .technology h4 {
+    font-size: clamp(2rem, 7vw, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  #portfolioModal .title {
+    height: 200px;
+  }
+  #portfolioModal .title .dark {
+    bottom: -2rem;
   }
 }
 
@@ -832,7 +922,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .slideshow, footer .flex {
+footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -854,7 +944,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title h3, .title footer h3, footer .grid-item, footer .slideshow, footer .flex {
+  footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;

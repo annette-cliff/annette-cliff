@@ -15,6 +15,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 // Colors
 $color-dark: #084DB5;
+$color-medium: #c1d2ec;
 $color-light: #E2ECFB;
 
 
@@ -228,6 +229,9 @@ img {
     height: 100%;
 }
 
+main {
+    @extend .relative;
+}
 
 // --- Wrappers ------------------------- //
 .wrapper {
@@ -377,6 +381,12 @@ a {
     text-align: center;
     margin: $wrapper--large 0;
     margin-bottom: 0;
+    a {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
     .button {
         width: 100%;
     }
@@ -434,10 +444,13 @@ textarea {
 // --- Header ------------------------- //
 header {
     background: $color-dark;
-    padding: 1rem $wrapper--large 0 $wrapper--large;
+    padding: 1rem $wrapper--large;
     text-align: center;
     @include breakpoint('small') {
         text-align: left;
+    }
+    .logo {
+        margin-bottom: 0;
     }
 }
 
@@ -515,6 +528,7 @@ header {
     margin-bottom: 4rem;
     #banner {
         background: $color-dark;
+        padding-top: 5rem;
         .wrapper {
             padding-right: 0;
             @extend .flex,
@@ -554,6 +568,7 @@ header {
     @include breakpoint('medium') {
         margin-bottom: 6rem;
         #banner {
+            padding-top: 0rem;
             .wrapper {
                 max-width: 1500px;
                 margin: 0 auto;
@@ -578,7 +593,7 @@ header {
 // --- Title ------------------------- //
 .title {
     @extend .relative;
-    h3 {
+    .title-accent {
         @extend .absolute,
                 .flex,
                 .flex-column;
@@ -596,7 +611,7 @@ header {
         left: 6.4rem;
     }
     @include breakpoint('small') {
-        h3 {
+        .title-accent {
             top: -4.5rem;
         }
         .dark {
@@ -604,7 +619,7 @@ header {
         }
     }
     @include breakpoint('large') {
-        h3 {
+        .title-accent {
             top: -8.5rem;
             left: -10rem;
         }
@@ -690,6 +705,83 @@ header {
     }
 }
 
+
+// --- Portfolio: Modals ------------------------- //
+
+#portfolioModal {
+    &.modal-is-visible {
+        position: absolute;
+        background: #fff;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+    }
+    .modal {
+        .video {
+            padding-bottom: 6rem;
+            video {
+                max-width: 100%;
+                width: 100vw;
+            }
+        }
+        .quote {
+            color: $color-dark;
+            padding: 0 $wrapper--large;
+            margin: 3rem 0;
+            line-height: 2rem;
+        }
+        .button-wrap {
+            padding: $wrapper--large;
+        }
+        .technology {
+            background: $color-medium;
+            padding: 6rem;
+            h4 {
+                text-align: center;
+                color: $color-dark;
+                font-family: $font-title;
+                letter-spacing: 1px;
+                font-size: clamp(1.5rem, 7vw, 1.5rem);
+            }
+        }
+    }
+    .title {
+        height: 50px;
+        .dark {
+            bottom: 0rem;
+        }
+        .title-accent {
+            left: 0rem;
+        }
+    }
+    @include breakpoint('medium') {
+        .modal {
+            .video {
+                padding-bottom: 12rem;
+            }
+            .quote {
+                top: 12rem;
+                padding: 0 8rem;
+                margin: 6rem auto;
+                max-width: 900px;
+            }
+            .technology {
+                h4 {
+                    font-size: clamp(2rem, 7vw, 2rem);
+                }
+            }
+        }
+    }
+    @include breakpoint('large') {
+        .title {
+            height: 200px;
+            .dark {
+                bottom: -2rem;
+            }
+        }
+    }
+}
 
 
 // --- Clients ------------------------- //
