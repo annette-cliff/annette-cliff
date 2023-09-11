@@ -25,7 +25,15 @@
         </header>
         
         <main id="mainContent">
-            <section id="about"></section>
+            <section id="about">
+                <article id="banner">
+                    <div class="wrapper">
+                        <h2>Hi! My name is Annette Cliff</h2>
+                        <img src="/assets/annette.png" alt="Profile image of Annette" width="500" height="700">
+                    </div>
+                </article>
+                <article class="title"></article>
+            </section>
 
             <section id="portfolio">
                 <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
@@ -44,6 +52,10 @@
                             <label for="email">Email Address</label>
                             <input id="email" type="email" aria-label="Email Address" name="email" required>
                         </div>
+                    </div>
+                    <div class="flex flex-column">
+                        <label for="subject">Subject</label>
+                        <input id="subject" type="text" aria-label="Subject" name="subject" required>
                     </div>
                     <div class="flex flex-column">
                         <label for="message">Message</label>

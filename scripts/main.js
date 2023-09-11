@@ -13,4 +13,4 @@ import "../scripts/quote.js";
 import "../scripts/images.js";
 
 import "../scripts/technology.js";
-import "../scripts/animations.js";
+import "../scripts/title.js";

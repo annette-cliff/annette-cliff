@@ -31,7 +31,8 @@ $wrapper--small: 1.5rem;
 
 // --- Sass Mixins ----------------------- //
 $breakpoints: (
-  'small':  500px,
+  'xsmall':  550px,
+  'small':  561px,
   'medium': 767px,
   'large':  1024px
 ) !default;
@@ -250,8 +251,30 @@ img {
 
 
 // --- Typography ------------------------- //
+.heading-xxl {
+    font-size: clamp(3.5rem, 5vw, 10rem);
+    @include breakpoint('small') {
+        font-size: clamp(5rem, 5vw, 10rem);
+    }
+    @include breakpoint('large') {
+        font-size: clamp(10rem, 5vw, 10rem);
+    }
+}
+
+.heading-xl {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    @include breakpoint('small') {
+        font-size: clamp(3.5rem, 5vw, 5rem);
+        line-height: 3.5rem;
+    }
+    @include breakpoint('large') {
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        line-height: 5rem;
+    }
+}
+
 .heading-lg {
-    font-size: clamp(2rem, 7vw, 3rem);
+    font-size: clamp(3rem, 7vw, 3rem);
 }
 
 .heading-md {
@@ -262,17 +285,22 @@ img {
     font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
-// h1 {
+h1 {
+    font-size: 40px;
+    line-height: 36px;
+}
 
-// }
+h2 {
+    font-family: $font-title;
+    color: $color-light;
+    @extend .heading-xl;
+}
 
-// h2 {
-    
-// }
-
-// h3 {
-    
-// }
+h3 {
+    font-family: $font-title;
+    @extend .heading-xxl;
+    letter-spacing: 2px;
+}
 
 h4 {
     @extend .heading-md;
@@ -402,6 +430,17 @@ textarea {
 }
 
 
+// --- Header ------------------------- //
+header {
+    background: $color-dark;
+    padding: 1rem $wrapper--large 0 $wrapper--large;
+    text-align: center;
+    @include breakpoint('small') {
+        text-align: left;
+    }
+}
+
+
 // --- Logo ------------------------- //
 .logo {
     font-size: 40px;
@@ -409,6 +448,7 @@ textarea {
     order: 1;
     margin-bottom: 4rem;
     color: $color-light;
+    display: inline-block;
     @extend .align-self-center,
             .relative;
     &:before,
@@ -465,6 +505,112 @@ textarea {
     }
     &:after {
         top: 27px;
+    }
+}
+
+
+// --- About ------------------------- //
+#about {
+    margin-bottom: 4rem;
+    #banner {
+        background: $color-dark;
+        .wrapper {
+            padding-right: 0;
+            @extend .flex,
+                    .relative,
+                    .items-center,
+                    .justify-end;
+            img {
+                width: 250px;
+            }
+            h2 {
+                @extend .absolute;
+                left: 2rem;
+                top: 0;
+                width: 250px;
+            }
+        }
+    }
+    @include breakpoint('xsmall') {
+        #banner .wrapper h2 {
+            width: 400px;
+        }
+    }
+    @include breakpoint('small') {
+        margin-bottom: 5rem;
+        #banner {
+            .wrapper {
+                padding: 0 $wrapper--large;
+                img {
+                    width: 450px;
+                }
+                h2 {
+                    width: 350px;
+                }
+            }
+        }
+    }
+    @include breakpoint('medium') {
+        margin-bottom: 6rem;
+        #banner {
+            .wrapper {
+                max-width: 1500px;
+                margin: 0 auto;
+                justify-content: space-between;
+                h2 {
+                    width: 650px;
+                    margin-left: auto;
+                    position: initial;
+                }
+                img {
+                    width: 600px;
+                }
+            }
+        }
+    }
+    @include breakpoint('large') {
+        margin-bottom: 12rem;
+    }
+}
+
+
+// --- Title ------------------------- //
+.title {
+    @extend .relative;
+    h3 {
+        @extend .absolute,
+                .flex,
+                .flex-column;
+                top: -3.5rem;
+                left: -6rem;
+    }
+    .light {
+        color: $color-light;
+        text-align: center;
+    }
+    .dark {
+        color: $color-dark;
+        @extend .relative;
+        bottom: 1rem;
+        left: 6.4rem;
+    }
+    @include breakpoint('small') {
+        h3 {
+            top: -4.5rem;
+        }
+        .dark {
+            bottom: 2rem;
+        }
+    }
+    @include breakpoint('large') {
+        h3 {
+            top: -8.5rem;
+            left: -10rem;
+        }
+        .dark {
+            bottom: 3rem;
+            left: 12.4rem;
+        }
     }
 }
 
@@ -610,7 +756,7 @@ footer {
     }
     @include breakpoint('medium') {
         .flex {
-            width: calc(100% - 4.2rem);
+            max-width: 800px;
             margin: 0 auto;
             flex-direction: row;
             align-items: center;
