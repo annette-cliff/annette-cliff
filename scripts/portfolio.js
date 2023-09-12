@@ -8,8 +8,8 @@ var portfolioContent = [
         mobile_image: '/assets/jamie-wolf-mobile.png',
         title_first: 'Jamie',
         title_second: 'Wolf',
-        video: '/assets/jamie-wolf-video.mov',
-        quote: 'This was a full build redesign project done while I was employed at Lemonade. The goal was to emphasize the jewelry so we created split block sections to loop through the images, each featuring with a link to the product or collection underneath the image. On the collection template, we looped through all products in the collection and displayed a featured image (which is stored in a collection metafield) after X number of products. We also updated the navigation by adding a dropdown so that users could easily find the contact information.',
+        video: '',
+        quote: 'This was a full build redesign project done while I was employed at Lemonade. The goal was to emphasize the jewelry so we created split block sections to loop through the images, each featuring a link to the product or collection underneath the image. On the collection template, we looped through all products in the collection and displayed a featured image (which is stored in a collection metafield) after X number of products. We also updated the navigation by adding a dropdown so that users could easily find the contact information.',
         image_1: '/assets/jamie-wolf-desktop.png',
         image_2: '/assets/jamie-wolf-desktop.png',
         url: 'https://jamiewolf.com/'

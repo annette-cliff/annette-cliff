@@ -58,6 +58,12 @@ $breakpoints: (
     display: block;
 }
 
+@include breakpoint('medium') {
+    .large--block {
+        display: block;
+    }
+}
+
 .inline-block {
     display: inline-block;
 }
@@ -171,6 +177,9 @@ $breakpoints: (
     .large--flex-row {
         flex-direction: row;
     }
+    .large--flex {
+        display: flex;
+    }
 }
 
 
@@ -194,10 +203,13 @@ $breakpoints: (
     grid-template-columns: repeat(3,1fr);
 }
 
+.span-two {
+    grid-column: 1 / span 2;
+}
 
 // Borders
 .border {
-    border: 2px solid $color-dark;
+    border: 2px solid;
 }
 
 
@@ -290,6 +302,10 @@ main {
     font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
+.text-center {
+    text-align: center;
+}
+
 h1 {
     font-size: 40px;
     line-height: 36px;
@@ -378,7 +394,7 @@ a {
 }
 
 .button-wrap {
-    text-align: center;
+    @extend .text-center;
     margin: $wrapper--large 0;
     margin-bottom: 0;
     a {
@@ -445,12 +461,50 @@ textarea {
 header {
     background: $color-dark;
     padding: 1rem $wrapper--large;
-    text-align: center;
-    @include breakpoint('small') {
-        text-align: left;
-    }
+    @extend .large--flex,
+            .justify-between,
+            .text-center;
     .logo {
         margin-bottom: 0;
+        order: initial;
+    }
+    #clock {
+        color: $color-light;
+        .hand {
+            height: 2px;
+            background: $color-light;
+        }
+        #hour {
+            width: 3px;
+        }
+        #minute {
+            width: 6px;
+        }
+        #second {
+            width: 10px;
+        }
+        @extend .hide,
+                .relative,
+                .border,
+                .large--block;
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 50%;
+        .grid {
+            @extend .text-center;
+            font-size: 12px;
+            height: 100%;
+            padding: 3px;
+            span {
+                @extend .flex;
+                &.span-two {
+                    @extend .justify-center;
+                }
+            }
+        }
+    }
+    @include breakpoint('small') {
+        text-align: left;
     }
 }
 
@@ -602,7 +656,7 @@ header {
     }
     .light {
         color: $color-light;
-        text-align: center;
+        @extend .text-center;
     }
     .dark {
         color: $color-dark;
@@ -738,7 +792,7 @@ header {
             background: $color-medium;
             padding: 6rem;
             h4 {
-                text-align: center;
+                @extend .text-center;
                 color: $color-dark;
                 font-family: $font-title;
                 letter-spacing: 1px;
@@ -837,7 +891,7 @@ header {
 #contact {
     margin: 4rem 0;
     h5 {
-        text-align: center;
+        @extend .text-center;
     }
     form {
         padding: $wrapper--medium;
@@ -892,8 +946,8 @@ footer {
         margin-bottom: 1rem;
     }
     copyright {
-        @extend .block;
-        text-align: center;
+        @extend .block,
+                .text-center;
         padding: 2rem 0 1.5rem 0;
         font-size: 11px;
     }

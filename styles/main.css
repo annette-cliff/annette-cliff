@@ -38,12 +38,18 @@ table {
   border-spacing: 0;
 }
 
-.hide {
+.hide, header #clock {
   display: none;
 }
 
 .block, a:after, .grid-item:hover h4, footer copyright {
   display: block;
+}
+
+@media (min-width: 767px) {
+  .large--block, header #clock {
+    display: block;
+  }
 }
 
 .inline-block, a {
@@ -79,7 +85,7 @@ table {
   }
 }
 
-.relative, main, a, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
+.relative, main, a, header #clock, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
   position: relative;
 }
 
@@ -101,7 +107,7 @@ table {
   position: fixed;
 }
 
-.flex, #about #banner .wrapper, .title .title-accent, .grid-item, .slideshow, footer .flex {
+.flex, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .slideshow, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +125,7 @@ table {
       flex-wrap: wrap;
 }
 
-.justify-between, footer .flex {
+.justify-between, header, footer .flex {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -136,7 +142,7 @@ table {
           justify-content: space-evenly;
 }
 
-.justify-center, .grid-item, .grid-item:hover h4 {
+.justify-center, header #clock .grid span.span-two, .grid-item, .grid-item:hover h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -185,6 +191,11 @@ table {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+  .large--flex, header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .grid {
@@ -210,8 +221,14 @@ table {
       grid-template-columns: repeat(3, 1fr);
 }
 
-.border {
-  border: 2px solid #084DB5;
+.span-two {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+.border, header #clock {
+  border: 2px solid;
 }
 
 *,
@@ -320,6 +337,10 @@ img {
   font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
+.text-center, .button-wrap, header, header #clock .grid, .title .light, #portfolioModal .modal .technology h4, #contact h5, footer copyright {
+  text-align: center;
+}
+
 h1 {
   font-size: 40px;
   line-height: 36px;
@@ -411,7 +432,6 @@ a:focus {
 }
 
 .button-wrap {
-  text-align: center;
   margin: 2.2rem 0;
   margin-bottom: 0;
 }
@@ -478,17 +498,49 @@ textarea {
 header {
   background: #084DB5;
   padding: 1rem 2.2rem;
-  text-align: center;
+}
+
+header .logo {
+  margin-bottom: 0;
+  -webkit-box-ordinal-group: initial;
+      -ms-flex-order: initial;
+          order: initial;
+}
+
+header #clock {
+  color: #E2ECFB;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+}
+
+header #clock .hand {
+  height: 2px;
+  background: #E2ECFB;
+}
+
+header #clock #hour {
+  width: 3px;
+}
+
+header #clock #minute {
+  width: 6px;
+}
+
+header #clock #second {
+  width: 10px;
+}
+
+header #clock .grid {
+  font-size: 12px;
+  height: 100%;
+  padding: 3px;
 }
 
 @media (min-width: 561px) {
   header {
     text-align: left;
   }
-}
-
-header .logo {
-  margin-bottom: 0;
 }
 
 .logo {
@@ -640,7 +692,6 @@ header .logo {
 
 .title .light {
   color: #E2ECFB;
-  text-align: center;
 }
 
 .title .dark {
@@ -778,7 +829,6 @@ header .logo {
 }
 
 #portfolioModal .modal .technology h4 {
-  text-align: center;
   color: #084DB5;
   font-family: "Chonburi";
   letter-spacing: 1px;
@@ -877,10 +927,6 @@ header .logo {
   margin: 4rem 0;
 }
 
-#contact h5 {
-  text-align: center;
-}
-
 #contact form {
   padding: 2rem;
   padding-bottom: 0;
@@ -922,7 +968,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
+footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -938,13 +984,12 @@ footer h6, footer li {
 }
 
 footer copyright {
-  text-align: center;
   padding: 2rem 0 1.5rem 0;
   font-size: 11px;
 }
 
 @media (min-width: 767px) {
-  footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
+  footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;
