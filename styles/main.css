@@ -42,7 +42,7 @@ table {
   display: none;
 }
 
-.block, a:after, .grid-item:hover h4, footer copyright {
+.block, .grid-item:hover h4, footer a:after, footer copyright {
   display: block;
 }
 
@@ -52,7 +52,7 @@ table {
   }
 }
 
-.inline-block, a {
+.inline-block, footer a {
   display: inline-block;
 }
 
@@ -85,7 +85,7 @@ table {
   }
 }
 
-.relative, main, a, header #clock, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
+.relative, main, header #clock, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer, footer a {
   position: relative;
 }
 
@@ -393,29 +393,6 @@ a {
   text-decoration: none;
 }
 
-a:after {
-  content: '';
-  border-bottom: 2px solid #E2ECFB;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: 0% 50%;
-          transform-origin: 0% 50%;
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
-}
-
-a:hover:after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-
-a:focus {
-  outline: 3px solid #E2ECFB;
-  outline-offset: 1px;
-}
-
 .button {
   background: #084DB5;
   color: #E2ECFB;
@@ -436,10 +413,6 @@ a:focus {
 .button-wrap {
   margin: 2.2rem 0;
   margin-bottom: 0;
-}
-
-.button-wrap a:before, .button-wrap a:after {
-  display: none;
 }
 
 .button-wrap .button {
@@ -922,10 +895,6 @@ header #clock .grid {
   background: #084DB5;
 }
 
-.slideshow a:before, .slideshow a:after {
-  display: none;
-}
-
 .slideshow .slide {
   padding: 0 3rem;
   margin-bottom: 4rem;
@@ -970,6 +939,29 @@ header #clock .grid {
 
 footer {
   background: #084DB5;
+}
+
+footer a:after {
+  content: '';
+  border-bottom: 2px solid #E2ECFB;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+footer a:hover:after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+footer a:focus {
+  outline: 3px solid #E2ECFB;
+  outline-offset: 1px;
 }
 
 footer * {

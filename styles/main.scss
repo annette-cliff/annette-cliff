@@ -354,25 +354,6 @@ li {
 a {
     color: $color-light;
     text-decoration: none;
-    @extend .relative,
-            .inline-block;
-    &:after {
-        content: '';
-        @extend .block;
-        border-bottom: 2px solid $color-light;
-        transform: scaleX(0);  
-        transform-origin: 0% 50%;
-        transition: transform 250ms ease-in-out;
-    }
-    &:hover {
-        &:after {
-            transform: scaleX(1);
-        }
-    }
-    &:focus {
-        outline: 3px solid $color-light;
-        outline-offset: 1px;
-    }
 }
 
 
@@ -397,12 +378,6 @@ a {
     @extend .text-center;
     margin: $wrapper--large 0;
     margin-bottom: 0;
-    a {
-        &:before,
-        &:after {
-            display: none;
-        }
-    }
     .button {
         width: 100%;
     }
@@ -884,12 +859,6 @@ header {
     &::-webkit-scrollbar-thumb {
         background: $color-dark;
     }
-    a {
-        &:before,
-        &:after {
-            display: none;
-        }
-    }
     .slide {
         padding: 0 3rem;
         margin-bottom: 4rem;
@@ -935,6 +904,27 @@ header {
 footer {
     background: $color-dark;
     @extend .relative;
+    a {
+        @extend .relative,
+                .inline-block;
+        &:after {
+            content: '';
+            @extend .block;
+            border-bottom: 2px solid $color-light;
+            transform: scaleX(0);  
+            transform-origin: 0% 50%;
+            transition: transform 250ms ease-in-out;
+        }
+        &:hover {
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+        &:focus {
+            outline: 3px solid $color-light;
+            outline-offset: 1px;
+        }
+    }
     * {
         color: $color-light;
     }
