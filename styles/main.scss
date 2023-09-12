@@ -471,17 +471,38 @@ header {
     #clock {
         color: $color-light;
         .hand {
+            @extend .absolute;
             height: 2px;
             background: $color-light;
         }
+        #hour,
+        #minute,
+        #second {
+            @extend .absolute;
+            background: $color-light;
+            border-radius: 10px;
+            transform-origin: bottom;
+        }
         #hour {
-            width: 3px;
+            width: 1%;
+            height: 22%;
+            top: 26%;
+            left: 49.85%;
+            opacity: 0.8;
         }
         #minute {
-            width: 6px;
+            width: 1.6%;
+            height: 34%;
+            top: 14%;
+            left: 48.9%;
+            opacity: 0.8;
         }
         #second {
-            width: 10px;
+            width: 1%;
+            height: 40%;
+            top: 9%;
+            left: 49.25%;
+            opacity: 0.8;
         }
         @extend .hide,
                 .relative,
