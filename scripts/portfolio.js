@@ -60,8 +60,14 @@ const portfolioGridHTML = portfolioContent
   .map(item => `<div class="grid-item">
                     <span class="plus" data-trigger-modal="${item.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and')}"></span>
                     <h4 class="hide">${item.title}</h4>
-                    <img src="${item.desktop_image}" alt="${item.title}'s homepage image on desktop" width="450" height="450" class="desktop-only">
-                    <img src="${item.mobile_image}" alt="${item.title}'s homepage image on mobile" width="450" height="450" class="mobile-only">
+                    <picture>
+                      <source srcset="${item.desktop_image}" media="(min-width: 600px)" />
+                      <img src="${item.desktop_image}" alt="${item.title}'s homepage image on desktop" width="450" height="450" class="desktop-only" loading="lazy">
+                    </picture>
+                    <picture>
+                      <source srcset="${item.mobile_image}" media="(min-width: 600px)" />
+                      <img src="${item.mobile_image}" alt="${item.title}'s homepage image on mobile" width="450" height="450" class="mobile-only" loading="lazy">
+                    </picture>
                 </div>`)
   .join('');
 
@@ -85,13 +91,19 @@ const portfolioModalHTML = portfolioContent
                     </div>
                     <div class="quote">${modal.quote}</div>
                     <div class="image">
-                      <img src="${modal.image_1}" alt="" width="" height="">
-                      </div>
+                      <picture>
+                        <source srcset="${modal.image_1}" media="(min-width: 600px)" />
+                        <img src="${modal.image_1}" alt="" width="" height="" loading="lazy">
+                      </picture>
+                    </div>
                     <div class="technology">
                       <h4>technology</h4>
                     </div>
                     <div class="image">
-                      <img src="${modal.image_2}" alt="" width="" height="">
+                      <picture>
+                        <source srcset="${modal.image_2}" media="(min-width: 600px)" />
+                        <img src="${modal.image_2}" alt="" width="" height="" loading="lazy">
+                      </picture>
                     </div>
                     <div class="button-wrap">
                       <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank" class="button">View the site</a>

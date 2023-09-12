@@ -6,10 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Annette Cliff: Web Developer</title>
 
+        <!-- SEO -->
+        <meta name="description" content="Annette Cliff is an experienced front-end web developer who specializes in building Shopify themes.">
+
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon.png">
         <link rel="icon" href="../assets/favicon.png" type="image/x-icon" defer>
 
         <!-- Styles: Main -->
@@ -25,19 +25,14 @@
 
     <body>
         <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="visually-hidden button main-content">Skip to main content</a>
-        
+
         <header>
             <h1 class="logo"><span>ac</span></h1>
             <div id="clock">
                 <div class="grid columns-2">
-                    <span class="span-two">12</span>
-                    <span>9</span>
-                    <span class="justify-end">3</span>
-                    <span class="span-two">6</span>
+                    <span class="span-two">12</span><span>9</span><span class="justify-end">3</span><span class="span-two">6</span>
                 </div>
-                <div class="hand" id="hour"></div>
-                <div class="hand" id="minute"></div>
-                <div class="hand" id="second"></div>
+                <div class="hand" id="hour"></div><div class="hand" id="minute"></div><div class="hand" id="second"></div>
             </div>
         </header>
         
@@ -54,11 +49,13 @@
                 </article>
             </section>
 
-            <section id="portfolio">
-                <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
-            </section>
+            <div id="backToTop"></div>
 
-            <article id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true"></article>
+            <section id="portfolio">
+                <navigation id="breadcrumbs"></navigation>
+                <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
+                <article id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true"></article>
+            </section>
 
             <section id="clients">
                 <article id="clientSlideshow" class="slideshow"></article>

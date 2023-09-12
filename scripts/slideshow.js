@@ -67,7 +67,14 @@ const clientSlideshow = [
 const clientSlideshowHTML = document.getElementById('clientSlideshow');
 
 const clientSlideshowContent = clientSlideshow 
-    .map(slide => `<div class="slide" data-slide-index="${slide.index}"><a href="${slide.url}" title="External link to ${slide.client_name}'s website"><img src="${slide.logo}" alt="${slide.client_name}'s logo" width="250" height="250"></a></div>`)
+    .map(slide => `<div class="slide" data-slide-index="${slide.index}">
+                        <a href="${slide.url}" title="External link to ${slide.client_name}'s website">
+                            <picture>
+                                <source srcset="${slide.logo}" media="(min-width: 600px)" />
+                                <img src="${slide.logo}" alt="${slide.client_name}'s logo" width="250" height="250" loading="lazy">
+                            </picture>
+                        </a>
+                    </div>`)
     .join('');
 
 clientSlideshowHTML.innerHTML += clientSlideshowContent;
