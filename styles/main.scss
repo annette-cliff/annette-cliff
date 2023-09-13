@@ -220,6 +220,12 @@ $breakpoints: (
     width: 100%;
 }
 
+@include breakpoint('medium') {
+    .large--width-auto {
+        width: auto;
+    }
+}
+
 
 // --- Global ------------------------- //
 *,
@@ -392,7 +398,19 @@ a {
             &:after {
                 border-bottom: 2px solid $color-dark;
             }
+            &:focus {
+                outline: 3px solid $color-dark;
+                outline-offset: 1px;
+            }
         }
+    }
+}
+
+
+.grid-item {
+    &:focus {
+        outline: 3px solid $color-dark;
+        outline-offset: 1px;
     }
 }
 
@@ -447,15 +465,22 @@ a {
     &.inverted {
         background: $color-light;
         color: $color-dark;
-        bottom: 2rem;
-        right: 2rem;
-        z-index: 5;
         &:hover {
             background: $color-dark;
             color: $color-light;
             border: 1px solid $color-light;
         }
     }
+    &:focus {
+        outline: 3px solid $color-dark;
+        outline-offset: 1px;
+    }
+}
+
+#scrollToTop {
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 5;
 }
 
 .button-wrap {
@@ -941,6 +966,14 @@ header {
             video {
                 max-width: 100%;
                 width: 100vw;
+                &::-webkit-media-controls-timeline-container {
+                    border: 2px solid $color-dark;
+                    background: $color-light;
+                    padding: 10px;
+                }
+                &::-webkit-media-controls-panel {
+                    background: $color-dark !important;
+                }
             }
         }
         .quote {

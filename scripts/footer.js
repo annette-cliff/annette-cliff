@@ -64,3 +64,12 @@ scrollToTop.addEventListener('click', () => {
         behavior: "smooth"
     });
 });
+
+scrollToTop.addEventListener('keyup', function(event) {
+    if (event.code === 'Enter') {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+});

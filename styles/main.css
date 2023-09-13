@@ -242,6 +242,12 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   width: 100%;
 }
 
+@media (min-width: 767px) {
+  .large--width-auto {
+    width: auto;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -434,6 +440,16 @@ a.has-hover-state.hover-state-dark:after {
   border-bottom: 2px solid #084DB5;
 }
 
+a.has-hover-state.hover-state-dark:focus {
+  outline: 3px solid #084DB5;
+  outline-offset: 1px;
+}
+
+.grid-item:focus {
+  outline: 3px solid #084DB5;
+  outline-offset: 1px;
+}
+
 #breadcrumbs ul {
   bottom: 8rem;
   right: 2rem;
@@ -477,15 +493,23 @@ a.has-hover-state.hover-state-dark:after {
 .button.inverted {
   background: #E2ECFB;
   color: #084DB5;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 5;
 }
 
 .button.inverted:hover {
   background: #084DB5;
   color: #E2ECFB;
   border: 1px solid #E2ECFB;
+}
+
+.button:focus {
+  outline: 3px solid #084DB5;
+  outline-offset: 1px;
+}
+
+#scrollToTop {
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 5;
 }
 
 .button-wrap {
@@ -976,6 +1000,16 @@ header #clock .grid {
 #portfolioModal .modal .video video {
   max-width: 100%;
   width: 100vw;
+}
+
+#portfolioModal .modal .video video::-webkit-media-controls-timeline-container {
+  border: 2px solid #084DB5;
+  background: #E2ECFB;
+  padding: 10px;
+}
+
+#portfolioModal .modal .video video::-webkit-media-controls-panel {
+  background: #084DB5 !important;
 }
 
 #portfolioModal .modal .quote {
