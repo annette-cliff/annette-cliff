@@ -57,8 +57,8 @@ var portfolioContent = [
 const portfolioGrid = document.getElementById('portfolioGrid');
 
 const portfolioGridHTML = portfolioContent
-  .map(item => `<div class="grid-item">
-                    <span class="plus" data-trigger-modal="${item.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and')}"></span>
+  .map(item => `<div class="grid-item" data-trigger-modal="${item.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and')}">
+                    <span class="plus"></span>
                     <h4 class="hide">${item.title}</h4>
                     <picture>
                       <source srcset="${item.desktop_image}" media="(min-width: 600px)" />
@@ -86,6 +86,12 @@ const portfolioModalHTML = portfolioContent
                             <source src="${modal.video}" type="video/ogg">
                         </video>
                     </div>
+                    <navigation id="breadcrumbs">
+                      <ul>
+                        <li><a class="home has-hover-state hover-state-dark" href="/layout/index.html" title="Navigate back to the home page">Home</a><span> / </span></li>
+                        <li><a href="" title="Current page">${modal.title}</a></li>
+                      </ul>
+                    </navigation>
                     <div class="title">
                       <h3 class="title-accent"><span class="dark">${modal.title_first}</span><span class="light">${modal.title_second}</span></h3>
                     </div>
@@ -122,16 +128,25 @@ const triggerModal = document.querySelectorAll('[data-trigger-modal]');
 
 triggerModal.forEach((modal) => {
   modal.addEventListener('click', () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
     const theModalTrigger = modal.getAttribute('data-trigger-modal');
     const theModal = document.querySelector(`[data-modal="${theModalTrigger}"]`);
+    const thePortfolioGrid = document.querySelector('#portfolioGrid');
 
     if (theModal) {
       if (theModal.style.display === 'none' || theModal.style.display === '') {
         theModal.style.display = 'block';
+        thePortfolioGrid.style.display = 'none';
         theModal.classList.remove('hide');
         portfolioModal.classList.add('modal-is-visible');
       } else {
         theModal.style.display = 'none';
+        thePortfolioGrid.style.display = 'block';
         theModal.classList.add('hide');
         portfolioModal.classList.remove('modal-is-visible');
       }

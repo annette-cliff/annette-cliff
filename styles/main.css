@@ -42,7 +42,7 @@ table {
   display: none;
 }
 
-.block, .grid-item:hover h4, footer a:after, footer copyright {
+.block, a.has-hover-state:after, #breadcrumbs, .grid-item:hover h4, footer copyright {
   display: block;
 }
 
@@ -52,7 +52,7 @@ table {
   }
 }
 
-.inline-block, footer a {
+.inline-block, a.has-hover-state {
   display: inline-block;
 }
 
@@ -85,15 +85,15 @@ table {
   }
 }
 
-.relative, main, header #clock, .logo, #about #banner .wrapper, .title, .title .dark, .grid-item, footer, footer a {
+.relative, main, a.has-hover-state, #breadcrumbs, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, .title, .title .dark, .grid-item, footer {
   position: relative;
 }
 
-.absolute, header #clock .hand, header #clock #hour,
+.absolute, #breadcrumbs ul, header #clock .hand, header #clock #hour,
 header #clock #minute,
-header #clock #second, .logo:before, .logo:after,
+header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 .logo span:before,
-.logo span:after, #about #banner .wrapper h2, .title .title-accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
+.logo span:after, #about #banner #hiddenIcons, #about #banner .wrapper h2, .title .title-accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
   position: absolute;
 }
 
@@ -109,7 +109,7 @@ header #clock #second, .logo:before, .logo:after,
   position: fixed;
 }
 
-.flex, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .slideshow, footer .flex {
+.flex, #breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .slideshow, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,13 +144,13 @@ header #clock #second, .logo:before, .logo:after,
           justify-content: space-evenly;
 }
 
-.justify-center, header #clock .grid span.span-two, .grid-item, .grid-item:hover h4 {
+.justify-center, header #clock .grid span.span-2, .grid-item, .grid-item:hover h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.justify-end, #about #banner .wrapper {
+.justify-end, #breadcrumbs ul, #about #banner .wrapper {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -223,7 +223,12 @@ header #clock #second, .logo:before, .logo:after,
       grid-template-columns: repeat(3, 1fr);
 }
 
-.span-two {
+.columns-4 {
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+}
+
+.span-2 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
@@ -231,6 +236,10 @@ header #clock #second, .logo:before, .logo:after,
 
 .border, header #clock {
   border: 2px solid;
+}
+
+.width-100, #breadcrumbs ul {
+  width: 100%;
 }
 
 *,
@@ -339,7 +348,7 @@ img {
   font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
-.text-center, .button-wrap, header, header #clock .grid, .title .light, #portfolioModal .modal .technology h4, #contact h5, footer copyright {
+.text-center, h5, .button-wrap, header, header #clock .grid, .title .light, #portfolioModal .modal .technology h4, #contact h5, footer copyright {
   text-align: center;
 }
 
@@ -378,6 +387,11 @@ h6 {
   }
 }
 
+p {
+  font-size: 12px;
+  color: #084DB5;
+}
+
 li {
   font-size: 1rem;
 }
@@ -391,6 +405,56 @@ li {
 a {
   color: #E2ECFB;
   text-decoration: none;
+}
+
+a.has-hover-state:after {
+  content: '';
+  border-bottom: 2px solid #E2ECFB;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+a.has-hover-state:hover:after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+a.has-hover-state:focus {
+  outline: 3px solid #E2ECFB;
+  outline-offset: 1px;
+}
+
+a.has-hover-state.hover-state-dark:after {
+  border-bottom: 2px solid #084DB5;
+}
+
+#breadcrumbs ul {
+  bottom: 8rem;
+  right: 2rem;
+}
+
+#breadcrumbs a,
+#breadcrumbs span {
+  color: #084DB5;
+}
+
+#breadcrumbs a.home {
+  border-bottom: 2px solid;
+  padding-bottom: 1px;
+}
+
+#breadcrumbs a:not(.home) {
+  cursor: initial;
+}
+
+#breadcrumbs span {
+  margin-right: 7px;
 }
 
 .button {
@@ -408,6 +472,20 @@ a {
   background: #E2ECFB;
   color: #084DB5;
   cursor: pointer;
+}
+
+.button.inverted {
+  background: #E2ECFB;
+  color: #084DB5;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 5;
+}
+
+.button.inverted:hover {
+  background: #084DB5;
+  color: #E2ECFB;
+  border: 1px solid #E2ECFB;
 }
 
 .button-wrap {
@@ -578,6 +656,29 @@ header #clock .grid {
   transform: rotate(-45deg);
 }
 
+.logo .slash {
+  margin-right: 8px;
+  margin-left: 7px;
+}
+
+.logo .slash:before {
+  content: '';
+  width: 25px;
+  height: 3px;
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+  left: -13px;
+  top: 20px;
+}
+
+.logo .slash:after {
+  display: none;
+}
+
+.logo .footer-span:before, .logo .footer-span:after {
+  left: 60px;
+}
+
 @media (min-width: 767px) {
   .logo {
     margin-bottom: 0;
@@ -585,6 +686,12 @@ header #clock .grid {
   }
   .logo span:before, .logo span:after {
     left: 31px;
+  }
+  .logo .slash:before {
+    top: 15px;
+  }
+  .logo .footer-span:before, .logo .footer-span:after {
+    left: 46px;
   }
 }
 
@@ -614,6 +721,42 @@ header #clock .grid {
 #about #banner {
   background: #084DB5;
   padding-top: 5rem;
+}
+
+#about #banner #hiddenIcons {
+  height: 100%;
+  width: 100%;
+  z-index: 4;
+  grid-column-gap: 4rem;
+}
+
+#about #banner #hiddenIcons .icon {
+  width: 70px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  opacity: 0;
+}
+
+#about #banner #hiddenIcons .icon:hover {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+#about #banner #hiddenIcons .icon:nth-child(odd) {
+  height: 41%;
+  margin-top: -5rem;
+}
+
+#about #banner #hiddenIcons .icon:nth-child(even) {
+  height: 75%;
+  margin-top: -3rem;
+}
+
+#about #banner:hover {
+  cursor: url("../assets/magnifying-glass.svg"), auto;
 }
 
 #about #banner .wrapper {
@@ -678,6 +821,18 @@ header #clock .grid {
 @media (min-width: 1024px) {
   #about {
     margin-bottom: 12rem;
+  }
+  #about #banner #hiddenIcons {
+    padding: 0 5rem;
+    grid-column-gap: 17rem;
+  }
+  #about #banner #hiddenIcons .icon:nth-child(odd) {
+    height: 80%;
+    margin-top: 0;
+  }
+  #about #banner #hiddenIcons .icon:nth-child(even) {
+    height: 25%;
+    margin-top: 0;
   }
 }
 
@@ -761,9 +916,15 @@ header #clock .grid {
           transform: rotate(90deg);
 }
 
+.grid-item:hover {
+  cursor: url("/assets/plus.svg"), auto;
+}
+
 .grid-item:hover:after {
   background: #084DB5;
   opacity: 1;
+  -webkit-transition: opacity ease-in-out 1s;
+  transition: opacity ease-in-out 1s;
   -webkit-filter: opacity(1);
           filter: opacity(1);
 }
@@ -774,6 +935,10 @@ header #clock .grid {
 
 .grid-item:hover .plus:before, .grid-item:hover .plus:after {
   background: #084DB5;
+}
+
+.grid-item:hover .plus:hover {
+  cursor: pointer;
 }
 
 .grid-item:hover h4 {
@@ -796,11 +961,16 @@ header #clock .grid {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 4;
+  z-index: 5;
+}
+
+#portfolioModal .modal {
+  border-left: 8px solid #084DB5;
+  border-right: 8px solid #084DB5;
 }
 
 #portfolioModal .modal .video {
-  padding-bottom: 6rem;
+  padding-bottom: 12rem;
 }
 
 #portfolioModal .modal .video video {
@@ -832,7 +1002,7 @@ header #clock .grid {
 }
 
 #portfolioModal .title {
-  height: 50px;
+  height: 100px;
 }
 
 #portfolioModal .title .dark {
@@ -844,9 +1014,6 @@ header #clock .grid {
 }
 
 @media (min-width: 767px) {
-  #portfolioModal .modal .video {
-    padding-bottom: 12rem;
-  }
   #portfolioModal .modal .quote {
     top: 12rem;
     padding: 0 8rem;
@@ -869,6 +1036,14 @@ header #clock .grid {
 
 #clients {
   margin-top: 4rem;
+}
+
+#clients a {
+  color: #084DB5;
+}
+
+#clients p {
+  margin-top: 2rem;
 }
 
 @media (min-width: 767px) {
@@ -897,7 +1072,7 @@ header #clock .grid {
 
 .slideshow .slide {
   padding: 0 3rem;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
   display: inline-block;
 }
 
@@ -941,29 +1116,6 @@ footer {
   background: #084DB5;
 }
 
-footer a:after {
-  content: '';
-  border-bottom: 2px solid #E2ECFB;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: 0% 50%;
-          transform-origin: 0% 50%;
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
-}
-
-footer a:hover:after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-
-footer a:focus {
-  outline: 3px solid #E2ECFB;
-  outline-offset: 1px;
-}
-
 footer * {
   color: #E2ECFB;
 }
@@ -983,7 +1135,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
+footer #breadcrumbs ul, #breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -1004,7 +1156,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
+  footer #breadcrumbs ul, #breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .slideshow, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;

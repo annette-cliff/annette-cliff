@@ -203,13 +203,21 @@ $breakpoints: (
     grid-template-columns: repeat(3,1fr);
 }
 
-.span-two {
+.columns-4 {
+    grid-template-columns: repeat(4,1fr);
+}
+
+.span-2 {
     grid-column: 1 / span 2;
 }
 
 // Borders
 .border {
     border: 2px solid;
+}
+
+.width-100 {
+    width: 100%;
 }
 
 
@@ -331,7 +339,8 @@ h4 {
 h5 {
     font-family: $font-title;
     color: $color-dark;
-    @extend .heading-lg;
+    @extend .heading-lg,
+            .text-center;
 }
 
 h6 {
@@ -340,6 +349,11 @@ h6 {
     @include breakpoint('medium') {
         font-size: 1rem;
     }
+}
+
+p {
+    font-size: 12px;
+    color: $color-dark;
 }
 
 li {
@@ -354,7 +368,65 @@ li {
 a {
     color: $color-light;
     text-decoration: none;
+    &.has-hover-state {
+        @extend .relative,
+                .inline-block;
+        &:after {
+            content: '';
+            @extend .block;
+            border-bottom: 2px solid $color-light;
+            transform: scaleX(0);  
+            transform-origin: 0% 50%;
+            transition: transform 250ms ease-in-out;
+        }
+        &:hover {
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+        &:focus {
+            outline: 3px solid $color-light;
+            outline-offset: 1px;
+        }
+        &.hover-state-dark {
+            &:after {
+                border-bottom: 2px solid $color-dark;
+            }
+        }
+    }
 }
+
+
+// --- Breadcrumbs ------------------------- //
+#breadcrumbs {
+    @extend .block,
+            .relative;
+    ul {
+        @extend .flex,
+                .justify-end,
+                .absolute,
+                .width-100;
+                bottom: 8rem;
+                right: 2rem;
+    }
+    a,
+    span {
+        color: $color-dark;
+    }
+    a {
+        &.home {
+            border-bottom: 2px solid;
+            padding-bottom: 1px;
+        }
+        &:not(.home) {
+            cursor: initial;
+        }
+    }
+    span {
+        margin-right: 7px;
+    }
+}
+
 
 
 // --- Buttons ------------------------- //
@@ -371,6 +443,18 @@ a {
         background: $color-light;
         color: $color-dark;
         cursor: pointer;
+    }
+    &.inverted {
+        background: $color-light;
+        color: $color-dark;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 5;
+        &:hover {
+            background: $color-dark;
+            color: $color-light;
+            border: 1px solid $color-light;
+        }
     }
 }
 
@@ -493,7 +577,7 @@ header {
             padding: 3px;
             span {
                 @extend .flex;
-                &.span-two {
+                &.span-2 {
                     @extend .justify-center;
                 }
             }
@@ -541,6 +625,30 @@ header {
             transform: rotate(-45deg);
         }
     }
+    .slash {
+        @extend .relative;
+        margin-right: 8px;
+        margin-left: 7px;
+        &:before {
+            content: '';
+            @extend .absolute;
+            width: 25px;
+            height: 3px;
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            left: -13px;
+            top: 20px;
+        }
+        &:after {
+            display: none;
+        }
+    }
+    .footer-span {
+        &:before,
+        &:after {
+            left: 60px;
+        }
+    }
     @include breakpoint('medium') {
         margin-bottom: 0;
         font-size: 30px;
@@ -548,6 +656,17 @@ header {
             &:before,
             &:after {
                 left: 31px;
+            }
+        }
+        .slash {
+            &:before {
+                top: 15px;
+            }
+        }
+        .footer-span {
+            &:before,
+            &:after {
+                left: 46px;
             }
         }
     }
@@ -579,6 +698,35 @@ header {
     #banner {
         background: $color-dark;
         padding-top: 5rem;
+        @extend .relative;
+        #hiddenIcons {
+            @extend .absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 4;
+            grid-column-gap: 4rem;
+            .icon {
+                width: 70px;
+                object-fit: contain;
+                filter: invert(1);
+                opacity: 0;
+                &:hover {
+                    opacity: 1;
+                    transition: opacity 0.5s;
+                }
+            }
+            .icon:nth-child(odd) {
+                height: 41%;
+                margin-top: -5rem;
+            }
+            .icon:nth-child(even) {
+                height: 75%;
+                margin-top: -3rem;
+            }
+        }
+        &:hover {
+            cursor: url('../assets/magnifying-glass.svg'), auto;
+        }
         .wrapper {
             padding-right: 0;
             @extend .flex,
@@ -636,6 +784,20 @@ header {
     }
     @include breakpoint('large') {
         margin-bottom: 12rem;
+        #banner {
+            #hiddenIcons {
+                padding: 0 5rem;
+                grid-column-gap: 17rem;
+                .icon:nth-child(odd) {
+                    height: 80%;
+                    margin-top: 0;
+                }
+                .icon:nth-child(even) {
+                    height: 25%;
+                    margin-top: 0;
+                }
+            }
+        }
     }
 }
 
@@ -726,9 +888,11 @@ header {
         }
     }
     &:hover {
+        cursor: url('/assets/plus.svg'), auto;
         &:after {
             background: $color-dark;
             opacity: 1;
+            transition: opacity ease-in-out 1s;
             filter: opacity(1);
         }
         .plus {
@@ -736,6 +900,9 @@ header {
             &:before,
             &:after {
                 background: $color-dark;
+            }
+            &:hover {
+                cursor: pointer;
             }
         }
         h4 {
@@ -757,7 +924,6 @@ header {
 
 
 // --- Portfolio: Modals ------------------------- //
-
 #portfolioModal {
     &.modal-is-visible {
         position: absolute;
@@ -765,11 +931,13 @@ header {
         top: 0;
         width: 100%;
         height: 100%;
-        z-index: 4;
+        z-index: 5;
     }
     .modal {
+        border-left: 8px solid $color-dark;
+        border-right: 8px solid $color-dark;
         .video {
-            padding-bottom: 6rem;
+            padding-bottom: 12rem;
             video {
                 max-width: 100%;
                 width: 100vw;
@@ -797,7 +965,7 @@ header {
         }
     }
     .title {
-        height: 50px;
+        height: 100px;
         .dark {
             bottom: 0rem;
         }
@@ -807,9 +975,6 @@ header {
     }
     @include breakpoint('medium') {
         .modal {
-            .video {
-                padding-bottom: 12rem;
-            }
             .quote {
                 top: 12rem;
                 padding: 0 8rem;
@@ -837,6 +1002,12 @@ header {
 // --- Clients ------------------------- //
 #clients {
     margin-top: 4rem;
+    a {
+        color: $color-dark;
+    }
+    p {
+        margin-top: 2rem;
+    }
     @include breakpoint('medium') {
         margin-top: 8rem;
     }
@@ -861,7 +1032,7 @@ header {
     }
     .slide {
         padding: 0 3rem;
-        margin-bottom: 4rem;
+        margin: 4rem 0;
         display: inline-block;
         img {
             width: 150px;
@@ -904,27 +1075,6 @@ header {
 footer {
     background: $color-dark;
     @extend .relative;
-    a {
-        @extend .relative,
-                .inline-block;
-        &:after {
-            content: '';
-            @extend .block;
-            border-bottom: 2px solid $color-light;
-            transform: scaleX(0);  
-            transform-origin: 0% 50%;
-            transition: transform 250ms ease-in-out;
-        }
-        &:hover {
-            &:after {
-                transform: scaleX(1);
-            }
-        }
-        &:focus {
-            outline: 3px solid $color-light;
-            outline-offset: 1px;
-        }
-    }
     * {
         color: $color-light;
     }

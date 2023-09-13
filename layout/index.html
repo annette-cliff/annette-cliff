@@ -30,15 +30,16 @@
             <h1 class="logo"><a href="/layout/index.html" title="Navigate to home page"><span>ac</span></a></h1>
             <div id="clock">
                 <div class="grid columns-2">
-                    <span class="span-two">12</span><span>9</span><span class="justify-end">3</span><span class="span-two">6</span>
+                    <span class="span-2">12</span><span>9</span><span class="justify-end">3</span><span class="span-2">6</span>
                 </div>
                 <div class="hand" id="hour"></div><div class="hand" id="minute"></div><div class="hand" id="second"></div>
             </div>
         </header>
-        
+
         <main id="mainContent">
             <section id="about">
                 <article id="banner">
+                    <div class="grid columns-4" id="hiddenIcons"></div>
                     <div class="wrapper">
                         <h2>Hi! My name is Annette Cliff</h2>
                         <img src="/assets/annette.png" alt="Profile image of Annette" width="500" height="700">
@@ -49,16 +50,15 @@
                 </article>
             </section>
 
-            <div id="backToTop"></div>
-
             <section id="portfolio">
-                <navigation id="breadcrumbs"></navigation>
                 <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
                 <article id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true"></article>
             </section>
 
             <section id="clients">
+                <h5>Clients</h5>
                 <article id="clientSlideshow" class="slideshow"></article>
+                <p class="text-center">Please note that I have done a range of work for the clients above while employeed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
             </section>
 
             <section id="contact">
@@ -88,12 +88,13 @@
                     </div>
                 </form>         
             </section>
-        </main>          
+            <div id="scrollToTop" class="button inverted fixed">To Top</div>
+        </main>
         
         <footer>
             <div class="flex">
                 <ul id="mainLinks"><h6>Main Links</h6></ul>
-                <div class="logo"><span>ac</span></div>
+                <a href="" title="Navigate to the top of page"><div class="logo"><span class="footer-span"><span class="slash"></span> ac</span></div></a>
                 <ul id="socialLinks"><h6>Social Links</h6></ul>
             </div>
             <copyright>@copyright Annette Cliff <span id="year"></span></copyright>
