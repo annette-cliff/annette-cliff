@@ -8,8 +8,6 @@
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
-@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Chonburi&display=swap');
-
 
 // --- Sass Variables -------------------- //
 
@@ -407,13 +405,6 @@ a {
 }
 
 
-.grid-item {
-    &:focus {
-        outline: 3px solid $color-dark;
-        outline-offset: 1px;
-    }
-}
-
 
 // --- Breadcrumbs ------------------------- //
 #breadcrumbs {
@@ -428,7 +419,8 @@ a {
                 right: 2rem;
     }
     a,
-    span {
+    span,
+    li {
         color: $color-dark;
     }
     a {
@@ -458,17 +450,26 @@ a {
     font-family: $font-base;
     letter-spacing: 1px;
     &:hover {
-        background: $color-light;
+        background-color: $color-light;
         color: $color-dark;
         cursor: pointer;
+        -webkit-transition: background-color 0.5s ease-in-out;
+        -moz-transition: background-color 0.5s ease-in-out;
+        -o-transition: background-color 0.5s ease-in-out;
+        transition: background-color 0.5s ease-in-out;
     }
     &.inverted {
         background: $color-light;
         color: $color-dark;
-        &:hover {
-            background: $color-dark;
+        &:hover,
+        &.active {
+            background-color: $color-dark;
             color: $color-light;
             border: 1px solid $color-light;
+            -webkit-transition: background-color 0.5s ease-in-out;
+            -moz-transition: background-color 0.5s ease-in-out;
+            -o-transition: background-color 0.5s ease-in-out;
+            transition: background-color 0.5s ease-in-out;
         }
     }
     &:focus {
@@ -738,6 +739,10 @@ header {
                 &:hover {
                     opacity: 1;
                     transition: opacity 0.5s;
+                    -webkit-transition: opaicty 0.5s ease-in;
+                    -moz-transition: opaicty 0.5s ease-in;
+                    -o-transition: opaicty 0.5s ease-in;
+                    transition: opaicty 0.5s ease-in;
                 }
             }
             .icon:nth-child(odd) {
@@ -760,6 +765,8 @@ header {
                     .justify-end;
             img {
                 width: 250px;
+                @extend .relative;
+                z-index: 1;
             }
             h2 {
                 @extend .absolute;
@@ -780,7 +787,8 @@ header {
             .wrapper {
                 padding: 0 $wrapper--large;
                 img {
-                    width: 450px;
+                    // width: 450px;
+                    width: 300px;
                 }
                 h2 {
                     width: 350px;
@@ -912,13 +920,20 @@ header {
             transform: rotate(90deg);
         }
     }
+    &:focus {
+        outline: 3px solid $color-dark;
+        outline-offset: 1px;
+    }
     &:hover {
         cursor: url('/assets/plus.svg'), auto;
         &:after {
             background: $color-dark;
             opacity: 1;
-            transition: opacity ease-in-out 1s;
             filter: opacity(1);
+            -webkit-transition: opacity 1s ease-in-out;
+            -moz-transition: opacity 1s ease-in-out;
+            -o-transition: opacity 1s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
         .plus {
             background: $color-light;
@@ -959,8 +974,6 @@ header {
         z-index: 5;
     }
     .modal {
-        border-left: 8px solid $color-dark;
-        border-right: 8px solid $color-dark;
         .video {
             padding-bottom: 12rem;
             video {
@@ -1032,6 +1045,35 @@ header {
 }
 
 
+
+// --- Portfolio: Tech Stack ------------------------- //
+.portfolioDevStack {
+    margin: 2rem auto 0 auto;
+    @extend .flex,
+            .justify-center;
+    li {
+        background: #fff;
+        border-radius: 5px;
+        margin: 0 0.3rem;
+        @extend .flex;
+        img {
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+        }
+    }
+    @include breakpoint('large') {
+        width: 500px;
+        li {margin: 0 0.7rem;
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+}
+
+
 // --- Clients ------------------------- //
 #clients {
     margin-top: 4rem;
@@ -1066,20 +1108,45 @@ header {
     .slide {
         padding: 0 3rem;
         margin: 4rem 0;
-        display: inline-block;
+        &.show {
+            display: inline-block;
+        }
         img {
             width: 150px;
             object-fit: contain;
             filter: grayscale(1);
         }
+        a {
+            @extend .block;
+        }
     }
     @include breakpoint('medium') {
+        min-height: 300px;
         .slide {
             padding: 0 6rem;
         }
     }
 }
 
+
+#clientSlideshowButtons {
+    @extend .text-center;
+    margin-top: 4rem;
+    // padding: 1rem;
+    // background: $color-light;
+    button {
+        border: 1px solid;
+        margin: 0 2rem;
+        font-family: $font-base;
+        font-size: 1rem;
+        padding: 10px 30px;
+        @extend .inverted;
+        &.active {
+            background: $color-dark;
+            color: $color-light;
+        }
+    }
+}
 
 // --- Contact ------------------------- //
 #contact {

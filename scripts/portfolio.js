@@ -116,6 +116,7 @@ const portfolioModalHTML = portfolioContent
                     </div>
                     <div class="technology">
                       <h4>technology</h4>
+                      <ul class="portfolioDevStack"></ul>
                     </div>
                     <div class="image">
                       <picture>
@@ -136,6 +137,39 @@ const portfolioModalHTML = portfolioContent
 portfolioModal.innerHTML += portfolioModalHTML;
 
 
+
+// Portfolio: Tech Stack
+const techStackWithImages = [
+  {
+    tech_name: 'Shopify',
+    tech_image: '/assets/shopify.webp'
+  },
+  {
+    tech_name: 'Liquid',
+    tech_image: '/assets/liquid.png'
+  },
+  {
+    tech_name: 'SCSS',
+    tech_image: '/assets/css.webp'
+  },
+  {
+    tech_name: 'jQuery',
+    tech_image: '/assets/jquery.png'
+  },
+  {
+    tech_name: 'GitHub',
+    tech_image: '/assets/github.png'
+  }
+]
+const techStackHTML = techStackWithImages
+  .map(tech =>
+    `<li><img src="${tech.tech_image}" alt="Logo for ${tech.tech_name}" width="50" height="50"></li>`)
+  .join('');
+
+const portfolioTechStack = document.querySelectorAll('.portfolioDevStack');
+portfolioTechStack.forEach((stack) => {
+  stack.innerHTML += techStackHTML;
+});
 
 
 // Modal Trigger
@@ -200,3 +234,4 @@ triggerModal.forEach((modal) => {
     }
   });
 });
+  
