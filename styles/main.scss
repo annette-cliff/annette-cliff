@@ -1124,6 +1124,7 @@ header {
         }
         img {
             width: 150px;
+            height: 75px;
             object-fit: contain;
             filter: grayscale(1);
         }
@@ -1141,13 +1142,12 @@ header {
 
 
 #clientSlideshowButtons {
-    @extend .text-center;
-    margin-top: 4rem;
-    // padding: 1rem;
-    // background: $color-light;
+    @extend .text-center,
+            .flex,
+            .justify-evenly;
+    margin-top: 3rem;
     button {
         border: 1px solid;
-        margin: 0 2rem;
         font-family: $font-base;
         font-size: 1rem;
         padding: 10px 30px;
@@ -1155,6 +1155,13 @@ header {
         &.active {
             background: $color-dark;
             color: $color-light;
+        }
+    }
+    @include breakpoint('medium') {
+        margin-top: 4rem;
+        display: block;
+        button {
+            margin: 0 2rem;
         }
     }
 }

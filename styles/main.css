@@ -108,7 +108,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   position: fixed;
 }
 
-.flex, .breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, footer .flex {
+.flex, .breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, #clientSlideshowButtons, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,7 +137,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
       justify-content: space-around;
 }
 
-.justify-evenly {
+.justify-evenly, #clientSlideshowButtons {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -1160,6 +1160,7 @@ header #clock .grid {
 
 .slideshow .slide img {
   width: 150px;
+  height: 75px;
   -o-object-fit: contain;
      object-fit: contain;
   -webkit-filter: grayscale(1);
@@ -1176,12 +1177,11 @@ header #clock .grid {
 }
 
 #clientSlideshowButtons {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 #clientSlideshowButtons button {
   border: 1px solid;
-  margin: 0 2rem;
   font-family: "Anonymous Pro";
   font-size: 1rem;
   padding: 10px 30px;
@@ -1190,6 +1190,16 @@ header #clock .grid {
 #clientSlideshowButtons button.active {
   background: #084DB5;
   color: #E2ECFB;
+}
+
+@media (min-width: 767px) {
+  #clientSlideshowButtons {
+    margin-top: 4rem;
+    display: block;
+  }
+  #clientSlideshowButtons button {
+    margin: 0 2rem;
+  }
 }
 
 #contact {
@@ -1237,7 +1247,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
+footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer #clientSlideshowButtons, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -1258,7 +1268,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
+  footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer #clientSlideshowButtons, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;

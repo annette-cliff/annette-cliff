@@ -27,10 +27,70 @@ const clientSlideshow = [
         logo: '/assets/kelle-logo.svg'
     },
     {
+        client_name: 'Alabama Chanin',
+        agency: "Lemonade",
+        url: 'https://alabamachanin.com/',
+        logo: '/assets/alabama-chanin-logo.svg'
+    },
+    {
+        client_name: 'B Sides Jeans',
+        agency: "Lemonade",
+        url: 'https://bsidesjeans.com/',
+        logo: '/assets/b-sides-jeans-logo.png'
+    },
+    {
+        client_name: 'Hindash',
+        agency: "Lemonade",
+        url: 'https://hindash.com/',
+        logo: '/assets/hindash-logo.png'
+    },
+    {
+        client_name: 'Two Minds',
+        agency: "Lemonade",
+        url: 'https://shop.twomindsnyc.com/account/login',
+        logo: '/assets/two-minds-logo.svg'
+    },
+    {
+        client_name: 'Specialized Dispatch',
+        agency: "Lemonade",
+        url: 'https://www.specialized.com/us/en',
+        logo: '/assets/specialized-dispatch-logo.png'
+    },
+    {
+        client_name: 'Caraa Sport',
+        agency: "Lemonade",
+        url: 'https://caraa.co/',
+        logo: '/assets/caraa-logo.svg'
+    },
+    {
+        client_name: 'Ben Soleimani',
+        agency: "Lemonade",
+        url: 'https://bensoleimani.com/',
+        logo: '/assets/ben-soleimani-logo.svg'
+    },
+    {
         client_name: 'Ericka Bloom',
         agency: "Lemonade",
         url: 'https://erikabloom.com/',
         logo: '/assets/ericka-bloom-logo.svg'
+    },
+    {
+        client_name: 'Oliver Thomas',
+        agency: "Lemonade",
+        url: 'https://theoliverthomas.com/',
+        logo: '/assets/oliver-thomas-logo.png'
+    },
+    {
+        client_name: 'St. Croix Rods',
+        agency: "Lemonade",
+        url: 'https://stcroixrods.com/',
+        logo: '/assets/st-croix-rods-logo.png'
+    },
+    {
+        client_name: 'Welspun',
+        agency: "Lemonade",
+        url: 'https://welspunusa.com/',
+        logo: '/assets/welspun-logo.png'
     },
     {
         client_name: 'Milkshake',
@@ -61,6 +121,48 @@ const clientSlideshow = [
         agency: "Fuel Made",
         url: 'https://livebearded.com/',
         logo: '/assets/live-bearded-logo.svg'
+    },
+    {
+        client_name: 'Hairfinity',
+        agency: "Fuel Made",
+        url: 'https://www.hairfinity.com/',
+        logo: '/assets/hairfinity-logo.svg'
+    },
+    {
+        client_name: 'Gofinity',
+        agency: "Fuel Made",
+        url: 'https://shopgofinity.com/',
+        logo: '/assets/gofinity-logo.svg'
+    },
+    {
+        client_name: 'Satchel & Page',
+        agency: "Fuel Made",
+        url: 'https://www.satchel-page.com/',
+        logo: '/assets/satchel-and-page-logo.svg'
+    },
+    {
+        client_name: 'Curated By Kayla',
+        agency: "Personal",
+        url: 'https://curatedbykayla.co/',
+        logo: '/assets/curated-by-kayla-logo.png'
+    },
+    {
+        client_name: 'Adios Textbook',
+        agency: "Personal",
+        url: 'https://www.adiostextbook.com/',
+        logo: '/assets/adios-textbook-logo.png'
+    },
+    {
+        client_name: 'Blacksburg Bagels',
+        agency: "Personal",
+        url: 'https://www.blacksburgbagels.com/',
+        logo: '/assets/blacksburg-bagels-logo.jpeg'
+    },
+    {
+        client_name: 'Grace Cliff',
+        agency: "Personal",
+        url: '#',
+        logo: '/assets/grace-cliff-logo.png'
     }
 ]
 
