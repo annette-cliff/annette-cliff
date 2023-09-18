@@ -41,7 +41,7 @@ table {
   display: none;
 }
 
-.block, a.has-hover-state:after, #breadcrumbs, .grid-item:hover h4, .slideshow .slide a, footer copyright {
+.block, a.has-hover-state:after, .breadcrumbs, .grid-item:hover h4, .slideshow .slide a, footer copyright {
   display: block;
 }
 
@@ -84,11 +84,11 @@ table {
   }
 }
 
-.relative, main, a.has-hover-state, #breadcrumbs, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, #about #banner .wrapper img, .title, .title .dark, .grid-item, footer {
+.relative, main, a.has-hover-state, .breadcrumbs, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, #about #banner .wrapper img, .title, .title .dark, .grid-item, footer {
   position: relative;
 }
 
-.absolute, #breadcrumbs ul, header #clock .hand, header #clock #hour,
+.absolute, .breadcrumbs ul, header #clock .hand, header #clock #hour,
 header #clock #minute,
 header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 .logo span:before,
@@ -108,7 +108,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   position: fixed;
 }
 
-.flex, #breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, footer .flex {
+.flex, .breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, footer .flex {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,7 +149,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           justify-content: center;
 }
 
-.justify-end, #breadcrumbs ul, #about #banner .wrapper {
+.justify-end, .breadcrumbs ul, #about #banner .wrapper {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -237,7 +237,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   border: 2px solid;
 }
 
-.width-100, #breadcrumbs ul {
+.width-100, .breadcrumbs ul {
   width: 100%;
 }
 
@@ -444,27 +444,27 @@ a.has-hover-state.hover-state-dark:focus {
   outline-offset: 1px;
 }
 
-#breadcrumbs ul {
+.breadcrumbs ul {
   bottom: 8rem;
   right: 2rem;
 }
 
-#breadcrumbs a,
-#breadcrumbs span,
-#breadcrumbs li {
+.breadcrumbs a,
+.breadcrumbs span,
+.breadcrumbs li {
   color: #084DB5;
 }
 
-#breadcrumbs a.home {
+.breadcrumbs a.home {
   border-bottom: 2px solid;
   padding-bottom: 1px;
 }
 
-#breadcrumbs a:not(.home) {
+.breadcrumbs a:not(.home) {
   cursor: initial;
 }
 
-#breadcrumbs span {
+.breadcrumbs span {
   margin-right: 7px;
 }
 
@@ -509,6 +509,11 @@ a.has-hover-state.hover-state-dark:focus {
   bottom: 2rem;
   right: 2rem;
   z-index: 5;
+}
+
+#scrollToTop:focus {
+  outline: 3px solid #E2ECFB;
+  outline-offset: 1px;
 }
 
 .button-wrap {
@@ -865,6 +870,7 @@ header #clock .grid {
 .title .title-accent {
   top: -3.5rem;
   left: -6rem;
+  font-style: italic;
 }
 
 .title .light {
@@ -993,6 +999,14 @@ header #clock .grid {
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+#portfolioModal.modal-is-visible .light {
+  text-shadow: 3px 1px #084DB5;
+}
+
+#portfolioModal.modal-is-visible .dark {
+  text-shadow: 3px 2px #E2ECFB;
 }
 
 #portfolioModal .modal .video {
@@ -1223,7 +1237,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer #breadcrumbs ul, #breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
+footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -1244,7 +1258,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer #breadcrumbs ul, #breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
+  footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer .flex {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;

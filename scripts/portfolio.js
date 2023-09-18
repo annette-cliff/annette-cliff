@@ -94,7 +94,7 @@ const portfolioModalHTML = portfolioContent
                             <source src="${modal.video}" type="video/ogg">
                         </video>
                     </div>
-                    <navigation id="breadcrumbs">
+                    <navigation class="breadcrumbs">
                       <ul>
                         <li><a class="home has-hover-state hover-state-dark" href="/layout/index.html" title="Navigate back to the home page">Home</a><span> / </span></li>
                         <li>${modal.title}</li>
@@ -167,8 +167,8 @@ const techStackHTML = techStackWithImages
   .join('');
 
 const portfolioTechStack = document.querySelectorAll('.portfolioDevStack');
-portfolioTechStack.forEach((stack) => {
-  stack.innerHTML += techStackHTML;
+      portfolioTechStack.forEach((stack) => {
+        stack.innerHTML += techStackHTML;
 });
 
 
@@ -195,12 +195,14 @@ triggerModal.forEach((modal) => {
         theModal.classList.remove('hide');
         portfolioModal.classList.add('modal-is-visible');
         portfolioModal.setAttribute('aria-hidden', false);
+        localStorage.setItem("modalIsOpen", theModalTrigger)
       } else {
         theModal.style.display = 'none';
         thePortfolioGrid.style.display = 'block';
         theModal.classList.add('hide');
         portfolioModal.classList.remove('modal-is-visible');
         portfolioModal.setAttribute('aria-hidden', true)
+        localStorage.setItem("modalIsOpen", 'false')
       }
     }
   });
@@ -223,15 +225,63 @@ triggerModal.forEach((modal) => {
           theModal.classList.remove('hide');
           portfolioModal.classList.add('modal-is-visible');
           portfolioModal.setAttribute('aria-hidden', false);
+          localStorage.setItem("modalIsOpen", theModalTrigger)
         } else {
           theModal.style.display = 'none';
           thePortfolioGrid.style.display = 'block';
           theModal.classList.add('hide');
           portfolioModal.classList.remove('modal-is-visible');
           portfolioModal.setAttribute('aria-hidden', true)
+          localStorage.setItem("modalIsOpen", 'false')
         }
       }
     }
   });
 });
+
+
+
+// Local Storage: Show Modal
+document.addEventListener("DOMContentLoaded", () => {
+  const triggerModal = document.querySelectorAll('[data-trigger-modal]');
+  
+  triggerModal.forEach((modalTrigger) => {
+
+
+    const theModalTrigger = modalTrigger.getAttribute('data-trigger-modal');
+    const theModal = document.querySelector(`[data-modal="${theModalTrigger}"]`);
+    const theAboutSection = document.querySelector('#about');
+    const theClientsSection = document.querySelector('#clients');
+    const theContactSection = document.querySelector('#contact');
+    const thePortfolioGrid = document.querySelector('#portfolioGrid');
+    const localStorageModalOpen = localStorage.getItem("modalIsOpen");
+    
+    if (localStorageModalOpen && localStorageModalOpen === theModalTrigger) {
+      theModal.style.display = 'block';
+      thePortfolioGrid.style.display = 'none';
+      theAboutSection.style.display = 'none';
+      theClientsSection.style.display = 'none';
+      theContactSection.style.display = 'none';
+      theModal.classList.remove('hide');
+      theModal.classList.add('modal-is-visible');
+      theModal.setAttribute('aria-hidden', false);
+    } 
+  });
+});
+
+
+const breadcrumbs = document.querySelectorAll('.breadcrumbs');
+      breadcrumbs.forEach(breadcrumb => {
+        breadcrumb.addEventListener('click', function() {
+          localStorage.setItem("modalIsOpen", 'false');
+          console.log("clicked");
+        });
+});
+
+
+const logo = document.querySelector('.logo');
+      logo.addEventListener('click', function(){
+        localStorage.setItem("modalIsOpen", 'false');
+});
+
   

@@ -64,6 +64,8 @@ const clientSlideshow = [
     }
 ]
 
+
+// Client Slideshow: Markup
 const clientSlideshowHTML = document.getElementById('clientSlideshow');
 const clientSlideshowButtonsHTML = document.getElementById('clientSlideshowButtons');
 
@@ -82,11 +84,11 @@ clientSlideshowHTML.innerHTML += clientSlideshowContent;
 
 
 
-// Slideshow Buttons
+// Client Slideshow: Buttons Markup
 const agencies = ["Lemonade", "Fuel Made", "Personal"]
 const clientSlideshowButtons = agencies
-        .map((agency, index) =>
-            `<button data-agency="${agency}" class="slideshow-button button ${index == 0 ? 'active' : ''}">${agency}</button>`
+        .map((agency) =>
+            `<button data-agency="${agency}" class="slideshow-button button">${agency}</button>`
         )
         .join('');
 
@@ -94,27 +96,48 @@ const clientSlideshowButtons = agencies
 
 
 
- // Slideshow Trigger
-const slideshowButton = document.querySelectorAll('.slideshow-button');
-let previousButton;
+// Client Slideshow: Visibility & Active States
+function handleSlideVisibility(slides, activeButtonValue) {
+    slides.forEach(slide => {
+        const slideValue = slide.getAttribute('data-agency');
+        const shouldShowSlide = slideValue === activeButtonValue;
 
-slideshowButton.forEach((button, index) => {
-  if (index === 0) {
-    button.classList.add('active');
-    previousButton = button;
-  }
+        slide.classList.toggle('show', shouldShowSlide);
+        slide.classList.toggle('hide', !shouldShowSlide);
+    });
+}
 
-  button.addEventListener('click', (e) => {
-    previousButton.classList.remove('active');
-    button.classList.add('active');
-    previousButton = button;
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.slide');
+    const localStorageClientSlideshow = localStorage.getItem("clientSlideshow");
+    const slideshowButton = document.querySelectorAll('.slideshow-button');
 
-    var slides = document.querySelectorAll('.slide');
-            slides.forEach((slide) => {
-            var slideshowValue = slide.getAttribute('data-agency'),
-                buttonValue = button.getAttribute('data-agency'),
-                equalValues = (slideshowValue == buttonValue)
-                equalValues ? (slide.classList.add('show'), slide.classList.remove('hide')) : (slide.classList.add('hide'), slide.classList.remove('show'));
+    let activeButton = null;
+
+    slideshowButton.forEach(button => {
+        const buttonValue = button.getAttribute('data-agency');
+        const isActive = buttonValue === localStorageClientSlideshow;
+
+        if (isActive) {
+            activeButton = button;
+            button.classList.add('active');
+        }
+
+        button.addEventListener('click', () => {
+            if (activeButton) {
+                activeButton.classList.remove('active');
+            }
+
+            button.classList.add('active');
+            activeButton = button;
+
+            localStorage.setItem("clientSlideshow", buttonValue);
+            handleSlideVisibility(slides, buttonValue);
         });
-  });
+    });
+
+    // Initial handling of slide visibility
+    if (activeButton) {
+        handleSlideVisibility(slides, activeButton.getAttribute('data-agency'));
+    }
 });
