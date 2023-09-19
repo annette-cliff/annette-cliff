@@ -107,49 +107,69 @@ for (const modal of portfolioContent) {
   const modalId = modal.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and');
 
   const imagesOneHTML = `
-    <div class="slider">
-      <picture>
-        <source srcset="${modal.code_1}" media="(min-width: 600px)" />
-        <img src="${modal.code_1}" alt="" width="" height="" loading="lazy">
-      </picture>
+    <div class="container margin-left">
+      <div class="img background-img">
+        <picture>
+          <source srcset="${modal.code_1}" media="(min-width: 600px)" />
+          <img src="${modal.code_1}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <div class="img foreground-img">
+        <picture>
+          <source srcset="${modal.image_1}" media="(min-width: 600px)" />
+          <img src="${modal.image_1}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <input type="range" min="1" max="100" value="50" class="slider" name="slider_1" id="slider_1">
     </div>
-    <picture>
-      <source srcset="${modal.image_1}" media="(min-width: 600px)" />
-      <img src="${modal.image_1}" alt="" width="" height="" loading="lazy">
-    </picture>
-    <div class="slider">
-      <picture>
-        <source srcset="${modal.code_2}" media="(min-width: 600px)" />
-        <img src="${modal.code_2}" alt="" width="" height="" loading="lazy">
-      </picture>
+    <div class="container margin-right">
+      <div class="img background-img">
+        <picture>
+          <source srcset="${modal.code_2}" media="(min-width: 600px)" />
+          <img src="${modal.code_2}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <div class="img foreground-img">
+        <picture>
+          <source srcset="${modal.image_2}" media="(min-width: 600px)" />
+          <img src="${modal.image_2}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <input type="range" min="1" max="100" value="50" class="slider" name="slider_2" id="slider_2">
     </div>
-    <picture>
-      <source srcset="${modal.image_2}" media="(min-width: 600px)" />
-      <img src="${modal.image_2}" alt="" width="" height="" loading="lazy">
-    </picture>
   `;
 
   const imagesTwoHTML = `
-    <div class="slider">
-      <picture>
-        <source srcset="${modal.code_3}" media="(min-width: 600px)" />
-        <img src="${modal.code_3}" alt="" width="" height="" loading="lazy">
-      </picture>
+    <div class="container margin-left">
+      <div class="img background-img">
+        <picture>
+          <source srcset="${modal.code_3}" media="(min-width: 600px)" />
+          <img src="${modal.code_3}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <div class="img foreground-img">
+        <picture>
+          <source srcset="${modal.image_3}" media="(min-width: 600px)" />
+          <img src="${modal.image_3}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <input type="range" min="1" max="100" value="50" class="slider" name="slider_3" id="slider_3">
     </div>
-    <picture>
-      <source srcset="${modal.image_3}" media="(min-width: 600px)" />
-      <img src="${modal.image_3}" alt="" width="" height="" loading="lazy">
-    </picture>
-    <div class="slider">
-      <picture>
-        <source srcset="${modal.code_4}" media="(min-width: 600px)" />
-        <img src="${modal.code_4}" alt="" width="" height="" loading="lazy">
-      </picture>
+    <div class="container margin-right">
+      <div class="img background-img">
+        <picture>
+          <source srcset="${modal.code_4}" media="(min-width: 600px)" />
+          <img src="${modal.code_4}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <div class="img foreground-img">
+        <picture>
+          <source srcset="${modal.image_4}" media="(min-width: 600px)" />
+          <img src="${modal.image_4}" alt="" width="" height="" loading="lazy">
+        </picture>
+      </div>
+      <input type="range" min="1" max="100" value="50" class="slider" name="slider_4" id="slider_4">
     </div>
-    <picture>
-      <source srcset="${modal.image_4}" media="(min-width: 600px)" />
-      <img src="${modal.image_4}" alt="" width="" height="" loading="lazy">
-    </picture>
   `;
 
   const modalHTML = `
@@ -170,7 +190,7 @@ for (const modal of portfolioContent) {
         <h3 class="title-accent"><span class="dark">${modal.title_first}</span><span class="light">${modal.title_second}</span></h3>
       </div>
       <div class="quote">${modal.quote}</div>
-      <div class="image-slider">${imagesOneHTML}</div>
+      <div class="image-slider margin-bottom-4">${imagesOneHTML}</div>
       <div class="technology">
         <h4>technology</h4>
         <ul class="portfolioDevStack"></ul>
@@ -187,6 +207,22 @@ for (const modal of portfolioContent) {
 
 portfolioModal.innerHTML += modalElements.join('');
 
+
+
+const sliders = document.querySelectorAll('.slider');
+const foregroundImgs = document.querySelectorAll('.foreground-img');
+
+sliders.forEach((slider, index) => {
+  slider.addEventListener('input', (e) => {
+    const sliderPos = e.target.value;
+    foregroundImgs[index].style.width = `${sliderPos}%`;
+  });
+
+  slider.addEventListener('change', (e) => {
+    const sliderPos = e.target.value;
+    foregroundImgs[index].style.width = `${sliderPos}%`;
+  });
+});
 
 
 
@@ -268,8 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const triggerModal = document.querySelectorAll('[data-trigger-modal]');
   
   triggerModal.forEach((modalTrigger) => {
-
-
     const theModalTrigger = modalTrigger.getAttribute('data-trigger-modal');
     const theModal = document.querySelector(`[data-modal="${theModalTrigger}"]`);
     const theAboutSection = document.querySelector('#about');
