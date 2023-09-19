@@ -177,7 +177,7 @@ for (const modal of portfolioContent) {
       </div>
       <div class="image-slider">${imagesTwoHTML}</div>
       <div class="button-wrap">
-        <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank" class="button">View the site</a>
+        <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank">View the site</a>
       </div>
     </div>
   `;

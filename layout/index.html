@@ -29,7 +29,7 @@
     </head>
 
     <body>
-        <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="visually-hidden button inverted main-content">Skip to main content</a>
+        <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="main-content-button">Skip to main content</a>
 
         <header>
             <h1 class="logo"><a href="/layout/index.html" title="Navigate to home page"><span>ac</span></a></h1>
@@ -44,7 +44,7 @@
         <main id="mainContent">
             <section id="about">
                 <article id="banner">
-                    <div class="grid columns-4" id="hiddenIcons"></div>
+                    <div id="hiddenIcons"></div>
                     <div class="wrapper">
                         <h2>Hi! My name is Annette Cliff</h2>
                         <img src="/assets/favicon/annette.png" alt="Profile image of Annette" width="500" height="700">
@@ -56,7 +56,7 @@
             </section>
 
             <section id="portfolio">
-                <article id="portfolioGrid" class="large--grid flex flex-column columns-2"></article>
+                <article id="portfolioGrid"></article>
                 <article id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true"></article>
             </section>
 
@@ -64,47 +64,47 @@
                 <h5>Clients</h5>
                 <div id="clientSlideshowButtons"></div>
                 <article id="clientSlideshow" class="slideshow"></article>
-                <p class="text-center">Please note, I have done a range of work for the clients above while employed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
+                <p>Please note, I have done a range of work for the clients above while employed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
             </section>
 
             <section id="contact">
                 <h5>Contact</h5>
                 <form action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="42371693-bfd7-471c-9564-c028450ab53e">
-                    <div class="flex large--flex-row flex-column justify-between">
-                        <div class="flex flex-column large--width-50">
+                    <div class="flex-wrapper">
+                        <div class="input-wrapper input-half">
                             <label for="name">First Name</label>
                             <input id="name" type="text" aria-label="First Name" name="name" required>
                         </div>
-                        <div class="flex flex-column large--width-50">
+                        <div class="input-wrapper input-half">
                             <label for="email">Email Address</label>
                             <input id="email" type="email" aria-label="Email Address" name="email" required>
                         </div>
                     </div>
-                    <div class="flex flex-column">
+                    <div class="input-wrapper">
                         <label for="subject">Subject</label>
                         <input id="subject" type="text" aria-label="Subject" name="subject" required>
                     </div>
-                    <div class="flex flex-column">
+                    <div class="input-wrapper">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" autocorrect="true" rows="10" required></textarea>
                     </div>
                     <div class="button-wrap">
-                        <button type="submit" class="button">Submit Form</button>
+                        <button type="submit">Submit Form</button>
                     </div>
                 </form>         
             </section>
         </main>
         
         <footer>
-            <div class="flex">
+            <div class="footer-links">
                 <ul id="mainLinks"><h6>Main Links</h6></ul>
-                <a href="" title="Navigate to the top of page" class="large--width-auto width-100 text-center"><div class="logo"><span class="footer-span"><span class="slash"></span> ac</span></div></a>
+                <a href="" title="Navigate to the top of page" class="footer-logo"><div class="logo"><span class="footer-span"><span class="slash"></span> ac</span></div></a>
                 <ul id="socialLinks"><h6>Social Links</h6></ul>
             </div>
             <copyright>@copyright Annette Cliff <span id="year"></span></copyright>
         </footer>
 
-        <div id="scrollToTop" tabindex="0" class="button inverted fixed">To Top</div>
+        <div id="scrollToTop" tabindex="0">To Top</div>
     </body>
 </html>

@@ -51,11 +51,11 @@ table {
   }
 }
 
-.inline-block, a.has-hover-state {
+.inline-block, a.has-hover-state, .button-wrap a {
   display: inline-block;
 }
 
-.visually-hidden {
+.visually-hidden, .main-content-button {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -84,7 +84,7 @@ table {
   }
 }
 
-.relative, main, a.has-hover-state, .breadcrumbs, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, #about #banner .wrapper img, .title, .title .dark, .grid-item, .image-slider, footer {
+.relative, main, a.has-hover-state, .breadcrumbs, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, #about #banner .wrapper img, .title, .title .dark, .grid-item, .image-slider, .image-slider picture, footer {
   position: relative;
 }
 
@@ -104,17 +104,17 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   position: initial;
 }
 
-.fixed {
+.fixed, #scrollToTop {
   position: fixed;
 }
 
-.flex, .breadcrumbs ul, header #clock .grid span, #about #banner .wrapper, .title .title-accent, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, #clientSlideshowButtons, footer .flex {
+.flex, .breadcrumbs ul, header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about #banner header #clock #hiddenIcons span, #about #banner .wrapper, .title .title-accent, #portfolioGrid, .grid-item, .portfolioDevStack, .portfolioDevStack li, .slideshow, #clientSlideshowButtons, #contact form .flex-wrapper, #contact form .input-wrapper, footer .footer-links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.flex-column, .title .title-accent, .grid-item, footer .flex {
+.flex-column, .title .title-accent, #portfolioGrid, .grid-item, #contact form .flex-wrapper, #contact form .input-wrapper, footer .footer-links {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -126,7 +126,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
       flex-wrap: wrap;
 }
 
-.justify-between, header, footer .flex {
+.justify-between, header, #contact form .flex-wrapper, footer .footer-links {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -143,7 +143,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           justify-content: space-evenly;
 }
 
-.justify-center, header #clock .grid span.span-2, .grid-item, .grid-item:hover h4, .portfolioDevStack {
+.justify-center, header #clock .grid span.span-2, header #clock #about #banner #hiddenIcons span.span-2, #about #banner header #clock #hiddenIcons span.span-2, .grid-item, .grid-item:hover h4, .portfolioDevStack {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -173,7 +173,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           align-items: flex-end;
 }
 
-.items-start, footer .flex {
+.items-start, footer .footer-links {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -186,7 +186,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 }
 
 @media (min-width: 767px) {
-  .large--flex-row {
+  .large--flex-row, #contact form .flex-wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -199,20 +199,20 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   }
 }
 
-.grid {
+.grid, #about #banner #hiddenIcons {
   display: -ms-grid;
   display: grid;
 }
 
 @media (min-width: 767px) {
-  .large--grid {
+  .large--grid, #portfolioGrid {
     display: -ms-grid;
     display: grid;
     grid-gap: 5px;
   }
 }
 
-.columns-2 {
+.columns-2, #portfolioGrid {
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
 }
@@ -222,7 +222,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
       grid-template-columns: repeat(3, 1fr);
 }
 
-.columns-4 {
+.columns-4, #about #banner #hiddenIcons {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
 }
@@ -237,13 +237,20 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   border: 2px solid;
 }
 
-.width-100, .breadcrumbs ul {
+.width-100, .breadcrumbs ul, .button-wrap button, .button-wrap a, #about #banner #hiddenIcons, footer .footer-logo {
   width: 100%;
 }
 
+.height-100, #about #banner #hiddenIcons {
+  height: 100%;
+}
+
 @media (min-width: 767px) {
-  .large--width-auto {
+  .large--width-auto, footer .footer-logo {
     width: auto;
+  }
+  .large--width-50 {
+    width: 50%;
   }
 }
 
@@ -353,7 +360,7 @@ img {
   font-size: clamp(0.5rem, 7vw, 1rem);
 }
 
-.text-center, h5, .button-wrap, header, header #clock .grid, .title .light, #portfolioModal .modal .technology h4, #clientSlideshowButtons, #contact h5, footer copyright {
+.text-center, h5, .button-wrap, header, header #clock .grid, header #clock #about #banner #hiddenIcons, #about #banner header #clock #hiddenIcons, .title .light, #portfolioModal .modal .technology h4, #clients p, #clientSlideshowButtons, #contact h5, footer .footer-logo, footer copyright {
   text-align: center;
 }
 
@@ -469,7 +476,7 @@ a.has-hover-state.hover-state-dark:focus {
   margin-right: 7px;
 }
 
-.button {
+.button, #scrollToTop, .button-wrap button, .button-wrap a, .main-content-button {
   background: #084DB5;
   color: #E2ECFB;
   padding: 1rem;
@@ -480,7 +487,8 @@ a.has-hover-state.hover-state-dark:focus {
   letter-spacing: 1px;
 }
 
-.button:hover {
+.button:hover, #scrollToTop:hover, .button-wrap button:hover,
+.button-wrap a:hover, .main-content-button:hover {
   background-color: #E2ECFB;
   color: #084DB5;
   cursor: pointer;
@@ -488,12 +496,15 @@ a.has-hover-state.hover-state-dark:focus {
   transition: background-color 0.5s ease-in-out;
 }
 
-.button.inverted, #clientSlideshowButtons button.button {
+.button.inverted, #scrollToTop, .button-wrap button.inverted, .button-wrap button.main-content-button, .button-wrap #clientSlideshowButtons button, #clientSlideshowButtons .button-wrap button,
+.button-wrap a.inverted, .button-wrap a.main-content-button, .main-content-button, #clientSlideshowButtons button.button, #clientSlideshowButtons button#scrollToTop, #clientSlideshowButtons button.main-content-button {
   background: #E2ECFB;
   color: #084DB5;
 }
 
-.button.inverted:hover, #clientSlideshowButtons button.button:hover, .button.inverted.active, #clientSlideshowButtons button.button.active {
+.button.inverted:hover, #scrollToTop:hover, .button-wrap button.inverted:hover, .button-wrap #clientSlideshowButtons button:hover, #clientSlideshowButtons .button-wrap button:hover,
+.button-wrap a.inverted:hover, .main-content-button:hover, #clientSlideshowButtons button.button:hover, #clientSlideshowButtons button.main-content-button:hover, .button.inverted.active, .active#scrollToTop, .button-wrap button.inverted.active, .button-wrap #clientSlideshowButtons button.active, #clientSlideshowButtons .button-wrap button.active,
+.button-wrap a.inverted.active, .active.main-content-button, #clientSlideshowButtons button.button.active, #clientSlideshowButtons button.active.main-content-button {
   background-color: #084DB5;
   color: #E2ECFB;
   border: 1px solid #E2ECFB;
@@ -501,9 +512,23 @@ a.has-hover-state.hover-state-dark:focus {
   transition: background-color 0.5s ease-in-out;
 }
 
-.button:focus {
+.button:focus, #scrollToTop:focus, .button-wrap button:focus,
+.button-wrap a:focus, .main-content-button:focus {
   outline: 3px solid #084DB5;
   outline-offset: 1px;
+}
+
+.inverted, #scrollToTop, .main-content-button, #clientSlideshowButtons button {
+  background: #E2ECFB;
+  color: #084DB5;
+}
+
+.inverted:hover, #scrollToTop:hover, .main-content-button:hover, #clientSlideshowButtons button:hover, .inverted.active, .active#scrollToTop, .active.main-content-button, #clientSlideshowButtons button.active {
+  background-color: #084DB5;
+  color: #E2ECFB;
+  border: 1px solid #E2ECFB;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 #scrollToTop {
@@ -522,21 +547,18 @@ a.has-hover-state.hover-state-dark:focus {
   margin-bottom: 0;
 }
 
-.button-wrap .button {
-  width: 100%;
-}
-
 @media (min-width: 767px) {
   .button-wrap {
     margin: 2.2rem;
     margin-bottom: 0;
   }
-  .button-wrap .button {
+  .button-wrap button,
+  .button-wrap a {
     width: auto;
   }
 }
 
-.main-content:focus {
+.main-content-button:focus {
   top: 30px;
   left: 30px;
   height: initial;
@@ -634,7 +656,7 @@ header #clock #second {
   opacity: 0.8;
 }
 
-header #clock .grid {
+header #clock .grid, header #clock #about #banner #hiddenIcons, #about #banner header #clock #hiddenIcons {
   font-size: 12px;
   height: 100%;
   padding: 3px;
@@ -753,8 +775,6 @@ header #clock .grid {
 }
 
 #about #banner #hiddenIcons {
-  height: 100%;
-  width: 100%;
   z-index: 4;
   grid-column-gap: 1rem;
 }
@@ -1264,7 +1284,7 @@ header #clock .grid {
     max-width: 700px;
     margin: 0 auto;
   }
-  #contact .large--width-50 {
+  #contact form .input-wrapper.input-half {
     width: calc(50% - 3px);
   }
 }
@@ -1292,7 +1312,7 @@ footer:after {
   bottom: 8px;
 }
 
-footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer #clientSlideshowButtons, footer .flex {
+footer .footer-links {
   padding: 2rem 2rem 0 2rem;
 }
 
@@ -1313,7 +1333,7 @@ footer copyright {
 }
 
 @media (min-width: 767px) {
-  footer .breadcrumbs ul, .breadcrumbs footer ul, footer header #clock .grid span, header #clock .grid footer span, footer #about #banner .wrapper, #about #banner footer .wrapper, footer .title .title-accent, .title footer .title-accent, footer .grid-item, footer .portfolioDevStack, footer .portfolioDevStack li, .portfolioDevStack footer li, footer .slideshow, footer #clientSlideshowButtons, footer .flex {
+  footer .footer-links {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;
