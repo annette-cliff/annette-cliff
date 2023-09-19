@@ -356,7 +356,8 @@ h6 {
 }
 
 p {
-    font-size: 12px;
+    font-size: clamp(0.3rem, 7vw, 1rem);
+    margin-bottom: 1rem;
     color: $color-dark;
 }
 
@@ -734,7 +735,7 @@ header {
             height: 100%;
             width: 100%;
             z-index: 4;
-            grid-column-gap: 4rem;
+            grid-column-gap: 1rem;
             .icon {
                 width: 70px;
                 object-fit: contain;
@@ -759,7 +760,7 @@ header {
             }
         }
         &:hover {
-            cursor: url('../assets/magnifying-glass.svg'), auto;
+            cursor: url('/assets/icons/magnifying-glass.svg'), auto;
         }
         .wrapper {
             padding-right: 0;
@@ -791,7 +792,6 @@ header {
             .wrapper {
                 padding: 0 $wrapper--large;
                 img {
-                    // width: 450px;
                     width: 300px;
                 }
                 h2 {
@@ -804,6 +804,9 @@ header {
         margin-bottom: 6rem;
         #banner {
             padding-top: 0rem;
+            #hiddenIcons {
+                grid-column-gap: 4rem;
+            }
             .wrapper {
                 max-width: 1500px;
                 margin: 0 auto;
@@ -824,7 +827,7 @@ header {
         #banner {
             #hiddenIcons {
                 padding: 0 5rem;
-                grid-column-gap: 17rem;
+                grid-column-gap: 13rem;
                 .icon:nth-child(odd) {
                     height: 80%;
                     margin-top: 0;
@@ -930,7 +933,7 @@ header {
         outline-offset: 1px;
     }
     &:hover {
-        cursor: url('/assets/plus.svg'), auto;
+        cursor: url('/assets/icons/plus.svg'), auto;
         &:after {
             background: $color-dark;
             opacity: 1;
@@ -977,14 +980,14 @@ header {
         width: 100%;
         height: 100%;
         z-index: 5;
+    }
+    .modal {
         .light {
             text-shadow: 3px 1px $color-dark;
         }
         .dark {
             text-shadow: 3px 2px $color-light;
         }
-    }
-    .modal {
         .video {
             padding-bottom: 12rem;
             video {
@@ -1022,7 +1025,7 @@ header {
         }
     }
     .title {
-        height: 100px;
+        height: 75px;
         .dark {
             bottom: 0rem;
         }
@@ -1047,7 +1050,7 @@ header {
     }
     @include breakpoint('large') {
         .title {
-            height: 200px;
+            height: 150px;
             .dark {
                 bottom: -2rem;
             }
@@ -1055,6 +1058,42 @@ header {
     }
 }
 
+
+// --- Portfolio: Modal Slider ------------------------- //
+.image-slider {
+    @extend .relative;
+    // line-height: 0;
+    picture {
+        user-select: none;
+    }
+    > div {
+        @extend .absolute;
+        max-width: 100%;
+        overflow: hidden;
+        resize: horizontal;
+        height: 90%;
+        min-width: 400px;
+        &:before {
+            content: '';
+            @extend .block,
+                    .absolute;
+            width: 13px;
+            height: 13px;
+            overflow: hidden;
+            resize: horizontal;
+            right: 3px;
+            bottom: 3px;
+            background-clip: content-box;
+            background: linear-gradient(-45deg, black 50%, transparent 0);
+            -webkit-filter: drop-shadow(0 0 2px black);
+            filter: drop-shadow(0 0 2px black);
+        }
+    }
+    @include breakpoint('medium') {
+        width: 800px;
+        margin: 0 auto;
+    }
+}
 
 
 // --- Portfolio: Tech Stack ------------------------- //
@@ -1093,6 +1132,7 @@ header {
     }
     p {
         margin-top: 2rem;
+        font-size: 12px;
     }
     @include breakpoint('medium') {
         margin-top: 8rem;
@@ -1100,7 +1140,7 @@ header {
 }
 
 
-// --- Slideshow ------------------------- //
+// --- Clients: Slideshow ------------------------- //
 .slideshow {
     overflow-x: scroll;
     @extend .flex,
@@ -1175,6 +1215,11 @@ header {
     form {
         padding: $wrapper--medium;
         padding-bottom: 0;
+    }
+    button {
+        &:hover {
+            cursor: url('/assets/icons/icon-mail.svg'), auto;
+        }
     }
     @include breakpoint('medium') {
         margin: 8rem 0;
