@@ -187,7 +187,7 @@ for (const modal of portfolioContent) {
         </ul>
       </navigation>
       <div class="title">
-        <h3 class="title-accent"><span class="dark">${modal.title_first}</span><span class="light">${modal.title_second}</span></h3>
+        <h3 class="title__accent"><span class="title__dark">${modal.title_first}</span><span class="title__light">${modal.title_second}</span></h3>
       </div>
       <div class="quote">${modal.quote}</div>
       <div class="image-slider margin-bottom-4">${imagesOneHTML}</div>
@@ -196,7 +196,7 @@ for (const modal of portfolioContent) {
         <ul class="portfolioDevStack"></ul>
       </div>
       <div class="image-slider">${imagesTwoHTML}</div>
-      <div class="button-wrap">
+      <div class="button__wrapper">
         <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank">View the site</a>
       </div>
     </div>

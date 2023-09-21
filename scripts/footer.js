@@ -53,7 +53,7 @@ footerSocialLinks.innerHTML += socialLinksHTML;
 
 
 // Copyright
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("copyrightYear").textContent = new Date().getFullYear();
 
 
 // Scroll To Top

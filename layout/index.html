@@ -29,12 +29,12 @@
     </head>
 
     <body>
-        <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="main-content-button">Skip to main content</a>
+        <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a>
 
         <header>
             <h1 class="logo"><a href="/layout/index.html" title="Navigate to home page"><span>ac</span></a></h1>
             <div id="clock">
-                <div class="grid columns-2">
+                <div class="grid grid__columns-2">
                     <span class="span-2">12</span><span>9</span><span class="justify-end">3</span><span class="span-2">6</span>
                 </div>
                 <div class="hand" id="hour"></div><div class="hand" id="minute"></div><div class="hand" id="second"></div>
@@ -51,19 +51,19 @@
                     </div>
                 </article>
                 <article class="title">
-                    <h3 class="title-accent"><span class="light">web</span><span class="dark">developer</span></h3>
+                    <h3 class="title__accent"><span class="title__light">web</span><span class="title__dark">developer</span></h3>
                 </article>
             </section>
 
-            <section id="portfolio">
-                <article id="portfolioGrid"></article>
-                <article id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true"></article>
+            <section id="portfolio" class="portfolio">
+                <article id="portfolioGrid" class="portfolio__grid"></article>
+                <article id="portfolioModal" class="portfolio__modal" tabindex="-1" role="dialog" aria-hidden="true"></article>
             </section>
 
-            <section id="clients">
+            <section id="clients" class="client">
                 <h5>Clients</h5>
-                <div id="clientSlideshowButtons"></div>
-                <article id="clientSlideshow" class="slideshow"></article>
+                <div id="clientSlideshowButtons" class="client__slideshow-buttons"></div>
+                <article id="clientSlideshow" class="client__slideshow"></article>
                 <p>Please note, I have done a range of work for the clients above while employed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
             </section>
 
@@ -71,25 +71,25 @@
                 <h5>Contact</h5>
                 <form action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="42371693-bfd7-471c-9564-c028450ab53e">
-                    <div class="flex-wrapper">
-                        <div class="input-wrapper input-half">
+                    <div class="flex__wrapper">
+                        <div class="input__wrapper half">
                             <label for="name">First Name</label>
                             <input id="name" type="text" aria-label="First Name" name="name" required>
                         </div>
-                        <div class="input-wrapper input-half">
+                        <div class="input__wrapper half">
                             <label for="email">Email Address</label>
                             <input id="email" type="email" aria-label="Email Address" name="email" required>
                         </div>
                     </div>
-                    <div class="input-wrapper">
+                    <div class="input__wrapper">
                         <label for="subject">Subject</label>
                         <input id="subject" type="text" aria-label="Subject" name="subject" required>
                     </div>
-                    <div class="input-wrapper">
+                    <div class="input__wrapper">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" autocorrect="true" rows="10" required></textarea>
                     </div>
-                    <div class="button-wrap">
+                    <div class="button__wrapper">
                         <button type="submit">Submit Form</button>
                     </div>
                 </form>         
@@ -97,14 +97,14 @@
         </main>
         
         <footer>
-            <div class="footer-links">
-                <ul id="mainLinks"><h6>Main Links</h6></ul>
-                <a href="" title="Navigate to the top of page" class="footer-logo"><div class="logo"><span class="footer-span"><span class="slash"></span> ac</span></div></a>
-                <ul id="socialLinks"><h6>Social Links</h6></ul>
+            <div class="footer__links">
+                <ul id="mainLinks" class="footer__navigation"><h6 class="footer__navigation-title">Main Links</h6></ul>
+                <a href="" title="Navigate to the top of page" class="footer__logo"><div class="logo"><span class="footer__span"><span class="slash"></span> ac</span></div></a>
+                <ul id="socialLinks" class="footer__navigation"><h6 class="footer__navigation-title">Social Links</h6></ul>
             </div>
-            <copyright>@copyright Annette Cliff <span id="year"></span></copyright>
+            <copyright>@copyright Annette Cliff <span id="copyrightYear"></span></copyright>
         </footer>
 
-        <div id="scrollToTop" tabindex="0">To Top</div>
+        <div id="scrollToTop" class="button__to-top" tabindex="0">To Top</div>
     </body>
 </html>
