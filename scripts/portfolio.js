@@ -99,7 +99,7 @@ portfolioGrid.innerHTML += portfolioGridHTML;
 
 
 
-// // Portfolio: Modal
+// Portfolio: Modal
 const portfolioModal = document.getElementById('portfolioModal');
 const modalElements = [];
 
@@ -208,7 +208,7 @@ for (const modal of portfolioContent) {
 portfolioModal.innerHTML += modalElements.join('');
 
 
-
+// Portfolio: Slider
 const sliders = document.querySelectorAll('.slider');
 const foregroundImgs = document.querySelectorAll('.foreground-img');
 
@@ -326,6 +326,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+// Portfolio: Modal Breadcrumbs
 const breadcrumbs = document.querySelectorAll('.breadcrumbs');
       breadcrumbs.forEach(breadcrumb => {
         breadcrumb.addEventListener('click', function() {
@@ -334,6 +336,7 @@ const breadcrumbs = document.querySelectorAll('.breadcrumbs');
 });
 
 
+// Portfolio: Modal Logo
 const logo = document.querySelector('.logo');
       logo.addEventListener('click', function(){
         localStorage.setItem("modalIsOpen", 'false');
