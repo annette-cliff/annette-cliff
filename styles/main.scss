@@ -16,6 +16,10 @@ $color-dark: #084DB5;
 $color-medium: #c1d2ec;
 $color-light: #E2ECFB;
 
+$color-black: #222;
+$color-black-medium: #ADAAAA;
+$color-white: #fff;
+
 
 // Font families
 $font-base: "Anonymous Pro";
@@ -142,6 +146,27 @@ $breakpoints: (
 @mixin rotate-positive-45 {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+@mixin background-black-color-white {
+    background: $color-black;
+    color: $color-white;
+}
+
+@mixin background-white-color-black {
+    background: $color-white;
+    color: $color-black;
+}
+
+
+@mixin background-dark-color-light {
+    background: $color-dark;
+    color: $color-light;
+}
+
+@mixin background-light-color-dark {
+    background: $color-light;
+    color: $color-dark;
 }
 
 // --- Sass Extends ---------------------- //
@@ -291,6 +316,388 @@ html {
 body {
     margin: 0;
     overflow-x: hidden;
+    &.accessibility__increase__line-height {
+        &.accessibility__increase__font-size {
+            dialog button {
+                padding: 0;
+            }
+            .accessibility__modal.open .accessibility__icon-close {
+                &:before,
+                &:after {
+                    top: -14rem;
+                }
+            }
+        }
+    }
+    // TODO: add styles for inverted and greyscale (right now greyscale overrides in this combo)
+    &.accessibility__color__invert {
+        &.accessibility__color__greyscale {
+            .modal {
+                background: $color-black;
+            }
+            .title__light,
+            p {
+                color: $color-white;
+            }
+        }
+    }
+    &.accessibility {
+        &__increase {
+            &__font-size {
+              *:not(.title__accent):not(.title__dark):not(.title__light) {
+                font-size: xx-large !important;
+              }
+              dialog button {
+                @extend .width-100;
+              }
+              .accessibility__modal.open .accessibility__icon-close {
+                &:before,
+                &:after {
+                    width: 3px;
+                    height: 30px;
+                    top: -12rem;
+                }
+              }
+            }
+            &__line-height {
+                *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
+                    line-height: 200% !important;
+                }
+                .title__accent {
+                    line-height: 1;
+                }
+                .accessibility__modal.open .accessibility__icon-close {
+                    &:before,
+                    &:after {
+                        top: -5rem;
+                    }
+                }
+            }
+        }
+        &__color {
+            &__invert {
+                @include color-light-background-dark();
+                .modal {
+                    @include color-light-background-dark();
+                }
+                .title {
+                    &__light {
+                        color: $color-dark;
+                        text-shadow: 3px 1px 6px $color-light;
+                    }
+                    &__dark {
+                        color: $color-light;
+                        text-shadow: 3px 1px $color-dark;
+                    }
+                }
+                header, 
+                #about #banner {
+                    background: $color-light;
+                }
+                h2 {
+                    color: $color-dark;
+                }
+                h5,
+                label,
+                p,
+                a,
+                li,
+                span {
+                    color: $color-light;
+                }
+                .breadcrumbs a.has-hover-state.hover-state-dark:after {
+                    border-color: $color-light;
+                }
+                video {
+                    &::-webkit-media-controls-timeline-container {
+                        background: $color-light;
+                        color: $color-light;
+                    }
+                    &::-webkit-media-controls-panel {
+                        background: $color-light;
+                    }
+                }
+                footer {
+                    @include color-dark-background-light();
+                    *,a { 
+                        color: $color-dark;
+                    }
+                    a {
+                        &:focus {
+                            outline-color: $color-dark;
+                        }
+                        &.has-hover-state:after,
+                        &.hover-state-dark {
+                            border-color: $color-dark;
+                        }
+                    }
+                    &:before, 
+                    &:after,
+                    .logo:before, .logo:after, .logo span:before, .logo span:after {
+                        background: $color-dark;
+                    }
+                }
+                header #clock {
+                    color: $color-dark;
+                    * {
+                        color: $color-dark;
+                    }
+                    .hand {
+                        background: $color-dark;
+                    }
+                }
+                .logo {
+                    span {
+                        color: $color-dark;
+                    }
+                    &:before,
+                    &:after,
+                    span:before,
+                    span:after {
+                        background: $color-dark;
+                    }
+                }
+                .button {
+                    @include background-dark-color-light();
+                    &.inverted {
+                        border-color: $color-light;
+                        @include background-dark-color-light();
+                        &.active {
+                            @include background-light-color-dark();
+                            border-color: $color-dark;
+                        }
+                        &:hover {
+                            @include background-dark-color-light();
+                            border-color: $color-white;
+                        }
+                        &:focus-visible {
+                            outline-color: $color-light;
+                        }
+                    }
+                    &__accessibility,
+                    &__to-top {
+                        &:hover {
+                            border-color: $color-dark;
+                            @include background-light-color-dark();
+                        }
+                    }
+                }
+                .button__wrapper {
+                    a {
+                        border: 1px solid $color-light;
+                    }
+                    button {
+                        @include background-light-color-dark();
+                    }
+                    a,
+                    button {
+                        &:hover {
+                            @include background-light-color-dark();
+                            border-color: $color-light;
+                        }
+                    }
+                }
+            }
+            &__greyscale {
+                background: $color-black;
+                .title {
+                    &__light {
+                        text-shadow: 1px 3px 4px $color-white;
+                        color: $color-black;
+                    }
+                    &__dark {
+                        text-shadow: 3px 2px $color-black;
+                    }
+                }
+                h2 {
+                    color: $color-black;
+                }
+                .portfolio {
+                    &__modal {
+                        .technology {
+                            background: $color-black-medium;
+                            h4 {
+                                color: $color-black;
+                            }
+                        }
+                        &.modal-is-visible {
+                            background: $color-black;
+                        }
+                    }
+                }
+                .grid-item {
+                    .plus {
+                        background: $color-black;
+                        &:after,
+                        &:before {
+                            background: $color-white;
+                        }
+                    }
+                    &:after {
+                        background: $color-white;
+                    }
+                    h4 {
+                        color: $color-black;
+                    }
+                    &:hover {
+                        .plus {
+                            background: $color-white;
+                            border-color: $color-black;
+                            &:before,
+                            &:after {
+                                background: $color-black;
+                            }
+                        }
+                    }
+                }
+                video {
+                    &::-webkit-media-controls-timeline-container {
+                        background: $color-black;
+                        color: $color-black;
+                    }
+                    &::-webkit-media-controls-panel {
+                        background: $color-white;
+                    }
+                }
+                header #clock {
+                    color: $color-black;
+                    * {
+                        color: $color-black;
+                    }
+                    .hand {
+                        background: $color-black;
+                    }
+                }
+                .logo {
+                    span {
+                        color: $color-black;
+                    }
+                    &:before,
+                    &:after,
+                    span:before,
+                    span:after {
+                        background: $color-black;
+                    }
+                }
+                .accessibility {
+                    &__modal {
+                        &.open {
+                            dialog {
+                                border-color: $color-black;
+                            }
+                            h6 {
+                                color: $color-black;
+                            }
+                            .accessibility__icon-close {
+                                &:before,
+                                &:after {
+                                    background: $color-black;
+                                }
+                            }
+                        }
+                    }
+                }
+                li,
+                span {
+                    color: $color-white;
+                }
+                a {
+                    &.hover-state-dark.has-hover-state:after {
+                        border-color: $color-white;
+                    }
+                    &.has-hover-state:after {
+                        border-color: $color-black;
+                    }
+                }
+
+                .slideshow-button.active {
+                    border-color: $color-white !important;
+                }
+
+                .button {
+                    @include background-black-color-white();
+                    &.inverted {
+                        border-color: $color-black;
+                        @include background-white-color-black();
+                        &.active {
+                            @include background-black-color-white();
+                        }
+                        &:hover {
+                            @include background-black-color-white();
+                            border-color: $color-white;
+                        }
+                        &:focus-visible {
+                            outline-color: $color-black;
+                        }
+                    }
+                    &__wrapper {
+                        a {
+                            border-color: $color-white;
+                        }
+                        button {
+                            @include background-black-color-white();
+                            border-color: $color-white;
+                            &:focus-visible {
+                                outline: 1px solid $color-white;
+                            }
+                        }
+                        button, 
+                        a {
+                            &:hover {
+                                @include background-white-color-black();
+                            }
+                        }
+                    }
+                }
+                input,
+                textarea {
+                    @include background-black-color-white();
+                    border-color: $color-white;
+                    &:focus-visible {
+                        outline: 1px solid $color-white;
+                    }
+                    &:focus {
+                        @include background-white-color-black();
+                    }
+                }
+                header, 
+                #about #banner {
+                    background: $color-white;
+                }
+                footer {
+                    background: $color-white;
+                    *,a { 
+                        color: $color-black;
+                    }
+                    a {
+                        &:focus {
+                            outline-color: $color-black;
+                        }
+                    }
+                    &:before, 
+                    &:after,
+                    .logo:before, .logo:after, .logo span:before, .logo span:after {
+                        background: $color-black;
+                    }
+                }
+                .client__slideshow {
+                    .slide img {
+                        filter: invert(1);
+                    }
+                    &::-webkit-scrollbar-track {
+                        background: $color-black-medium;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $color-white;
+                    }
+                }
+                *,
+                a {
+                    color: $color-white;
+                }
+            }
+        }
+    }
 }
 
 img {
@@ -306,7 +713,7 @@ video {
         padding: 10px;
     }
     &::-webkit-media-controls-panel {
-        background: $color-dark !important;
+        background: $color-dark;
     }
 }
 
@@ -325,52 +732,7 @@ main {
     }
 }
 
-.wrapper-top {
-    padding: $wrapper--medium 0;
-    @include breakpoint('medium') {
-        padding: $wrapper--small 0;
-    }
-    @include breakpoint('large') {
-        padding: $wrapper--large 0;
-    }
-}
-
-
 // --- Typography ------------------------- //
-.heading-xxl {
-    font-size: clamp(3.5rem, 5vw, 10rem);
-    @include breakpoint('small') {
-        font-size: clamp(5rem, 5vw, 10rem);
-    }
-    @include breakpoint('large') {
-        font-size: clamp(10rem, 5vw, 10rem);
-    }
-}
-
-.heading-xl {
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    @include breakpoint('small') {
-        font-size: clamp(3.5rem, 5vw, 5rem);
-        line-height: 3.5rem;
-    }
-    @include breakpoint('large') {
-        font-size: clamp(2.5rem, 5vw, 5rem);
-        line-height: 5rem;
-    }
-}
-
-.heading-lg {
-    font-size: clamp(3rem, 7vw, 3rem);
-}
-
-.heading-md {
-    font-size: clamp(1rem, 7vw, 1.1rem);
-}
-
-.heading-sm {
-    font-size: clamp(0.5rem, 7vw, 1rem);
-}
-
 .text-center {
     text-align: center;
 }
@@ -383,18 +745,23 @@ h1 {
 h2 {
     font-family: $font-title;
     color: $color-light;
-    @extend .heading-xl;
+    font-size: clamp(3rem, 7vw, 3rem);
 }
 
 h3 {
     font-family: $font-title;
-    @extend .heading-xxl;
     letter-spacing: 2px;
+    font-size: clamp(3.5rem, 5vw, 10rem);
+    @include breakpoint('small') {
+        font-size: clamp(5rem, 5vw, 10rem);
+    }
+    @include breakpoint('large') {
+        font-size: clamp(10rem, 5vw, 10rem);
+    }
 }
 
 h4 {
-    @extend .heading-md,
-            .text-center;
+    @extend .text-center;
     font-weight: 600;
     color: $color-dark;
     font-family: $font-title;
@@ -405,8 +772,8 @@ h4 {
 h5 {
     font-family: $font-title;
     color: $color-dark;
-    @extend .heading-lg,
-            .text-center;
+    font-size: clamp(3rem, 7vw, 3rem);
+    @extend .text-center;
 }
 
 h6 {
@@ -441,7 +808,8 @@ a {
         &:after {
             content: '';
             @extend .block;
-            border-bottom: 2px solid $color-light;
+            border-bottom: 2px solid;
+            border-color: $color-light;
             transform: scaleX(0);  
             transform-origin: 0% 50%;
             transition: transform 250ms ease-in-out;
@@ -457,7 +825,8 @@ a {
         }
         &.hover-state-dark {
             &:after {
-                border-bottom: 2px solid $color-dark;
+                border-bottom: 2px solid;
+                border-color: $color-dark;
             }
             &:focus {
                 @include outline-styles();
@@ -565,7 +934,8 @@ a {
             }
         }
     }
-    &__to-top {
+    &__to-top,
+    &__accessibility {
         bottom: 2rem;
         right: 2rem;
         z-index: 5;
@@ -576,7 +946,11 @@ a {
             outline: 3px solid $color-light;
             outline-offset: 1px; 
         }
-    }    
+    }
+    &__accessibility {
+        left: 2rem;
+        right: initial;
+    }
 }
 
 .inverted {
@@ -588,7 +962,6 @@ a {
         @include background-color-transition();
     }
 }
-
 
 // --- Inputs ------------------------- //
 label {
@@ -639,7 +1012,6 @@ header {
         #minute,
         #second {
             @extend .absolute;
-            background: $color-light;
             border-radius: 10px;
             transform-origin: bottom;
         }
@@ -919,12 +1291,14 @@ header {
     &__light {
         color: $color-light;
         @extend .text-center;
+        text-shadow: 3px 1px $color-dark;
     }
     &__dark {
         color: $color-dark;
         @extend .relative;
         bottom: 1rem;
         left: 6.4rem;
+        text-shadow: 3px 2px $color-light;
     }
     @include breakpoint('small') {
         &__accent {
@@ -957,7 +1331,7 @@ header {
             @extend .absolute;
             @include width-height-100();
             @include absolute-top();
-            background: #fff;
+            background: $color-white;
             z-index: 5;
         }
         .modal {
@@ -975,14 +1349,14 @@ header {
             }
             .technology {
                 background: $color-medium;
-                padding: 6rem;
+                padding: $wrapper--xlarge 0;
                 ul {
                     margin: 2rem auto 0 auto;
                     @include display-grid();
                     width: 300px;
                     grid-template-columns: repeat(5,1fr);
                     li {
-                        background: #fff;
+                        background: $color-white;
                         border-radius: 5px;
                         width: 50px;
                         height: 50px;
@@ -1000,10 +1374,6 @@ header {
             }
             &__dark {
                 bottom: 0rem;
-                text-shadow: 3px 2px $color-light;
-            }
-            &__light {
-                text-shadow: 3px 1px $color-dark;
             }
         }
     }
@@ -1020,6 +1390,7 @@ header {
                     max-width: 900px;
                 }
                 .technology {
+                    padding: 6rem;
                     h4 {
                         font-size: clamp(2rem, 7vw, 2rem);
                     }
@@ -1127,24 +1498,28 @@ header {
     margin-bottom: $wrapper--xlarge;
 }
 
+@include breakpoint('medium') {
+    .image-slider {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+}
+
+
 .container {
     @extend .relative;
-    width: 400px;
     height: 250px;
+    width: calc(100% - 4rem);
     border: 2px solid $color-dark;
-    margin-top: 4rem;
-    &.margin-left {
-        margin-left: $wrapper--xlarge;
-    }
-    &.margin-right {
-        margin-right: $wrapper--xlarge;
-        margin-left: auto;
-    }
+    margin: 4rem auto 0 auto;
     .img {
         @extend .absolute;
         @include width-height-100();
         @include top-left-0();
         background-size: 400px 100%;
+        img {
+            object-fit: cover;
+        }
     }
     .foreground-img {
       width: 50%;
@@ -1152,6 +1527,12 @@ header {
     @include breakpoint('large') {
         width: 900px;
         height: 600px;
+        &.margin-left {
+            margin: $wrapper--xlarge 0;
+        }
+        &.margin-right {
+            margin: $wrapper--xlarge 0 $wrapper--xlarge auto;
+        }
         .img {
             background-size: 900px 100%;
         }
@@ -1238,7 +1619,7 @@ header {
                 border: 1px solid;
                 font-family: $font-base;
                 font-size: 1rem;
-                padding: 10px 30px;
+                padding: 10px;
                 @extend .inverted;
                 &.active {
                     @include color-light-background-dark();
@@ -1258,6 +1639,7 @@ header {
                 display: block;
                 button {
                     margin: 0 2rem;
+                    padding: 10px 30px;
                 }
             }
         }
@@ -1367,5 +1749,74 @@ footer {
                 order: initial;
             }
         }
+    }
+}
+
+
+// --- Accessibility Modal ------------------------- //
+.accessibility {
+    &__modal {
+        &.open {
+            .accessibility__icon-close {
+                display: block;
+                position: fixed;
+                bottom: 20rem;
+                left: 29rem;
+                z-index: 10;
+                &:hover {
+                    cursor: pointer;
+                }
+                &:before,
+                &:after {
+                    content: '';
+                    background: $color-dark;
+                    width: 2px;
+                    height: 13px;
+                    @include absolute-top();
+                }
+                &:before {
+                    @include rotate-negative-45();
+                }
+                &:after {
+                    @include rotate-positive-45();
+                }
+            }
+            dialog {
+            border-color: $color-dark;
+            padding: $wrapper--medium;
+            @extend .block;
+                position: fixed;
+                bottom: 2rem;
+                z-index: 9;
+                margin: 0 auto;
+                width: calc(100% - 2rem);
+                div {
+                    @include flex-column();
+                    h6 {
+                        color: $color-dark;
+                        margin-bottom: 10px;
+                    }
+                    &:first-of-type {
+                        margin-bottom: $wrapper--medium;
+                    }
+                    button:last-of-type {
+                        margin-top: 10px;
+                    }
+                }
+                @include breakpoint('medium') {
+                    left: 2rem;
+                    margin: 0;
+                    width: 460px;
+                    div {
+                        &:first-of-type {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__icon-close {
+        display: none;
     }
 }

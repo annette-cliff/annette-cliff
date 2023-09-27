@@ -330,7 +330,6 @@ const breadcrumbs = document.querySelectorAll('.breadcrumbs');
       breadcrumbs.forEach(breadcrumb => {
         breadcrumb.addEventListener('click', function() {
           localStorage.setItem("modalIsOpen", 'false');
-          console.log("clicked");
         });
 });
 

@@ -1,5 +1,7 @@
 // scripts/header.js 
 
+// const { access } = require("fs");
+
 
 // Analog Clock
 setInterval(() => {
@@ -73,3 +75,105 @@ const hiddenIconsHTML = hiddenImages.map(image =>`<img alt="${image.image.toLowe
                                     .join('');
 
 hiddenIcons.innerHTML += hiddenIconsHTML;
+
+
+
+// Accessibility Modal
+const accessibilityModal = document.getElementById('accessibilityModal');
+accessibilityModal.innerHTML += 
+`
+    <dialog>
+        <div>
+            <h6>Text Adjustments</h6>
+            <button id="textFontSize" class="button inverted">Increase Font Size</button>
+            <button id="textLineHeight" class="button inverted">Increase Line Height</button>
+        </div>
+        <div>
+            <h6>Color Adjustments</h6>
+            <button id="colorInvert" class="button inverted">Invert</button>
+            <button id="colorGrayscale" class="button inverted">Grayscale</button>
+        </div>
+    </dialog>
+`
+
+
+accessibilityModal.addEventListener('click', function(){
+    this.classList.toggle('open');
+})
+
+const fontSize = document.getElementById('textFontSize')
+const lineHeight = document.getElementById('textLineHeight')
+const colorInvert = document.getElementById('colorInvert')
+const colorGreyscale = document.getElementById('colorGrayscale')
+
+fontSize.addEventListener('click', function(){
+    if(this.classList.contains('active') && localStorage.getItem('increaseFontSize')) {
+        this.classList.remove('active');
+        document.body.classList.remove('accessibility__increase__font-size');
+        localStorage.setItem("increaseFontSize", 'false');
+    }
+    else {
+        this.classList.add('active');
+        document.body.classList.add('accessibility__increase__font-size');
+        localStorage.setItem("increaseFontSize", 'true');
+    }
+});
+
+lineHeight.addEventListener('click', function(){
+    if(this.classList.contains('active') && localStorage.getItem('increaseLineHeight')) {
+        this.classList.remove('active');
+        document.body.classList.remove('accessibility__increase__line-height');
+        localStorage.setItem("increaseLineHeight", 'false');
+    }
+    else {
+        this.classList.add('active');
+        document.body.classList.add('accessibility__increase__line-height');
+        localStorage.setItem("increaseLineHeight", 'true');
+    }
+});
+
+colorInvert.addEventListener('click', function(){
+    if(this.classList.contains('active') && localStorage.getItem('colorInvert')) {
+        this.classList.remove('active');
+        document.body.classList.remove('accessibility__color__invert');
+        localStorage.setItem("colorInvert", 'false');
+    }
+    else {
+        this.classList.add('active');
+        document.body.classList.add('accessibility__color__invert');
+        localStorage.setItem("colorInvert", 'true');
+    }
+});
+
+colorGreyscale.addEventListener('click', function(){
+    if(this.classList.contains('active') && localStorage.getItem('colorGreyscale')) {
+        this.classList.remove('active');
+        document.body.classList.remove('accessibility__color__greyscale');
+        localStorage.setItem("colorGreyscale", 'false');
+    }
+    else {
+        this.classList.add('active');
+        document.body.classList.add('accessibility__color__greyscale');
+        localStorage.setItem("colorGreyscale", 'true');
+    }
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem('increaseFontSize') === 'true') {
+        fontSize.classList.add('active');
+        document.body.classList.add('accessibility__increase__font-size');
+    }
+    if(localStorage.getItem('increaseLineHeight')  === 'true') {
+        lineHeight.classList.add('active');
+        document.body.classList.toggle('accessibility__increase__line-height');
+    }
+    if(localStorage.getItem('colorInvert')  === 'true') {
+        colorInvert.classList.add('active');
+        document.body.classList.toggle('accessibility__color__invert');
+    }
+    if(localStorage.getItem('colorGreyscale')  === 'true') {
+        colorGreyscale.classList.add('active');
+        document.body.classList.toggle('accessibility__color__greyscale');
+    }
+});
