@@ -409,13 +409,7 @@ body {
                     border-color: $color-light;
                 }
                 video {
-                    &::-webkit-media-controls-timeline-container {
-                        background: $color-light;
-                        color: $color-light;
-                    }
-                    &::-webkit-media-controls-panel {
-                        background: $color-light;
-                    }
+                    background: $color-light;
                 }
                 footer {
                     @include color-dark-background-light();
@@ -512,6 +506,9 @@ body {
                 h2 {
                     color: $color-black;
                 }
+                video {
+                    background: $color-white;
+                }
                 .portfolio {
                     &__modal {
                         .technology {
@@ -519,9 +516,6 @@ body {
                             h4 {
                                 color: $color-black;
                             }
-                        }
-                        &.modal-is-visible {
-                            background: $color-black;
                         }
                     }
                 }
@@ -548,15 +542,6 @@ body {
                                 background: $color-black;
                             }
                         }
-                    }
-                }
-                video {
-                    &::-webkit-media-controls-timeline-container {
-                        background: $color-black;
-                        color: $color-black;
-                    }
-                    &::-webkit-media-controls-panel {
-                        background: $color-white;
                     }
                 }
                 header #clock {
@@ -707,14 +692,7 @@ img {
 video {
     max-width: 100%;
     width: 100vw;
-    &::-webkit-media-controls-timeline-container {
-        border: 2px solid $color-dark;
-        background: $color-light;
-        padding: 10px;
-    }
-    &::-webkit-media-controls-panel {
-        background: $color-dark;
-    }
+    background: $color-dark;
 }
 
 main {
@@ -1327,13 +1305,6 @@ header {
         @include flex-column();
     }
     &__modal {
-        &.modal-is-visible {
-            @extend .absolute;
-            @include width-height-100();
-            @include absolute-top();
-            background: $color-white;
-            z-index: 5;
-        }
         .modal {
             .video {
                 padding-bottom: 12rem;

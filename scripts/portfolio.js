@@ -175,7 +175,7 @@ for (const modal of portfolioContent) {
   const modalHTML = `
     <div class="modal hide" data-modal="${modalId}">
       <div class="video">
-        <video width="1440" height="500" controls>
+        <video width="1440" height="500" controls muted>
           <source src="${modal.video}" type="video/mp4">
           <source src="${modal.video}" type="video/ogg">
         </video>
@@ -268,6 +268,9 @@ const triggerModal = document.querySelectorAll('[data-trigger-modal]');
 const toggleModal = (modalTrigger) => {
   const theModal = document.querySelector(`[data-modal="${modalTrigger}"]`);
   const thePortfolioGrid = document.querySelector('#portfolioGrid');
+  const theAboutSection = document.querySelector('#about');
+  const theClientsSection = document.querySelector('#clients');
+  const theContactSection = document.querySelector('#contact');
 
   if (theModal) {
     const isHidden = theModal.style.display === 'none' || theModal.style.display === '';
@@ -275,7 +278,9 @@ const toggleModal = (modalTrigger) => {
     theModal.style.display = isHidden ? 'block' : 'none';
     thePortfolioGrid.style.display = isHidden ? 'none' : 'block';
     theModal.classList.toggle('hide');
-    portfolioModal.classList.toggle('modal-is-visible');
+    theAboutSection.style.display = isHidden ? 'none' : 'block';
+    theClientsSection.style.display = isHidden ? 'none' : 'block';
+    theContactSection.style.display = isHidden ? 'none' : 'block';
     portfolioModal.setAttribute('aria-hidden', !isHidden);
     localStorage.setItem("modalIsOpen", isHidden ? modalTrigger : 'false');
   }
@@ -319,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
       theClientsSection.style.display = 'none';
       theContactSection.style.display = 'none';
       theModal.classList.remove('hide');
-      theModal.classList.add('modal-is-visible');
       theModal.setAttribute('aria-hidden', false);
     } 
   });

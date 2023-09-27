@@ -82,7 +82,7 @@ table {
 header #clock #minute,
 header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 .logo span:before,
-.logo span:after, #about #banner #hiddenIcons, .title__accent, .portfolio__modal.modal-is-visible, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, .container .img, .slider, footer:before, footer:after {
+.logo span:after, #about #banner #hiddenIcons, .title__accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, .container .img, .slider, footer:before, footer:after {
   position: absolute;
 }
 
@@ -290,12 +290,7 @@ body.accessibility__color__invert .breadcrumbs a.has-hover-state.hover-state-dar
   border-color: #E2ECFB;
 }
 
-body.accessibility__color__invert video::-webkit-media-controls-timeline-container {
-  background: #E2ECFB;
-  color: #E2ECFB;
-}
-
-body.accessibility__color__invert video::-webkit-media-controls-panel {
+body.accessibility__color__invert video {
   background: #E2ECFB;
 }
 
@@ -413,16 +408,16 @@ body.accessibility__color__greyscale h2 {
   color: #222;
 }
 
+body.accessibility__color__greyscale video {
+  background: #fff;
+}
+
 body.accessibility__color__greyscale .portfolio__modal .technology {
   background: #ADAAAA;
 }
 
 body.accessibility__color__greyscale .portfolio__modal .technology h4 {
   color: #222;
-}
-
-body.accessibility__color__greyscale .portfolio__modal.modal-is-visible {
-  background: #222;
 }
 
 body.accessibility__color__greyscale .grid-item .plus {
@@ -448,15 +443,6 @@ body.accessibility__color__greyscale .grid-item:hover .plus {
 
 body.accessibility__color__greyscale .grid-item:hover .plus:before, body.accessibility__color__greyscale .grid-item:hover .plus:after {
   background: #222;
-}
-
-body.accessibility__color__greyscale video::-webkit-media-controls-timeline-container {
-  background: #222;
-  color: #222;
-}
-
-body.accessibility__color__greyscale video::-webkit-media-controls-panel {
-  background: #fff;
 }
 
 body.accessibility__color__greyscale header #clock {
@@ -626,15 +612,6 @@ img {
 video {
   max-width: 100%;
   width: 100vw;
-}
-
-video::-webkit-media-controls-timeline-container {
-  border: 2px solid #084DB5;
-  background: #E2ECFB;
-  padding: 10px;
-}
-
-video::-webkit-media-controls-panel {
   background: #084DB5;
 }
 
@@ -1286,15 +1263,6 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.portfolio__modal.modal-is-visible {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  background: #fff;
-  z-index: 5;
 }
 
 .portfolio__modal .modal .video {
