@@ -4,74 +4,74 @@
 var portfolioContent = [
     { 
         title: 'Jamie Wolf',
-        desktop_image: '/assets/jamie-wolf/desktop.png',
-        mobile_image: '/assets/jamie-wolf/mobile.png',
+        desktop_image: '../assets/jamie-wolf/desktop.png',
+        mobile_image: '../assets/jamie-wolf/mobile.png',
         title_first: 'Jamie',
         title_second: 'Wolf',
-        video: '/assets/jamie-wolf/video.mov',
+        video: '../assets/jamie-wolf/video.mov',
         quote: "<p>This was a 'redesign project' which included creating a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the new design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the jewelry so we created unique sections with repeating blocks that were used to loop through the images, call to action text, and links. On the collection template, we looped through all products in the collection and displayed a featured image (using a collection metafield) after X number of products. We also updated the navigation by adding a dropdown so that users could easily find the contact information.</p>",
-        image_1: '/assets/jamie-wolf/image_1.png',
-        code_1: '/assets/jamie-wolf/code_1.png',
-        image_2: '/assets/jamie-wolf/image_2.png',
-        code_2: '/assets/jamie-wolf/code_2.png',
-        image_3: '/assets/jamie-wolf/image_3.png',
-        code_3: '/assets/jamie-wolf/code_3.png',
-        image_4: '/assets/jamie-wolf/image_4.png',
-        code_4: '/assets/jamie-wolf/code_4.png',
+        image_1: '../assets/jamie-wolf/image_1.png',
+        code_1: '../assets/jamie-wolf/code_1.png',
+        image_2: '../assets/jamie-wolf/image_2.png',
+        code_2: '../assets/jamie-wolf/code_2.png',
+        image_3: '../assets/jamie-wolf/image_3.png',
+        code_3: '../assets/jamie-wolf/code_3.png',
+        image_4: '../assets/jamie-wolf/image_4.png',
+        code_4: '../assets/jamie-wolf/code_4.png',
         url: 'https://jamiewolf.com/'
     },
     { 
         title: 'Our Lady of Rocco', 
-        desktop_image: '/assets/our-lady-of-rocco/desktop.png',
-        mobile_image: '/assets/our-lady-of-rocco/mobile.png',
+        desktop_image: '../assets/our-lady-of-rocco/desktop.png',
+        mobile_image: '../assets/our-lady-of-rocco/mobile.png',
         title_first: 'Our Lady',
         title_second: 'of Rocco',
-        video: '/assets/our-lady-of-rocco/video.mov',
+        video: '../assets/our-lady-of-rocco/video.mov',
         quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media size. Additionally, we created the functionality to 'Quick Add' a product to cart on the collections and homepage using a snippet to include on the appropriate templates.</p>",
-        image_1: '/assets/our-lady-of-rocco/image_1.png',
-        code_1: '/assets/our-lady-of-rocco/code_1.png',
-        image_2: '/assets/our-lady-of-rocco/image_2.png',
-        code_2: '/assets/our-lady-of-rocco/code_2.png',
-        image_3: '/assets/our-lady-of-rocco/image_3.png',
-        code_3: '/assets/our-lady-of-rocco/code_3.png',
-        image_4: '/assets/our-lady-of-rocco/image_4.png',
-        code_4: '/assets/our-lady-of-rocco/code_4.png',
+        image_1: '../assets/our-lady-of-rocco/image_1.png',
+        code_1: '../assets/our-lady-of-rocco/code_1.png',
+        image_2: '../assets/our-lady-of-rocco/image_2.png',
+        code_2: '../assets/our-lady-of-rocco/code_2.png',
+        image_3: '../assets/our-lady-of-rocco/image_3.png',
+        code_3: '../assets/our-lady-of-rocco/code_3.png',
+        image_4: '../assets/our-lady-of-rocco/image_4.png',
+        code_4: '../assets/our-lady-of-rocco/code_4.png',
         url: 'https://ourladyofrocco.com/'
     },
     { 
         title: 'Puppets & Puppets', 
-        desktop_image: '/assets/puppets-and-puppets/desktop.png',
-        mobile_image: '/assets/puppets-and-puppets/mobile.png',
+        desktop_image: '../assets/puppets-and-puppets/desktop.png',
+        mobile_image: '../assets/puppets-and-puppets/mobile.png',
         title_first: 'Puppets &',
         title_second: 'Puppets',
-        video: '/assets/puppets-and-puppets/video.mov',
+        video: '../assets/puppets-and-puppets/video.mov',
         quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
-        image_1: '/assets/puppets-and-puppets/image_1.png',
-        code_1: '/assets/puppets-and-puppets/code_1.png',
-        image_2: '/assets/puppets-and-puppets/image_2.png',
-        code_2: '/assets/puppets-and-puppets/code_2.png',
-        image_3: '/assets/puppets-and-puppets/image_3.png',
-        code_3: '/assets/puppets-and-puppets/code_3.png',
-        image_4: '/assets/puppets-and-puppets/image_4.png',
-        code_4: '/assets/puppets-and-puppets/code_4.png',
+        image_1: '../assets/puppets-and-puppets/image_1.png',
+        code_1: '../assets/puppets-and-puppets/code_1.png',
+        image_2: '../assets/puppets-and-puppets/image_2.png',
+        code_2: '../assets/puppets-and-puppets/code_2.png',
+        image_3: '../assets/puppets-and-puppets/image_3.png',
+        code_3: '../assets/puppets-and-puppets/code_3.png',
+        image_4: '../assets/puppets-and-puppets/image_4.png',
+        code_4: '../assets/puppets-and-puppets/code_4.png',
         url: 'https://puppetsandpuppets.com/'
     },
     { 
         title: 'Mimi So',
-        desktop_image: '/assets/mimi-so/desktop.png',
-        mobile_image: '/assets/mimi-so/mobile.png',
+        desktop_image: '../assets/mimi-so/desktop.png',
+        mobile_image: '../assets/mimi-so/mobile.png',
         title_first: 'Mimi',
         title_second: 'So',
-        video: '/assets/mimi-so/video.mov',
+        video: '../assets/mimi-so/video.mov',
         quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the jewlery in addition to providing insight into Mimi So's story. We included an Instagram module to highlight the latest posts which feature new pieces.</p>",
-        image_1: '/assets/mimi-so/image_1.png',
-        code_1: '/assets/mimi-so/code_1.png',
-        image_2: '/assets/mimi-so/image_2.png',
-        code_2: '/assets/mimi-so/code_2.png',
-        image_3: '/assets/mimi-so/image_3.png',
-        code_3: '/assets/mimi-so/code_3.png',
-        image_4: '/assets/mimi-so/image_4.png',
-        code_4: '/assets/mimi-so/code_4.png',
+        image_1: '../assets/mimi-so/image_1.png',
+        code_1: '../assets/mimi-so/code_1.png',
+        image_2: '../assets/mimi-so/image_2.png',
+        code_2: '../assets/mimi-so/code_2.png',
+        image_3: '../assets/mimi-so/image_3.png',
+        code_3: '../assets/mimi-so/code_3.png',
+        image_4: '../assets/mimi-so/image_4.png',
+        code_4: '../assets/mimi-so/code_4.png',
         url: 'https://mimiso.com/'
     }
 ]
@@ -182,7 +182,7 @@ for (const modal of portfolioContent) {
       </div>
       <navigation class="breadcrumbs">
         <ul>
-          <li><a class="home has-hover-state hover-state-dark" href="/layout/index.html" title="Navigate back to the home page">Home</a><span> / </span></li>
+          <li><a class="home has-hover-state hover-state-dark" href="../layout/index.html" title="Navigate back to the home page">Home</a><span> / </span></li>
           <li>${modal.title}</li>
         </ul>
       </navigation>
@@ -230,23 +230,23 @@ sliders.forEach((slider, index) => {
 const techStackWithImages = [
   {
     tech_name: 'Shopify',
-    tech_image: '/assets/technology/shopify.webp'
+    tech_image: '../assets/technology/shopify.webp'
   },
   {
     tech_name: 'Liquid',
-    tech_image: '/assets/technology/liquid.png'
+    tech_image: '../assets/technology/liquid.png'
   },
   {
     tech_name: 'SCSS',
-    tech_image: '/assets/technology/css.webp'
+    tech_image: '../assets/technology/css.webp'
   },
   {
     tech_name: 'jQuery',
-    tech_image: '/assets/technology/jquery.png'
+    tech_image: '../assets/technology/jquery.png'
   },
   {
     tech_name: 'GitHub',
-    tech_image: '/assets/technology/github.png'
+    tech_image: '../assets/technology/github.png'
   }
 ]
 const techStackHTML = techStackWithImages

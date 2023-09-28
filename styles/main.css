@@ -1116,7 +1116,7 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
 }
 
 #about #banner:hover {
-  cursor: url("/assets/icons/magnifying-glass.svg"), auto;
+  cursor: url("../assets/icons/magnifying-glass.svg"), auto;
 }
 
 #about #banner .wrapper {
@@ -1404,7 +1404,7 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
 }
 
 .grid-item:hover {
-  cursor: url("/assets/icons/plus.svg"), auto;
+  cursor: url("../assets/icons/plus.svg"), auto;
 }
 
 .grid-item:hover:after {
@@ -1648,7 +1648,7 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
 }
 
 #contact button:hover {
-  cursor: url("/assets/icons/icon-mail.svg"), auto;
+  cursor: url("../assets/icons/icon-mail.svg"), auto;
 }
 
 @media (min-width: 767px) {

@@ -30,7 +30,7 @@ var footerMenus = [
     { 
         menu: 'menu_2',
         title: 'Resume', 
-        url: '/assets/AnnetteCliff_Resume.pdf' 
+        url: '../assets/AnnetteCliff_Resume.pdf' 
     }
 ];
 

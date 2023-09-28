@@ -1,7 +1,5 @@
 // scripts/header.js 
 
-// const { access } = require("fs");
-
 
 // Analog Clock
 setInterval(() => {
