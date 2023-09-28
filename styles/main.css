@@ -82,7 +82,7 @@ table {
 header #clock #minute,
 header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 .logo span:before,
-.logo span:after, #about #banner #hiddenIcons, .title__accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, .container .img, .slider, footer:before, footer:after {
+.logo span:after, .title__accent, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, .container .img, .slider, footer:before, footer:after {
   position: absolute;
 }
 
@@ -104,7 +104,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           justify-content: space-evenly;
 }
 
-.justify-center, header #clock .grid span.span-2, header #clock #about #banner #hiddenIcons span.span-2, #about #banner header #clock #hiddenIcons span.span-2, .grid-item, .grid-item:hover h4, .slider {
+.justify-center, header #clock .grid span.span-2, .grid-item, .grid-item:hover h4, .slider {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -140,30 +140,20 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
       align-self: center;
 }
 
-.object-fit-contain, #about #banner #hiddenIcons .icon, .grid-item img, .client__slideshow .slide img {
+.object-fit-contain, .grid-item img, .client__slideshow .slide img {
   -o-object-fit: contain;
      object-fit: contain;
 }
 
-.grid, #about #banner #hiddenIcons {
+.grid {
   display: -ms-grid;
   display: grid;
 }
 
-.grid__columns-4 {
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-}
-
-.grid .span-2, #about #banner #hiddenIcons .span-2 {
+.grid .span-2 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
-}
-
-.columns-4, #about #banner #hiddenIcons {
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
 }
 
 .span-2 {
@@ -268,9 +258,24 @@ body.accessibility__color__invert .title__dark {
   text-shadow: 3px 1px #084DB5;
 }
 
+body.accessibility__color__invert input,
+body.accessibility__color__invert textarea {
+  background: #E2ECFB;
+}
+
+body.accessibility__color__invert input:focus,
+body.accessibility__color__invert textarea:focus {
+  background: #fff;
+}
+
 body.accessibility__color__invert header,
 body.accessibility__color__invert #about #banner {
   background: #E2ECFB;
+}
+
+body.accessibility__color__invert #about #banner #hiddenIcons .icon {
+  -webkit-filter: invert(0);
+          filter: invert(0);
 }
 
 body.accessibility__color__invert h2 {
@@ -391,6 +396,28 @@ body.accessibility__color__invert .button__wrapper button:hover {
   border-color: #E2ECFB;
 }
 
+body.accessibility__color__invert .grid-item:hover {
+  cursor: url("../assets/icons/plus-dark.svg"), auto;
+}
+
+body.accessibility__color__invert .grid-item:hover h4 {
+  color: #084DB5;
+}
+
+body.accessibility__color__invert .grid-item:hover .plus {
+  border: 1px solid #084DB5;
+}
+
+body.accessibility__color__invert .grid-item:hover:after {
+  background: #E2ECFB;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__color__invert #about #banner:hover {
+    cursor: url("../assets/icons/magnifying-glass-dark.svg"), auto;
+  }
+}
+
 body.accessibility__color__greyscale {
   background: #222;
 }
@@ -410,6 +437,11 @@ body.accessibility__color__greyscale h2 {
 
 body.accessibility__color__greyscale video {
   background: #fff;
+}
+
+body.accessibility__color__greyscale #about #banner #hiddenIcons .icon {
+  -webkit-filter: invert(0);
+          filter: invert(0);
 }
 
 body.accessibility__color__greyscale .portfolio__modal .technology {
@@ -434,6 +466,10 @@ body.accessibility__color__greyscale .grid-item:after {
 
 body.accessibility__color__greyscale .grid-item h4 {
   color: #222;
+}
+
+body.accessibility__color__greyscale .grid-item:hover {
+  cursor: url("../assets/icons/plus-black.svg"), auto;
 }
 
 body.accessibility__color__greyscale .grid-item:hover .plus {
@@ -604,6 +640,12 @@ body.accessibility__color__greyscale a {
   color: #fff;
 }
 
+@media (min-width: 767px) {
+  body.accessibility__color__greyscale #about #banner:hover {
+    cursor: url("../assets/icons/magnifying-glass-black.svg"), auto;
+  }
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -631,7 +673,7 @@ video {
   }
 }
 
-.text-center, h4, h5, .button__wrapper, header, header #clock .grid, header #clock #about #banner #hiddenIcons, #about #banner header #clock #hiddenIcons, .title__light, .client p, .client__slideshow-buttons, #contact h5, footer .footer__logo, footer copyright {
+.text-center, h4, h5, .button__wrapper, header, header #clock .grid, .title__light, .client p, .client__slideshow-buttons, #contact h5, footer .footer__logo, footer copyright {
   text-align: center;
 }
 
@@ -888,6 +930,7 @@ textarea {
   border-radius: 2px;
   padding: 0.8rem;
   font-family: "Anonymous Pro";
+  color: #084DB5;
 }
 
 input:focus,
@@ -964,13 +1007,13 @@ header #clock #second {
   opacity: 0.8;
 }
 
-header #clock .grid, header #clock #about #banner #hiddenIcons, #about #banner header #clock #hiddenIcons {
+header #clock .grid {
   font-size: 12px;
   height: 100%;
   padding: 3px;
 }
 
-header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about #banner header #clock #hiddenIcons span {
+header #clock .grid span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1084,39 +1127,7 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
 }
 
 #about #banner #hiddenIcons {
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-  grid-column-gap: 1rem;
-}
-
-#about #banner #hiddenIcons .icon {
-  width: 70px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  opacity: 0;
-}
-
-#about #banner #hiddenIcons .icon:hover {
-  opacity: 1;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-  -webkit-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
-}
-
-#about #banner #hiddenIcons .icon:nth-child(odd) {
-  height: 41%;
-  margin-top: -5rem;
-}
-
-#about #banner #hiddenIcons .icon:nth-child(even) {
-  height: 75%;
-  margin-top: -3rem;
-}
-
-#about #banner:hover {
-  cursor: url("../assets/icons/magnifying-glass.svg"), auto;
+  display: none;
 }
 
 #about #banner .wrapper {
@@ -1172,9 +1183,6 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
   #about #banner {
     padding-top: 0rem;
   }
-  #about #banner #hiddenIcons {
-    grid-column-gap: 4rem;
-  }
   #about #banner .wrapper {
     max-width: 1500px;
     margin: 0 auto;
@@ -1190,23 +1198,51 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
   #about #banner .wrapper img {
     width: 600px;
   }
+  #about #banner:hover {
+    cursor: url("../assets/icons/magnifying-glass.svg"), auto;
+  }
+  #about #banner #hiddenIcons {
+    position: absolute;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (23%)[3];
+        grid-template-columns: repeat(3, 23%);
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    grid-column-gap: 1rem;
+    padding: 0 5rem;
+  }
+  #about #banner #hiddenIcons .icon {
+    width: 75px;
+    height: 100%;
+    -webkit-filter: invert(1);
+            filter: invert(1);
+    opacity: 0;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+  }
+  #about #banner #hiddenIcons .icon:hover {
+    opacity: 1;
+    -webkit-transition: opacity 0.25s;
+    transition: opacity 0.25s;
+    -webkit-transition: opacity 0.25s ease-in;
+    transition: opacity 0.25s ease-in;
+  }
+  #about #banner #hiddenIcons .icon:nth-child(odd) {
+    top: -2rem;
+    right: -5rem;
+  }
+  #about #banner #hiddenIcons .icon:nth-child(even) {
+    top: -2rem;
+    left: -1rem;
+  }
 }
 
 @media (min-width: 1024px) {
   #about {
     margin-bottom: 12rem;
-  }
-  #about #banner #hiddenIcons {
-    padding: 0 5rem;
-    grid-column-gap: 13rem;
-  }
-  #about #banner #hiddenIcons .icon:nth-child(odd) {
-    height: 80%;
-    margin-top: 0;
-  }
-  #about #banner #hiddenIcons .icon:nth-child(even) {
-    height: 25%;
-    margin-top: 0;
   }
 }
 
@@ -1645,10 +1681,6 @@ header #clock .grid span, header #clock #about #banner #hiddenIcons span, #about
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-#contact button:hover {
-  cursor: url("../assets/icons/icon-mail.svg"), auto;
 }
 
 @media (min-width: 767px) {
