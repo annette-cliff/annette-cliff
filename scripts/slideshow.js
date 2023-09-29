@@ -153,12 +153,6 @@ const clientSlideshow = [
         logo: '../assets/clients/adios-textbook-logo.png'
     },
     {
-        client_name: 'Blacksburg Bagels',
-        agency: "Personal",
-        url: 'https://www.blacksburgbagels.com/',
-        logo: '../assets/clients/blacksburg-bagels-logo.jpeg'
-    },
-    {
         client_name: 'Grace Cliff',
         agency: "Personal",
         url: 'https://grace-cliff.github.io/grace-cliff/layout/portfolio.html',
