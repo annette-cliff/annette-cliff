@@ -1,11 +1,11 @@
 ### Annette Cliff 
 
-## Structure:
-- assets
+# Structure:
+- Assets
     - contains image assets
-- layout 
+- Layout 
     - contains index.html
-- scripts
+- Scripts
     - contains all script files
-- styles 
+- Styles 
     - contains all style files
