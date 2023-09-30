@@ -21,6 +21,12 @@ const clientSlideshow = [
         logo: '../assets/clients/veracity-logo.svg'
     },
     {
+        client_name: 'Jamie Wolf',
+        agency: "Lemonade",
+        url: 'https://jamiewolf.com/',
+        logo: '../assets/clients/jamie-wolf-logo.avif'
+    },
+    {
         client_name: 'Kelle',
         agency: "Lemonade",
         url: 'https://kellecompany.com/',
@@ -43,6 +49,12 @@ const clientSlideshow = [
         agency: "Lemonade",
         url: 'https://hindash.com/',
         logo: '../assets/clients/hindash-logo.png'
+    },
+    {
+        client_name: 'Mimi So',
+        agency: "Lemonade",
+        url: 'https://mimiso.com/',
+        logo: '../assets/clients/mimi-so-logo.avif'
     },
     {
         client_name: 'Two Minds',
