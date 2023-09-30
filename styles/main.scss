@@ -324,7 +324,6 @@ body {
             }
         }
     }
-    // TODO: add styles for inverted and greyscale (right now greyscale overrides in this combo)
     &.accessibility__color__invert {
         &.accessibility__color__greyscale {
             .modal {
@@ -339,19 +338,47 @@ body {
     &.accessibility {
         &__increase {
             &__font-size {
-              *:not(.title__accent):not(.title__dark):not(.title__light) {
-                font-size: xx-large !important;
+                h5,
+                h4 {
+                    font-size: clamp(5rem, 5vw, 5rem);
+                }
+                #about #banner .wrapper h2 {
+                    font-size: clamp(4rem, 4vw, 4rem) !important;
+                    line-height: 4rem;
+                }
+              *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
+                font-size: x-large !important;
               }
               dialog button {
                 @extend .width-100;
               }
               .accessibility__modal.open .accessibility__icon-close {
+                left: calc(100% - 3rem);
+                bottom: 15rem;
                 &:before,
                 &:after {
                     width: 3px;
                     height: 30px;
                     top: -12rem;
                 }
+              }
+              @include breakpoint('medium') {
+                .accessibility__modal.open .accessibility__icon-close {
+                    bottom: 20rem;
+                    left: 29rem;
+                }
+                #about #banner .wrapper h2 {
+                    width: 50%;
+                    line-height: 6rem;
+                }
+                 h5,
+                 #about #banner .wrapper h2,
+                 h4 {
+                    font-size: clamp(6rem, 6vw, 6rem) !important;
+                }
+                *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
+                    font-size: xx-large !important;
+                  }
               }
             }
             &__line-height {
@@ -473,6 +500,12 @@ body {
                             outline-color: $color-light;
                         }
                     }
+                    &.slideshow-button {
+                        &:hover {
+                            background: $color-light !important;
+                            color: $color-dark !important;
+                        }
+                    }
                     &__accessibility,
                     &__to-top {
                         &:hover {
@@ -483,6 +516,7 @@ body {
                 }
                 .button__wrapper {
                     a {
+                        @include background-light-color-dark();
                         border: 1px solid $color-light;
                     }
                     button {
@@ -491,19 +525,30 @@ body {
                     a,
                     button {
                         &:hover {
-                            @include background-light-color-dark();
+                            @include background-dark-color-light();
                             border-color: $color-light;
                         }
                     }
                 }
                 .grid-item {
+                    .plus {
+                        @include background-light-color-dark();
+                        &:before,
+                        &:after {
+                            background: $color-dark;
+                        }
+                    }
                     &:hover {
                         cursor: url('../assets/icons/plus-dark.svg'), auto;
                         h4 {
                             color: $color-dark;
                         }
                         .plus {
-                            border: 1px solid $color-dark;
+                            @include background-dark-color-light();
+                            &:before,
+                            &:after {
+                                background: $color-light;
+                            }
                         }
                         &:after {
                             background: $color-light;
@@ -760,7 +805,12 @@ h1 {
 h2 {
     font-family: $font-title;
     color: $color-light;
-    font-size: clamp(3rem, 7vw, 3rem);
+    line-height: 3rem;
+    font-size: clamp(2.5rem, 2.5vw, 2.5rem);
+    @include breakpoint('large') {
+        line-height: 6rem;
+        font-size: clamp(5rem, 5vw, 5rem);
+    }
 }
 
 h3 {

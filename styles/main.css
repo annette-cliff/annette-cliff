@@ -216,14 +216,48 @@ body.accessibility__color__invert.accessibility__color__greyscale p {
   color: #fff;
 }
 
-body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light) {
-  font-size: xx-large !important;
+body.accessibility__increase__font-size h5,
+body.accessibility__increase__font-size h4 {
+  font-size: clamp(5rem, 5vw, 5rem);
+}
+
+body.accessibility__increase__font-size #about #banner .wrapper h2 {
+  font-size: clamp(4rem, 4vw, 4rem) !important;
+  line-height: 4rem;
+}
+
+body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
+  font-size: x-large !important;
+}
+
+body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
+  left: calc(100% - 3rem);
+  bottom: 15rem;
 }
 
 body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
   width: 3px;
   height: 30px;
   top: -12rem;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
+    bottom: 20rem;
+    left: 29rem;
+  }
+  body.accessibility__increase__font-size #about #banner .wrapper h2 {
+    width: 50%;
+    line-height: 6rem;
+  }
+  body.accessibility__increase__font-size h5,
+  body.accessibility__increase__font-size #about #banner .wrapper h2,
+  body.accessibility__increase__font-size h4 {
+    font-size: clamp(6rem, 6vw, 6rem) !important;
+  }
+  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
+    font-size: xx-large !important;
+  }
 }
 
 body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
@@ -374,6 +408,12 @@ body.accessibility__color__invert .button__wrapper a.inverted:focus-visible, .bu
   outline-color: #E2ECFB;
 }
 
+body.accessibility__color__invert .button.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__main-content:hover, body.accessibility__color__invert .button__wrapper button.slideshow-button:hover, .button__wrapper body.accessibility__color__invert button.slideshow-button:hover,
+body.accessibility__color__invert .button__wrapper a.slideshow-button:hover, .button__wrapper body.accessibility__color__invert a.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__to-top:hover, body.accessibility__color__invert .slideshow-button.button__accessibility:hover {
+  background: #E2ECFB !important;
+  color: #084DB5 !important;
+}
+
 body.accessibility__color__invert .button__accessibility:hover, body.accessibility__color__invert .button__to-top:hover {
   border-color: #084DB5;
   background: #E2ECFB;
@@ -381,6 +421,8 @@ body.accessibility__color__invert .button__accessibility:hover, body.accessibili
 }
 
 body.accessibility__color__invert .button__wrapper a {
+  background: #E2ECFB;
+  color: #084DB5;
   border: 1px solid #E2ECFB;
 }
 
@@ -391,9 +433,18 @@ body.accessibility__color__invert .button__wrapper button {
 
 body.accessibility__color__invert .button__wrapper a:hover,
 body.accessibility__color__invert .button__wrapper button:hover {
+  background: #084DB5;
+  color: #E2ECFB;
+  border-color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item .plus {
   background: #E2ECFB;
   color: #084DB5;
-  border-color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item .plus:before, body.accessibility__color__invert .grid-item .plus:after {
+  background: #084DB5;
 }
 
 body.accessibility__color__invert .grid-item:hover {
@@ -405,7 +456,12 @@ body.accessibility__color__invert .grid-item:hover h4 {
 }
 
 body.accessibility__color__invert .grid-item:hover .plus {
-  border: 1px solid #084DB5;
+  background: #084DB5;
+  color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item:hover .plus:before, body.accessibility__color__invert .grid-item:hover .plus:after {
+  background: #E2ECFB;
 }
 
 body.accessibility__color__invert .grid-item:hover:after {
@@ -685,7 +741,15 @@ h1 {
 h2 {
   font-family: "Chonburi";
   color: #E2ECFB;
-  font-size: clamp(3rem, 7vw, 3rem);
+  line-height: 3rem;
+  font-size: clamp(2.5rem, 2.5vw, 2.5rem);
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    line-height: 6rem;
+    font-size: clamp(5rem, 5vw, 5rem);
+  }
 }
 
 h3 {
