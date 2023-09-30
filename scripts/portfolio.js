@@ -3,76 +3,76 @@
 
 var portfolioContent = [
     { 
-        title: 'Jamie Wolf',
-        desktop_image: '../assets/jamie-wolf/desktop.png',
-        mobile_image: '../assets/jamie-wolf/mobile.png',
-        title_first: 'Jamie',
-        title_second: 'Wolf',
-        video: '../assets/jamie-wolf/video.mov',
-        quote: "<p>This was a 'redesign project' which included creating a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the new design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the jewelry so we created unique sections with repeating blocks that were used to loop through the images, call to action text, and links. On the collection template, we looped through all products in the collection and displayed a featured image (using a collection metafield) after X number of products. We also updated the navigation by adding a dropdown so that users could easily find the contact information.</p>",
-        image_1: '../assets/jamie-wolf/image_1.png',
-        code_1: '../assets/jamie-wolf/code_1.png',
-        image_2: '../assets/jamie-wolf/image_2.png',
-        code_2: '../assets/jamie-wolf/code_2.png',
-        image_3: '../assets/jamie-wolf/image_3.png',
-        code_3: '../assets/jamie-wolf/code_3.png',
-        image_4: '../assets/jamie-wolf/image_4.png',
-        code_4: '../assets/jamie-wolf/code_4.png',
-        url: 'https://jamiewolf.com/'
+      title: 'Our Lady of Rocco', 
+      desktop_image: '../assets/our-lady-of-rocco/desktop.png',
+      mobile_image: '../assets/our-lady-of-rocco/mobile.png',
+      title_first: 'Our Lady',
+      title_second: 'of Rocco',
+      video: '../assets/our-lady-of-rocco/video.mov',
+      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media size. Additionally, we created the functionality to 'Quick Add' a product to cart on the collections and homepage using a snippet to include on the appropriate templates.</p>",
+      image_1: '../assets/our-lady-of-rocco/image_1.png',
+      code_1: '../assets/our-lady-of-rocco/code_1.png',
+      image_2: '../assets/our-lady-of-rocco/image_2.png',
+      code_2: '../assets/our-lady-of-rocco/code_2.png',
+      image_3: '../assets/our-lady-of-rocco/image_3.png',
+      code_3: '../assets/our-lady-of-rocco/code_3.png',
+      image_4: '../assets/our-lady-of-rocco/image_4.png',
+      code_4: '../assets/our-lady-of-rocco/code_4.png',
+      url: 'https://ourladyofrocco.com/'
     },
     { 
-        title: 'Our Lady of Rocco', 
-        desktop_image: '../assets/our-lady-of-rocco/desktop.png',
-        mobile_image: '../assets/our-lady-of-rocco/mobile.png',
-        title_first: 'Our Lady',
-        title_second: 'of Rocco',
-        video: '../assets/our-lady-of-rocco/video.mov',
-        quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media size. Additionally, we created the functionality to 'Quick Add' a product to cart on the collections and homepage using a snippet to include on the appropriate templates.</p>",
-        image_1: '../assets/our-lady-of-rocco/image_1.png',
-        code_1: '../assets/our-lady-of-rocco/code_1.png',
-        image_2: '../assets/our-lady-of-rocco/image_2.png',
-        code_2: '../assets/our-lady-of-rocco/code_2.png',
-        image_3: '../assets/our-lady-of-rocco/image_3.png',
-        code_3: '../assets/our-lady-of-rocco/code_3.png',
-        image_4: '../assets/our-lady-of-rocco/image_4.png',
-        code_4: '../assets/our-lady-of-rocco/code_4.png',
-        url: 'https://ourladyofrocco.com/'
+      title: 'Puppets & Puppets', 
+      desktop_image: '../assets/puppets-and-puppets/desktop.png',
+      mobile_image: '../assets/puppets-and-puppets/mobile.png',
+      title_first: 'Puppets &',
+      title_second: 'Puppets',
+      video: '../assets/puppets-and-puppets/video.mov',
+      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
+      image_1: '../assets/puppets-and-puppets/image_1.png',
+      code_1: '../assets/puppets-and-puppets/code_1.png',
+      image_2: '../assets/puppets-and-puppets/image_2.png',
+      code_2: '../assets/puppets-and-puppets/code_2.png',
+      image_3: '../assets/puppets-and-puppets/image_3.png',
+      code_3: '../assets/puppets-and-puppets/code_3.png',
+      image_4: '../assets/puppets-and-puppets/image_4.png',
+      code_4: '../assets/puppets-and-puppets/code_4.png',
+      url: 'https://puppetsandpuppets.com/'
     },
     { 
-        title: 'Puppets & Puppets', 
-        desktop_image: '../assets/puppets-and-puppets/desktop.png',
-        mobile_image: '../assets/puppets-and-puppets/mobile.png',
-        title_first: 'Puppets &',
-        title_second: 'Puppets',
-        video: '../assets/puppets-and-puppets/video.mov',
-        quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
-        image_1: '../assets/puppets-and-puppets/image_1.png',
-        code_1: '../assets/puppets-and-puppets/code_1.png',
-        image_2: '../assets/puppets-and-puppets/image_2.png',
-        code_2: '../assets/puppets-and-puppets/code_2.png',
-        image_3: '../assets/puppets-and-puppets/image_3.png',
-        code_3: '../assets/puppets-and-puppets/code_3.png',
-        image_4: '../assets/puppets-and-puppets/image_4.png',
-        code_4: '../assets/puppets-and-puppets/code_4.png',
-        url: 'https://puppetsandpuppets.com/'
+      title: 'Bethel China', 
+      desktop_image: '../assets/bethel-china/desktop.png',
+      mobile_image: '../assets/bethel-china/mobile.png',
+      title_first: 'Bethel',
+      title_second: 'China',
+      video: '../assets/bethel-china/video.mov',
+      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to showcase the successes of the children while also making it easy to donate by including the DonorBox donation form on multiple pages. We also included the ability to add a video transcript which amplifies the importance of accessibility in websites while echoing the work that Bethel does for children with visual impairments.</p>",
+      image_1: '../assets/bethel-china/image_1.png',
+      code_1: '../assets/bethel-china/code_1.png',
+      image_2: '../assets/bethel-china/image_2.png',
+      code_2: '../assets/bethel-china/code_2.png',
+      image_3: '../assets/bethel-china/image_3.png',
+      code_3: '../assets/bethel-china/code_3.png',
+      image_4: '../assets/bethel-china/image_4.png',
+      code_4: '../assets/bethel-china/code_4.png',
+      url: 'https://www.bethelchina.org/'
     },
     { 
-        title: 'Mimi So',
-        desktop_image: '../assets/mimi-so/desktop.png',
-        mobile_image: '../assets/mimi-so/mobile.png',
-        title_first: 'Mimi',
-        title_second: 'So',
-        video: '../assets/mimi-so/video.mov',
-        quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the jewlery in addition to providing insight into Mimi So's story. We included an Instagram module to highlight the latest posts which feature new pieces.</p>",
-        image_1: '../assets/mimi-so/image_1.png',
-        code_1: '../assets/mimi-so/code_1.png',
-        image_2: '../assets/mimi-so/image_2.png',
-        code_2: '../assets/mimi-so/code_2.png',
-        image_3: '../assets/mimi-so/image_3.png',
-        code_3: '../assets/mimi-so/code_3.png',
-        image_4: '../assets/mimi-so/image_4.png',
-        code_4: '../assets/mimi-so/code_4.png',
-        url: 'https://mimiso.com/'
+      title: 'Blackcraft Cult', 
+      desktop_image: '../assets/blackcraft-cult/desktop.png',
+      mobile_image: '../assets/blackcraft-cult/mobile.png',
+      title_first: 'Blackcraft',
+      title_second: 'Cult',
+      video: '../assets/blackcraft-cult/video.mov',
+      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
+      image_1: '../assets/blackcraft-cult/image_1.png',
+      code_1: '../assets/blackcraft-cult/code_1.png',
+      image_2: '../assets/blackcraft-cult/image_2.png',
+      code_2: '../assets/blackcraft-cult/code_2.png',
+      image_3: '../assets/blackcraft-cult/image_3.png',
+      code_3: '../assets/blackcraft-cult/code_3.png',
+      image_4: '../assets/blackcraft-cult/image_4.png',
+      code_4: '../assets/blackcraft-cult/code_4.png',
+      url: 'https://www.blackcraftcult.com/'
     }
 ]
 
@@ -266,6 +266,12 @@ const portfolioTechStack = document.querySelectorAll('.portfolioDevStack');
 const triggerModal = document.querySelectorAll('[data-trigger-modal]');
 
 const toggleModal = (modalTrigger) => {
+  const allModals = document.querySelectorAll('.modal');
+  allModals.forEach(modal => {
+    modal.style.display = 'none';
+    modal.classList.add('hide');
+  });
+
   const theModal = document.querySelector(`[data-modal="${modalTrigger}"]`);
   const thePortfolioGrid = document.querySelector('#portfolioGrid');
   const theAboutSection = document.querySelector('#about');
@@ -276,6 +282,7 @@ const toggleModal = (modalTrigger) => {
     const isHidden = theModal.style.display === 'none' || theModal.style.display === '';
 
     theModal.style.display = isHidden ? 'block' : 'none';
+    !theModal.classList.add('hide');
     thePortfolioGrid.style.display = isHidden ? 'none' : 'block';
     theModal.classList.toggle('hide');
     theAboutSection.style.display = isHidden ? 'none' : 'block';
@@ -286,23 +293,39 @@ const toggleModal = (modalTrigger) => {
   }
 };
 
-triggerModal.forEach((modal) => {
-  modal.addEventListener('click', () => {
+triggerModal.forEach(element => {
+  element.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const theModalTrigger = modal.getAttribute('data-trigger-modal');
-    toggleModal(theModalTrigger);
+    toggleModal(element.dataset.triggerModal);
   });
 
-  modal.addEventListener('keyup', (event) => {
+  element.addEventListener('keyup', (event) => {
     if (event.code === 'Enter') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      const theModalTrigger = modal.getAttribute('data-trigger-modal');
-      toggleModal(theModalTrigger);
+      toggleModal(element.dataset.triggerModal);
     }
   });
 });
 
 
+
+function hideModalWhenFooterClicked() {
+  const footerLinks = document.querySelector('#mainLinks');
+      footerLinks.addEventListener('click', function(){
+        const thePortfolioGrid = document.querySelector('#portfolioGrid');
+        const theAboutSection = document.querySelector('#about');
+        const theClientsSection = document.querySelector('#clients');
+        const theContactSection = document.querySelector('#contact');
+        localStorage.setItem("modalIsOpen", 'false');
+        document.querySelector('#portfolioModal').setAttribute('aria-hidden', true);
+        thePortfolioGrid.style.display = 'grid';
+        theAboutSection.style.display = 'block';
+        theClientsSection.style.display = 'block';
+        theContactSection.style.display = 'block';
+  });
+}
+
+hideModalWhenFooterClicked();
 
 // Local Storage: Show Modal
 document.addEventListener("DOMContentLoaded", () => {
@@ -316,9 +339,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const theContactSection = document.querySelector('#contact');
     const thePortfolioGrid = document.querySelector('#portfolioGrid');
     const localStorageModalOpen = localStorage.getItem("modalIsOpen");
+    const portfolioModal = document.querySelector('#portfolioModal');
     
     if (localStorageModalOpen && localStorageModalOpen === theModalTrigger) {
       theModal.style.display = 'block';
+      portfolioModal.setAttribute('aria-hidden', false);
       thePortfolioGrid.style.display = 'none';
       theAboutSection.style.display = 'none';
       theClientsSection.style.display = 'none';
@@ -345,5 +370,4 @@ const logo = document.querySelector('.logo');
       logo.addEventListener('click', function(){
         localStorage.setItem("modalIsOpen", 'false');
 });
-
   

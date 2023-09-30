@@ -1332,6 +1332,12 @@ header {
         @include flex-column();
     }
     &__modal {
+        &[aria-hidden="true"] {
+            display: none !important;
+            .modal {
+                display: none !important;
+            }
+        }
         .modal {
             .video {
                 padding-bottom: 12rem;

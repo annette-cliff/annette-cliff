@@ -1301,6 +1301,14 @@ header #clock .grid span {
           flex-direction: column;
 }
 
+.portfolio__modal[aria-hidden="true"] {
+  display: none !important;
+}
+
+.portfolio__modal[aria-hidden="true"] .modal {
+  display: none !important;
+}
+
 .portfolio__modal .modal .video {
   padding-bottom: 12rem;
 }
