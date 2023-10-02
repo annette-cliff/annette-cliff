@@ -333,238 +333,7 @@ body {
             p {
                 color: $color-white;
             }
-        }
-    }
-    &.accessibility {
-        &__increase {
-            &__font-size {
-                h5,
-                h4 {
-                    font-size: clamp(5rem, 5vw, 5rem);
-                }
-                #about #banner .wrapper h2 {
-                    font-size: clamp(4rem, 4vw, 4rem) !important;
-                    line-height: 4rem;
-                }
-              *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
-                font-size: x-large !important;
-              }
-              dialog button {
-                @extend .width-100;
-              }
-              .accessibility__modal.open .accessibility__icon-close {
-                left: calc(100% - 3rem);
-                bottom: 15rem;
-                &:before,
-                &:after {
-                    width: 3px;
-                    height: 30px;
-                    top: -12rem;
-                }
-              }
-              @include breakpoint('medium') {
-                .accessibility__modal.open .accessibility__icon-close {
-                    bottom: 20rem;
-                    left: 29rem;
-                }
-                #about #banner .wrapper h2 {
-                    width: 50%;
-                    line-height: 6rem;
-                }
-                 h5,
-                 #about #banner .wrapper h2,
-                 h4 {
-                    font-size: clamp(6rem, 6vw, 6rem) !important;
-                }
-                *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
-                    font-size: xx-large !important;
-                  }
-              }
-            }
-            &__line-height {
-                *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
-                    line-height: 200% !important;
-                }
-                .title__accent {
-                    line-height: 1;
-                }
-                .accessibility__modal.open .accessibility__icon-close {
-                    &:before,
-                    &:after {
-                        top: -5rem;
-                    }
-                }
-            }
-        }
-        &__color {
-            &__invert {
-                @include color-light-background-dark();
-                .modal {
-                    @include color-light-background-dark();
-                }
-                .title {
-                    &__light {
-                        color: $color-dark;
-                        text-shadow: 3px 1px 6px $color-light;
-                    }
-                    &__dark {
-                        color: $color-light;
-                        text-shadow: 3px 1px $color-dark;
-                    }
-                }
-                input,
-                textarea {
-                    background: $color-light;
-                    &:focus {
-                        background: $color-white;
-                    }
-                }
-                header, 
-                #about #banner {
-                    background: $color-light;
-                }
-                #about #banner #hiddenIcons .icon {
-                    filter: invert(0);
-                }
-                h2 {
-                    color: $color-dark;
-                }
-                h5,
-                label,
-                p,
-                a,
-                li,
-                span {
-                    color: $color-light;
-                }
-                .breadcrumbs a.has-hover-state.hover-state-dark:after {
-                    border-color: $color-light;
-                }
-                video {
-                    background: $color-light;
-                }
-                footer {
-                    @include color-dark-background-light();
-                    *,a { 
-                        color: $color-dark;
-                    }
-                    a {
-                        &:focus {
-                            outline-color: $color-dark;
-                        }
-                        &.has-hover-state:after,
-                        &.hover-state-dark {
-                            border-color: $color-dark;
-                        }
-                    }
-                    &:before, 
-                    &:after,
-                    .logo:before, .logo:after, .logo span:before, .logo span:after {
-                        background: $color-dark;
-                    }
-                }
-                header #clock {
-                    color: $color-dark;
-                    * {
-                        color: $color-dark;
-                    }
-                    .hand {
-                        background: $color-dark;
-                    }
-                }
-                .logo {
-                    span {
-                        color: $color-dark;
-                    }
-                    &:before,
-                    &:after,
-                    span:before,
-                    span:after {
-                        background: $color-dark;
-                    }
-                }
-                .button {
-                    @include background-dark-color-light();
-                    &.inverted {
-                        border-color: $color-light;
-                        @include background-dark-color-light();
-                        &.active {
-                            @include background-light-color-dark();
-                            border-color: $color-dark;
-                        }
-                        &:hover {
-                            @include background-dark-color-light();
-                            border-color: $color-white;
-                        }
-                        &:focus-visible {
-                            outline-color: $color-light;
-                        }
-                    }
-                    &.slideshow-button {
-                        &:hover {
-                            background: $color-light !important;
-                            color: $color-dark !important;
-                        }
-                    }
-                    &__accessibility,
-                    &__to-top {
-                        &:hover {
-                            border-color: $color-dark;
-                            @include background-light-color-dark();
-                        }
-                    }
-                }
-                .button__wrapper {
-                    a {
-                        @include background-light-color-dark();
-                        border: 1px solid $color-light;
-                    }
-                    button {
-                        @include background-light-color-dark();
-                    }
-                    a,
-                    button {
-                        &:hover {
-                            @include background-dark-color-light();
-                            border-color: $color-light;
-                        }
-                    }
-                }
-                .grid-item {
-                    .plus {
-                        @include background-light-color-dark();
-                        &:before,
-                        &:after {
-                            background: $color-dark;
-                        }
-                    }
-                    &:hover {
-                        cursor: url('../assets/icons/plus-dark.svg'), auto;
-                        h4 {
-                            color: $color-dark;
-                        }
-                        .plus {
-                            @include background-dark-color-light();
-                            &:before,
-                            &:after {
-                                background: $color-light;
-                            }
-                        }
-                        &:after {
-                            background: $color-light;
-                        }
-                    }
-                }
-                @include breakpoint('medium') {
-                    #about #banner {
-                        &:hover {
-                            cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
-                        }
-                    }
-                }
-            }
-            &__greyscale {
-                background: $color-black;
+            background: $color-black;
                 .title {
                     &__light {
                         text-shadow: 1px 3px 4px $color-white;
@@ -762,6 +531,440 @@ body {
                         }
                     }
                 }
+        }
+    }
+    &.accessibility {
+        &__increase {
+            &__font-size {
+                .logo span {
+                    font-size: xx-large !important;
+                }
+                h5 {
+                    font-size: clamp(5rem, 5vw, 5rem);
+                }
+                h4 {
+                    font-size: clamp(2.5rem, 2.5vw, 2.5rem);
+                }
+                #about #banner .wrapper h2 {
+                    font-size: clamp(3rem, 3vw, 3rem) !important;
+                    line-height: 3.5rem;
+                }
+                *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(.logo span) {
+                    font-size: x-large !important;
+                }
+                dialog button {
+                    @extend .width-100;
+                }
+                .accessibility__modal.open .accessibility__icon-close {
+                    left: calc(100% - 3rem);
+                    bottom: 15rem;
+                    &:before,
+                    &:after {
+                        width: 3px;
+                        height: 30px;
+                        top: -12rem;
+                    }
+                }
+                @include breakpoint('medium') {
+                    .accessibility__modal.open .accessibility__icon-close {
+                        bottom: 20rem;
+                        left: 29rem;
+                    }
+                    #about #banner .wrapper h2 {
+                        width: 50%;
+                        line-height: 6rem;
+                    }
+                    h5,
+                    #about #banner .wrapper h2,
+                    h4 {
+                        font-size: clamp(6rem, 6vw, 6rem) !important;
+                    }
+                    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
+                        font-size: xx-large !important;
+                    }
+                }
+            }
+            &__line-height {
+                *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
+                    line-height: 200% !important;
+                }
+                .title__accent {
+                    line-height: 1;
+                }
+                .accessibility__modal.open .accessibility__icon-close {
+                    &:before,
+                    &:after {
+                        top: -5rem;
+                    }
+                }
+            }
+        }
+        &__color {
+            &__invert {
+                @include color-light-background-dark();
+                .modal {
+                    @include color-light-background-dark();
+                }
+                .title {
+                    &__light {
+                        color: $color-dark;
+                        text-shadow: 3px 1px 6px $color-light;
+                    }
+                    &__dark {
+                        color: $color-light;
+                        text-shadow: 3px 1px $color-dark;
+                    }
+                }
+                input,
+                textarea {
+                    background: $color-light;
+                    &:focus {
+                        background: $color-white;
+                    }
+                }
+                header, 
+                #about #banner {
+                    background: $color-light;
+                }
+                #about #banner #hiddenIcons .icon {
+                    filter: invert(0);
+                }
+                h2 {
+                    color: $color-dark;
+                }
+                h5,
+                label,
+                p,
+                a,
+                li,
+                span {
+                    color: $color-light;
+                }
+                .breadcrumbs a.has-hover-state.hover-state-dark:after {
+                    border-color: $color-light;
+                }
+                video {
+                    background: $color-light;
+                }
+                footer {
+                    @include color-dark-background-light();
+                    *,a { 
+                        color: $color-dark;
+                    }
+                    a {
+                        &:focus {
+                            outline-color: $color-dark;
+                        }
+                        &.has-hover-state:after,
+                        &.hover-state-dark {
+                            border-color: $color-dark;
+                        }
+                    }
+                    &:before, 
+                    &:after,
+                    .logo:before, .logo:after, .logo span:before, .logo span:after {
+                        background: $color-dark;
+                    }
+                }
+                header #clock {
+                    color: $color-dark;
+                    * {
+                        color: $color-dark;
+                    }
+                    .hand {
+                        background: $color-dark;
+                    }
+                }
+                .logo {
+                    span {
+                        color: $color-dark;
+                    }
+                    &:before,
+                    &:after,
+                    span:before,
+                    span:after {
+                        background: $color-dark;
+                    }
+                }
+                .button {
+                    @include background-dark-color-light();
+                    &.inverted {
+                        border-color: $color-light;
+                        @include background-dark-color-light();
+                        &.active {
+                            @include background-light-color-dark();
+                            border-color: $color-dark;
+                        }
+                        &:hover {
+                            @include background-dark-color-light();
+                            border-color: $color-white;
+                        }
+                        &:focus-visible {
+                            outline-color: $color-light;
+                        }
+                    }
+                    &.slideshow-button {
+                        &:hover {
+                            background: $color-light !important;
+                            color: $color-dark !important;
+                        }
+                    }
+                    &__accessibility,
+                    &__to-top {
+                        &:hover {
+                            border-color: $color-dark;
+                            @include background-light-color-dark();
+                        }
+                    }
+                }
+                .button__wrapper {
+                    a {
+                        @include background-light-color-dark();
+                        border: 1px solid $color-light;
+                    }
+                    button {
+                        @include background-light-color-dark();
+                    }
+                    a,
+                    button {
+                        &:hover {
+                            @include background-dark-color-light();
+                            border-color: $color-light;
+                        }
+                    }
+                }
+                .grid-item {
+                    .plus {
+                        @include background-light-color-dark();
+                        &:before,
+                        &:after {
+                            background: $color-dark;
+                        }
+                    }
+                    &:hover {
+                        cursor: url('../assets/icons/plus-dark.svg'), auto;
+                        h4 {
+                            color: $color-dark;
+                        }
+                        .plus {
+                            @include background-dark-color-light();
+                            &:before,
+                            &:after {
+                                background: $color-light;
+                            }
+                        }
+                        &:after {
+                            background: $color-light;
+                        }
+                    }
+                }
+                @include breakpoint('medium') {
+                    #about #banner {
+                        &:hover {
+                            cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
+                        }
+                    }
+                }
+            }
+            &__greyscale {
+                background: $color-white;
+                .title {
+                    &__light {
+                        text-shadow: 1px 3px 4px $color-black;
+                        color: $color-white;
+                    }
+                    &__dark {
+                        text-shadow: 3px 2px $color-white;
+                    }
+                }
+                h2 {
+                    color: $color-white;
+                }
+                video {
+                    background: $color-black;
+                }
+                #about #banner #hiddenIcons .icon {
+                    filter: invert(0);
+                }
+                .portfolio {
+                    &__modal {
+                        .technology {
+                            background: $color-black-medium;
+                            h4 {
+                                color: $color-black;
+                            }
+                        }
+                    }
+                }
+                .grid-item {
+                    .plus {
+                        background: $color-white;
+                        &:after,
+                        &:before {
+                            background: $color-black;
+                        }
+                    }
+                    &:after {
+                        background: $color-black;
+                    }
+                    h4 {
+                        color: $color-white;
+                    }
+                    &:hover {
+                        cursor: url('../assets/icons/plus-black.svg'), auto;
+                        .plus {
+                            background: $color-black;
+                            border-color: $color-white;
+                            &:before,
+                            &:after {
+                                background: $color-white;
+                            }
+                        }
+                    }
+                }
+                header #clock {
+                    color: $color-white;
+                    * {
+                        color: $color-white;
+                    }
+                    .hand {
+                        background: $color-white;
+                    }
+                }
+                .logo {
+                    span {
+                        color: $color-white;
+                    }
+                    &:before,
+                    &:after,
+                    span:before,
+                    span:after {
+                        background: $color-white;
+                    }
+                }
+                .accessibility {
+                    &__modal {
+                        &.open {
+                            dialog {
+                                border-color: $color-white;
+                            }
+                            h6 {
+                                color: $color-white;
+                            }
+                            .accessibility__icon-close {
+                                &:before,
+                                &:after {
+                                    background: $color-white;
+                                }
+                            }
+                        }
+                    }
+                }
+                li,
+                span {
+                    color: $color-black;
+                }
+                a {
+                    &.hover-state-dark.has-hover-state:after {
+                        border-color: $color-black;
+                    }
+                    &.has-hover-state:after {
+                        border-color: $color-white;
+                    }
+                }
+
+                .slideshow-button.active {
+                    border-color: $color-black !important;
+                }
+
+                .button {
+                    @include background-white-color-black();
+                    &.inverted {
+                        border-color: $color-white;
+                        @include background-black-color-white();
+                        &.active {
+                            @include background-white-color-black();
+                        }
+                        &:hover {
+                            @include background-white-color-black();
+                            border-color: $color-black;
+                        }
+                        &:focus-visible {
+                            outline-color: $color-white;
+                        }
+                    }
+                    &__wrapper {
+                        a {
+                            border-color: $color-black;
+                        }
+                        button {
+                            @include background-white-color-black();
+                            border-color: $color-black;
+                            &:focus-visible {
+                                outline: 1px solid $color-black;
+                            }
+                        }
+                        button, 
+                        a {
+                            &:hover {
+                                @include background-black-color-white();
+                            }
+                        }
+                    }
+                }
+                input,
+                textarea {
+                    @include background-white-color-black();
+                    border-color: $color-black;
+                    &:focus-visible {
+                        outline: 1px solid $color-black;
+                    }
+                    &:focus {
+                        @include background-black-color-white();
+                    }
+                }
+                header, 
+                #about #banner {
+                    background: $color-black;
+                }
+                footer {
+                    background: $color-black;
+                    *,a { 
+                        color: $color-white;
+                    }
+                    a {
+                        &:focus {
+                            outline-color: $color-white;
+                        }
+                    }
+                    &:before, 
+                    &:after,
+                    .logo:before, .logo:after, .logo span:before, .logo span:after {
+                        background: $color-white;
+                    }
+                }
+                .client__slideshow {
+                    .slide img {
+                        filter: invert(1);
+                    }
+                    &::-webkit-scrollbar-track {
+                        background: $color-black-medium;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $color-black;
+                    }
+                }
+                *,
+                a {
+                    color: $color-black;
+                }
+                @include breakpoint('medium') {
+                    #about #banner {
+                        &:hover {
+                            cursor: url('../assets/icons/magnifying-glass-black.svg'), auto;
+                        }
+                    }
+                }
             }
         }
     }
@@ -904,14 +1107,11 @@ a {
 
 // --- Breadcrumbs ------------------------- //
 .breadcrumbs {
-    @extend .block,
-            .relative;
+    @extend .block;
+    margin: $wrapper--large;
     ul {
         @extend .justify-end,
-                .absolute,
                 .width-100;
-                bottom: 8rem;
-                right: 2rem;
         @include display-flex();
     }
     a,
@@ -930,6 +1130,9 @@ a {
     }
     span {
         margin-right: 7px;
+    }
+    @include breakpoint('medium') {
+        margin-bottom: 6rem;
     }
 }
 
@@ -1229,7 +1432,7 @@ header {
 
 // --- About ------------------------- //
 #about {
-    margin-bottom: $wrapper--xlarge;
+    // margin-bottom: $wrapper--xlarge;
     #banner {
         background: $color-dark;
         padding-top: 5rem;
@@ -1259,7 +1462,7 @@ header {
         }
     }
     @include breakpoint('small') {
-        margin-bottom: 5rem;
+        // margin-bottom: 5rem;
         #banner {
             .wrapper {
                 padding: 0 $wrapper--large;
@@ -1273,7 +1476,7 @@ header {
         }
     }
     @include breakpoint('medium') {
-        margin-bottom: 6rem;
+        // margin-bottom: 6rem;
         #banner {
             padding-top: 0rem;
             .wrapper {
@@ -1327,50 +1530,44 @@ header {
             }
         }
     }
-    @include breakpoint('large') {
-        margin-bottom: 12rem;
-    }
+    // @include breakpoint('large') {
+    //     margin-bottom: 12rem;
+    // }
 }
 
 
 // --- Title ------------------------- //
 .title {
     @extend .relative;
+    z-index: 2;
+    bottom: 3.1rem;
     &__accent {
-        @extend .absolute;
-                top: -3.5rem;
-                left: -6rem;
-                font-style: italic;
+        font-style: italic;
         @include flex-column();
     }
     &__light {
         color: $color-light;
-        @extend .text-center;
         text-shadow: 3px 1px $color-dark;
+        margin-left: $wrapper--medium;
     }
     &__dark {
         color: $color-dark;
-        @extend .relative;
-        bottom: 1rem;
-        left: 6.4rem;
         text-shadow: 3px 2px $color-light;
+        margin-top: -0.9rem;
     }
     @include breakpoint('small') {
-        &__accent {
-            top: -4.5rem;
-        }
-        &__dark {
-            bottom: 2rem;
+        bottom: 4.5rem;
+        &__light {
+            margin-left: 3.5rem;
         }
     }
     @include breakpoint('large') {
-        &__accent {
-            top: -8.5rem;
-            left: -10rem;
+        bottom: 8.8rem;
+        &__light {
+            margin-left: 6rem;
         }
         &__dark {
-            bottom: 3rem;
-            left: 12.4rem;
+            margin-top: -2.7rem;
         }
     }
 }
@@ -1389,9 +1586,6 @@ header {
             }
         }
         .modal {
-            .video {
-                padding-bottom: 12rem;
-            }
             .quote {
                 color: $color-dark;
                 padding: 0 $wrapper--large;
@@ -1420,14 +1614,12 @@ header {
                     }
                 }
             }
-        }
-        .title {
-            height: 75px;
-            &__accent {
-                left: 0rem;
-            }
-            &__dark {
-                bottom: 0rem;
+            .title {
+                bottom: 0;
+                &__accent {
+                    width: calc(100% - 4rem);
+                    margin: 0 auto;
+                }
             }
         }
     }
@@ -1449,15 +1641,10 @@ header {
                         font-size: clamp(2rem, 7vw, 2rem);
                     }
                 }
-            }
-        }
-    }
-    @include breakpoint('large') {
-        &__modal {
-            .title {
-                height: 150px;
-                &__dark {
-                    bottom: -2rem;
+                .title {
+                    &__accent {
+                        max-width: 990px;
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@
 
 // Accessibility Modal
 const accessibilityModal = document.getElementById('accessibilityModal');
+const accessibilityModalClose = document.querySelector('.accessibility__icon-close');
 accessibilityModal.innerHTML += 
 `
     <dialog>
@@ -19,10 +20,22 @@ accessibilityModal.innerHTML +=
     </dialog>
 `
 
+accessibilityModalClose.addEventListener('click', function(){
+    accessibilityModal.classList.remove('open');
+});
 
-accessibilityModal.addEventListener('click', function(){
-    this.classList.toggle('open');
-})
+document.addEventListener("click", (e) => {
+    const accessibilityModalTarget = accessibilityModal;
+    let target = e.target;  
+    do {
+      if(target == accessibilityModalTarget) {
+        accessibilityModal.classList.add('open');
+        return;
+      }
+      target = target.parentNode;
+    } while (target);   
+        accessibilityModal.classList.remove('open');
+});
 
 const fontSize = document.getElementById('textFontSize')
 const lineHeight = document.getElementById('textLineHeight')
