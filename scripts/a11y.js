@@ -3,37 +3,36 @@
 
 // Accessibility Modal
 const accessibilityModal = document.getElementById('accessibilityModal');
-const accessibilityModalClose = document.querySelector('.accessibility__icon-close');
 accessibilityModal.innerHTML += 
-`
-    <dialog>
-        <div>
-            <h6>Text Adjustments</h6>
-            <button id="textFontSize" class="button inverted">Increase Font Size</button>
-            <button id="textLineHeight" class="button inverted">Increase Line Height</button>
-        </div>
-        <div>
-            <h6>Color Adjustments</h6>
-            <button id="colorInvert" class="button inverted">Invert</button>
-            <button id="colorGrayscale" class="button inverted">Grayscale</button>
-        </div>
-    </dialog>
-`
-
-accessibilityModalClose.addEventListener('click', function(){
-    accessibilityModal.classList.remove('open');
-});
+`<dialog>
+    <div>
+        <h6>Text Adjustments</h6>
+        <button id="textFontSize" class="button inverted">Increase Font Size</button>
+        <button id="textLineHeight" class="button inverted">Increase Line Height</button>
+    </div>
+    <div>
+        <h6>Color Adjustments</h6>
+        <button id="colorInvert" class="button inverted">Invert</button>
+        <button id="colorGrayscale" class="button inverted">Grayscale</button>
+    </div>
+</dialog>`
 
 document.addEventListener("click", (e) => {
-    const accessibilityModalTarget = accessibilityModal;
+    const accessibilityModalClose = document.querySelector('.accessibility__icon-close');
+    const accessibilityModalButton = document.querySelector('.button__accessibility');
     let target = e.target;  
     do {
-      if(target == accessibilityModalTarget) {
-        accessibilityModal.classList.add('open');
-        return;
-      }
-      target = target.parentNode;
-    } while (target);   
+        if(target == accessibilityModalButton) {
+            accessibilityModal.classList.add('open');
+            return;
+        }
+        if(target == accessibilityModalClose) {
+            accessibilityModal.classList.remove('open');
+            return;
+        }
+        target = target.parentNode;
+    }
+    while (target);   
         accessibilityModal.classList.remove('open');
 });
 
@@ -93,7 +92,6 @@ colorGreyscale.addEventListener('click', function(){
         localStorage.setItem("colorGreyscale", 'true');
     }
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
     if(localStorage.getItem('increaseFontSize') === 'true') {

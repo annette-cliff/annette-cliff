@@ -1864,8 +1864,12 @@ header #clock .grid span {
 }
 
 .client p {
-  margin-top: 2rem;
+  margin: 2rem 1.5rem;
   font-size: 12px;
+}
+
+.client p a {
+  border-bottom: 1px solid;
 }
 
 .client__slideshow {

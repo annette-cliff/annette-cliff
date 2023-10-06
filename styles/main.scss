@@ -1819,8 +1819,11 @@ header {
     }
     p {
         @extend .text-center;
-        margin-top: 2rem;
+        margin: $wrapper--medium $wrapper--small;
         font-size: 12px;
+        a {
+            border-bottom: 1px solid;
+        }
     }
     &__slideshow {
         overflow-x: scroll;
