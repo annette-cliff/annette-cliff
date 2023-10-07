@@ -37,20 +37,16 @@ table {
   border-spacing: 0;
 }
 
-.hide, header #clock, .logo .slash:after,
-.desktop-only {
+.hide, header #clock, .logo .slash:after, .section__hiddenIcons, .accessibility__icon-close, .desktop-only {
   display: none;
 }
 
-.block, a.has-hover-state:after, .breadcrumbs, .grid-item:hover h4, .client__slideshow .slide a, footer copyright, .accessibility__modal.open dialog,
-.mobile-only {
+.block, a.has-hover-state:after, .breadcrumbs, .grid-item:hover h4, .client__slideshow .slide a, footer copyright, .accessibility__modal.open .accessibility__icon-close, .accessibility__modal.open dialog, .mobile-only {
   display: block;
 }
 
 @media (min-width: 767px) {
-  .desktop-only,
-  .large--block,
-  header #clock {
+  .desktop-only, .large--block, header #clock {
     display: block;
   }
   .mobile-only {
@@ -74,25 +70,21 @@ table {
   border: 0;
 }
 
-.relative, main, a.has-hover-state, header #clock, .logo, .logo .slash, #about #banner, #about #banner .wrapper, #about #banner .wrapper img, .title, .grid-item, .container, footer {
+.relative, main, .wrapper__banner, .title, a.has-hover-state, header #clock, .logo, .logo .slash, .section__banner, .section__about img, .grid-item, footer {
   position: relative;
 }
 
-.absolute, header #clock .hand, header #clock #hour,
-header #clock #minute,
-header #clock #second, .logo .slash:before, .logo:before, .logo:after,
-.logo span:before,
-.logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, .container .img, .slider, footer:before, footer:after {
+.absolute, header #clock .hand, header #clock #hour, header #clock #minute, header #clock #second, .logo .slash:before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
   position: absolute;
 }
 
-.flex, .client__slideshow {
+.flex, .client__slideshow, .dots {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.justify-between, header, #contact form .flex__wrapper, footer .footer__links {
+.justify-between, form .flex__wrapper, header, .footer__links {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -104,7 +96,7 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           justify-content: space-evenly;
 }
 
-.justify-center, header #clock .grid span.span-2, .grid-item, .grid-item:hover h4, .slider {
+.justify-center, header #clock .grid span.span-2, .grid-item, .grid-item:hover h4, .dots {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -122,13 +114,13 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
           justify-content: flex-start;
 }
 
-.items-center, .slider, .client__slideshow {
+.items-center, .client__slideshow {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.items-start, footer .footer__links {
+.items-start, .footer__links {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -143,6 +135,10 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
 .object-fit-contain, .grid-item img, .client__slideshow .slide img {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.text-center, h4, h5, .button__wrapper, header, header #clock .grid, .section__client p, .client__slideshow-buttons, .section__contact h5, footer copyright, .footer__logo {
+  text-align: center;
 }
 
 .grid {
@@ -166,19 +162,17 @@ header #clock #second, .logo .slash:before, .logo:before, .logo:after,
   border: 2px solid;
 }
 
-.width-100, body.accessibility__increase__font-size dialog button, .breadcrumbs ul, .button__wrapper button, .button__wrapper a, footer .footer__logo {
+.width-100, body.accessibility__increase__font-size dialog button, .breadcrumbs ul, .button__wrapper button, .button__wrapper a, .footer__logo {
   width: 100%;
 }
 
 @media (min-width: 767px) {
-  .large--width-auto, footer .footer__logo {
+  .large--width-auto, .footer__logo {
     width: auto;
   }
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -199,12 +193,222 @@ body {
   overflow-x: hidden;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  max-width: 100%;
+  width: 100vw;
+  background: #084DB5;
+}
+
+body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
+  line-height: 200% !important;
+}
+
+body.accessibility__increase__line-height .title__accent {
+  line-height: 1;
+}
+
+body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:after {
+  top: -5rem;
+}
+
 body.accessibility__increase__line-height.accessibility__increase__font-size dialog button {
   padding: 0;
 }
 
 body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
   top: -14rem;
+}
+
+body.accessibility__increase__font-size h2 {
+  font-size: clamp(3rem, 3vw, 3rem) !important;
+  line-height: 3.5rem;
+}
+
+body.accessibility__increase__font-size h4 {
+  font-size: clamp(2.5rem, 2.5vw, 2.5rem);
+}
+
+body.accessibility__increase__font-size h5 {
+  font-size: clamp(5rem, 5vw, 5rem);
+}
+
+body.accessibility__increase__font-size .logo span {
+  font-size: xx-large !important;
+}
+
+body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
+  font-size: x-large !important;
+}
+
+body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
+  left: calc(100% - 3rem);
+  bottom: 15rem;
+}
+
+body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
+  width: 3px;
+  height: 30px;
+  top: -12rem;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__increase__font-size h2 {
+    width: 50%;
+    line-height: 6rem;
+  }
+  body.accessibility__increase__font-size h2, body.accessibility__increase__font-size h4, body.accessibility__increase__font-size h5 {
+    font-size: clamp(6rem, 6vw, 6rem) !important;
+  }
+  body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
+    bottom: 20rem;
+    left: 29rem;
+  }
+  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
+    font-size: xx-large !important;
+  }
+}
+
+body.accessibility__color__invert {
+  background: #084DB5;
+  color: #E2ECFB;
+}
+
+body.accessibility__color__invert .icon {
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
+body.accessibility__color__invert h2, body.accessibility__color__invert .logo span, body.accessibility__color__invert .grid-item:hover h4 {
+  color: #084DB5;
+}
+
+body.accessibility__color__invert h5, body.accessibility__color__invert label, body.accessibility__color__invert p, body.accessibility__color__invert a, body.accessibility__color__invert li, body.accessibility__color__invert span {
+  color: #E2ECFB;
+}
+
+body.accessibility__color__invert .logo::before, body.accessibility__color__invert .logo::after, body.accessibility__color__invert .logo span::before, body.accessibility__color__invert .logo span::after, body.accessibility__color__invert .grid-item .plus::before, body.accessibility__color__invert .grid-item .plus::after {
+  background: #084DB5;
+}
+
+body.accessibility__color__invert video, body.accessibility__color__invert .section__banner, body.accessibility__color__invert .grid-item:hover .plus::before, body.accessibility__color__invert .grid-item:hover .plus::after, body.accessibility__color__invert .grid-item:hover::after {
+  background: #E2ECFB;
+}
+
+body.accessibility__color__invert .title__light {
+  color: #084DB5;
+  text-shadow: 3px 1px 6px #E2ECFB;
+}
+
+body.accessibility__color__invert .title__dark {
+  color: #E2ECFB;
+  text-shadow: 3px 1px #084DB5;
+}
+
+body.accessibility__color__invert input, body.accessibility__color__invert textarea {
+  background: #E2ECFB;
+}
+
+body.accessibility__color__invert input:focus, body.accessibility__color__invert textarea:focus {
+  background: #fff;
+}
+
+body.accessibility__color__invert .modal {
+  background: #084DB5;
+  color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item .plus {
+  background: #E2ECFB;
+  color: #084DB5;
+}
+
+body.accessibility__color__invert .grid-item:hover {
+  cursor: url("../assets/icons/plus-dark.svg"), auto;
+}
+
+body.accessibility__color__invert .grid-item:hover .plus {
+  background: #084DB5;
+  color: #E2ECFB;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__color__invert .section__banner:hover {
+    cursor: url("../assets/icons/magnifying-glass-dark.svg"), auto;
+  }
+}
+
+body.accessibility__color__greyscale {
+  background: #fff;
+}
+
+body.accessibility__color__greyscale .title__light {
+  text-shadow: 1px 3px 4px #222;
+  color: #fff;
+}
+
+body.accessibility__color__greyscale .title__dark {
+  text-shadow: 3px 2px #fff;
+}
+
+body.accessibility__color__greyscale .hand, body.accessibility__color__greyscale .grid-item:hover .plus, body.accessibility__color__greyscale .grid-item:hover .plus::before, body.accessibility__color__greyscale .grid-item:hover .plus::after, body.accessibility__color__greyscale .logo::before, body.accessibility__color__greyscale .logo::after, body.accessibility__color__greyscale .logo span::before, body.accessibility__color__greyscale .logo span::after {
+  background: #fff;
+}
+
+body.accessibility__color__greyscale header, body.accessibility__color__greyscale footer, body.accessibility__color__greyscale .section__banner, body.accessibility__color__greyscale video, body.accessibility__color__greyscale .grid-item .plus, body.accessibility__color__greyscale .grid-item:hover .plus::before, body.accessibility__color__greyscale .grid-item:hover .plus::after, body.accessibility__color__greyscale .grid-item::after {
+  background: #222;
+}
+
+body.accessibility__color__greyscale .technology {
+  background: #ADAAAA;
+}
+
+body.accessibility__color__greyscale .icon {
+  -webkit-filter: invert(0);
+          filter: invert(0);
+}
+
+body.accessibility__color__greyscale h2, body.accessibility__color__greyscale .grid-item h4, body.accessibility__color__greyscale .logo span, body.accessibility__color__greyscale #clock *, body.accessibility__color__greyscale footer a, body.accessibility__color__greyscale footer h6 {
+  color: #fff;
+}
+
+body.accessibility__color__greyscale li, body.accessibility__color__greyscale span, body.accessibility__color__greyscale .technology h4 {
+  color: #222;
+}
+
+body.accessibility__color__greyscale .grid-item .plus:hover {
+  cursor: url("../assets/icons/plus-black.svg"), auto;
+  background: #222;
+  border-color: #fff;
+}
+
+body.accessibility__color__greyscale footer a:focus {
+  outline-color: #fff;
+}
+
+body.accessibility__color__greyscale input, body.accessibility__color__greyscale textarea {
+  background: #fff;
+  color: #222;
+  border-color: #222;
+}
+
+body.accessibility__color__greyscale input:focus-visible, body.accessibility__color__greyscale textarea:focus-visible {
+  outline: 1px solid #222;
+}
+
+body.accessibility__color__greyscale input:focus, body.accessibility__color__greyscale textarea:focus {
+  background: #222;
+  color: #fff;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__color__greyscale .section__banner:hover {
+    cursor: url("../assets/icons/magnifying-glass-white.svg"), auto;
+  }
 }
 
 body.accessibility__color__invert.accessibility__color__greyscale {
@@ -335,28 +539,24 @@ body.accessibility__color__invert.accessibility__color__greyscale .button, body.
   color: #fff;
 }
 
-body.accessibility__color__invert.accessibility__color__greyscale .button.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button,
-body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility {
+body.accessibility__color__invert.accessibility__color__greyscale .button.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility {
   border-color: #222;
   background: #fff;
   color: #222;
 }
 
-body.accessibility__color__invert.accessibility__color__greyscale .button.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active,
-body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button.active, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__accessibility {
+body.accessibility__color__invert.accessibility__color__greyscale .button.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.active, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted.active, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .active.button__accessibility, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button.active, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.active.button__accessibility {
   background: #222;
   color: #fff;
 }
 
-body.accessibility__color__invert.accessibility__color__greyscale .button.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button:hover,
-body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:hover {
+body.accessibility__color__invert.accessibility__color__greyscale .button.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:hover {
   background: #222;
   color: #fff;
   border-color: #fff;
 }
 
-body.accessibility__color__invert.accessibility__color__greyscale .button.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button:focus-visible,
-body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:focus-visible {
+body.accessibility__color__invert.accessibility__color__greyscale .button.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale button:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.inverted:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert.accessibility__color__greyscale a.button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .button__accessibility:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__invert.accessibility__color__greyscale button.button__accessibility:focus-visible {
   outline-color: #222;
 }
 
@@ -425,14 +625,6 @@ body.accessibility__color__invert.accessibility__color__greyscale .client__slide
           filter: invert(1);
 }
 
-body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-track {
-  background: #ADAAAA;
-}
-
-body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-thumb {
-  background: #fff;
-}
-
 body.accessibility__color__invert.accessibility__color__greyscale *,
 body.accessibility__color__invert.accessibility__color__greyscale a {
   color: #fff;
@@ -444,133 +636,13 @@ body.accessibility__color__invert.accessibility__color__greyscale a {
   }
 }
 
-body.accessibility__increase__font-size .logo span {
-  font-size: xx-large !important;
-}
-
-body.accessibility__increase__font-size h5 {
-  font-size: clamp(5rem, 5vw, 5rem);
-}
-
-body.accessibility__increase__font-size h4 {
-  font-size: clamp(2.5rem, 2.5vw, 2.5rem);
-}
-
-body.accessibility__increase__font-size #about #banner .wrapper h2 {
-  font-size: clamp(3rem, 3vw, 3rem) !important;
-  line-height: 3.5rem;
-}
-
-body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
-  font-size: x-large !important;
-}
-
-body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
-  left: calc(100% - 3rem);
-  bottom: 15rem;
-}
-
-body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
-  width: 3px;
-  height: 30px;
-  top: -12rem;
-}
-
-@media (min-width: 767px) {
-  body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
-    bottom: 20rem;
-    left: 29rem;
-  }
-  body.accessibility__increase__font-size #about #banner .wrapper h2 {
-    width: 50%;
-    line-height: 6rem;
-  }
-  body.accessibility__increase__font-size h5,
-  body.accessibility__increase__font-size #about #banner .wrapper h2,
-  body.accessibility__increase__font-size h4 {
-    font-size: clamp(6rem, 6vw, 6rem) !important;
-  }
-  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
-    font-size: xx-large !important;
-  }
-}
-
-body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
-  line-height: 200% !important;
-}
-
-body.accessibility__increase__line-height .title__accent {
-  line-height: 1;
-}
-
-body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:after {
-  top: -5rem;
-}
-
-body.accessibility__color__invert {
-  color: #E2ECFB;
-  background: #084DB5;
-}
-
-body.accessibility__color__invert .modal {
-  color: #E2ECFB;
-  background: #084DB5;
-}
-
-body.accessibility__color__invert .title__light {
-  color: #084DB5;
-  text-shadow: 3px 1px 6px #E2ECFB;
-}
-
-body.accessibility__color__invert .title__dark {
-  color: #E2ECFB;
-  text-shadow: 3px 1px #084DB5;
-}
-
-body.accessibility__color__invert input,
-body.accessibility__color__invert textarea {
-  background: #E2ECFB;
-}
-
-body.accessibility__color__invert input:focus,
-body.accessibility__color__invert textarea:focus {
-  background: #fff;
-}
-
-body.accessibility__color__invert header,
-body.accessibility__color__invert #about #banner {
-  background: #E2ECFB;
-}
-
-body.accessibility__color__invert #about #banner #hiddenIcons .icon {
-  -webkit-filter: invert(0);
-          filter: invert(0);
-}
-
-body.accessibility__color__invert h2 {
-  color: #084DB5;
-}
-
-body.accessibility__color__invert h5,
-body.accessibility__color__invert label,
-body.accessibility__color__invert p,
-body.accessibility__color__invert a,
-body.accessibility__color__invert li,
-body.accessibility__color__invert span {
-  color: #E2ECFB;
-}
-
 body.accessibility__color__invert .breadcrumbs a.has-hover-state.hover-state-dark:after {
   border-color: #E2ECFB;
 }
 
-body.accessibility__color__invert video {
-  background: #E2ECFB;
-}
-
 body.accessibility__color__invert footer {
-  color: #084DB5;
   background: #E2ECFB;
+  color: #084DB5;
 }
 
 body.accessibility__color__invert footer *, body.accessibility__color__invert footer a {
@@ -602,49 +674,34 @@ body.accessibility__color__invert header #clock .hand {
   background: #084DB5;
 }
 
-body.accessibility__color__invert .logo span {
-  color: #084DB5;
-}
-
-body.accessibility__color__invert .logo:before, body.accessibility__color__invert .logo:after,
-body.accessibility__color__invert .logo span:before,
-body.accessibility__color__invert .logo span:after {
-  background: #084DB5;
-}
-
 body.accessibility__color__invert .button, body.accessibility__color__invert .button__main-content, body.accessibility__color__invert .button__wrapper button, .button__wrapper body.accessibility__color__invert button, body.accessibility__color__invert .button__wrapper a, .button__wrapper body.accessibility__color__invert a, body.accessibility__color__invert .button__to-top, body.accessibility__color__invert .button__accessibility {
   background: #084DB5;
   color: #E2ECFB;
 }
 
-body.accessibility__color__invert .button.inverted, body.accessibility__color__invert .button__main-content, body.accessibility__color__invert .button__wrapper button.inverted, .button__wrapper body.accessibility__color__invert button.inverted, body.accessibility__color__invert .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__invert button.button__main-content, body.accessibility__color__invert .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__invert button.button__to-top, body.accessibility__color__invert .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__invert button.button__accessibility, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button,
-body.accessibility__color__invert .button__wrapper a.inverted, .button__wrapper body.accessibility__color__invert a.inverted, body.accessibility__color__invert .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__invert a.button__main-content, body.accessibility__color__invert .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__invert a.button__to-top, body.accessibility__color__invert .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__invert a.button__accessibility, body.accessibility__color__invert .button__to-top, body.accessibility__color__invert .button__accessibility, body.accessibility__color__invert .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__invert button.button, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility {
+body.accessibility__color__invert .button.inverted, body.accessibility__color__invert .button__main-content, body.accessibility__color__invert .button__wrapper button.inverted, .button__wrapper body.accessibility__color__invert button.inverted, body.accessibility__color__invert .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__invert button.button__main-content, body.accessibility__color__invert .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__invert button.button__to-top, body.accessibility__color__invert .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__invert button.button__accessibility, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button, body.accessibility__color__invert .button__wrapper a.inverted, .button__wrapper body.accessibility__color__invert a.inverted, body.accessibility__color__invert .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__invert a.button__main-content, body.accessibility__color__invert .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__invert a.button__to-top, body.accessibility__color__invert .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__invert a.button__accessibility, body.accessibility__color__invert .button__to-top, body.accessibility__color__invert .button__accessibility, body.accessibility__color__invert .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__invert button.button, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility {
   border-color: #E2ECFB;
   background: #084DB5;
   color: #E2ECFB;
 }
 
-body.accessibility__color__invert .button.inverted.active, body.accessibility__color__invert .active.button__main-content, body.accessibility__color__invert .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__invert button.inverted.active, body.accessibility__color__invert .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__invert button.active.button__main-content, body.accessibility__color__invert .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__invert button.active.button__to-top, body.accessibility__color__invert .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__invert button.active.button__accessibility, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button.active, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button.active,
-body.accessibility__color__invert .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__invert a.inverted.active, body.accessibility__color__invert .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__invert a.active.button__main-content, body.accessibility__color__invert .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__invert a.active.button__to-top, body.accessibility__color__invert .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__invert a.active.button__accessibility, body.accessibility__color__invert .active.button__to-top, body.accessibility__color__invert .active.button__accessibility, body.accessibility__color__invert .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__invert button.button.active, body.accessibility__color__invert .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__invert button.active.button__main-content, body.accessibility__color__invert .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__invert button.active.button__to-top, body.accessibility__color__invert .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert button.active.button__accessibility {
+body.accessibility__color__invert .button.inverted.active, body.accessibility__color__invert .active.button__main-content, body.accessibility__color__invert .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__invert button.inverted.active, body.accessibility__color__invert .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__invert button.active.button__main-content, body.accessibility__color__invert .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__invert button.active.button__to-top, body.accessibility__color__invert .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__invert button.active.button__accessibility, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button.active, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button.active, body.accessibility__color__invert .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__invert a.inverted.active, body.accessibility__color__invert .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__invert a.active.button__main-content, body.accessibility__color__invert .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__invert a.active.button__to-top, body.accessibility__color__invert .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__invert a.active.button__accessibility, body.accessibility__color__invert .active.button__to-top, body.accessibility__color__invert .active.button__accessibility, body.accessibility__color__invert .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__invert button.button.active, body.accessibility__color__invert .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__invert button.active.button__main-content, body.accessibility__color__invert .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__invert button.active.button__to-top, body.accessibility__color__invert .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__invert button.active.button__accessibility {
   background: #E2ECFB;
   color: #084DB5;
   border-color: #084DB5;
 }
 
-body.accessibility__color__invert .button.inverted:hover, body.accessibility__color__invert .button__main-content:hover, body.accessibility__color__invert .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__invert button.inverted:hover, body.accessibility__color__invert .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__invert button.button__main-content:hover, body.accessibility__color__invert .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__invert button.button__to-top:hover, body.accessibility__color__invert .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__invert button.button__accessibility:hover, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button:hover, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button:hover,
-body.accessibility__color__invert .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__invert a.inverted:hover, body.accessibility__color__invert .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__invert a.button__main-content:hover, body.accessibility__color__invert .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__invert a.button__to-top:hover, body.accessibility__color__invert .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__invert a.button__accessibility:hover, body.accessibility__color__invert .button__to-top:hover, body.accessibility__color__invert .button__accessibility:hover, body.accessibility__color__invert .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__invert button.button:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility:hover {
+body.accessibility__color__invert .button.inverted:hover, body.accessibility__color__invert .button__main-content:hover, body.accessibility__color__invert .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__invert button.inverted:hover, body.accessibility__color__invert .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__invert button.button__main-content:hover, body.accessibility__color__invert .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__invert button.button__to-top:hover, body.accessibility__color__invert .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__invert button.button__accessibility:hover, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button:hover, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button:hover, body.accessibility__color__invert .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__invert a.inverted:hover, body.accessibility__color__invert .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__invert a.button__main-content:hover, body.accessibility__color__invert .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__invert a.button__to-top:hover, body.accessibility__color__invert .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__invert a.button__accessibility:hover, body.accessibility__color__invert .button__to-top:hover, body.accessibility__color__invert .button__accessibility:hover, body.accessibility__color__invert .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__invert button.button:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top:hover, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility:hover {
   background: #084DB5;
   color: #E2ECFB;
   border-color: #fff;
 }
 
-body.accessibility__color__invert .button.inverted:focus-visible, body.accessibility__color__invert .button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__invert button.inverted:focus-visible, body.accessibility__color__invert .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert button.button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert button.button__to-top:focus-visible, body.accessibility__color__invert .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert button.button__accessibility:focus-visible, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button:focus-visible, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button:focus-visible,
-body.accessibility__color__invert .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__invert a.inverted:focus-visible, body.accessibility__color__invert .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert a.button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert a.button__to-top:focus-visible, body.accessibility__color__invert .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert a.button__accessibility:focus-visible, body.accessibility__color__invert .button__to-top:focus-visible, body.accessibility__color__invert .button__accessibility:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility:focus-visible {
+body.accessibility__color__invert .button.inverted:focus-visible, body.accessibility__color__invert .button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__invert button.inverted:focus-visible, body.accessibility__color__invert .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert button.button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert button.button__to-top:focus-visible, body.accessibility__color__invert .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert button.button__accessibility:focus-visible, body.accessibility__color__invert .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__invert button:focus-visible, body.accessibility__color__invert .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__invert button:focus-visible, body.accessibility__color__invert .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__invert a.inverted:focus-visible, body.accessibility__color__invert .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__invert a.button__main-content:focus-visible, body.accessibility__color__invert .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__invert a.button__to-top:focus-visible, body.accessibility__color__invert .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__invert a.button__accessibility:focus-visible, body.accessibility__color__invert .button__to-top:focus-visible, body.accessibility__color__invert .button__accessibility:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__main-content:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__to-top:focus-visible, body.accessibility__color__invert .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__invert button.button__accessibility:focus-visible {
   outline-color: #E2ECFB;
 }
 
-body.accessibility__color__invert .button.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__main-content:hover, body.accessibility__color__invert .button__wrapper button.slideshow-button:hover, .button__wrapper body.accessibility__color__invert button.slideshow-button:hover,
-body.accessibility__color__invert .button__wrapper a.slideshow-button:hover, .button__wrapper body.accessibility__color__invert a.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__to-top:hover, body.accessibility__color__invert .slideshow-button.button__accessibility:hover {
+body.accessibility__color__invert .button.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__main-content:hover, body.accessibility__color__invert .button__wrapper button.slideshow-button:hover, .button__wrapper body.accessibility__color__invert button.slideshow-button:hover, body.accessibility__color__invert .button__wrapper a.slideshow-button:hover, .button__wrapper body.accessibility__color__invert a.slideshow-button:hover, body.accessibility__color__invert .slideshow-button.button__to-top:hover, body.accessibility__color__invert .slideshow-button.button__accessibility:hover {
   background: #E2ECFB !important;
   color: #084DB5 !important;
 }
@@ -673,125 +730,10 @@ body.accessibility__color__invert .button__wrapper button:hover {
   border-color: #E2ECFB;
 }
 
-body.accessibility__color__invert .grid-item .plus {
-  background: #E2ECFB;
-  color: #084DB5;
-}
-
-body.accessibility__color__invert .grid-item .plus:before, body.accessibility__color__invert .grid-item .plus:after {
-  background: #084DB5;
-}
-
-body.accessibility__color__invert .grid-item:hover {
-  cursor: url("../assets/icons/plus-dark.svg"), auto;
-}
-
-body.accessibility__color__invert .grid-item:hover h4 {
-  color: #084DB5;
-}
-
-body.accessibility__color__invert .grid-item:hover .plus {
-  background: #084DB5;
-  color: #E2ECFB;
-}
-
-body.accessibility__color__invert .grid-item:hover .plus:before, body.accessibility__color__invert .grid-item:hover .plus:after {
-  background: #E2ECFB;
-}
-
-body.accessibility__color__invert .grid-item:hover:after {
-  background: #E2ECFB;
-}
-
 @media (min-width: 767px) {
   body.accessibility__color__invert #about #banner:hover {
     cursor: url("../assets/icons/magnifying-glass-dark.svg"), auto;
   }
-}
-
-body.accessibility__color__greyscale {
-  background: #fff;
-}
-
-body.accessibility__color__greyscale .title__light {
-  text-shadow: 1px 3px 4px #222;
-  color: #fff;
-}
-
-body.accessibility__color__greyscale .title__dark {
-  text-shadow: 3px 2px #fff;
-}
-
-body.accessibility__color__greyscale h2 {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale video {
-  background: #222;
-}
-
-body.accessibility__color__greyscale #about #banner #hiddenIcons .icon {
-  -webkit-filter: invert(0);
-          filter: invert(0);
-}
-
-body.accessibility__color__greyscale .portfolio__modal .technology {
-  background: #ADAAAA;
-}
-
-body.accessibility__color__greyscale .portfolio__modal .technology h4 {
-  color: #222;
-}
-
-body.accessibility__color__greyscale .grid-item .plus {
-  background: #fff;
-}
-
-body.accessibility__color__greyscale .grid-item .plus:after, body.accessibility__color__greyscale .grid-item .plus:before {
-  background: #222;
-}
-
-body.accessibility__color__greyscale .grid-item:after {
-  background: #222;
-}
-
-body.accessibility__color__greyscale .grid-item h4 {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale .grid-item:hover {
-  cursor: url("../assets/icons/plus-black.svg"), auto;
-}
-
-body.accessibility__color__greyscale .grid-item:hover .plus {
-  background: #222;
-  border-color: #fff;
-}
-
-body.accessibility__color__greyscale .grid-item:hover .plus:before, body.accessibility__color__greyscale .grid-item:hover .plus:after {
-  background: #fff;
-}
-
-body.accessibility__color__greyscale header #clock {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale header #clock * {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale header #clock .hand {
-  background: #fff;
-}
-
-body.accessibility__color__greyscale .logo span {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale .logo:before, body.accessibility__color__greyscale .logo:after,
-body.accessibility__color__greyscale .logo span:before,
-body.accessibility__color__greyscale .logo span:after {
-  background: #fff;
 }
 
 body.accessibility__color__greyscale .accessibility__modal.open dialog {
@@ -804,11 +746,6 @@ body.accessibility__color__greyscale .accessibility__modal.open h6 {
 
 body.accessibility__color__greyscale .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__color__greyscale .accessibility__modal.open .accessibility__icon-close:after {
   background: #fff;
-}
-
-body.accessibility__color__greyscale li,
-body.accessibility__color__greyscale span {
-  color: #222;
 }
 
 body.accessibility__color__greyscale a.hover-state-dark.has-hover-state:after {
@@ -828,28 +765,24 @@ body.accessibility__color__greyscale .button, body.accessibility__color__greysca
   color: #222;
 }
 
-body.accessibility__color__greyscale .button.inverted, body.accessibility__color__greyscale .button__main-content, body.accessibility__color__greyscale .button__wrapper button.inverted, .button__wrapper body.accessibility__color__greyscale button.inverted, body.accessibility__color__greyscale .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__greyscale button.button__main-content, body.accessibility__color__greyscale .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__greyscale button.button__to-top, body.accessibility__color__greyscale .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__greyscale button.button__accessibility, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button,
-body.accessibility__color__greyscale .button__wrapper a.inverted, .button__wrapper body.accessibility__color__greyscale a.inverted, body.accessibility__color__greyscale .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__greyscale a.button__main-content, body.accessibility__color__greyscale .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__greyscale a.button__to-top, body.accessibility__color__greyscale .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__greyscale a.button__accessibility, body.accessibility__color__greyscale .button__to-top, body.accessibility__color__greyscale .button__accessibility, body.accessibility__color__greyscale .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__greyscale button.button, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility {
+body.accessibility__color__greyscale .button.inverted, body.accessibility__color__greyscale .button__main-content, body.accessibility__color__greyscale .button__wrapper button.inverted, .button__wrapper body.accessibility__color__greyscale button.inverted, body.accessibility__color__greyscale .button__wrapper button.button__main-content, .button__wrapper body.accessibility__color__greyscale button.button__main-content, body.accessibility__color__greyscale .button__wrapper button.button__to-top, .button__wrapper body.accessibility__color__greyscale button.button__to-top, body.accessibility__color__greyscale .button__wrapper button.button__accessibility, .button__wrapper body.accessibility__color__greyscale button.button__accessibility, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button, body.accessibility__color__greyscale .button__wrapper a.inverted, .button__wrapper body.accessibility__color__greyscale a.inverted, body.accessibility__color__greyscale .button__wrapper a.button__main-content, .button__wrapper body.accessibility__color__greyscale a.button__main-content, body.accessibility__color__greyscale .button__wrapper a.button__to-top, .button__wrapper body.accessibility__color__greyscale a.button__to-top, body.accessibility__color__greyscale .button__wrapper a.button__accessibility, .button__wrapper body.accessibility__color__greyscale a.button__accessibility, body.accessibility__color__greyscale .button__to-top, body.accessibility__color__greyscale .button__accessibility, body.accessibility__color__greyscale .client__slideshow-buttons button.button, .client__slideshow-buttons body.accessibility__color__greyscale button.button, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility {
   border-color: #fff;
   background: #222;
   color: #fff;
 }
 
-body.accessibility__color__greyscale .button.inverted.active, body.accessibility__color__greyscale .active.button__main-content, body.accessibility__color__greyscale .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__greyscale button.inverted.active, body.accessibility__color__greyscale .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__greyscale .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__greyscale .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__greyscale button.active.button__accessibility, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button.active, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button.active,
-body.accessibility__color__greyscale .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__greyscale a.inverted.active, body.accessibility__color__greyscale .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__greyscale a.active.button__main-content, body.accessibility__color__greyscale .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__greyscale a.active.button__to-top, body.accessibility__color__greyscale .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__greyscale a.active.button__accessibility, body.accessibility__color__greyscale .active.button__to-top, body.accessibility__color__greyscale .active.button__accessibility, body.accessibility__color__greyscale .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__greyscale button.button.active, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__accessibility {
+body.accessibility__color__greyscale .button.inverted.active, body.accessibility__color__greyscale .active.button__main-content, body.accessibility__color__greyscale .button__wrapper button.inverted.active, .button__wrapper body.accessibility__color__greyscale button.inverted.active, body.accessibility__color__greyscale .button__wrapper button.active.button__main-content, .button__wrapper body.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__greyscale .button__wrapper button.active.button__to-top, .button__wrapper body.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__greyscale .button__wrapper button.active.button__accessibility, .button__wrapper body.accessibility__color__greyscale button.active.button__accessibility, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button.active, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button.active, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button.active, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button.active, body.accessibility__color__greyscale .button__wrapper a.inverted.active, .button__wrapper body.accessibility__color__greyscale a.inverted.active, body.accessibility__color__greyscale .button__wrapper a.active.button__main-content, .button__wrapper body.accessibility__color__greyscale a.active.button__main-content, body.accessibility__color__greyscale .button__wrapper a.active.button__to-top, .button__wrapper body.accessibility__color__greyscale a.active.button__to-top, body.accessibility__color__greyscale .button__wrapper a.active.button__accessibility, .button__wrapper body.accessibility__color__greyscale a.active.button__accessibility, body.accessibility__color__greyscale .active.button__to-top, body.accessibility__color__greyscale .active.button__accessibility, body.accessibility__color__greyscale .client__slideshow-buttons button.button.active, .client__slideshow-buttons body.accessibility__color__greyscale button.button.active, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__main-content, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__main-content, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__to-top, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__to-top, body.accessibility__color__greyscale .client__slideshow-buttons button.active.button__accessibility, .client__slideshow-buttons body.accessibility__color__greyscale button.active.button__accessibility {
   background: #fff;
   color: #222;
 }
 
-body.accessibility__color__greyscale .button.inverted:hover, body.accessibility__color__greyscale .button__main-content:hover, body.accessibility__color__greyscale .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__greyscale button.inverted:hover, body.accessibility__color__greyscale .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__greyscale .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__greyscale .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__greyscale button.button__accessibility:hover, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button:hover, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button:hover,
-body.accessibility__color__greyscale .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__greyscale a.inverted:hover, body.accessibility__color__greyscale .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__greyscale a.button__main-content:hover, body.accessibility__color__greyscale .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__greyscale a.button__to-top:hover, body.accessibility__color__greyscale .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__greyscale a.button__accessibility:hover, body.accessibility__color__greyscale .button__to-top:hover, body.accessibility__color__greyscale .button__accessibility:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility:hover {
+body.accessibility__color__greyscale .button.inverted:hover, body.accessibility__color__greyscale .button__main-content:hover, body.accessibility__color__greyscale .button__wrapper button.inverted:hover, .button__wrapper body.accessibility__color__greyscale button.inverted:hover, body.accessibility__color__greyscale .button__wrapper button.button__main-content:hover, .button__wrapper body.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__greyscale .button__wrapper button.button__to-top:hover, .button__wrapper body.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__greyscale .button__wrapper button.button__accessibility:hover, .button__wrapper body.accessibility__color__greyscale button.button__accessibility:hover, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:hover, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button:hover, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:hover, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button:hover, body.accessibility__color__greyscale .button__wrapper a.inverted:hover, .button__wrapper body.accessibility__color__greyscale a.inverted:hover, body.accessibility__color__greyscale .button__wrapper a.button__main-content:hover, .button__wrapper body.accessibility__color__greyscale a.button__main-content:hover, body.accessibility__color__greyscale .button__wrapper a.button__to-top:hover, .button__wrapper body.accessibility__color__greyscale a.button__to-top:hover, body.accessibility__color__greyscale .button__wrapper a.button__accessibility:hover, .button__wrapper body.accessibility__color__greyscale a.button__accessibility:hover, body.accessibility__color__greyscale .button__to-top:hover, body.accessibility__color__greyscale .button__accessibility:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top:hover, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:hover, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility:hover {
   background: #fff;
   color: #222;
   border-color: #222;
 }
 
-body.accessibility__color__greyscale .button.inverted:focus-visible, body.accessibility__color__greyscale .button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__greyscale button.inverted:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__accessibility:focus-visible, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button:focus-visible,
-body.accessibility__color__greyscale .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__greyscale a.inverted:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__to-top:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__accessibility:focus-visible, body.accessibility__color__greyscale .button__to-top:focus-visible, body.accessibility__color__greyscale .button__accessibility:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility:focus-visible {
+body.accessibility__color__greyscale .button.inverted:focus-visible, body.accessibility__color__greyscale .button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper button.inverted:focus-visible, .button__wrapper body.accessibility__color__greyscale button.inverted:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__main-content:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__to-top:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__greyscale .button__wrapper button.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__greyscale button.button__accessibility:focus-visible, body.accessibility__color__greyscale .button__wrapper .client__slideshow-buttons button:focus-visible, .button__wrapper .client__slideshow-buttons body.accessibility__color__greyscale button:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons .button__wrapper button:focus-visible, .client__slideshow-buttons .button__wrapper body.accessibility__color__greyscale button:focus-visible, body.accessibility__color__greyscale .button__wrapper a.inverted:focus-visible, .button__wrapper body.accessibility__color__greyscale a.inverted:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__main-content:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__main-content:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__to-top:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__to-top:focus-visible, body.accessibility__color__greyscale .button__wrapper a.button__accessibility:focus-visible, .button__wrapper body.accessibility__color__greyscale a.button__accessibility:focus-visible, body.accessibility__color__greyscale .button__to-top:focus-visible, body.accessibility__color__greyscale .button__accessibility:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__main-content:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__main-content:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__to-top:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__to-top:focus-visible, body.accessibility__color__greyscale .client__slideshow-buttons button.button__accessibility:focus-visible, .client__slideshow-buttons body.accessibility__color__greyscale button.button__accessibility:focus-visible {
   outline-color: #fff;
 }
 
@@ -873,57 +806,9 @@ body.accessibility__color__greyscale .button__wrapper a:hover {
   color: #fff;
 }
 
-body.accessibility__color__greyscale input,
-body.accessibility__color__greyscale textarea {
-  background: #fff;
-  color: #222;
-  border-color: #222;
-}
-
-body.accessibility__color__greyscale input:focus-visible,
-body.accessibility__color__greyscale textarea:focus-visible {
-  outline: 1px solid #222;
-}
-
-body.accessibility__color__greyscale input:focus,
-body.accessibility__color__greyscale textarea:focus {
-  background: #222;
-  color: #fff;
-}
-
-body.accessibility__color__greyscale header,
-body.accessibility__color__greyscale #about #banner {
-  background: #222;
-}
-
-body.accessibility__color__greyscale footer {
-  background: #222;
-}
-
-body.accessibility__color__greyscale footer *, body.accessibility__color__greyscale footer a {
-  color: #fff;
-}
-
-body.accessibility__color__greyscale footer a:focus {
-  outline-color: #fff;
-}
-
-body.accessibility__color__greyscale footer:before, body.accessibility__color__greyscale footer:after,
-body.accessibility__color__greyscale footer .logo:before, body.accessibility__color__greyscale footer .logo:after, body.accessibility__color__greyscale footer .logo span:before, body.accessibility__color__greyscale footer .logo span:after {
-  background: #fff;
-}
-
 body.accessibility__color__greyscale .client__slideshow .slide img {
   -webkit-filter: invert(1);
           filter: invert(1);
-}
-
-body.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-track {
-  background: #ADAAAA;
-}
-
-body.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-thumb {
-  background: #222;
 }
 
 body.accessibility__color__greyscale *,
@@ -931,30 +816,43 @@ body.accessibility__color__greyscale a {
   color: #222;
 }
 
-@media (min-width: 767px) {
-  body.accessibility__color__greyscale #about #banner:hover {
-    cursor: url("../assets/icons/magnifying-glass-black.svg"), auto;
-  }
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-video {
-  max-width: 100%;
-  width: 100vw;
-  background: #084DB5;
-}
-
 .wrapper {
   padding: 0 2rem;
+}
+
+.wrapper__large {
+  margin: 0 2rem;
+}
+
+.wrapper__banner {
+  padding-right: 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 561px) {
+  .wrapper__banner {
+    padding: 0 2.2rem;
+  }
 }
 
 @media (min-width: 767px) {
   .wrapper {
     padding: 0 1.5rem;
+  }
+  .wrapper__banner {
+    max-width: 1500px;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -962,10 +860,10 @@ video {
   .wrapper {
     padding: 0 2.2rem;
   }
-}
-
-.text-center, h4, h5, .button__wrapper, header, header #clock .grid, .client p, .client__slideshow-buttons, #contact h5, footer .footer__logo, footer copyright {
-  text-align: center;
+  .wrapper__large {
+    padding: 0 4rem;
+    margin: 0 4rem;
+  }
 }
 
 h1 {
@@ -1046,6 +944,55 @@ li {
   }
 }
 
+.title {
+  z-index: 2;
+  bottom: 3.1rem;
+}
+
+.title__accent {
+  font-style: italic;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.title__light {
+  color: #E2ECFB;
+  text-shadow: 3px 1px #084DB5;
+  margin-left: 2rem;
+}
+
+.title__dark {
+  color: #084DB5;
+  text-shadow: 3px 2px #E2ECFB;
+  margin-top: -0.9rem;
+}
+
+@media (min-width: 561px) {
+  .title {
+    bottom: 4.5rem;
+  }
+  .title__light {
+    margin-left: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    bottom: 8.8rem;
+  }
+  .title__light {
+    margin-left: 6rem;
+  }
+  .title__dark {
+    margin-top: -2.7rem;
+  }
+}
+
 a {
   color: #E2ECFB;
   text-decoration: none;
@@ -1095,9 +1042,7 @@ a.has-hover-state.hover-state-dark:focus {
   display: flex;
 }
 
-.breadcrumbs a,
-.breadcrumbs span,
-.breadcrumbs li {
+.breadcrumbs a, .breadcrumbs span, .breadcrumbs li {
   color: #084DB5;
 }
 
@@ -1121,8 +1066,8 @@ a.has-hover-state.hover-state-dark:focus {
 }
 
 .button, .button__main-content, .button__wrapper button, .button__wrapper a, .button__to-top, .button__accessibility {
-  color: #E2ECFB;
   background: #084DB5;
+  color: #E2ECFB;
   padding: 1rem;
   border-radius: 5px;
   border: 1px solid #084DB5;
@@ -1131,32 +1076,27 @@ a.has-hover-state.hover-state-dark:focus {
   letter-spacing: 1px;
 }
 
-.button:hover, .button__main-content:hover, .button__wrapper button:hover,
-.button__wrapper a:hover, .button__to-top:hover, .button__accessibility:hover {
-  color: #084DB5;
-  background: #E2ECFB;
+.button:hover, .button__main-content:hover, .button__wrapper button:hover, .button__wrapper a:hover, .button__to-top:hover, .button__accessibility:hover {
   cursor: pointer;
+  background: #E2ECFB;
+  color: #084DB5;
   -webkit-transition: background-color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
 }
 
-.button:focus, .button__main-content:focus, .button__wrapper button:focus,
-.button__wrapper a:focus, .button__to-top:focus, .button__accessibility:focus {
+.button:focus, .button__main-content:focus, .button__wrapper button:focus, .button__wrapper a:focus, .button__to-top:focus, .button__accessibility:focus {
   outline: 3px solid #084DB5;
   outline-offset: 1px;
 }
 
-.button.inverted, .button__main-content, .button__wrapper button.inverted, .button__wrapper button.button__main-content, .button__wrapper button.button__to-top, .button__wrapper button.button__accessibility, .button__wrapper .client__slideshow-buttons button, .client__slideshow-buttons .button__wrapper button,
-.button__wrapper a.inverted, .button__wrapper a.button__main-content, .button__wrapper a.button__to-top, .button__wrapper a.button__accessibility, .button__to-top, .button__accessibility, .client__slideshow-buttons button.button, .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons button.button__accessibility {
-  color: #084DB5;
+.button.inverted, .button__main-content, .button__wrapper button.inverted, .button__wrapper button.button__main-content, .button__wrapper button.button__to-top, .button__wrapper button.button__accessibility, .button__wrapper .client__slideshow-buttons button, .client__slideshow-buttons .button__wrapper button, .button__wrapper a.inverted, .button__wrapper a.button__main-content, .button__wrapper a.button__to-top, .button__wrapper a.button__accessibility, .button__to-top, .button__accessibility, .client__slideshow-buttons button.button, .client__slideshow-buttons button.button__main-content, .client__slideshow-buttons button.button__to-top, .client__slideshow-buttons button.button__accessibility {
   background: #E2ECFB;
+  color: #084DB5;
 }
 
-.button.inverted:hover, .button__main-content:hover, .button__wrapper button.inverted:hover, .button__wrapper .client__slideshow-buttons button:hover, .client__slideshow-buttons .button__wrapper button:hover,
-.button__wrapper a.inverted:hover, .button__to-top:hover, .button__accessibility:hover, .client__slideshow-buttons button.button:hover, .button.inverted.active, .active.button__main-content, .button__wrapper button.inverted.active, .button__wrapper .client__slideshow-buttons button.active, .client__slideshow-buttons .button__wrapper button.active,
-.button__wrapper a.inverted.active, .active.button__to-top, .active.button__accessibility, .client__slideshow-buttons button.button.active {
-  color: #E2ECFB;
+.button.inverted:hover, .button__main-content:hover, .button__wrapper button.inverted:hover, .button__wrapper .client__slideshow-buttons button:hover, .client__slideshow-buttons .button__wrapper button:hover, .button__wrapper a.inverted:hover, .button__to-top:hover, .button__accessibility:hover, .client__slideshow-buttons button.button:hover, .button.inverted.active, .active.button__main-content, .button__wrapper button.inverted.active, .button__wrapper .client__slideshow-buttons button.active, .client__slideshow-buttons .button__wrapper button.active, .button__wrapper a.inverted.active, .active.button__to-top, .active.button__accessibility, .client__slideshow-buttons button.button.active {
   background: #084DB5;
+  color: #E2ECFB;
   border: 1px solid #E2ECFB;
   -webkit-transition: background-color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
@@ -1182,8 +1122,7 @@ a.has-hover-state.hover-state-dark:focus {
     margin: 2.2rem;
     margin-bottom: 0;
   }
-  .button__wrapper button,
-  .button__wrapper a {
+  .button__wrapper button, .button__wrapper a {
     width: auto;
   }
 }
@@ -1206,13 +1145,13 @@ a.has-hover-state.hover-state-dark:focus {
 }
 
 .inverted, .button__main-content, .button__to-top, .button__accessibility, .client__slideshow-buttons button {
-  color: #084DB5;
   background: #E2ECFB;
+  color: #084DB5;
 }
 
 .inverted:hover, .button__main-content:hover, .button__to-top:hover, .button__accessibility:hover, .client__slideshow-buttons button:hover, .inverted.active, .active.button__main-content, .active.button__to-top, .active.button__accessibility, .client__slideshow-buttons button.active {
-  color: #E2ECFB;
   background: #084DB5;
+  color: #E2ECFB;
   border: 1px solid #E2ECFB;
   -webkit-transition: background-color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
@@ -1231,8 +1170,7 @@ label {
   }
 }
 
-input,
-textarea {
+input, textarea {
   border: 1px solid #084DB5;
   border-radius: 2px;
   padding: 0.8rem;
@@ -1240,14 +1178,57 @@ textarea {
   color: #084DB5;
 }
 
-input:focus,
-textarea:focus {
-  color: #084DB5;
+input:focus, textarea:focus {
   background: #E2ECFB;
+  color: #084DB5;
 }
 
 textarea {
   resize: none;
+}
+
+form {
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+form .flex__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 767px) {
+  form .flex__wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+form .input__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 767px) {
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  form .input__wrapper.half {
+    width: calc(50% - 3px);
+  }
 }
 
 header {
@@ -1282,9 +1263,7 @@ header #clock .hand {
   background: #E2ECFB;
 }
 
-header #clock #hour,
-header #clock #minute,
-header #clock #second {
+header #clock #hour, header #clock #minute, header #clock #second {
   border-radius: 10px;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -1397,7 +1376,7 @@ header #clock .grid span {
   .logo span:before, .logo span:after {
     left: 31px;
   }
-  .logo .slash:before {
+  .logo .slash::before {
     top: 15px;
   }
   .logo .footer__span:before, .logo .footer__span:after {
@@ -1405,100 +1384,48 @@ header #clock .grid span {
   }
 }
 
-.logo:before, .logo:after,
-.logo span:before,
-.logo span:after {
+.logo:before, .logo:after, .logo span:before, .logo span:after {
   content: '';
   width: 21px;
   height: 3px;
   background: #E2ECFB;
 }
 
-.logo:before,
-.logo span:before {
+.logo:before, .logo span:before {
   top: 13px;
 }
 
-.logo:after,
-.logo span:after {
+.logo:after, .logo span:after {
   top: 27px;
 }
 
-#about #banner {
+.section__contact {
+  margin: 4rem 0;
+}
+
+.section__client {
+  margin-top: 4rem;
+}
+
+.section__banner {
   background: #084DB5;
   padding-top: 5rem;
 }
 
-#about #banner #hiddenIcons {
-  display: none;
-}
-
-#about #banner .wrapper {
-  padding-right: 0;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#about #banner .wrapper img {
-  width: 250px;
-  z-index: 1;
-}
-
-#about #banner .wrapper h2 {
-  position: absolute;
-  top: 0;
-  left: 2rem;
-  width: 250px;
-}
-
-@media (min-width: 550px) {
-  #about #banner .wrapper h2 {
-    width: 400px;
-  }
-}
-
-@media (min-width: 561px) {
-  #about #banner .wrapper {
-    padding: 0 2.2rem;
-  }
-  #about #banner .wrapper img {
-    width: 300px;
-  }
-  #about #banner .wrapper h2 {
-    width: 350px;
-  }
-}
-
 @media (min-width: 767px) {
-  #about #banner {
-    padding-top: 0rem;
+  .section__contact {
+    margin: 8rem 0;
   }
-  #about #banner .wrapper {
-    max-width: 1500px;
-    margin: 0 auto;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+  .section__client {
+    margin-top: 8rem;
   }
-  #about #banner .wrapper h2 {
-    width: 650px;
-    margin-left: auto;
-    position: initial;
+  .section__banner {
+    padding-top: 0;
   }
-  #about #banner .wrapper img {
-    width: 600px;
-  }
-  #about #banner:hover {
+  .section__banner:hover {
     cursor: url("../assets/icons/magnifying-glass.svg"), auto;
   }
-  #about #banner #hiddenIcons {
+  .section__hiddenIcons {
     position: absolute;
     display: -ms-grid;
     display: grid;
@@ -1510,7 +1437,7 @@ header #clock .grid span {
     grid-column-gap: 1rem;
     padding: 0 5rem;
   }
-  #about #banner #hiddenIcons .icon {
+  .section__hiddenIcons .icon {
     width: 75px;
     height: 100%;
     -webkit-filter: invert(1);
@@ -1520,69 +1447,141 @@ header #clock .grid span {
        object-fit: contain;
     position: relative;
   }
-  #about #banner #hiddenIcons .icon:hover {
+  .section__hiddenIcons .icon:hover {
     opacity: 1;
     -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     -webkit-transition: opacity 0.25s ease-in;
     transition: opacity 0.25s ease-in;
   }
-  #about #banner #hiddenIcons .icon:nth-child(odd) {
+  .section__hiddenIcons .icon:nth-child(odd) {
     top: -2rem;
     right: -5rem;
   }
-  #about #banner #hiddenIcons .icon:nth-child(even) {
+  .section__hiddenIcons .icon:nth-child(even) {
     top: -2rem;
     left: -1rem;
   }
 }
 
-.title {
-  z-index: 2;
-  bottom: 3.1rem;
+.section__about img {
+  width: 250px;
+  z-index: 1;
 }
 
-.title__accent {
-  font-style: italic;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.section__about h2 {
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  width: 250px;
 }
 
-.title__light {
-  color: #E2ECFB;
-  text-shadow: 3px 1px #084DB5;
-  margin-left: 2rem;
-}
-
-.title__dark {
-  color: #084DB5;
-  text-shadow: 3px 2px #E2ECFB;
-  margin-top: -0.9rem;
+@media (min-width: 550px) {
+  .section__about h2 {
+    width: 400px;
+  }
 }
 
 @media (min-width: 561px) {
-  .title {
-    bottom: 4.5rem;
+  .section__about img {
+    width: 300px;
   }
-  .title__light {
-    margin-left: 3.5rem;
+  .section__about h2 {
+    width: 350px;
   }
 }
 
-@media (min-width: 1024px) {
-  .title {
-    bottom: 8.8rem;
+@media (min-width: 767px) {
+  .section__about h2 {
+    width: 650px;
+    margin-left: auto;
+    position: initial;
   }
-  .title__light {
-    margin-left: 6rem;
+  .section__about img {
+    width: 600px;
   }
-  .title__dark {
-    margin-top: -2.7rem;
+}
+
+.section__portfolio .portfolio__modal[aria-hidden="true"] {
+  display: none !important;
+}
+
+.section__portfolio .portfolio__modal[aria-hidden="true"] .modal {
+  display: none !important;
+}
+
+.section__portfolio .portfolio__modal .button__wrapper {
+  padding: 2.2rem;
+  margin-top: 0;
+}
+
+.section__portfolio .portfolio__modal .title {
+  bottom: 0;
+}
+
+.section__portfolio .portfolio__modal .title__accent {
+  width: calc(100% - 4rem);
+  margin: 0 auto;
+}
+
+@media (min-width: 767px) {
+  .section__portfolio .portfolio__modal .title__accent {
+    max-width: 990px;
+  }
+}
+
+.technology {
+  margin-top: 2rem;
+  background: #c1d2ec;
+  padding: 4rem 0;
+}
+
+.technology ul {
+  margin: 2rem auto 0 auto;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 5px;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  width: 300px;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+}
+
+.technology ul li {
+  background: #fff;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+}
+
+.technology ul li img {
+  padding: 5px;
+}
+
+@media (min-width: 767px) {
+  .technology .technology {
+    padding: 6rem;
+    margin-top: 4rem;
+  }
+  .technology .technology h4 {
+    font-size: clamp(2rem, 7vw, 2rem);
+  }
+}
+
+.quote {
+  color: #084DB5;
+  padding: 0 2.2rem;
+  margin: 3rem 0;
+  line-height: 2rem;
+}
+
+@media (min-width: 767px) {
+  .quote {
+    top: 12rem;
+    padding: 0 8rem;
+    margin: 6rem auto;
+    max-width: 900px;
   }
 }
 
@@ -1596,62 +1595,6 @@ header #clock .grid span {
           flex-direction: column;
 }
 
-.portfolio__modal[aria-hidden="true"] {
-  display: none !important;
-}
-
-.portfolio__modal[aria-hidden="true"] .modal {
-  display: none !important;
-}
-
-.portfolio__modal .modal .quote {
-  color: #084DB5;
-  padding: 0 2.2rem;
-  margin: 3rem 0;
-  line-height: 2rem;
-}
-
-.portfolio__modal .modal .button__wrapper {
-  padding: 2.2rem;
-}
-
-.portfolio__modal .modal .technology {
-  background: #c1d2ec;
-  padding: 4rem 0;
-}
-
-.portfolio__modal .modal .technology ul {
-  margin: 2rem auto 0 auto;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 5px;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  width: 300px;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
-}
-
-.portfolio__modal .modal .technology ul li {
-  background: #fff;
-  border-radius: 5px;
-  width: 50px;
-  height: 50px;
-}
-
-.portfolio__modal .modal .technology ul li img {
-  padding: 5px;
-}
-
-.portfolio__modal .modal .title {
-  bottom: 0;
-}
-
-.portfolio__modal .modal .title__accent {
-  width: calc(100% - 4rem);
-  margin: 0 auto;
-}
-
 @media (min-width: 767px) {
   .portfolio__grid {
     display: -ms-grid;
@@ -1659,21 +1602,6 @@ header #clock .grid span {
     grid-gap: 5px;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-  }
-  .portfolio__modal .modal .quote {
-    top: 12rem;
-    padding: 0 8rem;
-    margin: 6rem auto;
-    max-width: 900px;
-  }
-  .portfolio__modal .modal .technology {
-    padding: 6rem;
-  }
-  .portfolio__modal .modal .technology h4 {
-    font-size: clamp(2rem, 7vw, 2rem);
-  }
-  .portfolio__modal .modal .title__accent {
-    max-width: 990px;
   }
 }
 
@@ -1768,124 +1696,39 @@ header #clock .grid span {
   }
 }
 
-.margin-bottom-4 {
-  margin-bottom: 4rem;
+.image__featured-left, .image__featured-right {
+  background: #E2ECFB;
+  padding: 2rem;
+  margin-top: 2rem;
 }
 
 @media (min-width: 767px) {
-  .image-slider {
-    max-width: 1024px;
-    margin: 0 auto;
+  .image__featured-left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .image__featured-right {
+    margin-right: 0;
+    margin-left: auto;
+  }
+  .image__featured-left, .image__featured-right {
+    padding: 2.2rem;
+    max-width: 800px;
+    margin-top: 4rem;
   }
 }
 
-.container {
-  height: 250px;
-  width: calc(100% - 4rem);
-  border: 2px solid #084DB5;
-  margin: 4rem auto 0 auto;
-}
-
-.container .img {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-size: 400px 100%;
-}
-
-.container .img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.container .foreground-img {
-  width: 50%;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    width: 900px;
-    height: 600px;
-  }
-  .container.margin-left {
-    margin: 4rem 0;
-  }
-  .container.margin-right {
-    margin: 4rem 0 4rem auto;
-  }
-  .container .img {
-    background-size: 900px 100%;
-  }
-}
-
-.slider {
-  outline: none;
-  margin: 0;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-  padding: 0;
-  background: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.slider:hover, .slider:focus {
-  background-color: transparent;
-}
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 6px;
-  height: 200px;
-  background: #084DB5;
-  cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-  .slider::-webkit-slider-thumb {
-    height: 600px;
-  }
-}
-
-.client {
-  margin-top: 4rem;
-}
-
-.client a {
+.section__client a {
   color: #084DB5;
 }
 
-.client p {
+.section__client p {
   margin: 2rem 1.5rem;
   font-size: 12px;
 }
 
-.client p a {
+.section__client p a {
   border-bottom: 1px solid;
-}
-
-.client__slideshow {
-  overflow-x: scroll;
-}
-
-.client__slideshow::-webkit-scrollbar {
-  width: 10px;
-}
-
-.client__slideshow::-webkit-scrollbar-track {
-  background: #E2ECFB;
-}
-
-.client__slideshow::-webkit-scrollbar-thumb {
-  background: #084DB5;
 }
 
 .client__slideshow .slide {
@@ -1915,14 +1758,11 @@ header #clock .grid span {
 }
 
 .client__slideshow-buttons button.active {
-  color: #E2ECFB;
   background: #084DB5;
+  color: #E2ECFB;
 }
 
 @media (min-width: 767px) {
-  .client {
-    margin-top: 8rem;
-  }
   .client__slideshow {
     min-height: 300px;
   }
@@ -1936,57 +1776,6 @@ header #clock .grid span {
   .client__slideshow-buttons button {
     margin: 0 2rem;
     padding: 10px 30px;
-  }
-}
-
-#contact {
-  margin: 4rem 0;
-}
-
-#contact form {
-  padding: 2rem;
-  padding-bottom: 0;
-}
-
-#contact form .flex__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media (min-width: 767px) {
-  #contact form .flex__wrapper {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-
-#contact form .input__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media (min-width: 767px) {
-  #contact {
-    margin: 8rem 0;
-  }
-  #contact form {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  #contact form .input__wrapper.half {
-    width: calc(50% - 3px);
   }
 }
 
@@ -2013,8 +1802,12 @@ footer:after {
   bottom: 8px;
 }
 
-footer .footer__links {
-  padding: 2rem 2rem 0 2rem;
+footer copyright {
+  padding: 2rem 0 1.5rem 0;
+  font-size: 11px;
+}
+
+.footer__links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2022,26 +1815,22 @@ footer .footer__links {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 2rem 2rem 0 2rem;
 }
 
-footer .footer__navigation {
+.footer__navigation {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   margin-bottom: 4rem;
 }
 
-footer .footer__navigation li, footer .footer__navigation-title {
+.footer__navigation li, .footer__navigation-title {
   margin-bottom: 1rem;
 }
 
-footer copyright {
-  padding: 2rem 0 1.5rem 0;
-  font-size: 11px;
-}
-
 @media (min-width: 767px) {
-  footer .footer__links {
+  .footer__links {
     max-width: 800px;
     margin: 0 auto;
     -webkit-box-orient: horizontal;
@@ -2053,11 +1842,10 @@ footer copyright {
             align-items: center;
     padding: 4rem 2rem 0;
   }
-  footer .footer__navigation {
+  .footer__navigation {
     margin-bottom: 0;
   }
-  footer .footer__navigation,
-  footer .footer .logo {
+  .footer__navigation, .footer .logo {
     -webkit-box-ordinal-group: initial;
         -ms-flex-order: initial;
             order: initial;
@@ -2065,7 +1853,6 @@ footer copyright {
 }
 
 .accessibility__modal.open .accessibility__icon-close {
-  display: block;
   position: fixed;
   bottom: 20rem;
   left: 29rem;
@@ -2139,7 +1926,20 @@ footer copyright {
   }
 }
 
-.accessibility__icon-close {
-  display: none;
+.dots .dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background: #E2ECFB;
+  border: 1px solid #084DB5;
+  margin: 0 5px;
+}
+
+.dots .dot.active {
+  background: #084DB5;
+}
+
+.dots .dot:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

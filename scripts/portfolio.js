@@ -11,13 +11,9 @@ var portfolioContent = [
       video: '../assets/our-lady-of-rocco/video.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media size. Additionally, we created the functionality to 'Quick Add' a product to cart on the collections and homepage using a snippet to include on the appropriate templates.</p>",
       image_1: '../assets/our-lady-of-rocco/image_1.png',
-      code_1: '../assets/our-lady-of-rocco/code_1.png',
       image_2: '../assets/our-lady-of-rocco/image_2.png',
-      code_2: '../assets/our-lady-of-rocco/code_2.png',
       image_3: '../assets/our-lady-of-rocco/image_3.png',
-      code_3: '../assets/our-lady-of-rocco/code_3.png',
       image_4: '../assets/our-lady-of-rocco/image_4.png',
-      code_4: '../assets/our-lady-of-rocco/code_4.png',
       url: 'https://ourladyofrocco.com/'
     },
     { 
@@ -29,13 +25,9 @@ var portfolioContent = [
       video: '../assets/puppets-and-puppets/video.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
       image_1: '../assets/puppets-and-puppets/image_1.png',
-      code_1: '../assets/puppets-and-puppets/code_1.png',
       image_2: '../assets/puppets-and-puppets/image_2.png',
-      code_2: '../assets/puppets-and-puppets/code_2.png',
       image_3: '../assets/puppets-and-puppets/image_3.png',
-      code_3: '../assets/puppets-and-puppets/code_3.png',
       image_4: '../assets/puppets-and-puppets/image_4.png',
-      code_4: '../assets/puppets-and-puppets/code_4.png',
       url: 'https://puppetsandpuppets.com/'
     },
     { 
@@ -47,13 +39,9 @@ var portfolioContent = [
       video: '../assets/bethel-china/video.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to showcase the successes of the children while also making it easy to donate by including the DonorBox donation form on multiple pages. We also included the ability to add a video transcript which amplifies the importance of accessibility in websites while echoing the work that Bethel does for children with visual impairments.</p>",
       image_1: '../assets/bethel-china/image_1.png',
-      code_1: '../assets/bethel-china/code_1.png',
       image_2: '../assets/bethel-china/image_2.png',
-      code_2: '../assets/bethel-china/code_2.png',
       image_3: '../assets/bethel-china/image_3.png',
-      code_3: '../assets/bethel-china/code_3.png',
       image_4: '../assets/bethel-china/image_4.png',
-      code_4: '../assets/bethel-china/code_4.png',
       url: 'https://www.bethelchina.org/'
     },
     { 
@@ -65,13 +53,9 @@ var portfolioContent = [
       video: '../assets/blackcraft-cult/video.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
       image_1: '../assets/blackcraft-cult/image_1.png',
-      code_1: '../assets/blackcraft-cult/code_1.png',
       image_2: '../assets/blackcraft-cult/image_2.png',
-      code_2: '../assets/blackcraft-cult/code_2.png',
       image_3: '../assets/blackcraft-cult/image_3.png',
-      code_3: '../assets/blackcraft-cult/code_3.png',
       image_4: '../assets/blackcraft-cult/image_4.png',
-      code_4: '../assets/blackcraft-cult/code_4.png',
       url: 'https://www.blackcraftcult.com/'
     }
 ]
@@ -107,68 +91,32 @@ for (const modal of portfolioContent) {
   const modalId = modal.title.toLowerCase().replace(/ +/g, '-').replace('&', 'and');
 
   const imagesOneHTML = `
-    <div class="container margin-left">
-      <div class="img background-img">
-        <picture>
-          <source srcset="${modal.code_1}" media="(min-width: 600px)" />
-          <img src="${modal.code_1}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <div class="img foreground-img">
-        <picture>
-          <source srcset="${modal.image_1}" media="(min-width: 600px)" />
-          <img src="${modal.image_1}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <input type="range" min="1" max="100" value="50" class="slider" name="slider_1" id="slider_1">
+    <div class="image__featured-left">
+      <picture>
+        <source srcset="${modal.image_1}" media="(min-width: 600px)" />
+        <img src="${modal.image_1}" alt="" width="" height="" loading="lazy">
+      </picture>
     </div>
-    <div class="container margin-right">
-      <div class="img background-img">
-        <picture>
-          <source srcset="${modal.code_2}" media="(min-width: 600px)" />
-          <img src="${modal.code_2}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <div class="img foreground-img">
-        <picture>
-          <source srcset="${modal.image_2}" media="(min-width: 600px)" />
-          <img src="${modal.image_2}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <input type="range" min="1" max="100" value="50" class="slider" name="slider_2" id="slider_2">
+    <div class="image__featured-right">
+      <picture>
+        <source srcset="${modal.image_2}" media="(min-width: 600px)" />
+        <img src="${modal.image_2}" alt="" width="" height="" loading="lazy">
+      </picture>
     </div>
   `;
 
   const imagesTwoHTML = `
-    <div class="container margin-left">
-      <div class="img background-img">
-        <picture>
-          <source srcset="${modal.code_3}" media="(min-width: 600px)" />
-          <img src="${modal.code_3}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <div class="img foreground-img">
-        <picture>
-          <source srcset="${modal.image_3}" media="(min-width: 600px)" />
-          <img src="${modal.image_3}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <input type="range" min="1" max="100" value="50" class="slider" name="slider_3" id="slider_3">
+    <div class="image__featured-left">
+      <picture>
+        <source srcset="${modal.image_3}" media="(min-width: 600px)" />
+        <img src="${modal.image_3}" alt="" width="" height="" loading="lazy">
+      </picture>
     </div>
-    <div class="container margin-right">
-      <div class="img background-img">
-        <picture>
-          <source srcset="${modal.code_4}" media="(min-width: 600px)" />
-          <img src="${modal.code_4}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <div class="img foreground-img">
-        <picture>
-          <source srcset="${modal.image_4}" media="(min-width: 600px)" />
-          <img src="${modal.image_4}" alt="" width="" height="" loading="lazy">
-        </picture>
-      </div>
-      <input type="range" min="1" max="100" value="50" class="slider" name="slider_4" id="slider_4">
+    <div class="image__featured-right">
+      <picture>
+        <source srcset="${modal.image_4}" media="(min-width: 600px)" />
+        <img src="${modal.image_4}" alt="" width="" height="" loading="lazy">
+      </picture>
     </div>
   `;
 
@@ -189,13 +137,19 @@ for (const modal of portfolioContent) {
       <div class="title">
         <h3 class="title__accent"><span class="title__dark">${modal.title_first}</span><span class="title__light">${modal.title_second}</span></h3>
       </div>
-      <div class="quote">${modal.quote}</div>
-      <div class="image-slider margin-bottom-4">${imagesOneHTML}</div>
+      <div class="quote">
+        ${modal.quote}
+      </div>
+      <div class="wrapper__large">
+        ${imagesOneHTML}
+      </div>
       <div class="technology">
         <h4>technology</h4>
         <ul class="portfolioDevStack"></ul>
       </div>
-      <div class="image-slider">${imagesTwoHTML}</div>
+      <div class="wrapper__large">
+        ${imagesTwoHTML}
+      </div>
       <div class="button__wrapper">
         <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank">View the site</a>
       </div>
@@ -206,23 +160,6 @@ for (const modal of portfolioContent) {
 }
 
 portfolioModal.innerHTML += modalElements.join('');
-
-
-// Portfolio: Slider
-const sliders = document.querySelectorAll('.slider');
-const foregroundImgs = document.querySelectorAll('.foreground-img');
-
-sliders.forEach((slider, index) => {
-  slider.addEventListener('input', (e) => {
-    const sliderPos = e.target.value;
-    foregroundImgs[index].style.width = `${sliderPos}%`;
-  });
-
-  slider.addEventListener('change', (e) => {
-    const sliderPos = e.target.value;
-    foregroundImgs[index].style.width = `${sliderPos}%`;
-  });
-});
 
 
 
@@ -366,8 +303,10 @@ const breadcrumbs = document.querySelectorAll('.breadcrumbs');
 
 
 // Portfolio: Modal Logo
-const logo = document.querySelector('.logo');
-      logo.addEventListener('click', function(){
-        localStorage.setItem("modalIsOpen", 'false');
+const logos = document.querySelectorAll('.logo');
+      logos.forEach(logo => {
+        logo.addEventListener('click', function(){
+          localStorage.setItem("modalIsOpen", 'false');
+      })
 });
   

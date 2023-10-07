@@ -30,7 +30,7 @@
     <body>
         <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a>
 
-        <header>
+        <header class="section__header">
             <h1 class="logo"><a href="../layout/index.html" title="Navigate to home page"><span>ac</span></a></h1>
             <div id="clock">
                 <div class="grid grid__columns-2">
@@ -41,10 +41,10 @@
         </header>
 
         <main id="mainContent">
-            <section id="about">
-                <article id="banner">
-                    <div id="hiddenIcons"></div>
-                    <div class="wrapper">
+            <section id="about" class="section__about">
+                <article class="section__banner">
+                    <div id="hiddenIcons" class="section__hiddenIcons"></div>
+                    <div class="wrapper__banner">
                         <h2>Hi! My name is Annette Cliff</h2>
                         <img src="../assets/favicon/annette.png" alt="Profile image of Annette" width="500" height="700">
                     </div>
@@ -54,19 +54,20 @@
                 </article>
             </section>
 
-            <section id="portfolio" class="portfolio">
+            <section id="portfolio" class="section__portfolio">
                 <article id="portfolioGrid" class="portfolio__grid"></article>
                 <article id="portfolioModal" class="portfolio__modal" tabindex="-1" role="dialog" aria-hidden="true"></article>
             </section>
 
-            <section id="clients" class="client">
+            <section id="clients" class="section__client">
                 <h5>Clients</h5>
                 <div id="clientSlideshowButtons" class="client__slideshow-buttons"></div>
                 <article id="clientSlideshow" class="client__slideshow"></article>
+                <div class="dots"></div>
                 <p>Please note, I have done a range of work for the clients above while employed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
             </section>
 
-            <section id="contact">
+            <section id="contact" class="section__contact">
                 <h5>Contact</h5>
                 <form action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="42371693-bfd7-471c-9564-c028450ab53e">

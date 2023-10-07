@@ -1,13 +1,11 @@
 // styles/main.scss 
 
-
 // --- Resets --- //
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
-
 
 // --- Sass Variables -------------------- //
 
@@ -20,18 +18,15 @@ $color-black: #222;
 $color-black-medium: #ADAAAA;
 $color-white: #fff;
 
-
 // Font families
 $font-base: "Anonymous Pro";
 $font-title: "Chonburi";
-
 
 // Wrapper 
 $wrapper--xlarge: 4rem;
 $wrapper--large: 2.2rem;
 $wrapper--medium: 2rem;
 $wrapper--small: 1.5rem;
-
 
 // --- Sass Mixins ----------------------- //
 $breakpoints: (
@@ -41,7 +36,6 @@ $breakpoints: (
   'large':  1024px
 ) !default;
 
-
 @mixin breakpoint($breakpoint) {
     @if map-has-key($breakpoints, $breakpoint) {
       @media (min-width: map-get($breakpoints, $breakpoint)) {
@@ -49,7 +43,6 @@ $breakpoints: (
       }
     }
 }
-
 
 @mixin large-flex-row {
     display: flex;
@@ -111,16 +104,6 @@ $breakpoints: (
     margin: 0 auto;
 }
 
-@mixin color-light-background-dark {
-    color: $color-light;
-    background: $color-dark;
-}
-
-@mixin color-dark-background-light {
-    color: $color-dark;
-    background: $color-light;
-}
-
 @mixin background-color-transition {
     -webkit-transition: background-color 0.5s ease-in-out;
     -moz-transition: background-color 0.5s ease-in-out;
@@ -158,7 +141,6 @@ $breakpoints: (
     color: $color-black;
 }
 
-
 @mixin background-dark-color-light {
     background: $color-dark;
     color: $color-light;
@@ -170,21 +152,16 @@ $breakpoints: (
 }
 
 // --- Sass Extends ---------------------- //
-
-// Displays
-.hide,
-.desktop-only {
+.hide, .desktop-only {
     display: none;
 }
 
-.block,
-.mobile-only {
+.block, .mobile-only {
     display: block;
 }
 
 @include breakpoint('medium') {
-    .desktop-only,
-    .large--block {
+    .desktop-only, .large--block {
         display: block;
     }
     .mobile-only {
@@ -208,8 +185,6 @@ $breakpoints: (
     border: 0;
 }
 
-
-// Position
 .relative {
     position: relative;
 }
@@ -218,8 +193,6 @@ $breakpoints: (
     position: absolute;
 }
 
-
-// Flex
 .flex {
     display: flex;
 }
@@ -260,8 +233,10 @@ $breakpoints: (
     object-fit: contain;
 }
 
+.text-center {
+    text-align: center;
+}
 
-// Grid
 .grid {
     display: grid;    
     .span-2 {
@@ -269,12 +244,10 @@ $breakpoints: (
     }
 }
 
-
 .span-2 {
     grid-column: 1 / span 2;
 }
 
-// Borders
 .border {
     border: 2px solid;
 }
@@ -289,11 +262,8 @@ $breakpoints: (
     }
 }
 
-
 // --- Global ------------------------- //
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -311,19 +281,219 @@ html {
 body {
     margin: 0;
     overflow-x: hidden;
+}
+
+img {
+    @include width-height-100();
+}
+
+video {
+    max-width: 100%;
+    width: 100vw;
+    background: $color-dark;
+}
+
+main {
+    @extend .relative;
+}
+
+// Accessibility: Increased Line Height & Font Size
+body {
     &.accessibility__increase__line-height {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
+            line-height: 200% !important;
+        }
+        .title__accent {
+            line-height: 1;
+        }
+        .accessibility__modal.open .accessibility__icon-close {
+            &:before, &:after {
+                top: -5rem;
+            }
+        }
         &.accessibility__increase__font-size {
             dialog button {
                 padding: 0;
             }
             .accessibility__modal.open .accessibility__icon-close {
-                &:before,
-                &:after {
+                &:before, &:after {
                     top: -14rem;
                 }
             }
         }
     }
+}
+
+// Accessibility: Increase Font Size Only
+body.accessibility__increase__font-size {
+    h2 {
+        font-size: clamp(3rem, 3vw, 3rem) !important;
+        line-height: 3.5rem;
+    }
+    h4 {
+        font-size: clamp(2.5rem, 2.5vw, 2.5rem);
+    }
+    h5 {
+        font-size: clamp(5rem, 5vw, 5rem);
+    }
+    .logo span {
+        font-size: xx-large !important;
+    }
+    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.logo span) {
+        font-size: x-large !important;
+    }
+    dialog button {
+        @extend .width-100;
+    }
+    .accessibility__modal.open .accessibility__icon-close {
+        left: calc(100% - 3rem);
+        bottom: 15rem;
+        &:before, &:after {
+            width: 3px;
+            height: 30px;
+            top: -12rem;
+        }
+    }
+    @include breakpoint('medium') {
+        h2 {
+            width: 50%;
+            line-height: 6rem;
+        }
+        h2,h4,h5 {
+            font-size: clamp(6rem, 6vw, 6rem) !important;
+        }
+        .accessibility__modal.open .accessibility__icon-close {
+            bottom: 20rem;
+            left: 29rem;
+        }
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
+            font-size: xx-large !important;
+        }
+    }
+
+}
+
+// Accessibility: Color Inverted & Color Greyscale
+body {
+    &.accessibility__color__invert {
+        @include background-dark-color-light();
+        .icon {
+            filter: invert(0);
+        }
+        h2, .logo span, .grid-item:hover h4 {
+            color: $color-dark;
+        }
+        h5,label, p, a, li, span {
+            color: $color-light;
+        }
+        .logo::before, .logo::after, .logo span::before, .logo span::after, .grid-item .plus::before, .grid-item .plus::after {
+            background: $color-dark;
+        }
+        video, .section__banner, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item:hover::after {
+            background: $color-light;
+        }
+        .title {
+            &__light {
+                color: $color-dark;
+                text-shadow: 3px 1px 6px $color-light;
+            }
+            &__dark {
+                color: $color-light;
+                text-shadow: 3px 1px $color-dark;
+            }
+        }
+        input, textarea {
+            background: $color-light;
+            &:focus {
+                background: $color-white;
+            }
+        }
+        .modal {
+            @include background-dark-color-light();
+        }
+        .grid-item {
+            .plus {
+                @include background-light-color-dark();
+            }
+            &:hover {
+                cursor: url('../assets/icons/plus-dark.svg'), auto;
+                .plus {
+                    @include background-dark-color-light();
+                }
+            }
+        }
+        &.accessibility__color__greyscale {
+            
+        }
+        @include breakpoint('medium') {
+            .section__banner:hover {
+                cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
+            }
+        }
+    }
+}
+
+// Accessibility: Color Greyscale Only
+body.accessibility__color__greyscale {
+    background: $color-white;
+    .title {
+        &__light {
+            text-shadow: 1px 3px 4px $color-black;
+            color: $color-white;
+        }
+        &__dark {
+            text-shadow: 3px 2px $color-white;
+        }
+    }
+    .hand, .grid-item:hover .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .logo::before, .logo::after, .logo span::before, .logo span::after {
+        background: $color-white;
+    }
+    header, footer, .section__banner, video, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after {
+        background: $color-black;
+    }
+    .technology {
+        background: $color-black-medium;
+    }
+    .icon {
+        filter: invert(0);
+    }
+    h2, .grid-item h4, .logo span, #clock *, footer a, footer h6 {
+        color: $color-white;
+    }
+    li, span, .technology h4 {
+        color: $color-black;
+    }
+    .grid-item .plus {
+        &:hover {
+            cursor: url('../assets/icons/plus-black.svg'), auto;
+            background: $color-black;
+            border-color: $color-white;
+        }
+    }
+    footer a:focus {
+        outline-color: $color-white;
+    }
+    input, textarea {
+        @include background-white-color-black();
+        border-color: $color-black;
+        &:focus-visible {
+            outline: 1px solid $color-black;
+        }
+        &:focus {
+            @include background-black-color-white();
+        }
+    }
+    @include breakpoint('medium') {
+        .section__banner:hover {
+            cursor: url('../assets/icons/magnifying-glass-white.svg'), auto;
+        }
+    }
+}
+
+
+
+// TODO: the below code is in process of being refactored
+body {
     &.accessibility__color__invert {
         &.accessibility__color__greyscale {
             .modal {
@@ -513,12 +683,6 @@ body {
                     .slide img {
                         filter: invert(1);
                     }
-                    &::-webkit-scrollbar-track {
-                        background: $color-black-medium;
-                    }
-                    &::-webkit-scrollbar-thumb {
-                        background: $color-white;
-                    }
                 }
                 *,
                 a {
@@ -534,120 +698,13 @@ body {
         }
     }
     &.accessibility {
-        &__increase {
-            &__font-size {
-                .logo span {
-                    font-size: xx-large !important;
-                }
-                h5 {
-                    font-size: clamp(5rem, 5vw, 5rem);
-                }
-                h4 {
-                    font-size: clamp(2.5rem, 2.5vw, 2.5rem);
-                }
-                #about #banner .wrapper h2 {
-                    font-size: clamp(3rem, 3vw, 3rem) !important;
-                    line-height: 3.5rem;
-                }
-                *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(.logo span) {
-                    font-size: x-large !important;
-                }
-                dialog button {
-                    @extend .width-100;
-                }
-                .accessibility__modal.open .accessibility__icon-close {
-                    left: calc(100% - 3rem);
-                    bottom: 15rem;
-                    &:before,
-                    &:after {
-                        width: 3px;
-                        height: 30px;
-                        top: -12rem;
-                    }
-                }
-                @include breakpoint('medium') {
-                    .accessibility__modal.open .accessibility__icon-close {
-                        bottom: 20rem;
-                        left: 29rem;
-                    }
-                    #about #banner .wrapper h2 {
-                        width: 50%;
-                        line-height: 6rem;
-                    }
-                    h5,
-                    #about #banner .wrapper h2,
-                    h4 {
-                        font-size: clamp(6rem, 6vw, 6rem) !important;
-                    }
-                    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4) {
-                        font-size: xx-large !important;
-                    }
-                }
-            }
-            &__line-height {
-                *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
-                    line-height: 200% !important;
-                }
-                .title__accent {
-                    line-height: 1;
-                }
-                .accessibility__modal.open .accessibility__icon-close {
-                    &:before,
-                    &:after {
-                        top: -5rem;
-                    }
-                }
-            }
-        }
         &__color {
             &__invert {
-                @include color-light-background-dark();
-                .modal {
-                    @include color-light-background-dark();
-                }
-                .title {
-                    &__light {
-                        color: $color-dark;
-                        text-shadow: 3px 1px 6px $color-light;
-                    }
-                    &__dark {
-                        color: $color-light;
-                        text-shadow: 3px 1px $color-dark;
-                    }
-                }
-                input,
-                textarea {
-                    background: $color-light;
-                    &:focus {
-                        background: $color-white;
-                    }
-                }
-                header, 
-                #about #banner {
-                    background: $color-light;
-                }
-                #about #banner #hiddenIcons .icon {
-                    filter: invert(0);
-                }
-                h2 {
-                    color: $color-dark;
-                }
-                h5,
-                label,
-                p,
-                a,
-                li,
-                span {
-                    color: $color-light;
-                }
                 .breadcrumbs a.has-hover-state.hover-state-dark:after {
                     border-color: $color-light;
                 }
-                video {
-                    background: $color-light;
-                }
                 footer {
-                    @include color-dark-background-light();
+                    @include background-light-color-dark();
                     *,a { 
                         color: $color-dark;
                     }
@@ -672,17 +729,6 @@ body {
                         color: $color-dark;
                     }
                     .hand {
-                        background: $color-dark;
-                    }
-                }
-                .logo {
-                    span {
-                        color: $color-dark;
-                    }
-                    &:before,
-                    &:after,
-                    span:before,
-                    span:after {
                         background: $color-dark;
                     }
                 }
@@ -733,31 +779,6 @@ body {
                         }
                     }
                 }
-                .grid-item {
-                    .plus {
-                        @include background-light-color-dark();
-                        &:before,
-                        &:after {
-                            background: $color-dark;
-                        }
-                    }
-                    &:hover {
-                        cursor: url('../assets/icons/plus-dark.svg'), auto;
-                        h4 {
-                            color: $color-dark;
-                        }
-                        .plus {
-                            @include background-dark-color-light();
-                            &:before,
-                            &:after {
-                                background: $color-light;
-                            }
-                        }
-                        &:after {
-                            background: $color-light;
-                        }
-                    }
-                }
                 @include breakpoint('medium') {
                     #about #banner {
                         &:hover {
@@ -767,81 +788,6 @@ body {
                 }
             }
             &__greyscale {
-                background: $color-white;
-                .title {
-                    &__light {
-                        text-shadow: 1px 3px 4px $color-black;
-                        color: $color-white;
-                    }
-                    &__dark {
-                        text-shadow: 3px 2px $color-white;
-                    }
-                }
-                h2 {
-                    color: $color-white;
-                }
-                video {
-                    background: $color-black;
-                }
-                #about #banner #hiddenIcons .icon {
-                    filter: invert(0);
-                }
-                .portfolio {
-                    &__modal {
-                        .technology {
-                            background: $color-black-medium;
-                            h4 {
-                                color: $color-black;
-                            }
-                        }
-                    }
-                }
-                .grid-item {
-                    .plus {
-                        background: $color-white;
-                        &:after,
-                        &:before {
-                            background: $color-black;
-                        }
-                    }
-                    &:after {
-                        background: $color-black;
-                    }
-                    h4 {
-                        color: $color-white;
-                    }
-                    &:hover {
-                        cursor: url('../assets/icons/plus-black.svg'), auto;
-                        .plus {
-                            background: $color-black;
-                            border-color: $color-white;
-                            &:before,
-                            &:after {
-                                background: $color-white;
-                            }
-                        }
-                    }
-                }
-                header #clock {
-                    color: $color-white;
-                    * {
-                        color: $color-white;
-                    }
-                    .hand {
-                        background: $color-white;
-                    }
-                }
-                .logo {
-                    span {
-                        color: $color-white;
-                    }
-                    &:before,
-                    &:after,
-                    span:before,
-                    span:after {
-                        background: $color-white;
-                    }
-                }
                 .accessibility {
                     &__modal {
                         &.open {
@@ -860,10 +806,6 @@ body {
                         }
                     }
                 }
-                li,
-                span {
-                    color: $color-black;
-                }
                 a {
                     &.hover-state-dark.has-hover-state:after {
                         border-color: $color-black;
@@ -872,11 +814,9 @@ body {
                         border-color: $color-white;
                     }
                 }
-
                 .slideshow-button.active {
                     border-color: $color-black !important;
                 }
-
                 .button {
                     @include background-white-color-black();
                     &.inverted {
@@ -912,94 +852,55 @@ body {
                         }
                     }
                 }
-                input,
-                textarea {
-                    @include background-white-color-black();
-                    border-color: $color-black;
-                    &:focus-visible {
-                        outline: 1px solid $color-black;
-                    }
-                    &:focus {
-                        @include background-black-color-white();
-                    }
-                }
-                header, 
-                #about #banner {
-                    background: $color-black;
-                }
-                footer {
-                    background: $color-black;
-                    *,a { 
-                        color: $color-white;
-                    }
-                    a {
-                        &:focus {
-                            outline-color: $color-white;
-                        }
-                    }
-                    &:before, 
-                    &:after,
-                    .logo:before, .logo:after, .logo span:before, .logo span:after {
-                        background: $color-white;
-                    }
-                }
                 .client__slideshow {
                     .slide img {
                         filter: invert(1);
-                    }
-                    &::-webkit-scrollbar-track {
-                        background: $color-black-medium;
-                    }
-                    &::-webkit-scrollbar-thumb {
-                        background: $color-black;
                     }
                 }
                 *,
                 a {
                     color: $color-black;
                 }
-                @include breakpoint('medium') {
-                    #about #banner {
-                        &:hover {
-                            cursor: url('../assets/icons/magnifying-glass-black.svg'), auto;
-                        }
-                    }
-                }
             }
         }
     }
 }
-
-img {
-    @include width-height-100();
-}
-
-video {
-    max-width: 100%;
-    width: 100vw;
-    background: $color-dark;
-}
-
-main {
-    @extend .relative;
-}
+// TODO: the above code in process of being refactored
 
 // --- Wrappers ------------------------- //
 .wrapper {
     padding: 0 $wrapper--medium;
+    &__large {
+        margin: 0 $wrapper--medium;
+    }
+    &__banner {
+        padding-right: 0;
+        @extend .relative;
+        @include items-center-justify-end();
+    }
+    @include breakpoint('small') {
+        &__banner {
+            padding: 0 $wrapper--large;
+        }
+    }
     @include breakpoint('medium') {
         padding: 0 $wrapper--small;
+        &__banner {
+            max-width: 1500px;
+            @include margin-auto();
+            justify-content: space-between;
+        }
     }
     @include breakpoint('large') {
         padding: 0 $wrapper--large;
+        &__large {
+            padding: 0 $wrapper--xlarge;
+            margin: 0 $wrapper--xlarge;
+        }
     }
 }
 
 // --- Typography ------------------------- //
-.text-center {
-    text-align: center;
-}
-
 h1 {
     font-size: 40px;
     line-height: 36px;
@@ -1065,477 +966,6 @@ li {
     }
 }
 
-
-// --- Links ------------------------- //
-a {
-    color: $color-light;
-    text-decoration: none;
-    &.has-hover-state {
-        @extend .relative,
-                .inline-block;
-        &:after {
-            content: '';
-            @extend .block;
-            border-bottom: 2px solid;
-            border-color: $color-light;
-            transform: scaleX(0);  
-            transform-origin: 0% 50%;
-            transition: transform 250ms ease-in-out;
-        }
-        &:hover {
-            &:after {
-                transform: scaleX(1);
-            }
-        }
-        &:focus {
-            outline: 3px solid $color-light;
-            outline-offset: 1px;
-        }
-        &.hover-state-dark {
-            &:after {
-                border-bottom: 2px solid;
-                border-color: $color-dark;
-            }
-            &:focus {
-                @include outline-styles();
-            }
-        }
-    }
-}
-
-
-
-// --- Breadcrumbs ------------------------- //
-.breadcrumbs {
-    @extend .block;
-    margin: $wrapper--large;
-    ul {
-        @extend .justify-end,
-                .width-100;
-        @include display-flex();
-    }
-    a,
-    span,
-    li {
-        color: $color-dark;
-    }
-    a {
-        &.home {
-            border-bottom: 2px solid;
-            padding-bottom: 1px;
-        }
-        &:not(.home) {
-            cursor: initial;
-        }
-    }
-    span {
-        margin-right: 7px;
-    }
-    @include breakpoint('medium') {
-        margin-bottom: 6rem;
-    }
-}
-
-
-
-// --- Buttons ------------------------- //
-.button {
-    @include color-light-background-dark();
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid $color-dark;
-    font-weight: 600;
-    font-family: $font-base;
-    letter-spacing: 1px;
-    &:hover {
-        @include color-dark-background-light();
-        cursor: pointer;
-        @include background-color-transition();
-    }
-    &:focus {
-        @include outline-styles();
-    }
-    &.inverted {
-        @include color-dark-background-light();
-        &:hover,
-        &.active {
-            @include color-light-background-dark();
-            border: 1px solid $color-light;
-            -webkit-transition: background-color 0.5s ease-in-out;
-            -moz-transition: background-color 0.5s ease-in-out;
-            -o-transition: background-color 0.5s ease-in-out;
-            transition: background-color 0.5s ease-in-out;
-        }
-    }
-    &__main-content {
-        @extend .visually-hidden,
-                .button,
-                .inverted;
-        &:focus {
-            top: 30px;
-            left: 30px;
-            height: initial;
-            width: inherit;
-            margin: initial;
-            clip: inherit;
-            z-index: 2;
-        }
-    }
-    &__wrapper {
-        @extend .text-center;
-        margin: $wrapper--large 0;
-        margin-bottom: 0;
-        button,
-        a {
-            @extend .button,
-                    .width-100;
-        }
-        a {
-            @extend .inline-block;
-        }
-        @include breakpoint('medium') {
-            margin: $wrapper--large;
-            margin-bottom: 0;
-            button,
-            a {
-                width: auto;
-            }
-        }
-    }
-    &__to-top,
-    &__accessibility {
-        bottom: 2rem;
-        right: 2rem;
-        z-index: 5;
-        position: fixed;
-        @extend .button,
-                .inverted;
-        &:focus {
-            outline: 3px solid $color-light;
-            outline-offset: 1px; 
-        }
-    }
-    &__accessibility {
-        left: 2rem;
-        right: initial;
-    }
-}
-
-.inverted {
-    @include color-dark-background-light();
-    &:hover,
-    &.active {
-        @include color-light-background-dark();
-        border: 1px solid $color-light;
-        @include background-color-transition();
-    }
-}
-
-// --- Inputs ------------------------- //
-label {
-    color: $color-dark;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin: 10px 0;
-    @include breakpoint('medium') {
-        font-size: 14px;
-    }
-}
- 
-input,
-textarea {
-    border: 1px solid $color-dark;
-    border-radius: 2px;
-    padding: 0.8rem;
-    font-family: $font-base;
-    color: $color-dark;
-    &:focus {
-        @include color-dark-background-light();
-    }
-}
-
-textarea {
-    resize: none;
-}
-
-
-// --- Header ------------------------- //
-header {
-    background: $color-dark;
-    padding: 1rem $wrapper--large;
-    @extend .justify-between,
-            .text-center;
-    @include large-flex();
-    .logo {
-        margin-bottom: 0;
-        order: initial;
-    }
-    #clock {
-        color: $color-light;
-        .hand {
-            @extend .absolute;
-            height: 2px;
-            background: $color-light;
-        }
-        #hour,
-        #minute,
-        #second {
-            @extend .absolute;
-            border-radius: 10px;
-            transform-origin: bottom;
-        }
-        #hour {
-            width: 1%;
-            height: 22%;
-            top: 26%;
-            left: 49.85%;
-            opacity: 0.8;
-        }
-        #minute {
-            width: 1.6%;
-            height: 34%;
-            top: 14%;
-            left: 48.9%;
-            opacity: 0.8;
-        }
-        #second {
-            width: 1%;
-            height: 40%;
-            top: 9%;
-            left: 49.25%;
-            opacity: 0.8;
-        }
-        @extend .hide,
-                .relative,
-                .border,
-                .large--block;
-                width: 3.5rem;
-                height: 3.5rem;
-                border-radius: 50%;
-        .grid {
-            @extend .text-center;
-            font-size: 12px;
-            height: 100%;
-            padding: 3px;
-            span {
-                @include display-flex();
-                &.span-2 {
-                    @extend .justify-center;
-                }
-            }
-        }
-    }
-    @include breakpoint('small') {
-        text-align: left;
-    }
-}
-
-
-// --- Logo ------------------------- //
-.logo {
-    font-size: 40px;
-    line-height: 36px;
-    order: 1;
-    margin-bottom: $wrapper--xlarge;
-    color: $color-light;
-    @extend .inline-block,
-            .align-self-center,
-            .relative;
-    &:before,
-    &:after {
-        left: -21px;
-    }
-    &:before {
-        @include rotate-negative-45();
-    }
-    &:after {
-       @include rotate-positive-45();
-    }
-    span {
-        &:before,
-        &:after {
-            left: 43px;
-        }
-        &:before {
-            @include rotate-positive-45();
-        }
-        &:after {
-            @include rotate-negative-45();
-        }
-    }
-    .slash {
-        @extend .relative;
-        margin-right: 8px;
-        margin-left: 7px;
-        &:before {
-            content: '';
-            @extend .absolute;
-            width: 25px;
-            height: 3px;
-            -webkit-transform: rotate(-60deg);
-            transform: rotate(-60deg);
-            left: -13px;
-            top: 20px;
-        }
-        &:after {
-            @extend .hide;
-        }
-    }
-    .footer__span {
-        &:before,
-        &:after {
-            left: 60px;
-        }
-    }
-    @include breakpoint('medium') {
-        margin-bottom: 0;
-        font-size: 30px;
-        span {
-            &:before,
-            &:after {
-                left: 31px;
-            }
-        }
-        .slash {
-            &:before {
-                top: 15px;
-            }
-        }
-        .footer__span {
-            &:before,
-            &:after {
-                left: 46px;
-            }
-        }
-    }
-}
-
-
-.logo,
-.logo span {
-    &:before,
-    &:after {
-        content: '';
-        width: 21px;
-        height: 3px;
-        background: $color-light;
-        @extend .absolute;
-    }
-    &:before {
-        top: 13px;
-    }
-    &:after {
-        top: 27px;
-    }
-}
-
-
-// --- About ------------------------- //
-#about {
-    // margin-bottom: $wrapper--xlarge;
-    #banner {
-        background: $color-dark;
-        padding-top: 5rem;
-        @extend .relative;
-        #hiddenIcons {
-            display: none;
-        }
-        .wrapper {
-            padding-right: 0;
-            @extend .relative;
-            @include items-center-justify-end();
-            img {
-                width: 250px;
-                @extend .relative;
-                z-index: 1;
-            }
-            h2 {
-                @include absolute-top();
-                left: 2rem;
-                width: 250px;
-            }
-        }
-    }
-    @include breakpoint('xsmall') {
-        #banner .wrapper h2 {
-            width: 400px;
-        }
-    }
-    @include breakpoint('small') {
-        // margin-bottom: 5rem;
-        #banner {
-            .wrapper {
-                padding: 0 $wrapper--large;
-                img {
-                    width: 300px;
-                }
-                h2 {
-                    width: 350px;
-                }
-            }
-        }
-    }
-    @include breakpoint('medium') {
-        // margin-bottom: 6rem;
-        #banner {
-            padding-top: 0rem;
-            .wrapper {
-                max-width: 1500px;
-                @include margin-auto();
-                justify-content: space-between;
-                h2 {
-                    width: 650px;
-                    margin-left: auto;
-                    position: initial;
-                }
-                img {
-                    width: 600px;
-                }
-            }
-            &:hover {
-                cursor: url('../assets/icons/magnifying-glass.svg'), auto;
-            }
-            #hiddenIcons {
-                position: absolute;
-                display: grid;
-                grid-template-columns: repeat(3, 23%);
-                @include width-height-100();
-                z-index: 4;
-                grid-column-gap: 1rem;
-                padding: 0 5rem;
-                .icon {
-                    width: 75px;
-                    height: 100%;
-                    filter: invert(1);
-                    opacity: 0;
-                    object-fit: contain;
-                    position: relative;
-                    &:hover {
-                        opacity: 1;
-                        transition: opacity 0.25s;
-                        -webkit-transition: opacity 0.25s ease-in;
-                        -moz-transition: opacity 0.25s ease-in;
-                        -o-transition: opacity 0.25s ease-in;
-                        transition: opacity 0.25s ease-in;
-                    }
-                }
-                .icon:nth-child(odd) {
-                    top: -2rem;
-                    right: -5rem;
-                }
-                .icon:nth-child(even) {
-                    top: -2rem;
-                    left: -1rem;
-                }
-            }
-        }
-    }
-    // @include breakpoint('large') {
-    //     margin-bottom: 12rem;
-    // }
-}
-
-
 // --- Title ------------------------- //
 .title {
     @extend .relative;
@@ -1572,90 +1002,539 @@ header {
     }
 }
 
+// --- Links ------------------------- //
+a {
+    color: $color-light;
+    text-decoration: none;
+    &.has-hover-state {
+        @extend .relative, .inline-block;
+        &:after {
+            content: '';
+            @extend .block;
+            border-bottom: 2px solid;
+            border-color: $color-light;
+            transform: scaleX(0);  
+            transform-origin: 0% 50%;
+            transition: transform 250ms ease-in-out;
+        }
+        &:hover {
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+        &:focus {
+            outline: 3px solid $color-light;
+            outline-offset: 1px;
+        }
+        &.hover-state-dark {
+            &:after {
+                border-bottom: 2px solid;
+                border-color: $color-dark;
+            }
+            &:focus {
+                @include outline-styles();
+            }
+        }
+    }
+}
 
-// --- Portfolio: Grid ------------------------- //
-.portfolio {
-    &__grid {
+// --- Breadcrumbs ------------------------- //
+.breadcrumbs {
+    @extend .block;
+    margin: $wrapper--large;
+    ul {
+        @extend .justify-end, .width-100;
+        @include display-flex();
+    }
+    a, span, li {
+        color: $color-dark;
+    }
+    a {
+        &.home {
+            border-bottom: 2px solid;
+            padding-bottom: 1px;
+        }
+        &:not(.home) {
+            cursor: initial;
+        }
+    }
+    span {
+        margin-right: 7px;
+    }
+    @include breakpoint('medium') {
+        margin-bottom: 6rem;
+    }
+}
+
+// --- Buttons ------------------------- //
+.button {
+    @include background-dark-color-light();
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid $color-dark;
+    font-weight: 600;
+    font-family: $font-base;
+    letter-spacing: 1px;
+    &:hover {
+        cursor: pointer;
+        @include background-light-color-dark();
+        @include background-color-transition();
+    }
+    &:focus {
+        @include outline-styles();
+    }
+    &.inverted {
+        @include background-light-color-dark();
+        &:hover, &.active {
+            @include background-dark-color-light();
+            border: 1px solid $color-light;
+            -webkit-transition: background-color 0.5s ease-in-out;
+            -moz-transition: background-color 0.5s ease-in-out;
+            -o-transition: background-color 0.5s ease-in-out;
+            transition: background-color 0.5s ease-in-out;
+        }
+    }
+    &__main-content {
+        @extend .visually-hidden, .button, .inverted;
+        &:focus {
+            top: 30px;
+            left: 30px;
+            height: initial;
+            width: inherit;
+            margin: initial;
+            clip: inherit;
+            z-index: 2;
+        }
+    }
+    &__wrapper {
+        @extend .text-center;
+        margin: $wrapper--large 0;
+        margin-bottom: 0;
+        button, a {
+            @extend .button, .width-100;
+        }
+        a {
+            @extend .inline-block;
+        }
+        @include breakpoint('medium') {
+            margin: $wrapper--large;
+            margin-bottom: 0;
+            button, a {
+                width: auto;
+            }
+        }
+    }
+    &__to-top,
+    &__accessibility {
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 5;
+        position: fixed;
+        @extend .button, .inverted;
+        &:focus {
+            outline: 3px solid $color-light;
+            outline-offset: 1px; 
+        }
+    }
+    &__accessibility {
+        left: 2rem;
+        right: initial;
+    }
+}
+
+.inverted {
+    @include background-light-color-dark();
+    &:hover, &.active {
+        @include background-dark-color-light();
+        border: 1px solid $color-light;
+        @include background-color-transition();
+    }
+}
+
+// --- Inputs ------------------------- //
+label {
+    color: $color-dark;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    @include breakpoint('medium') {
+        font-size: 14px;
+    }
+}
+ 
+input, textarea {
+    border: 1px solid $color-dark;
+    border-radius: 2px;
+    padding: 0.8rem;
+    font-family: $font-base;
+    color: $color-dark;
+    &:focus {
+        @include background-light-color-dark();
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+form {
+    padding: $wrapper--medium;
+    padding-bottom: 0;
+    .flex__wrapper {
+        @extend .justify-between;
+        @include large-flex-row();
+    }
+    .input__wrapper {
         @include flex-column();
     }
-    &__modal {
+    @include breakpoint('medium') {
+        max-width: 700px;
+        @include margin-auto();
+        .input__wrapper.half {
+            width: calc(50% - 3px);
+        }
+    }
+}
+
+// --- Header ------------------------- //
+header {
+    background: $color-dark;
+    padding: 1rem $wrapper--large;
+    @extend .justify-between, .text-center;
+    @include large-flex();
+    .logo {
+        margin-bottom: 0;
+        order: initial;
+    }
+    #clock {
+        color: $color-light;
+        @extend .hide, .relative, .border, .large--block;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        .hand {
+            @extend .absolute;
+            height: 2px;
+            background: $color-light;
+        }
+        #hour, #minute, #second {
+            @extend .absolute;
+            border-radius: 10px;
+            transform-origin: bottom;
+        }
+        #hour {
+            width: 1%;
+            height: 22%;
+            top: 26%;
+            left: 49.85%;
+            opacity: 0.8;
+        }
+        #minute {
+            width: 1.6%;
+            height: 34%;
+            top: 14%;
+            left: 48.9%;
+            opacity: 0.8;
+        }
+        #second {
+            width: 1%;
+            height: 40%;
+            top: 9%;
+            left: 49.25%;
+            opacity: 0.8;
+        }
+        .grid {
+            @extend .text-center;
+            font-size: 12px;
+            height: 100%;
+            padding: 3px;
+            span {
+                @include display-flex();
+                &.span-2 {
+                    @extend .justify-center;
+                }
+            }
+        }
+    }
+    @include breakpoint('small') {
+        text-align: left;
+    }
+}
+
+// --- Logo ------------------------- //
+.logo {
+    font-size: 40px;
+    line-height: 36px;
+    order: 1;
+    margin-bottom: $wrapper--xlarge;
+    color: $color-light;
+    @extend .inline-block, .align-self-center, .relative;
+    &:before, &:after {
+        left: -21px;
+    }
+    &:before {
+        @include rotate-negative-45();
+    }
+    &:after {
+       @include rotate-positive-45();
+    }
+    span {
+        &:before, &:after {
+            left: 43px;
+        }
+        &:before {
+            @include rotate-positive-45();
+        }
+        &:after {
+            @include rotate-negative-45();
+        }
+    }
+    .slash {
+        @extend .relative;
+        margin-right: 8px;
+        margin-left: 7px;
+        &:before {
+            content: '';
+            @extend .absolute;
+            width: 25px;
+            height: 3px;
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            left: -13px;
+            top: 20px;
+        }
+        &:after {
+            @extend .hide;
+        }
+    }
+    .footer__span {
+        &:before, &:after {
+            left: 60px;
+        }
+    }
+    @include breakpoint('medium') {
+        margin-bottom: 0;
+        font-size: 30px;
+        span {
+            &:before, &:after {
+                left: 31px;
+            }
+        }
+        .slash::before {
+            top: 15px;
+        }
+        .footer__span {
+            &:before, &:after {
+                left: 46px;
+            }
+        }
+    }
+}
+
+.logo, .logo span {
+    &:before, &:after {
+        content: '';
+        width: 21px;
+        height: 3px;
+        background: $color-light;
+        @extend .absolute;
+    }
+    &:before {
+        top: 13px;
+    }
+    &:after {
+        top: 27px;
+    }
+}
+
+// --- Sections: About, Portfolio, Contact ------------------------- //
+.section {
+    &__contact {
+        margin: $wrapper--xlarge 0;
+    }
+    &__client {
+        margin-top: $wrapper--xlarge;
+    }
+    &__banner {
+        background: $color-dark;
+        padding-top: 5rem;
+        @extend .relative;
+    }
+    &__hiddenIcons {
+        @extend .hide;
+    }
+    @include breakpoint('medium') {
+        &__contact {
+            margin: 8rem 0;
+        }
+        &__client {
+            margin-top: 8rem;
+        }
+        &__banner {
+            padding-top: 0;
+            &:hover {
+                cursor: url('../assets/icons/magnifying-glass.svg'), auto;
+            }
+        }
+        &__hiddenIcons {
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(3, 23%);
+            @include width-height-100();
+            z-index: 4;
+            grid-column-gap: 1rem;
+            padding: 0 5rem;
+            .icon {
+                width: 75px;
+                height: 100%;
+                filter: invert(1);
+                opacity: 0;
+                object-fit: contain;
+                position: relative;
+                &:hover {
+                    opacity: 1;
+                    transition: opacity 0.25s;
+                    -webkit-transition: opacity 0.25s ease-in;
+                    -moz-transition: opacity 0.25s ease-in;
+                    -o-transition: opacity 0.25s ease-in;
+                    transition: opacity 0.25s ease-in;
+                }
+            }
+            .icon:nth-child(odd) {
+                top: -2rem;
+                right: -5rem;
+            }
+            .icon:nth-child(even) {
+                top: -2rem;
+                left: -1rem;
+            }
+        }
+    }
+}
+
+// --- About ------------------------- //
+.section__about {
+    img {
+        width: 250px;
+        @extend .relative;
+        z-index: 1;
+    }
+    h2 {
+        @include absolute-top();
+        left: 2rem;
+        width: 250px;
+    }
+    @include breakpoint('xsmall') {
+        h2 {
+            width: 400px;
+        }
+    }
+    @include breakpoint('small') {
+        img {
+            width: 300px;
+        }
+        h2 {
+            width: 350px;
+        }
+    }
+    @include breakpoint('medium') {
+        h2 {
+            width: 650px;
+            margin-left: auto;
+            position: initial;
+        }
+        img {
+            width: 600px;
+        }
+    }
+}
+
+// --- Portfolio: Modal ------------------------- //
+.section__portfolio {
+    .portfolio__modal {
         &[aria-hidden="true"] {
             display: none !important;
             .modal {
                 display: none !important;
             }
         }
-        .modal {
-            .quote {
-                color: $color-dark;
-                padding: 0 $wrapper--large;
-                margin: 3rem 0;
-                line-height: 2rem;
-            }
-            .button__wrapper {
-                padding: $wrapper--large;
-            }
-            .technology {
-                background: $color-medium;
-                padding: $wrapper--xlarge 0;
-                ul {
-                    margin: 2rem auto 0 auto;
-                    @include display-grid();
-                    width: 300px;
-                    grid-template-columns: repeat(5,1fr);
-                    li {
-                        background: $color-white;
-                        border-radius: 5px;
-                        width: 50px;
-                        height: 50px;
-                        img {
-                            padding: 5px;
-                        }
-                    }
-                }
-            }
-            .title {
-                bottom: 0;
-                &__accent {
-                    width: calc(100% - 4rem);
-                    margin: 0 auto;
-                }
+        .button__wrapper {
+            padding: $wrapper--large;
+            margin-top: 0;
+        }
+        .title {
+            bottom: 0;
+            &__accent {
+                width: calc(100% - 4rem);
+                @include margin-auto();
             }
         }
     }
     @include breakpoint('medium') {
-        &__grid {
-            @include display-grid();
-        }
-        &__modal {
-            .modal {
-                .quote {
-                    top: 12rem;
-                    padding: 0 8rem;
-                    margin: 6rem auto;
-                    max-width: 900px;
-                }
-                .technology {
-                    padding: 6rem;
-                    h4 {
-                        font-size: clamp(2rem, 7vw, 2rem);
-                    }
-                }
-                .title {
-                    &__accent {
-                        max-width: 990px;
-                    }
+        .portfolio__modal {
+            .title {
+                &__accent {
+                    max-width: 990px;
                 }
             }
         }
     }
 }
 
+.technology {
+    margin-top: $wrapper--medium;
+    background: $color-medium;
+    padding: $wrapper--xlarge 0;
+    ul {
+        margin: $wrapper--medium auto 0 auto;
+        @include display-grid();
+        width: 300px;
+        grid-template-columns: repeat(5,1fr);
+        li {
+            background: $color-white;
+            border-radius: 5px;
+            width: 50px;
+            height: 50px;
+            img {
+                padding: 5px;
+            }
+        }
+    }
+    @include breakpoint('medium') {
+        .technology {
+            padding: 6rem;
+            margin-top: $wrapper--xlarge;
+            h4 {
+                font-size: clamp(2rem, 7vw, 2rem);
+            }
+        }
+    }
+}
+
+.quote {
+    color: $color-dark;
+    padding: 0 $wrapper--large;
+    margin: 3rem 0;
+    line-height: 2rem;
+    @include breakpoint('medium') {
+        top: 12rem;
+        padding: 0 8rem;
+        margin: 6rem auto;
+        max-width: 900px;
+    }
+}
+
+// --- Portfolio: Grid ------------------------- //
+.portfolio__grid {
+    @include flex-column();
+    @include breakpoint('medium') {
+        @include display-grid();
+    }
+}
 
 .grid-item {
     margin-bottom: 10px;
-    @extend .relative,
-            .justify-center;
+    @extend .relative, .justify-center;
     @include flex-column();
     img {
         @extend .object-fit-contain;
@@ -1675,11 +1554,10 @@ header {
         height: 2rem;
         z-index: 3;
         @extend .absolute;
-                right: 1rem;
-                top: 1rem;
+        right: 1rem;
+        top: 1rem;
         border-radius: 50%;
-        &:before,
-        &:after {
+        &:before, &:after {
             @extend .absolute;
             content: '';
             background: $color-light;
@@ -1708,8 +1586,7 @@ header {
         }
         .plus {
             background: $color-light;
-            &:before,
-            &:after {
+            &:before, &:after {
                 background: $color-dark;
             }
             &:hover {
@@ -1717,10 +1594,7 @@ header {
             }
         }
         h4 {
-            @extend .block,
-                    .absolute,
-                    .align-self-center,
-                    .justify-center;
+            @extend .block, .absolute, .align-self-center, .justify-center;
             color: $color-light;
             z-index: 1;
         }
@@ -1733,87 +1607,36 @@ header {
     }
 }
 
-
-// --- Portfolio: Modal Slider ------------------------- //
-.margin-bottom-4 {
-    margin-bottom: $wrapper--xlarge;
-}
-
-@include breakpoint('medium') {
-    .image-slider {
-        max-width: 1024px;
-        margin: 0 auto;
-    }
-}
-
-
-.container {
-    @extend .relative;
-    height: 250px;
-    width: calc(100% - 4rem);
-    border: 2px solid $color-dark;
-    margin: 4rem auto 0 auto;
-    .img {
-        @extend .absolute;
-        @include width-height-100();
-        @include top-left-0();
-        background-size: 400px 100%;
-        img {
-            object-fit: cover;
+// --- Portfolio: Modal Featured Images ------------------------- //
+.image {
+    &__featured {
+        &-left, &-right {
+            background: $color-light;
+            padding: $wrapper--medium;
+            margin-top: $wrapper--medium;
         }
     }
-    .foreground-img {
-      width: 50%;
-    }
-    @include breakpoint('large') {
-        width: 900px;
-        height: 600px;
-        &.margin-left {
-            margin: $wrapper--xlarge 0;
-        }
-        &.margin-right {
-            margin: $wrapper--xlarge 0 $wrapper--xlarge auto;
-        }
-        .img {
-            background-size: 900px 100%;
+    @include breakpoint('medium') {
+        &__featured {
+            &-left {
+                margin-left: 0;
+                margin-right: auto;
+            }
+            &-right {
+                margin-right: 0;
+                margin-left: auto;
+            }
+            &-left, &-right {
+                padding: $wrapper--large;
+                max-width: 800px;
+                margin-top: $wrapper--xlarge;
+            }
         }
     }
 }
-
-.slider {
-    @extend .absolute,
-            .justify-center,
-            .items-center;
-            outline: none;
-            margin: 0;
-            transition: all .2s;
-            padding: 0;
-            background: transparent;
-        @include appearance-none();
-        @include display-flex();
-        @include width-height-100();
-      &:hover,
-      &:focus {
-        background-color: transparent;
-      }
-      &::-webkit-slider-thumb {
-        @include appearance-none();
-        width: 6px;
-        height: 200px;
-        background: $color-dark;
-        cursor: pointer;
-    }
-    @include breakpoint('large') {
-        &::-webkit-slider-thumb {
-            height: 600px;
-        }
-    }
-}
-
 
 // --- Clients ------------------------- //
-.client {
-    margin-top: $wrapper--xlarge;
+.section__client {
     a {
         color: $color-dark;
     }
@@ -1825,19 +1648,11 @@ header {
             border-bottom: 1px solid;
         }
     }
+}
+
+.client {
     &__slideshow {
-        overflow-x: scroll;
-        @extend .flex,
-                .items-center;
-        &::-webkit-scrollbar {
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background: $color-light;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: $color-dark;
-        }
+        @extend .flex, .items-center;
         .slide {
             padding: 0 3rem;
             margin: $wrapper--xlarge 0;
@@ -1855,8 +1670,7 @@ header {
             }
         }
         &-buttons {
-            @extend .text-center,
-                    .justify-evenly;
+            @extend .text-center, .justify-evenly;
             @include display-flex();
             margin-top: 3rem;
             button {
@@ -1866,13 +1680,12 @@ header {
                 padding: 10px;
                 @extend .inverted;
                 &.active {
-                    @include color-light-background-dark();
+                    @include background-dark-color-light();
                 }
             }
         }
     }
     @include breakpoint('medium') {
-        margin-top: 8rem;
         &__slideshow {
             min-height: 300px;
             .slide {
@@ -1882,7 +1695,7 @@ header {
                 margin-top: $wrapper--xlarge;
                 display: block;
                 button {
-                    margin: 0 2rem;
+                    margin: 0 $wrapper--medium;
                     padding: 10px 30px;
                 }
             }
@@ -1890,38 +1703,10 @@ header {
     }
 }
 
-
 // --- Contact ------------------------- //
-#contact {
-    margin: $wrapper--xlarge 0;
-    h5 {
-        @extend .text-center;
-    }
-    form {
-        padding: $wrapper--medium;
-        padding-bottom: 0;
-        .flex__wrapper {
-            @extend .justify-between;
-            @include large-flex-row();
-        }
-        .input__wrapper {
-            @include flex-column();
-        }
-    }
-    @include breakpoint('medium') {
-        margin: 8rem 0;
-        form {
-            max-width: 700px;
-            @include margin-auto();
-            .input__wrapper {
-                &.half {
-                    width: calc(50% - 3px);
-                }
-            }
-        }
-    }
+.section__contact h5 {
+    @extend .text-center;
 }
-
 
 // --- Footer ------------------------- //
 footer {
@@ -1930,8 +1715,7 @@ footer {
     * {
         color: $color-light;
     }
-    &:before,
-    &:after {
+    &:before, &:after {
         content: '';
         @extend .absolute;
         background: $color-light;
@@ -1944,118 +1728,124 @@ footer {
     &:after {
         bottom: 8px;
     }
-    .footer {
-        &__links {
-            @extend .items-start,
-                    .justify-between;
-                    padding: 2rem 2rem 0 2rem;
-            @include flex-column();
-        }
-        &__logo {
-            @extend .large--width-auto,
-                    .width-100,
-                    .text-center;
-        }
-        &__navigation {
-            order: 2;
-            margin-bottom: $wrapper--xlarge;
-            li,
-            &-title {
-                margin-bottom: 1rem;
-            }
-        }
-    }
     copyright {
-        @extend .block,
-                .text-center;
-        padding: 2rem 0 1.5rem 0;
+        @extend .block, .text-center;
+        padding: $wrapper--medium 0 $wrapper--small 0;
         font-size: 11px;
     }
+}
+
+.footer {
+    &__links {
+        @include flex-column();
+        @extend .items-start, .justify-between;
+        padding: $wrapper--medium $wrapper--medium 0 $wrapper--medium;
+    }
+    &__logo {
+        @extend .large--width-auto, .width-100, .text-center;
+    }
+    &__navigation {
+        order: 2;
+        margin-bottom: $wrapper--xlarge;
+        li, &-title {
+            margin-bottom: 1rem;
+        }
+    }
     @include breakpoint('medium') {
-        .footer {
-            &__links {
-                max-width: 800px;
-                @include margin-auto();
-                flex-direction: row;
-                align-items: center;
-                padding: $wrapper--xlarge $wrapper--medium 0;
+        &__links {
+            max-width: 800px;
+            @include margin-auto();
+            flex-direction: row;
+            align-items: center;
+            padding: $wrapper--xlarge $wrapper--medium 0;
+        }
+        &__navigation {
+            margin-bottom: 0;
+        }
+        &__navigation, .logo {
+            order: initial;
+        }
+    }
+}
+
+// --- Accessibility Modal ------------------------- //
+.accessibility {
+    &__icon-close {
+        @extend .hide;
+    }
+    &__modal.open {
+        .accessibility__icon-close {
+            @extend .block;
+            position: fixed;
+            bottom: 20rem;
+            left: 29rem;
+            z-index: 10;
+            &:hover {
+                cursor: pointer;
             }
-            &__navigation {
-                margin-bottom: 0;
+            &:before, &:after {
+                content: '';
+                background: $color-dark;
+                width: 2px;
+                height: 13px;
+                @include absolute-top();
             }
-            &__navigation,
-            .logo {
-                order: initial;
+            &:before {
+                @include rotate-negative-45();
+            }
+            &:after {
+                @include rotate-positive-45();
+            }
+        }
+        dialog {
+            border-color: $color-dark;
+            padding: $wrapper--medium;
+            @extend .block;
+            position: fixed;
+            bottom: 2rem;
+            z-index: 9;
+            @include margin-auto();
+            width: calc(100% - 2rem);
+            div {
+                @include flex-column();
+                h6 {
+                    color: $color-dark;
+                    margin-bottom: 10px;
+                }
+                &:first-of-type {
+                    margin-bottom: $wrapper--medium;
+                }
+                button:last-of-type {
+                    margin-top: 10px;
+                }
+            }
+            @include breakpoint('medium') {
+                left: $wrapper--medium;
+                margin: 0;
+                width: 460px;
+                div:first-of-type {
+                    display: block;
+                }
             }
         }
     }
 }
 
-
-// --- Accessibility Modal ------------------------- //
-.accessibility {
-    &__modal {
-        &.open {
-            .accessibility__icon-close {
-                display: block;
-                position: fixed;
-                bottom: 20rem;
-                left: 29rem;
-                z-index: 10;
-                &:hover {
-                    cursor: pointer;
-                }
-                &:before,
-                &:after {
-                    content: '';
-                    background: $color-dark;
-                    width: 2px;
-                    height: 13px;
-                    @include absolute-top();
-                }
-                &:before {
-                    @include rotate-negative-45();
-                }
-                &:after {
-                    @include rotate-positive-45();
-                }
-            }
-            dialog {
-            border-color: $color-dark;
-            padding: $wrapper--medium;
-            @extend .block;
-                position: fixed;
-                bottom: 2rem;
-                z-index: 9;
-                margin: 0 auto;
-                width: calc(100% - 2rem);
-                div {
-                    @include flex-column();
-                    h6 {
-                        color: $color-dark;
-                        margin-bottom: 10px;
-                    }
-                    &:first-of-type {
-                        margin-bottom: $wrapper--medium;
-                    }
-                    button:last-of-type {
-                        margin-top: 10px;
-                    }
-                }
-                @include breakpoint('medium') {
-                    left: 2rem;
-                    margin: 0;
-                    width: 460px;
-                    div {
-                        &:first-of-type {
-                            display: block;
-                        }
-                    }
-                }
-            }
+// --- Client: Slideshow Navigation ------------------------- //
+.dots {
+    @extend .flex, .justify-center;
+    .dot {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        background: $color-light;
+        border: 1px solid $color-dark;
+        margin: 0 5px;
+        &.active {
+            background: $color-dark;
         }
-    }
-    &__icon-close {
-        display: none;
+        &:hover {
+            cursor: pointer;
+        }
     }
 }
