@@ -17,6 +17,12 @@ accessibilityModal.innerHTML +=
     </div>
 </dialog>`
 
+accessibilityModal.addEventListener('keyup', function(event) {
+    if (event.code === 'Enter') {
+        accessibilityModal.classList.add('open');
+    }
+})
+
 document.addEventListener("click", (e) => {
     const accessibilityModalClose = document.querySelector('.accessibility__icon-close');
     const accessibilityModalButton = document.querySelector('.button__accessibility');

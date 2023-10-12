@@ -297,7 +297,7 @@ main {
     @extend .relative;
 }
 
-// Accessibility: Increased Line Height & Font Size
+// Accessibility: Increase Line Height & Font Size
 body {
     &.accessibility__increase__line-height {
         *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo) {
@@ -339,14 +339,27 @@ body.accessibility__increase__font-size {
     h5 {
         font-size: clamp(5rem, 5vw, 5rem);
     }
-    .logo span {
-        font-size: xx-large !important;
+    .logo .slash::before {
+        left: -13px;
     }
-    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.logo span) {
+    header .logo span::before, header .logo span::after {
+        left: 50px;
+    }
+    .logo .slash::before {
+        top: 9px;
+    }
+    .footer__span, .header__span {
+        font-size: xxx-large !important;
+    }
+    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.footer__span):not(.header__span) {
         font-size: x-large !important;
     }
     dialog button {
         @extend .width-100;
+    }
+    #clock {
+        width: 6.5rem;
+        height: 6.5rem;
     }
     .accessibility__modal.open .accessibility__icon-close {
         left: calc(100% - 3rem);
@@ -369,6 +382,11 @@ body.accessibility__increase__font-size {
             bottom: 20rem;
             left: 29rem;
         }
+        header .logo {
+            span:before, span:after {
+                left: 31px;
+            }
+        }
         *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
             font-size: xx-large !important;
         }
@@ -383,36 +401,40 @@ body {
         .icon {
             filter: invert(0);
         }
-        h2, .logo span, .grid-item:hover h4 {
+        h2, .logo span, .grid-item:hover h4, #clock, #clock *, footer *, footer a, .title__light {
             color: $color-dark;
         }
-        h5,label, p, a, li, span {
+        h5,label, p, a, li, span, .title__dark {
             color: $color-light;
         }
-        .logo::before, .logo::after, .logo span::before, .logo span::after, .grid-item .plus::before, .grid-item .plus::after {
+        .logo::before, .logo::after, .logo span::before, .logo span::after, .grid-item .plus::before, .grid-item .plus::after, #clock .hand, footer::before, footer::after {
             background: $color-dark;
         }
-        video, .section__banner, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item:hover::after {
+        header, video, .section__banner, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item:hover::after, textarea, input, textarea:focus, input:focus {
             background: $color-light;
         }
-        .title {
-            &__light {
-                color: $color-dark;
-                text-shadow: 3px 1px 6px $color-light;
-            }
-            &__dark {
-                color: $color-light;
-                text-shadow: 3px 1px $color-dark;
-            }
+        .button.inverted.active, footer a.has-hover-state:after, footer a.hover-state-dark, .button__accessibility:hover, .button__to_top:hover {
+            border-color: $color-dark;
         }
-        input, textarea {
-            background: $color-light;
-            &:focus {
-                background: $color-white;
-            }
+        a.has-hover-state.hover-state-dark:after, .button.inverted, .button.inverted:hover, .button__wrapper a:hover, .button__wrapper button:hover {
+            border-color: $color-light;
+        }
+        .button__accessibility:focus, .button__to_top:focus {
+            outline-color: $color-dark;
+        }
+        .button.inverted:focus-visible, .button__wrapper a:focus, .button__wrapper button:focus, a.has-hover-state.hover-state-dark:focus {
+            outline-color: $color-light;
         }
         .modal {
             @include background-dark-color-light();
+        }
+        .title {
+            &__light {
+                text-shadow: 3px 1px 6px $color-light;
+            }
+            &__dark {
+                text-shadow: 3px 1px $color-dark;
+            }
         }
         .grid-item {
             .plus {
@@ -425,12 +447,133 @@ body {
                 }
             }
         }
-        &.accessibility__color__greyscale {
-            
+        .button {
+            @include background-dark-color-light();
+            &.inverted {
+                @include background-dark-color-light();
+                &.active {
+                    @include background-light-color-dark();
+                }
+                &:hover {
+                    @include background-dark-color-light();
+                }
+            }
+            &__accessibility, &__to-top {
+                &:hover {
+                    @include background-light-color-dark();
+                }
+            }
+            &__wrapper {
+                a {
+                    @include background-light-color-dark();
+                    border: 1px solid $color-light;
+                }
+                button {
+                    @include background-light-color-dark();
+                }
+                a, button {
+                    &:hover {
+                        @include background-dark-color-light();
+                    }
+                }
+            }
+        }
+        footer {
+            @include background-light-color-dark();
+            a {
+                &:focus {
+                    outline-color: $color-dark;
+                }
+            }
         }
         @include breakpoint('medium') {
             .section__banner:hover {
                 cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
+            }
+        }
+        &.accessibility__color__greyscale {
+            background: $color-black;
+            .modal, #clock .hand, footer::after, footer::before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .accessibility__icon-close::before, .accessibility__icon-close::after {
+                background: $color-black;
+            }
+            video, header, .section__banner, footer, .grid-item .plus::after, .grid-item .plus::before, .grid-item::after, .grid-item:hover .plus {
+                background: $color-white;
+            }
+            .technology {
+                background: $color-black-medium;
+            }
+            h2, .title__light, #clock, #clock *, footer *, footer a, .logo span, .technology h4, .grid-item h4, .accessibility__modal.open dialog h6 {
+                color: $color-black;
+            }
+            p, li, span, a, * {
+                color: $color-white;
+            }
+            footer a:focus, .button.inverted:focus-visible {
+                outline-color: $color-black;
+            }
+            .accessibility__modal.open dialog, .button.inverted, input, textarea, a.has-hover-state:after {
+                border-color: $color-black;
+            }
+            .button.inverted:hover, .button__wrapper a, .button__wrapper button, a.hover-state-dark.has-hover-state:after {
+                border-color: $color-white;
+            }
+            input, textarea {
+                @include background-white-color-black();
+                &:focus-visible {
+                    outline: 1px solid $color-white;
+                }
+                &:focus {
+                    @include background-white-color-black();
+                }
+            }
+            .title {
+                &__light {
+                    text-shadow: 1px 3px 4px $color-white;
+                }
+                &__dark {
+                    text-shadow: 3px 2px $color-black;
+                }
+            }
+            .grid-item {
+                &:hover {
+                    cursor: url('../assets/icons/plus-black.svg'), auto;
+                    .plus {
+                        border: 1px solid $color-black;
+                    }
+                }
+            }
+            .client__slideshow .slide img {
+                filter: invert(1);
+            }
+            .button {
+                @include background-black-color-white();
+                &.inverted {
+                    @include background-white-color-black();
+                    &.active {
+                        @include background-black-color-white();
+                    }
+                    &:hover {
+                        @include background-black-color-white();
+                    }
+                }
+                &__wrapper {
+                    button {
+                        @include background-black-color-white();
+                        &:focus-visible {
+                            outline: 1px solid $color-white;
+                        }
+                    }
+                    button, a {
+                        &:hover {
+                            @include background-white-color-black();
+                        }
+                    }
+                }
+            }
+            @include breakpoint('medium') {
+                .section__banner:hover {
+                    cursor: url('../assets/icons/magnifying-glass-black.svg'), auto;
+                }
             }
         }
     }
@@ -442,7 +585,6 @@ body.accessibility__color__greyscale {
     .title {
         &__light {
             text-shadow: 1px 3px 4px $color-black;
-            color: $color-white;
         }
         &__dark {
             text-shadow: 3px 2px $color-white;
@@ -451,7 +593,7 @@ body.accessibility__color__greyscale {
     .hand, .grid-item:hover .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .logo::before, .logo::after, .logo span::before, .logo span::after {
         background: $color-white;
     }
-    header, footer, .section__banner, video, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after, .accessibility__modal.open .accessibility__icon-close::before, .accessibility__modal.open .accessibility__icon-close::after {
+    header, footer, .section__banner, video, .grid-item .plus:hover, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after, .accessibility__modal.open .accessibility__icon-close::before, .accessibility__modal.open .accessibility__icon-close::after {
         background: $color-black;
     }
     .technology, .image__featured-left, .image__featured-right {
@@ -460,31 +602,31 @@ body.accessibility__color__greyscale {
     .icon {
         filter: invert(0);
     }
-    h2, .grid-item h4, .logo span, #clock *, footer a, footer h6 {
+    h2, .grid-item h4, .logo span, #clock *, footer a, footer h6, .title__light {
         color: $color-white;
     }
     li, span, .technology h4, .accessibility__modal.open h6, a, * {
         color: $color-black;
     }
-    .accessibility__modal.open dialog {
+    .grid-item .plus:hover, .button.inverted, a.has-hover-state:after {
+        border-color: $color-white;
+    }
+    .accessibility__modal.open dialog, textarea, input, .button.inverted.active, .button.inverted:hover, .button__wrapper a, .button__wrapper button, a.hover-state-dark.has-hover-state:after {
         border-color: $color-black;
     }
     footer a:focus, .button__to_top:focus, .button__accessibility:focus, .button.inverted:focus-visible {
         outline-color: $color-white;
     }
-    .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus { 
+    .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus, .button__wrapper button:focus, .button__wrapper button:focus-visible, .button__wrapper a:focus, .button__wrapper a:focus-visible, .breadcrumbs a.has-hover-state:focus, .section__client a.has-hover-state:focus { 
         outline-color: $color-black;
     }
     .grid-item .plus {
         &:hover {
             cursor: url('../assets/icons/plus-black.svg'), auto;
-            background: $color-black;
-            border-color: $color-white;
         }
     }
     input, textarea {
         @include background-white-color-black();
-        border-color: $color-black;
         &:focus-visible {
             outline: 1px solid $color-black;
         }
@@ -496,23 +638,16 @@ body.accessibility__color__greyscale {
         @include background-white-color-black();
         &.inverted {
             @include background-black-color-white();
-            border-color: $color-white;
             &.active {
                 @include background-white-color-black();
-                border-color: $color-black;
             }
             &:hover {
                 @include background-white-color-black();
-                border-color: $color-black;
             }
         }
         &__wrapper {
-            a {
-                border-color: $color-black;
-            }
             button {
                 @include background-white-color-black();
-                border-color: $color-black;
                 &:focus-visible {
                     outline: 1px solid $color-black;
                 }
@@ -521,23 +656,7 @@ body.accessibility__color__greyscale {
                 &:hover {
                     @include background-black-color-white();
                 }
-                &:focus, &:focus-visible {
-                    outline-color: $color-black;
-                }
             }
-        }
-    }
-    a {
-        &.hover-state-dark.has-hover-state:after {
-            border-color: $color-black;
-        }
-        &.has-hover-state:after {
-            border-color: $color-white;
-        }
-    }
-    .breadcrumbs a, .section__client a {
-        &.has-hover-state:focus {
-            outline-color: $color-black;
         }
     }
     @include breakpoint('medium') {
@@ -546,297 +665,6 @@ body.accessibility__color__greyscale {
         }
     }
 }
-
-
-
-// TODO: the below code is in process of being refactored
-body {
-    &.accessibility__color__invert {
-        &.accessibility__color__greyscale {
-            .modal {
-                background: $color-black;
-            }
-            .title__light,
-            p {
-                color: $color-white;
-            }
-            background: $color-black;
-                .title {
-                    &__light {
-                        text-shadow: 1px 3px 4px $color-white;
-                        color: $color-black;
-                    }
-                    &__dark {
-                        text-shadow: 3px 2px $color-black;
-                    }
-                }
-                h2 {
-                    color: $color-black;
-                }
-                video {
-                    background: $color-white;
-                }
-                #about #banner #hiddenIcons .icon {
-                    filter: invert(0);
-                }
-                .portfolio {
-                    &__modal {
-                        .technology {
-                            background: $color-black-medium;
-                            h4 {
-                                color: $color-black;
-                            }
-                        }
-                    }
-                }
-                .grid-item {
-                    .plus {
-                        background: $color-black;
-                        &:after,
-                        &:before {
-                            background: $color-white;
-                        }
-                    }
-                    &:after {
-                        background: $color-white;
-                    }
-                    h4 {
-                        color: $color-black;
-                    }
-                    &:hover {
-                        cursor: url('../assets/icons/plus-black.svg'), auto;
-                        .plus {
-                            background: $color-white;
-                            border-color: $color-black;
-                            &:before,
-                            &:after {
-                                background: $color-black;
-                            }
-                        }
-                    }
-                }
-                header #clock {
-                    color: $color-black;
-                    * {
-                        color: $color-black;
-                    }
-                    .hand {
-                        background: $color-black;
-                    }
-                }
-                .logo {
-                    span {
-                        color: $color-black;
-                    }
-                    &:before,
-                    &:after,
-                    span:before,
-                    span:after {
-                        background: $color-black;
-                    }
-                }
-                .accessibility {
-                    &__modal {
-                        &.open {
-                            dialog {
-                                border-color: $color-black;
-                            }
-                            h6 {
-                                color: $color-black;
-                            }
-                            .accessibility__icon-close {
-                                &:before,
-                                &:after {
-                                    background: $color-black;
-                                }
-                            }
-                        }
-                    }
-                }
-                li,
-                span {
-                    color: $color-white;
-                }
-                a {
-                    &.hover-state-dark.has-hover-state:after {
-                        border-color: $color-white;
-                    }
-                    &.has-hover-state:after {
-                        border-color: $color-black;
-                    }
-                }
-                .button {
-                    @include background-black-color-white();
-                    &.inverted {
-                        border-color: $color-black;
-                        @include background-white-color-black();
-                        &.active {
-                            @include background-black-color-white();
-                        }
-                        &:hover {
-                            @include background-black-color-white();
-                            border-color: $color-white;
-                        }
-                        &:focus-visible {
-                            outline-color: $color-black;
-                        }
-                    }
-                    &__wrapper {
-                        a {
-                            border-color: $color-white;
-                        }
-                        button {
-                            @include background-black-color-white();
-                            border-color: $color-white;
-                            &:focus-visible {
-                                outline: 1px solid $color-white;
-                            }
-                        }
-                        button, 
-                        a {
-                            &:hover {
-                                @include background-white-color-black();
-                            }
-                        }
-                    }
-                }
-                input,
-                textarea {
-                    @include background-black-color-white();
-                    border-color: $color-white;
-                    &:focus-visible {
-                        outline: 1px solid $color-white;
-                    }
-                    &:focus {
-                        @include background-white-color-black();
-                    }
-                }
-                header, 
-                #about #banner {
-                    background: $color-white;
-                }
-                footer {
-                    background: $color-white;
-                    *,a { 
-                        color: $color-black;
-                    }
-                    a {
-                        &:focus {
-                            outline-color: $color-black;
-                        }
-                    }
-                    &:before, 
-                    &:after,
-                    .logo:before, .logo:after, .logo span:before, .logo span:after {
-                        background: $color-black;
-                    }
-                }
-                .client__slideshow {
-                    .slide img {
-                        filter: invert(1);
-                    }
-                }
-                *,
-                a {
-                    color: $color-white;
-                }
-                @include breakpoint('medium') {
-                    #about #banner {
-                        &:hover {
-                            cursor: url('../assets/icons/magnifying-glass-black.svg'), auto;
-                        }
-                    }
-                }
-        }
-    }
-    &.accessibility {
-        &__color {
-            &__invert {
-                .breadcrumbs a.has-hover-state.hover-state-dark:after {
-                    border-color: $color-light;
-                }
-                footer {
-                    @include background-light-color-dark();
-                    *,a { 
-                        color: $color-dark;
-                    }
-                    a {
-                        &:focus {
-                            outline-color: $color-dark;
-                        }
-                        &.has-hover-state:after,
-                        &.hover-state-dark {
-                            border-color: $color-dark;
-                        }
-                    }
-                    &:before, 
-                    &:after,
-                    .logo:before, .logo:after, .logo span:before, .logo span:after {
-                        background: $color-dark;
-                    }
-                }
-                header #clock {
-                    color: $color-dark;
-                    * {
-                        color: $color-dark;
-                    }
-                    .hand {
-                        background: $color-dark;
-                    }
-                }
-                .button {
-                    @include background-dark-color-light();
-                    &.inverted {
-                        border-color: $color-light;
-                        @include background-dark-color-light();
-                        &.active {
-                            @include background-light-color-dark();
-                            border-color: $color-dark;
-                        }
-                        &:hover {
-                            @include background-dark-color-light();
-                            border-color: $color-white;
-                        }
-                        &:focus-visible {
-                            outline-color: $color-light;
-                        }
-                    }
-                    &__accessibility,
-                    &__to-top {
-                        &:hover {
-                            border-color: $color-dark;
-                            @include background-light-color-dark();
-                        }
-                    }
-                }
-                .button__wrapper {
-                    a {
-                        @include background-light-color-dark();
-                        border: 1px solid $color-light;
-                    }
-                    button {
-                        @include background-light-color-dark();
-                    }
-                    a,
-                    button {
-                        &:hover {
-                            @include background-dark-color-light();
-                            border-color: $color-light;
-                        }
-                    }
-                }
-                @include breakpoint('medium') {
-                    #about #banner {
-                        &:hover {
-                            cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-// TODO: the above code in process of being refactored
 
 // --- Wrappers ------------------------- //
 .wrapper {
@@ -1177,58 +1005,59 @@ header {
         margin-bottom: 0;
         order: initial;
     }
-    #clock {
-        color: $color-light;
-        @extend .hide, .relative, .border, .large--block;
-        width: 3.5rem;
-        height: 3.5rem;
-        border-radius: 50%;
-        .hand {
-            @extend .absolute;
-            height: 2px;
-            background: $color-light;
-        }
-        #hour, #minute, #second {
-            @extend .absolute;
-            border-radius: 10px;
-            transform-origin: bottom;
-        }
-        #hour {
-            width: 1%;
-            height: 22%;
-            top: 26%;
-            left: 49.85%;
-            opacity: 0.8;
-        }
-        #minute {
-            width: 1.6%;
-            height: 34%;
-            top: 14%;
-            left: 48.9%;
-            opacity: 0.8;
-        }
-        #second {
-            width: 1%;
-            height: 40%;
-            top: 9%;
-            left: 49.25%;
-            opacity: 0.8;
-        }
-        .grid {
-            @extend .text-center;
-            font-size: 12px;
-            height: 100%;
-            padding: 3px;
-            span {
-                @include display-flex();
-                &.span-2 {
-                    @extend .justify-center;
-                }
-            }
-        }
-    }
     @include breakpoint('small') {
         text-align: left;
+    }
+}
+
+#clock {
+    color: $color-light;
+    @extend .hide, .relative, .border, .large--block;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    .hand {
+        @extend .absolute;
+        height: 2px;
+        background: $color-light;
+    }
+    #hour, #minute, #second {
+        @extend .absolute;
+        border-radius: 10px;
+        transform-origin: bottom;
+    }
+    #hour {
+        width: 1%;
+        height: 22%;
+        top: 26%;
+        left: 49.85%;
+        opacity: 0.8;
+    }
+    #minute {
+        width: 1.6%;
+        height: 34%;
+        top: 14%;
+        left: 48.9%;
+        opacity: 0.8;
+    }
+    #second {
+        width: 1%;
+        height: 40%;
+        top: 9%;
+        left: 49.25%;
+        opacity: 0.8;
+    }
+    .grid {
+        @extend .text-center;
+        font-size: 12px;
+        height: 100%;
+        padding: 3px;
+        span {
+            @include display-flex();
+            &.span-2 {
+                @extend .justify-center;
+            }
+        }
     }
 }
 
@@ -1666,7 +1495,6 @@ header {
                 padding: 0 6rem;
             }
             &-buttons {
-                margin-top: $wrapper--xlarge;
                 display: block;
                 button {
                     margin: 0 $wrapper--medium;
