@@ -74,7 +74,7 @@ table {
   position: relative;
 }
 
-.absolute, #clock .hand, #clock #hour, #clock #minute, #clock #second, .logo .slash:before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after {
+.absolute, #clock .hand, #clock #hour, #clock #minute, #clock #second, .logo .slash:before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after, .accessibility__modal.open .accessibility__icon-close:before, .accessibility__modal.open .accessibility__icon-close:after {
   position: absolute;
 }
 
@@ -1730,6 +1730,8 @@ footer copyright {
   position: fixed;
   bottom: 20rem;
   left: 29rem;
+  width: 20px;
+  height: 20px;
   z-index: 10;
 }
 
@@ -1742,8 +1744,8 @@ footer copyright {
   background: #084DB5;
   width: 2px;
   height: 13px;
-  position: absolute;
-  top: 0;
+  top: 3px;
+  right: 9px;
 }
 
 .accessibility__modal.open .accessibility__icon-close:before {

@@ -1618,6 +1618,8 @@ footer {
             position: fixed;
             bottom: 20rem;
             left: 29rem;
+            width: 20px;
+            height: 20px;
             z-index: 10;
             &:hover {
                 cursor: pointer;
@@ -1627,7 +1629,9 @@ footer {
                 background: $color-dark;
                 width: 2px;
                 height: 13px;
-                @include absolute-top();
+                top: 3px;
+                right: 9px;
+                @extend .absolute;
             }
             &:before {
                 @include rotate-negative-45();
