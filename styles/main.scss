@@ -486,6 +486,15 @@ body {
                 }
             }
         }
+        .client__slideshow {
+            &::-webkit-scrollbar-track {
+                background: $color-dark;
+                border: 1px solid $color-light;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $color-light;
+            }
+        }
         @include breakpoint('medium') {
             .section__banner:hover {
                 cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
@@ -568,6 +577,15 @@ body {
                             @include background-white-color-black();
                         }
                     }
+                }
+            }
+            .client__slideshow {
+                &::-webkit-scrollbar-track {
+                    background: $color-black;
+                    border: 1px solid $color-white;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: $color-white;
                 }
             }
             @include breakpoint('medium') {
@@ -657,6 +675,15 @@ body.accessibility__color__greyscale {
                     @include background-black-color-white();
                 }
             }
+        }
+    }
+    .client__slideshow {
+        &::-webkit-scrollbar-track {
+            background: $color-white;
+            border: 1px solid $color-black;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $color-black;
         }
     }
     @include breakpoint('medium') {
@@ -1455,7 +1482,17 @@ header {
 .client {
     &__slideshow {
         @extend .flex, .items-center;
-        overflow-x: hidden;
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            background: $color-light;
+            border: 1px solid $color-dark;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $color-dark;
+        }
         .slide {
             padding: 0 3rem;
             margin: $wrapper--xlarge 0;
@@ -1629,25 +1666,6 @@ footer {
                     display: block;
                 }
             }
-        }
-    }
-}
-
-// --- Client: Slideshow Navigation ------------------------- //
-.dots {
-    @extend .flex, .justify-center;
-    .dot {
-        width: 1rem;
-        height: 1rem;
-        border-radius: 100%;
-        background: $color-light;
-        border: 1px solid $color-dark;
-        margin: 0 5px;
-        &.active {
-            background: $color-dark;
-        }
-        &:hover {
-            cursor: pointer;
         }
     }
 }

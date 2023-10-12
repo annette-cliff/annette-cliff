@@ -78,7 +78,7 @@ table {
   position: absolute;
 }
 
-.flex, .client__slideshow, .dots {
+.flex, .client__slideshow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,7 +96,7 @@ table {
           justify-content: space-evenly;
 }
 
-.justify-center, #clock .grid span.span-2, .grid-item, .grid-item:hover h4, .dots {
+.justify-center, #clock .grid span.span-2, .grid-item, .grid-item:hover h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -416,6 +416,15 @@ body.accessibility__color__invert footer a:focus {
   outline-color: #084DB5;
 }
 
+body.accessibility__color__invert .client__slideshow::-webkit-scrollbar-track {
+  background: #084DB5;
+  border: 1px solid #E2ECFB;
+}
+
+body.accessibility__color__invert .client__slideshow::-webkit-scrollbar-thumb {
+  background: #E2ECFB;
+}
+
 @media (min-width: 767px) {
   body.accessibility__color__invert .section__banner:hover {
     cursor: url("../assets/icons/magnifying-glass-dark.svg"), auto;
@@ -527,6 +536,15 @@ body.accessibility__color__invert.accessibility__color__greyscale .button__wrapp
   color: #222;
 }
 
+body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-track {
+  background: #222;
+  border: 1px solid #fff;
+}
+
+body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-thumb {
+  background: #fff;
+}
+
 @media (min-width: 767px) {
   body.accessibility__color__invert.accessibility__color__greyscale .section__banner:hover {
     cursor: url("../assets/icons/magnifying-glass-black.svg"), auto;
@@ -636,6 +654,15 @@ body.accessibility__color__greyscale .button__wrapper button:focus-visible {
 body.accessibility__color__greyscale .button__wrapper button:hover, body.accessibility__color__greyscale .button__wrapper a:hover {
   background: #222;
   color: #fff;
+}
+
+body.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-track {
+  background: #fff;
+  border: 1px solid #222;
+}
+
+body.accessibility__color__greyscale .client__slideshow::-webkit-scrollbar-thumb {
+  background: #222;
 }
 
 @media (min-width: 767px) {
@@ -1563,7 +1590,20 @@ header .logo {
 }
 
 .client__slideshow {
-  overflow-x: hidden;
+  overflow-x: scroll;
+}
+
+.client__slideshow::-webkit-scrollbar {
+  width: 10px;
+}
+
+.client__slideshow::-webkit-scrollbar-track {
+  background: #E2ECFB;
+  border: 1px solid #084DB5;
+}
+
+.client__slideshow::-webkit-scrollbar-thumb {
+  background: #084DB5;
 }
 
 .client__slideshow .slide {
@@ -1758,22 +1798,5 @@ footer copyright {
   .accessibility__modal.open dialog div:first-of-type {
     display: block;
   }
-}
-
-.dots .dot {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  background: #E2ECFB;
-  border: 1px solid #084DB5;
-  margin: 0 5px;
-}
-
-.dots .dot.active {
-  background: #084DB5;
-}
-
-.dots .dot:hover {
-  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
