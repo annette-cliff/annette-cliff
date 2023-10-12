@@ -196,7 +196,7 @@ clientSlideshowHTML.innerHTML += clientSlideshowContent;
 const agencies = ["Lemonade", "Fuel Made", "Personal"]
 const clientSlideshowButtons = agencies
         .map((agency) =>
-            `<button data-agency="${agency}" class="slideshow-button button">${agency}</button>`
+            `<button data-agency="${agency}" class="button">${agency}</button>`
         )
         .join('');
 
@@ -218,7 +218,7 @@ function handleSlideVisibility(slides, activeButtonValue) {
 document.addEventListener("DOMContentLoaded", () => {
     const slides = document.querySelectorAll('.slide');
     const localStorageClientSlideshow = localStorage.getItem("clientSlideshow");
-    const slideshowButton = document.querySelectorAll('.slideshow-button');
+    const slideshowButton = document.querySelectorAll('.client__slideshow-buttons .button');
 
     let activeButton = null;
 

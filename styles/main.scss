@@ -300,11 +300,14 @@ main {
 // Accessibility: Increased Line Height & Font Size
 body {
     &.accessibility__increase__line-height {
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo) {
             line-height: 200% !important;
         }
         .title__accent {
             line-height: 1;
+        }
+        .quote p {
+            line-height: 3rem;
         }
         .accessibility__modal.open .accessibility__icon-close {
             &:before, &:after {
@@ -448,10 +451,10 @@ body.accessibility__color__greyscale {
     .hand, .grid-item:hover .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .logo::before, .logo::after, .logo span::before, .logo span::after {
         background: $color-white;
     }
-    header, footer, .section__banner, video, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after {
+    header, footer, .section__banner, video, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after, .accessibility__modal.open .accessibility__icon-close::before, .accessibility__modal.open .accessibility__icon-close::after {
         background: $color-black;
     }
-    .technology {
+    .technology, .image__featured-left, .image__featured-right {
         background: $color-black-medium;
     }
     .icon {
@@ -460,8 +463,17 @@ body.accessibility__color__greyscale {
     h2, .grid-item h4, .logo span, #clock *, footer a, footer h6 {
         color: $color-white;
     }
-    li, span, .technology h4 {
+    li, span, .technology h4, .accessibility__modal.open h6, a, * {
         color: $color-black;
+    }
+    .accessibility__modal.open dialog {
+        border-color: $color-black;
+    }
+    footer a:focus, .button__to_top:focus, .button__accessibility:focus, .button.inverted:focus-visible {
+        outline-color: $color-white;
+    }
+    .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus { 
+        outline-color: $color-black;
     }
     .grid-item .plus {
         &:hover {
@@ -469,9 +481,6 @@ body.accessibility__color__greyscale {
             background: $color-black;
             border-color: $color-white;
         }
-    }
-    footer a:focus {
-        outline-color: $color-white;
     }
     input, textarea {
         @include background-white-color-black();
@@ -481,6 +490,54 @@ body.accessibility__color__greyscale {
         }
         &:focus {
             @include background-black-color-white();
+        }
+    }
+    .button {
+        @include background-white-color-black();
+        &.inverted {
+            @include background-black-color-white();
+            border-color: $color-white;
+            &.active {
+                @include background-white-color-black();
+                border-color: $color-black;
+            }
+            &:hover {
+                @include background-white-color-black();
+                border-color: $color-black;
+            }
+        }
+        &__wrapper {
+            a {
+                border-color: $color-black;
+            }
+            button {
+                @include background-white-color-black();
+                border-color: $color-black;
+                &:focus-visible {
+                    outline: 1px solid $color-black;
+                }
+            }
+            button, a {
+                &:hover {
+                    @include background-black-color-white();
+                }
+                &:focus, &:focus-visible {
+                    outline-color: $color-black;
+                }
+            }
+        }
+    }
+    a {
+        &.hover-state-dark.has-hover-state:after {
+            border-color: $color-black;
+        }
+        &.has-hover-state:after {
+            border-color: $color-white;
+        }
+    }
+    .breadcrumbs a, .section__client a {
+        &.has-hover-state:focus {
+            outline-color: $color-black;
         }
     }
     @include breakpoint('medium') {
@@ -608,11 +665,6 @@ body {
                         border-color: $color-black;
                     }
                 }
-
-                .slideshow-button.active {
-                    border-color: $color-white !important;
-                }
-
                 .button {
                     @include background-black-color-white();
                     &.inverted {
@@ -749,12 +801,6 @@ body {
                             outline-color: $color-light;
                         }
                     }
-                    &.slideshow-button {
-                        &:hover {
-                            background: $color-light !important;
-                            color: $color-dark !important;
-                        }
-                    }
                     &__accessibility,
                     &__to-top {
                         &:hover {
@@ -785,81 +831,6 @@ body {
                             cursor: url('../assets/icons/magnifying-glass-dark.svg'), auto;
                         }
                     }
-                }
-            }
-            &__greyscale {
-                .accessibility {
-                    &__modal {
-                        &.open {
-                            dialog {
-                                border-color: $color-white;
-                            }
-                            h6 {
-                                color: $color-white;
-                            }
-                            .accessibility__icon-close {
-                                &:before,
-                                &:after {
-                                    background: $color-white;
-                                }
-                            }
-                        }
-                    }
-                }
-                a {
-                    &.hover-state-dark.has-hover-state:after {
-                        border-color: $color-black;
-                    }
-                    &.has-hover-state:after {
-                        border-color: $color-white;
-                    }
-                }
-                .slideshow-button.active {
-                    border-color: $color-black !important;
-                }
-                .button {
-                    @include background-white-color-black();
-                    &.inverted {
-                        border-color: $color-white;
-                        @include background-black-color-white();
-                        &.active {
-                            @include background-white-color-black();
-                        }
-                        &:hover {
-                            @include background-white-color-black();
-                            border-color: $color-black;
-                        }
-                        &:focus-visible {
-                            outline-color: $color-white;
-                        }
-                    }
-                    &__wrapper {
-                        a {
-                            border-color: $color-black;
-                        }
-                        button {
-                            @include background-white-color-black();
-                            border-color: $color-black;
-                            &:focus-visible {
-                                outline: 1px solid $color-black;
-                            }
-                        }
-                        button, 
-                        a {
-                            &:hover {
-                                @include background-black-color-white();
-                            }
-                        }
-                    }
-                }
-                .client__slideshow {
-                    .slide img {
-                        filter: invert(1);
-                    }
-                }
-                *,
-                a {
-                    color: $color-black;
                 }
             }
         }
@@ -1080,7 +1051,7 @@ a {
         @include background-light-color-dark();
         @include background-color-transition();
     }
-    &:focus {
+    &:focus, &:focus-visible {
         @include outline-styles();
     }
     &.inverted {
@@ -1515,7 +1486,9 @@ header {
     color: $color-dark;
     padding: 0 $wrapper--large;
     margin: 3rem 0;
-    line-height: 2rem;
+    p {
+        line-height: 2rem;
+    }
     @include breakpoint('medium') {
         top: 12rem;
         padding: 0 8rem;
@@ -1653,6 +1626,7 @@ header {
 .client {
     &__slideshow {
         @extend .flex, .items-center;
+        overflow-x: hidden;
         .slide {
             padding: 0 3rem;
             margin: $wrapper--xlarge 0;
