@@ -41,7 +41,7 @@ table {
   display: none;
 }
 
-.block, a.has-hover-state:after, .breadcrumbs, .grid-item:hover h4, .client__slideshow .slide a, footer copyright, .accessibility__modal.open .accessibility__icon-close, .accessibility__modal.open dialog, .mobile-only {
+.block, a.has-hover-state:after, .breadcrumbs, .grid-item:focus h4, .grid-item:hover h4, .client__slideshow .slide a, footer copyright, .accessibility__modal.open .accessibility__icon-close, .accessibility__modal.open dialog, .mobile-only {
   display: block;
 }
 
@@ -74,7 +74,7 @@ table {
   position: relative;
 }
 
-.absolute, #clock .hand, #clock #hour, #clock #minute, #clock #second, .logo .slash:before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:hover h4, footer:before, footer:after, .accessibility__modal.open .accessibility__icon-close:before, .accessibility__modal.open .accessibility__icon-close:after {
+.absolute, #clock .hand, #clock #hour, #clock #minute, #clock #second, .logo .slash:before, .logo:before, .logo:after, .logo span:before, .logo span:after, .grid-item:after, .grid-item .plus, .grid-item .plus:before, .grid-item .plus:after, .grid-item:focus h4, .grid-item:hover h4, footer:before, footer:after, .accessibility__modal.open .accessibility__icon-close:before, .accessibility__modal.open .accessibility__icon-close:after {
   position: absolute;
 }
 
@@ -96,7 +96,7 @@ table {
           justify-content: space-evenly;
 }
 
-.justify-center, #clock .grid span.span-2, .grid-item, .grid-item:hover h4 {
+.justify-center, #clock .grid span.span-2, .grid-item, .grid-item:focus h4, .grid-item:hover h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -126,7 +126,7 @@ table {
           align-items: flex-start;
 }
 
-.align-self-center, .logo, .grid-item:hover h4 {
+.align-self-center, .logo, .grid-item:focus h4, .grid-item:hover h4 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -204,7 +204,7 @@ video {
   background: #084DB5;
 }
 
-body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.header__span):not(.footer__span) {
+body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase) {
   line-height: 200% !important;
 }
 
@@ -263,7 +263,7 @@ body.accessibility__increase__font-size .footer__span, body.accessibility__incre
   font-size: xxx-large !important;
 }
 
-body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.footer__span):not(.header__span) {
+body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase) {
   font-size: x-large !important;
 }
 
@@ -368,6 +368,23 @@ body.accessibility__color__invert .grid-item:hover {
 body.accessibility__color__invert .grid-item:hover .plus {
   background: #084DB5;
   color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item:focus h4 {
+  color: #084DB5;
+}
+
+body.accessibility__color__invert .grid-item:focus .plus {
+  background: #084DB5;
+  color: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item:focus .plus:before, body.accessibility__color__invert .grid-item:focus .plus:after {
+  background: #E2ECFB;
+}
+
+body.accessibility__color__invert .grid-item:focus:after {
+  background: #E2ECFB;
 }
 
 body.accessibility__color__invert .button, body.accessibility__color__invert .button__main-content, body.accessibility__color__invert .button__wrapper button, .button__wrapper body.accessibility__color__invert button, body.accessibility__color__invert .button__wrapper a, .button__wrapper body.accessibility__color__invert a, body.accessibility__color__invert .button__to-top, body.accessibility__color__invert .button__accessibility {
@@ -501,6 +518,24 @@ body.accessibility__color__invert.accessibility__color__greyscale .grid-item:hov
   border: 1px solid #222;
 }
 
+body.accessibility__color__invert.accessibility__color__greyscale .grid-item:focus h4 {
+  color: #222;
+}
+
+body.accessibility__color__invert.accessibility__color__greyscale .grid-item:focus .plus {
+  background: #fff;
+  color: #222;
+  border: 1px solid #222;
+}
+
+body.accessibility__color__invert.accessibility__color__greyscale .grid-item:focus .plus:before, body.accessibility__color__invert.accessibility__color__greyscale .grid-item:focus .plus:after {
+  background: #222;
+}
+
+body.accessibility__color__invert.accessibility__color__greyscale .grid-item:focus:after {
+  background: #fff;
+}
+
 body.accessibility__color__invert.accessibility__color__greyscale .client__slideshow .slide img {
   -webkit-filter: invert(1);
           filter: invert(1);
@@ -608,8 +643,25 @@ body.accessibility__color__greyscale .grid-item:focus, body.accessibility__color
   outline-color: #222;
 }
 
-body.accessibility__color__greyscale .grid-item .plus:hover {
+body.accessibility__color__greyscale .grid-item:hover {
   cursor: url("../assets/icons/plus-black.svg"), auto;
+}
+
+body.accessibility__color__greyscale .grid-item:focus h4 {
+  color: #fff;
+}
+
+body.accessibility__color__greyscale .grid-item:focus .plus {
+  background: #fff;
+  color: #222;
+}
+
+body.accessibility__color__greyscale .grid-item:focus .plus:before, body.accessibility__color__greyscale .grid-item:focus .plus:after {
+  background: #222;
+}
+
+body.accessibility__color__greyscale .grid-item:focus:after {
+  background: #222;
 }
 
 body.accessibility__color__greyscale input, body.accessibility__color__greyscale textarea {
@@ -1517,6 +1569,26 @@ header .logo {
 .grid-item:focus {
   outline: 3px solid #084DB5;
   outline-offset: 1px;
+}
+
+.grid-item:focus h4 {
+  color: #E2ECFB;
+  z-index: 1;
+}
+
+.grid-item:focus:after {
+  opacity: 1;
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
+  background: #084DB5;
+}
+
+.grid-item:focus .plus {
+  background: #E2ECFB;
+}
+
+.grid-item:focus .plus:before, .grid-item:focus .plus:after {
+  background: #084DB5;
 }
 
 .grid-item:hover {

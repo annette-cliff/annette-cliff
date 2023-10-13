@@ -300,7 +300,7 @@ main {
 // Accessibility: Increase Line Height & Font Size
 body {
     &.accessibility__increase__line-height {
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.header__span):not(.footer__span) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase) {
             line-height: 200% !important;
         }
         .title__accent {
@@ -352,7 +352,7 @@ body.accessibility__increase__font-size {
     .footer__span, .header__span {
         font-size: xxx-large !important;
     }
-    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.footer__span):not(.header__span) {
+    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase) {
         font-size: x-large !important;
     }
     dialog button {
@@ -443,6 +443,20 @@ body {
                 cursor: url('../assets/icons/plus-dark.svg'), auto;
                 .plus {
                     @include background-dark-color-light();
+                }
+            }
+            &:focus {
+                h4 {
+                    color: $color-dark;
+                }
+                .plus {
+                    @include background-dark-color-light();
+                    &:before,&:after {
+                        background: $color-light;
+                    }
+                }
+                &:after {
+                    background: $color-light;
                 }
             }
         }
@@ -549,6 +563,21 @@ body {
                         border: 1px solid $color-black;
                     }
                 }
+                &:focus {
+                    h4 {
+                        color: $color-black;
+                    }
+                    .plus {
+                        @include background-white-color-black();
+                        border: 1px solid $color-black;
+                        &:before,&:after {
+                            background: $color-black;
+                        }
+                    }
+                    &:after {
+                        background: $color-white;
+                    }
+                }
             }
             .client__slideshow .slide img {
                 filter: invert(1);
@@ -637,9 +666,23 @@ body.accessibility__color__greyscale {
     .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus, .button__wrapper button:focus, .button__wrapper button:focus-visible, .button__wrapper a:focus, .button__wrapper a:focus-visible, .breadcrumbs a.has-hover-state:focus, .section__client a.has-hover-state:focus { 
         outline-color: $color-black;
     }
-    .grid-item .plus {
+    .grid-item {
         &:hover {
             cursor: url('../assets/icons/plus-black.svg'), auto;
+        }
+        &:focus {
+            h4 {
+                color: $color-white;
+            }
+            .plus {
+                @include background-white-color-black();
+                &:before,&:after {
+                    background: $color-black;
+                }
+            }
+            &:after {
+                background: $color-black;
+            }
         }
     }
     input, textarea {
@@ -1400,6 +1443,22 @@ header {
     }
     &:focus {
         @include outline-styles();
+        h4 {
+            @extend .block, .absolute, .align-self-center, .justify-center;
+            color: $color-light;
+            z-index: 1;
+        }
+        &:after {
+            opacity: 1;
+            filter: opacity(1);
+            background: $color-dark;
+        }
+        .plus {
+            background: $color-light;
+            &:before, &:after {
+                background: $color-dark;
+            }
+        }
     }
     &:hover {
         cursor: url('../assets/icons/plus.svg'), auto;
