@@ -322,7 +322,7 @@ body {
         }
         @include breakpoint('medium') {
             .accessibility__modal.open .accessibility__icon-close {
-                bottom: 23rem;
+                bottom: 24rem;
             }
         }
     }
@@ -369,6 +369,11 @@ body.accessibility__increase__font-size {
             height: 30px;
         }
     }
+    @include breakpoint('xsmall') {
+        .accessibility__modal.open .accessibility__icon-close {
+            bottom: 26rem;
+        }
+    }
     @include breakpoint('medium') {
         h2 {
             width: 50%;
@@ -378,7 +383,6 @@ body.accessibility__increase__font-size {
             font-size: clamp(6rem, 6vw, 6rem) !important;
         }
         .accessibility__modal.open .accessibility__icon-close {
-            bottom: 26rem;
             left: 29rem;
         }
         header .logo {
@@ -390,7 +394,6 @@ body.accessibility__increase__font-size {
             font-size: xx-large !important;
         }
     }
-
 }
 
 // Accessibility: Color Inverted & Color Greyscale
@@ -418,10 +421,10 @@ body {
         a.has-hover-state.hover-state-dark:after, .button.inverted, .button.inverted:hover, .button__wrapper a:hover, .button__wrapper button:hover {
             border-color: $color-light;
         }
-        .button__accessibility:focus, .button__to_top:focus {
+        .button__accessibility:focus, .button__to_top:focus, .button.inverted:focus-visible, .accessibility__modal.open .accessibility__icon-close:focus {
             outline-color: $color-dark;
         }
-        .button.inverted:focus-visible, .button__wrapper a:focus, .button__wrapper button:focus, a.has-hover-state.hover-state-dark:focus {
+        .button__wrapper a:focus, .button__wrapper button:focus, a.has-hover-state.hover-state-dark:focus {
             outline-color: $color-light;
         }
         .modal {
@@ -468,7 +471,8 @@ body {
                     @include background-light-color-dark();
                 }
                 &:hover {
-                    @include background-dark-color-light();
+                    @include background-light-color-dark();
+                    border: 1px solid $color-dark;
                 }
             }
             &__accessibility, &__to-top {
@@ -500,6 +504,17 @@ body {
             }
         }
         .client__slideshow {
+            .slide {
+                &.brightness img {
+                    filter: brightness(20.5) !important;
+                }
+                &.greyscale img {
+                    filter: grayscale(1) !important;
+                }
+                &:not(.brightness) img, &:not(.greyscale) img {
+                    filter: invert(1);
+                }
+            }
             &::-webkit-scrollbar-track {
                 background: $color-dark;
                 border: 1px solid $color-light;
@@ -530,7 +545,7 @@ body {
             p, li, span, a, * {
                 color: $color-white;
             }
-            footer a:focus, .button.inverted:focus-visible {
+            footer a:focus, .button.inverted:focus-visible, .accessibility__modal.open .accessibility__icon-close:focus {
                 outline-color: $color-black;
             }
             .accessibility__modal.open dialog, .button.inverted, input, textarea, a.has-hover-state:after {
@@ -555,6 +570,9 @@ body {
                 &__dark {
                     text-shadow: 3px 2px $color-black;
                 }
+            }
+            .icon {
+                filter: invert(0);
             }
             .grid-item {
                 &:hover {
@@ -593,21 +611,41 @@ body {
                         @include background-black-color-white();
                     }
                 }
+                &__accessibility, &__to-top {
+                    @include background-black-color-white();
+                    border-color: $color-white;
+                    &:hover {
+                        @include background-white-color-black();
+                        border-color: $color-black;
+                    }
+                }
                 &__wrapper {
-                    button {
-                        @include background-black-color-white();
+                    button, a {
+                        @include background-white-color-black();
                         &:focus-visible {
                             outline: 1px solid $color-white;
                         }
                     }
                     button, a {
                         &:hover {
-                            @include background-white-color-black();
+                            @include background-black-color-white();
                         }
                     }
                 }
             }
             .client__slideshow {
+                &-buttons {
+                    button.button {
+                        @include background-black-color-white();
+                        border-color: $color-white;
+                        &:hover {
+                            @include background-white-color-black();
+                        }
+                        &.active {
+                            @include background-white-color-black();
+                        }
+                    }
+                }
                 &::-webkit-scrollbar-track {
                     background: $color-black;
                     border: 1px solid $color-white;
@@ -636,7 +674,7 @@ body.accessibility__color__greyscale {
             text-shadow: 3px 2px $color-white;
         }
     }
-    .hand, .grid-item:hover .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .logo::before, .logo::after, .logo span::before, .logo span::after {
+    .hand, .grid-item:hover .plus, .grid-item:hover, .plus::before, .grid-item:hover .plus::after, .logo::before, .logo::after, .logo span::before, .logo span::after {
         background: $color-white;
     }
     header, footer, .section__banner, video, .grid-item .plus:hover, .grid-item .plus, .grid-item:hover .plus::before, .grid-item:hover .plus::after, .grid-item::after, .accessibility__modal.open .accessibility__icon-close::before, .accessibility__modal.open .accessibility__icon-close::after {
@@ -646,7 +684,7 @@ body.accessibility__color__greyscale {
         background: $color-black-medium;
     }
     .icon {
-        filter: invert(0);
+        filter: invert(1);
     }
     h2, .grid-item h4, .logo span, #clock *, footer a, footer h6, .title__light {
         color: $color-white;
@@ -660,10 +698,10 @@ body.accessibility__color__greyscale {
     .accessibility__modal.open dialog, textarea, input, .button.inverted.active, .button.inverted:hover, .button__wrapper a, .button__wrapper button, a.hover-state-dark.has-hover-state:after {
         border-color: $color-black;
     }
-    footer a:focus, .button__to_top:focus, .button__accessibility:focus, .button.inverted:focus-visible {
+    footer a:focus, .button__to_top:focus, .button__accessibility:focus {
         outline-color: $color-white;
     }
-    .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus, .button__wrapper button:focus, .button__wrapper button:focus-visible, .button__wrapper a:focus, .button__wrapper a:focus-visible, .breadcrumbs a.has-hover-state:focus, .section__client a.has-hover-state:focus { 
+    .grid-item:focus, .grid-item:focus-visible, .client__slideshow a:focus-visible, p a:focus-visible, .client__slideshow-buttons .button:focus, .button__wrapper button:focus, .button__wrapper button:focus-visible, .button__wrapper a:focus, .button__wrapper a:focus-visible, .breadcrumbs a.has-hover-state:focus, .section__client a.has-hover-state:focus, .button.inverted:focus-visible, .accessibility__modal.open .accessibility__icon-close:focus { 
         outline-color: $color-black;
     }
     .grid-item {
@@ -705,21 +743,41 @@ body.accessibility__color__greyscale {
                 @include background-white-color-black();
             }
         }
+        &__accessibility, &__to-top {
+            @include background-white-color-black();  
+            border-color: $color-black;
+            &:hover {
+                @include background-black-color-white();
+                border-color: $color-white;
+            }
+        }
         &__wrapper {
-            button {
-                @include background-white-color-black();
+            button, a {
+                @include background-black-color-white();
                 &:focus-visible {
                     outline: 1px solid $color-black;
                 }
             }
             button, a {
                 &:hover {
-                    @include background-black-color-white();
+                    @include background-white-color-black();
                 }
             }
         }
     }
     .client__slideshow {
+        &-buttons {
+            button.button {
+                @include background-white-color-black();
+                border-color: $color-black;
+                &:hover {
+                    @include background-black-color-white();
+                }
+                &.active {
+                    @include background-black-color-white();
+                }
+            }
+        }
         &::-webkit-scrollbar-track {
             background: $color-white;
             border: 1px solid $color-black;
@@ -763,7 +821,8 @@ body.accessibility__color__greyscale {
         padding: 0 $wrapper--large;
         &__large {
             padding: 0 $wrapper--xlarge;
-            margin: 0 $wrapper--xlarge;
+            margin: 0 auto;
+            max-width: 1200px;
         }
     }
 }
@@ -1675,7 +1734,8 @@ footer {
             @extend .block;
             position: fixed;
             bottom: 22rem;
-            left: 22rem;
+            left: initial;
+            right: 2rem;
             width: 20px;
             height: 20px;
             z-index: 10;
@@ -1687,7 +1747,8 @@ footer {
                 background: $color-dark;
                 width: 2px;
                 height: 13px;
-                left: 7px;
+                left: 9px;
+                top: 3px;
                 @extend .absolute;
             }
             &:before {

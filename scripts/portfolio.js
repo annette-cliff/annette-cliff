@@ -70,11 +70,11 @@ const portfolioGridHTML = portfolioContent
                     <h4 class="hide">${item.title}</h4>
                     <picture>
                       <source srcset="${item.desktop_image}" media="(min-width: 600px)" />
-                      <img src="${item.desktop_image}" alt="${item.title}'s homepage image on desktop" width="450" height="450" class="desktop-only" loading="lazy">
+                      <img src="${item.desktop_image}" alt="${item.title}'s homepage image on desktop" width="450" height="450" class="desktop-only">
                     </picture>
                     <picture>
                       <source srcset="${item.mobile_image}" media="(min-width: 600px)" />
-                      <img src="${item.mobile_image}" alt="${item.title}'s homepage image on mobile" width="450" height="450" class="mobile-only" loading="lazy">
+                      <img src="${item.mobile_image}" alt="${item.title}'s homepage image on mobile" width="450" height="450" class="mobile-only">
                     </picture>
                 </div>`)
   .join('');
@@ -188,7 +188,7 @@ const techStackWithImages = [
 ]
 const techStackHTML = techStackWithImages
   .map(tech =>
-    `<li><img src="${tech.tech_image}" alt="Logo for ${tech.tech_name}" width="50" height="50"></li>`)
+    `<li><img src="${tech.tech_image}" alt="Logo for ${tech.tech_name}" width="50" height="50" loading="lazy"></li>`)
   .join('');
 
 const portfolioTechStack = document.querySelectorAll('.portfolioDevStack');
