@@ -204,7 +204,7 @@ video {
   background: #084DB5;
 }
 
-body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo) {
+body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.header__span):not(.footer__span) {
   line-height: 200% !important;
 }
 
@@ -216,16 +216,22 @@ body.accessibility__increase__line-height .quote p {
   line-height: 3rem;
 }
 
-body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close:after {
-  top: -5rem;
+body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close {
+  bottom: 28rem;
 }
 
 body.accessibility__increase__line-height.accessibility__increase__font-size dialog button {
   padding: 0;
 }
 
-body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
-  top: -14rem;
+body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
+  bottom: 27rem;
+}
+
+@media (min-width: 767px) {
+  body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close {
+    bottom: 23rem;
+  }
 }
 
 body.accessibility__increase__font-size h2 {
@@ -267,14 +273,12 @@ body.accessibility__increase__font-size #clock {
 }
 
 body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
-  left: calc(100% - 3rem);
-  bottom: 15rem;
+  bottom: 27rem;
 }
 
 body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:before, body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close:after {
   width: 3px;
   height: 30px;
-  top: -12rem;
 }
 
 @media (min-width: 767px) {
@@ -286,7 +290,7 @@ body.accessibility__increase__font-size .accessibility__modal.open .accessibilit
     font-size: clamp(6rem, 6vw, 6rem) !important;
   }
   body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
-    bottom: 20rem;
+    bottom: 26rem;
     left: 29rem;
   }
   body.accessibility__increase__font-size header .logo span:before, body.accessibility__increase__font-size header .logo span:after {
@@ -1728,8 +1732,8 @@ footer copyright {
 
 .accessibility__modal.open .accessibility__icon-close {
   position: fixed;
-  bottom: 20rem;
-  left: 29rem;
+  bottom: 22rem;
+  left: 22rem;
   width: 20px;
   height: 20px;
   z-index: 10;
@@ -1744,8 +1748,7 @@ footer copyright {
   background: #084DB5;
   width: 2px;
   height: 13px;
-  top: 3px;
-  right: 9px;
+  left: 7px;
 }
 
 .accessibility__modal.open .accessibility__icon-close:before {
@@ -1799,6 +1802,10 @@ footer copyright {
   }
   .accessibility__modal.open dialog div:first-of-type {
     display: block;
+  }
+  .accessibility__modal.open .accessibility__icon-close {
+    bottom: 19rem;
+    left: 29rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

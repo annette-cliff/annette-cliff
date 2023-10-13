@@ -15,9 +15,11 @@ accessibilityModal.innerHTML +=
         <button id="colorInvert" class="button inverted">Invert</button>
         <button id="colorGrayscale" class="button inverted">Grayscale</button>
     </div>
-</dialog>`
+</dialog>
+<span id="accessibilityClose" class="accessibility__icon-close" tabindex="0"></span>`
 
-accessibilityModal.addEventListener('keyup', function(event) {
+const accessibilityModalButton = document.querySelector('.button__accessibility');
+accessibilityModalButton.addEventListener('keyup', function(event) {
     if (event.code === 'Enter') {
         accessibilityModal.classList.add('open');
     }
@@ -28,6 +30,15 @@ accessibilityModalClose.addEventListener('keyup', function(event){
     if (event.code === 'Enter') {
         accessibilityModal.classList.remove('open')
     }
+});
+
+accessibilityModalClose.addEventListener('click', function(){
+    accessibilityModal.classList.remove('open')
+});
+
+accessibilityModalButton.addEventListener('click', function(){
+    var modal_is_open = accessibilityModal.classList.contains('open');
+        modal_is_open ? accessibilityModal.classList.remove('open') : accessibilityModal.classList.add('open');
 });
 
 document.addEventListener("click", (e) => {

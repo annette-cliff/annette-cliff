@@ -300,7 +300,7 @@ main {
 // Accessibility: Increase Line Height & Font Size
 body {
     &.accessibility__increase__line-height {
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.header__span):not(.footer__span) {
             line-height: 200% !important;
         }
         .title__accent {
@@ -310,18 +310,19 @@ body {
             line-height: 3rem;
         }
         .accessibility__modal.open .accessibility__icon-close {
-            &:before, &:after {
-                top: -5rem;
-            }
+            bottom: 28rem;
         }
         &.accessibility__increase__font-size {
             dialog button {
                 padding: 0;
             }
             .accessibility__modal.open .accessibility__icon-close {
-                &:before, &:after {
-                    top: -14rem;
-                }
+                bottom: 27rem;
+            }
+        }
+        @include breakpoint('medium') {
+            .accessibility__modal.open .accessibility__icon-close {
+                bottom: 23rem;
             }
         }
     }
@@ -362,12 +363,10 @@ body.accessibility__increase__font-size {
         height: 6.5rem;
     }
     .accessibility__modal.open .accessibility__icon-close {
-        left: calc(100% - 3rem);
-        bottom: 15rem;
+        bottom: 27rem;
         &:before, &:after {
             width: 3px;
             height: 30px;
-            top: -12rem;
         }
     }
     @include breakpoint('medium') {
@@ -379,7 +378,7 @@ body.accessibility__increase__font-size {
             font-size: clamp(6rem, 6vw, 6rem) !important;
         }
         .accessibility__modal.open .accessibility__icon-close {
-            bottom: 20rem;
+            bottom: 26rem;
             left: 29rem;
         }
         header .logo {
@@ -1616,8 +1615,8 @@ footer {
         .accessibility__icon-close {
             @extend .block;
             position: fixed;
-            bottom: 20rem;
-            left: 29rem;
+            bottom: 22rem;
+            left: 22rem;
             width: 20px;
             height: 20px;
             z-index: 10;
@@ -1629,8 +1628,7 @@ footer {
                 background: $color-dark;
                 width: 2px;
                 height: 13px;
-                top: 3px;
-                right: 9px;
+                left: 7px;
                 @extend .absolute;
             }
             &:before {
@@ -1662,13 +1660,21 @@ footer {
                     margin-top: 10px;
                 }
             }
-            @include breakpoint('medium') {
+        }
+    }
+    @include breakpoint('medium') {
+        &__modal.open {
+            dialog {
                 left: $wrapper--medium;
                 margin: 0;
                 width: 460px;
                 div:first-of-type {
                     display: block;
                 }
+            }
+            .accessibility__icon-close {
+                bottom: 19rem;
+                left: 29rem;
             }
         }
     }
