@@ -1,0 +1,27 @@
+{
+  "name": "annette-cliff",
+  "version": "1.0.0",
+  "description": "Annette Cliff is an experienced front-end web developer who specializes in building Shopify themes.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annette-cliff/annette-cliff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annette-cliff/annette-cliff/issues"
+  },
+  "homepage": "https://github.com/annette-cliff/annette-cliff/layout/index.html",
+  "dependencies": {
+    "gulp-minify": "^3.1.0",
+    "minify": "^10.5.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
