@@ -51,7 +51,7 @@ var portfolioContent = [
       title_first: 'Blackcraft',
       title_second: 'Cult',
       video: '../assets/blackcraft-cult/video.mov',
-      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
+      quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to include an array of custom filtering options for each collection template. Additionally, we included a free shipping meter which subtracts the total price in cart from the free shipping meter amount. This dynamically updates if a product is added, the quantity of a current product in the cart is increased/decreased or removed entirely.</p>",
       image_1: '../assets/blackcraft-cult/image_1.png',
       image_2: '../assets/blackcraft-cult/image_2.png',
       image_3: '../assets/blackcraft-cult/image_3.png',
