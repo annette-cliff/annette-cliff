@@ -27,7 +27,7 @@ var portfolioContent = [
       image_1: '../assets/puppets-and-puppets/image_1.png',
       image_2: '../assets/puppets-and-puppets/image_2.png',
       image_3: '../assets/puppets-and-puppets/image_3.png',
-      image_4: '../assets/puppets-and-puppets/image_4.png',
+      image_4: '../assets/puppets-and-puppets/image_4.mov',
       url: 'https://puppetsandpuppets.com/'
     },
     { 
@@ -113,10 +113,16 @@ for (const modal of portfolioContent) {
       </picture>
     </div>
     <div class="image__featured-right">
-      <picture>
+    ${modal.image_4.includes('.mov')
+    ? `<video width="1440" height="500" controls muted>
+        <source src="${modal.image_4}" type="video/mp4">
+        <source src="${modal.image_4}" type="video/ogg">
+      </video>`
+    : `<picture>
         <source srcset="${modal.image_4}" media="(min-width: 600px)" />
         <img src="${modal.image_4}" alt="" width="" height="" loading="lazy">
-      </picture>
+      </picture>`
+    }
     </div>
   `;
 
