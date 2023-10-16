@@ -10,7 +10,7 @@
         <meta name="description" content="Annette Cliff is an experienced front-end web developer who specializes in building Shopify themes.">
 
         <!-- Favicon -->
-        <link rel="icon" href="../assets/favicon/favicon.png" type="image/x-icon" defer>
+        <link rel="icon" href="../assets/favicon/favicon.webp" type="image/x-icon" defer>
 
         <!-- Styles: Main -->
         <link rel="stylesheet" type="text/css" href="../styles/main.css" />
@@ -24,6 +24,7 @@
         <!-- Fonts: Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Chonburi&display=swap" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Chonburi&display=swap" rel="stylesheet">
     </head>
 
@@ -46,7 +47,10 @@
                     <div id="hiddenIcons" class="section__hiddenIcons"></div>
                     <div class="wrapper__banner">
                         <h2>Hi! My name is Annette Cliff</h2>
-                        <img src="../assets/favicon/annette.png" alt="Profile image of Annette" width="448" height="557">
+                        <picture> 
+                            <source type="image/webp" srcset="../assets/favicon/annette.webp"> 
+                            <img src="../assets/favicon/annette.webp" alt="Profile image of Annette" width="448" height="557"> 
+                        </picture>
                     </div>
                 </article>
                 <article class="title">

@@ -27,7 +27,7 @@ const clientSlideshow = [
         client_name: 'Jamie Wolf',
         agency: "Lemonade",
         url: 'https://jamiewolf.com/',
-        logo: '../assets/clients/jamie-wolf-logo.png',
+        logo: '../assets/clients/jamie-wolf-logo.webp',
         has_class: "brightness"
     },
     {
@@ -48,21 +48,21 @@ const clientSlideshow = [
         client_name: 'B Sides Jeans',
         agency: "Lemonade",
         url: 'https://bsidesjeans.com/',
-        logo: '../assets/clients/b-sides-jeans-logo.png',
+        logo: '../assets/clients/b-sides-jeans-logo.webp',
         has_class: ""
     },
     {
         client_name: 'Hindash',
         agency: "Lemonade",
         url: 'https://hindash.com/',
-        logo: '../assets/clients/hindash-logo.png',
+        logo: '../assets/clients/hindash-logo.webp',
         has_class: ""
     },
     {
         client_name: 'Mimi So',
         agency: "Lemonade",
         url: 'https://mimiso.com/',
-        logo: '../assets/clients/mimi-so-logo.png',
+        logo: '../assets/clients/mimi-so-logo.webp',
         has_class: "brightness"
     },
     {
@@ -76,7 +76,7 @@ const clientSlideshow = [
         client_name: 'Specialized Dispatch',
         agency: "Lemonade",
         url: 'https://www.specialized.com/us/en',
-        logo: '../assets/clients/specialized-dispatch-logo.png',
+        logo: '../assets/clients/specialized-dispatch-logo.webp',
         has_class: ""
     },
     {
@@ -104,28 +104,28 @@ const clientSlideshow = [
         client_name: 'Oliver Thomas',
         agency: "Lemonade",
         url: 'https://theoliverthomas.com/',
-        logo: '../assets/clients/oliver-thomas-logo.png',
+        logo: '../assets/clients/oliver-thomas-logo.webp',
         has_class: "brightness"
     },
     {
         client_name: 'St. Croix Rods',
         agency: "Lemonade",
         url: 'https://stcroixrods.com/',
-        logo: '../assets/clients/st-croix-rods-logo.png',
+        logo: '../assets/clients/st-croix-rods-logo.webp',
         has_class: "brightness"
     },
     {
         client_name: 'Welspun',
         agency: "Lemonade",
         url: 'https://welspunusa.com/',
-        logo: '../assets/clients/welspun-logo.png',
+        logo: '../assets/clients/welspun-logo.webp',
         has_class: "brightness"
     },
     {
         client_name: 'Milkshake',
         agency: "Fuel Made",
         url: 'https://www.milkshakehair.com/',
-        logo: '../assets/clients/milkshake-logo.png',
+        logo: '../assets/clients/milkshake-logo.webp',
         has_class: "brightness"
     },
     {
@@ -181,21 +181,21 @@ const clientSlideshow = [
         client_name: 'Curated By Kayla',
         agency: "Personal",
         url: 'https://curatedbykayla.co/',
-        logo: '../assets/clients/curated-by-kayla-logo.png',
+        logo: '../assets/clients/curated-by-kayla-logo.webp',
         has_class: ""
     },
     {
         client_name: 'Adios Textbook',
         agency: "Personal",
         url: 'https://www.adiostextbook.com/',
-        logo: '../assets/clients/adios-textbook-logo.png',
+        logo: '../assets/clients/adios-textbook-logo.webp',
         has_class: "brightness"
     },
     {
         client_name: 'Grace Cliff',
         agency: "Personal",
         url: 'https://grace-cliff.github.io/grace-cliff/layout/portfolio.html',
-        logo: '../assets/clients/grace-cliff-logo.png',
+        logo: '../assets/clients/grace-cliff-logo.webp',
         has_class: "brightness"
     }
 ]
@@ -209,7 +209,7 @@ const clientSlideshowContent = clientSlideshow
     .map(slide => `<div class="slide ${slide.has_class} ${slide.agency == 'Lemonade' ? 'show' : 'hide'}" data-agency="${slide.agency}">
                         <a href="${slide.url}" title="External link to ${slide.client_name}'s website">
                             <picture>
-                                <source srcset="${slide.logo}" media="(min-width: 600px)" />
+                                <source type="image/webp" srcset="${slide.logo}" media="(min-width: 600px)" />
                                 <img src="${slide.logo}" alt="${slide.client_name}'s logo" width="250" height="250" loading="lazy">
                             </picture>
                         </a>

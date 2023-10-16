@@ -97,7 +97,10 @@ const hiddenImages = [
 ]
 
 const hiddenIcons = document.querySelector('#hiddenIcons')
-const hiddenIconsHTML = hiddenImages.map(image =>`<img alt="${image.image.toLowerCase()} icon" width="50" height="50" class="icon" loading="lazy" src="${image.src}">`)
+const hiddenIconsHTML = hiddenImages.map(image =>`<picture> 
+                                                    <source type="image/webp" srcset="../assets/favicon/annette.webp"> 
+                                                    <img alt="${image.image.toLowerCase()} icon" width="50" height="50" class="icon" loading="lazy" src="${image.src}">
+                                                </picture>`)
                                     .join('');
 
 hiddenIcons.innerHTML += hiddenIconsHTML;
