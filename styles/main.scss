@@ -81,7 +81,7 @@ $breakpoints: (
 
 @mixin display-grid {
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 1rem;
     grid-template-columns: repeat(2,1fr);
 }
 
@@ -306,7 +306,7 @@ body {
         .title__accent {
             line-height: 1;
         }
-        .quote p {
+        .quote p, .section__client p {
             line-height: 3rem;
         }
         .accessibility__modal.open .accessibility__icon-close {
@@ -318,6 +318,9 @@ body {
             }
             .accessibility__modal.open .accessibility__icon-close {
                 bottom: 27rem;
+            }
+            .section__client p {
+                line-height: 3rem;
             }
         }
         @include breakpoint('medium') {
@@ -337,7 +340,7 @@ body.accessibility__increase__font-size {
     h4 {
         font-size: clamp(2.5rem, 2.5vw, 2.5rem);
     }
-    h5 {
+    h5, .h5 {
         font-size: clamp(5rem, 5vw, 5rem);
     }
     .logo .slash::before {
@@ -349,10 +352,13 @@ body.accessibility__increase__font-size {
     .logo .slash::before {
         top: 9px;
     }
+    .section__client p {
+        line-height: 3rem;
+    }
     .footer__span, .header__span {
         font-size: xxx-large !important;
     }
-    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase) {
+    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5) {
         font-size: x-large !important;
     }
     dialog button {
@@ -379,7 +385,7 @@ body.accessibility__increase__font-size {
             width: 50%;
             line-height: 6rem;
         }
-        h2,h4,h5 {
+        h2,h4,h5,.h5 {
             font-size: clamp(6rem, 6vw, 6rem) !important;
         }
         .accessibility__modal.open .accessibility__icon-close {
@@ -390,7 +396,7 @@ body.accessibility__increase__font-size {
                 left: 31px;
             }
         }
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5) {
             font-size: xx-large !important;
         }
     }
@@ -406,7 +412,7 @@ body {
         h2, .logo span, .grid-item:hover h4, #clock, #clock *, footer *, footer a, .title__light {
             color: $color-dark;
         }
-        h5,label, p, a, li, span, .title__dark {
+        h5,.h5,label,p,a,li,span,.title__dark {
             color: $color-light;
         }
         .logo::before, .logo::after, .logo span::before, .logo span::after, .grid-item .plus::before, .grid-item .plus::after, #clock .hand, footer::before, footer::after {
@@ -686,7 +692,7 @@ body.accessibility__color__greyscale {
     .icon {
         filter: invert(1);
     }
-    h2, .grid-item h4, .logo span, #clock *, footer a, footer h6, .title__light {
+    h2, .grid-item h4, .logo span, #clock *, footer a, footer h5, .title__light {
         color: $color-white;
     }
     li, span, .technology h4, .accessibility__modal.open h6, a, * {
@@ -844,35 +850,39 @@ h2 {
     }
 }
 
-h3 {
+h3, .h3 {
     font-family: $font-title;
     letter-spacing: 2px;
+    line-height: 3.5rem;
     font-size: clamp(3.5rem, 5vw, 10rem);
     @include breakpoint('small') {
         font-size: clamp(5rem, 5vw, 10rem);
     }
     @include breakpoint('large') {
+        line-height: 10rem;
         font-size: clamp(10rem, 5vw, 10rem);
     }
 }
 
-h4 {
+h4, .h4 {
     @extend .text-center;
     font-weight: 600;
     color: $color-dark;
     font-family: $font-title;
     letter-spacing: 1px;
+    line-height: 3rem;
     font-size: clamp(1.5rem, 7vw, 1.5rem);
 }
 
-h5 {
+h5, .h5 {
     font-family: $font-title;
     color: $color-dark;
     font-size: clamp(3rem, 7vw, 3rem);
     @extend .text-center;
 }
 
-h6 {
+h6, .h6 {
+    font-family: $font-base;
     font-size: 1.2rem;
     font-weight: 600;
     @include breakpoint('medium') {
@@ -904,7 +914,7 @@ li {
     }
     &__light {
         color: $color-light;
-        text-shadow: 3px 1px $color-dark;
+        text-shadow: 6px 1px $color-dark;
         margin-left: $wrapper--medium;
     }
     &__dark {
@@ -1041,6 +1051,8 @@ a {
             @extend .button, .width-100;
         }
         a {
+            font-size: 1rem;
+            line-height: 1rem;
             @extend .inline-block;
         }
         @include breakpoint('medium') {
@@ -1132,9 +1144,13 @@ header {
     .logo {
         margin-bottom: 0;
         order: initial;
+        margin-left: 0;
     }
     @include breakpoint('small') {
         text-align: left;
+        .logo {
+            margin-left: 1rem;
+        }
     }
 }
 
@@ -1429,12 +1445,10 @@ header {
         }
     }
     @include breakpoint('medium') {
-        .technology {
-            padding: 6rem;
-            margin-top: $wrapper--xlarge;
-            h4 {
-                font-size: clamp(2rem, 7vw, 2rem);
-            }
+        padding: 6rem;
+        margin-top: $wrapper--xlarge;
+        h4 {
+            font-size: clamp(2rem, 7vw, 2rem);
         }
     }
 }
@@ -1463,7 +1477,7 @@ header {
 }
 
 .grid-item {
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
     @extend .relative, .justify-center;
     @include flex-column();
     img {
@@ -1590,6 +1604,7 @@ header {
         @extend .text-center;
         margin: $wrapper--medium $wrapper--small;
         font-size: 12px;
+        line-height: 24px;
         a {
             border-bottom: 1px solid;
         }
@@ -1687,7 +1702,10 @@ footer {
     copyright {
         @extend .block, .text-center;
         padding: $wrapper--medium 0 $wrapper--small 0;
-        font-size: 11px;
+        h6 {
+            font-size: 11px;
+            font-weight: 100;
+        }
     }
 }
 

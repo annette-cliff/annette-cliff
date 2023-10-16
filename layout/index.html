@@ -28,7 +28,7 @@
     </head>
 
     <body>
-        <a href="#mainContent" aria-hidden="true" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a>
+        <nav><a href="#mainContent" aria-label="Skip to main content" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a></nav>
 
         <header class="section__header">
             <h1 class="logo"><a class="ignore__font-increase" href="../layout/index.html" title="Navigate to home page"><span class="header__span ignore__font-increase">ac</span></a></h1>
@@ -46,7 +46,7 @@
                     <div id="hiddenIcons" class="section__hiddenIcons"></div>
                     <div class="wrapper__banner">
                         <h2>Hi! My name is Annette Cliff</h2>
-                        <img src="../assets/favicon/annette.png" alt="Profile image of Annette" width="500" height="700">
+                        <img src="../assets/favicon/annette.png" alt="Profile image of Annette" width="448" height="557">
                     </div>
                 </article>
                 <article class="title">
@@ -56,11 +56,11 @@
 
             <section id="portfolio" class="section__portfolio">
                 <article id="portfolioGrid" class="portfolio__grid"></article>
-                <article id="portfolioModal" class="portfolio__modal" tabindex="-1" role="dialog" aria-hidden="true"></article>
+                <article id="portfolioModal" class="portfolio__modal" tabindex="-1" title="portfolioModal" role="dialog" aria-hidden="true"></article>
             </section>
 
             <section id="clients" class="section__client">
-                <h5>Clients</h5>
+                <h4 class="h5">Clients</h4>
                 <p>Please note, I have done a range of work for the clients below while employed at the following agencies: <a href="https://lemonade.nyc/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Lemonade's website">Lemonade Creative</a> and <a href="https://fuelmade.com/" class="has-hover-state hover-state-dark" target="_blank" title="External link to Fuel Made's website">Fuel Made</a>.</p>
                 <div id="clientSlideshowButtons" class="client__slideshow-buttons"></div>
                 <article id="clientSlideshow" class="client__slideshow"></article>
@@ -98,11 +98,11 @@
         
         <footer>
             <div class="footer__links">
-                <ul id="mainLinks" class="footer__navigation"><h6 class="footer__navigation-title">Main Links</h6></ul>
-                <a href="" title="Navigate to the top of page" class="footer__logo"><div class="logo"><span class="footer__span ignore__font-increase"><span class="slash ignore__font-increase"></span> ac</span></div></a>
-                <ul id="socialLinks" class="footer__navigation"><h6 class="footer__navigation-title">Social Links</h6></ul>
+                <div class="footer__navigation"><h5 class="footer__navigation-title h6">Main Links</h5><ul id="mainLinks"></ul></div>
+                <a href="../layout/index.html" title="Navigate to the top of page" class="footer__logo"><div class="logo"><span class="footer__span ignore__font-increase"><span class="slash ignore__font-increase"></span> ac</span></div></a>
+                <div class="footer__navigation"><h5 class="footer__navigation-title h6">Social Links</h5><ul id="socialLinks"></ul></div>
             </div>
-            <copyright>@copyright Annette Cliff <span id="copyrightYear"></span></copyright>
+            <copyright><h6>@copyright Annette Cliff <span id="copyrightYear"></span></h6></copyright>
         </footer>
 
         <div id="accessibilityModal" class="accessibility__modal"><span class="accessibility__text button__accessibility" tabindex="0">A11Y</span></div>

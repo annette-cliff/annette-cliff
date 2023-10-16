@@ -137,7 +137,7 @@ table {
      object-fit: contain;
 }
 
-.text-center, h4, h5, .button__wrapper, header, #clock .grid, .section__client p, .client__slideshow-buttons, .section__contact h5, footer copyright, .footer__logo {
+.text-center, h4, .h4, h5, .h5, .button__wrapper, header, #clock .grid, .section__client p, .client__slideshow-buttons, .section__contact h5, footer copyright, .footer__logo {
   text-align: center;
 }
 
@@ -212,7 +212,7 @@ body.accessibility__increase__line-height .title__accent {
   line-height: 1;
 }
 
-body.accessibility__increase__line-height .quote p {
+body.accessibility__increase__line-height .quote p, body.accessibility__increase__line-height .section__client p {
   line-height: 3rem;
 }
 
@@ -226,6 +226,10 @@ body.accessibility__increase__line-height.accessibility__increase__font-size dia
 
 body.accessibility__increase__line-height.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
   bottom: 27rem;
+}
+
+body.accessibility__increase__line-height.accessibility__increase__font-size .section__client p {
+  line-height: 3rem;
 }
 
 @media (min-width: 767px) {
@@ -243,7 +247,7 @@ body.accessibility__increase__font-size h4 {
   font-size: clamp(2.5rem, 2.5vw, 2.5rem);
 }
 
-body.accessibility__increase__font-size h5 {
+body.accessibility__increase__font-size h5, body.accessibility__increase__font-size .h5 {
   font-size: clamp(5rem, 5vw, 5rem);
 }
 
@@ -259,11 +263,15 @@ body.accessibility__increase__font-size .logo .slash::before {
   top: 9px;
 }
 
+body.accessibility__increase__font-size .section__client p {
+  line-height: 3rem;
+}
+
 body.accessibility__increase__font-size .footer__span, body.accessibility__increase__font-size .header__span {
   font-size: xxx-large !important;
 }
 
-body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase) {
+body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5) {
   font-size: x-large !important;
 }
 
@@ -292,7 +300,7 @@ body.accessibility__increase__font-size .accessibility__modal.open .accessibilit
     width: 50%;
     line-height: 6rem;
   }
-  body.accessibility__increase__font-size h2, body.accessibility__increase__font-size h4, body.accessibility__increase__font-size h5 {
+  body.accessibility__increase__font-size h2, body.accessibility__increase__font-size h4, body.accessibility__increase__font-size h5, body.accessibility__increase__font-size .h5 {
     font-size: clamp(6rem, 6vw, 6rem) !important;
   }
   body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
@@ -301,7 +309,7 @@ body.accessibility__increase__font-size .accessibility__modal.open .accessibilit
   body.accessibility__increase__font-size header .logo span:before, body.accessibility__increase__font-size header .logo span:after {
     left: 31px;
   }
-  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2) {
+  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5) {
     font-size: xx-large !important;
   }
 }
@@ -320,7 +328,7 @@ body.accessibility__color__invert h2, body.accessibility__color__invert .logo sp
   color: #084DB5;
 }
 
-body.accessibility__color__invert h5, body.accessibility__color__invert label, body.accessibility__color__invert p, body.accessibility__color__invert a, body.accessibility__color__invert li, body.accessibility__color__invert span, body.accessibility__color__invert .title__dark {
+body.accessibility__color__invert h5, body.accessibility__color__invert .h5, body.accessibility__color__invert label, body.accessibility__color__invert p, body.accessibility__color__invert a, body.accessibility__color__invert li, body.accessibility__color__invert span, body.accessibility__color__invert .title__dark {
   color: #E2ECFB;
 }
 
@@ -673,7 +681,7 @@ body.accessibility__color__greyscale .icon {
           filter: invert(1);
 }
 
-body.accessibility__color__greyscale h2, body.accessibility__color__greyscale .grid-item h4, body.accessibility__color__greyscale .logo span, body.accessibility__color__greyscale #clock *, body.accessibility__color__greyscale footer a, body.accessibility__color__greyscale footer h6, body.accessibility__color__greyscale .title__light {
+body.accessibility__color__greyscale h2, body.accessibility__color__greyscale .grid-item h4, body.accessibility__color__greyscale .logo span, body.accessibility__color__greyscale #clock *, body.accessibility__color__greyscale footer a, body.accessibility__color__greyscale footer h5, body.accessibility__color__greyscale .title__light {
   color: #fff;
 }
 
@@ -879,45 +887,49 @@ h2 {
   }
 }
 
-h3 {
+h3, .h3 {
   font-family: "Chonburi";
   letter-spacing: 2px;
+  line-height: 3.5rem;
   font-size: clamp(3.5rem, 5vw, 10rem);
 }
 
 @media (min-width: 561px) {
-  h3 {
+  h3, .h3 {
     font-size: clamp(5rem, 5vw, 10rem);
   }
 }
 
 @media (min-width: 1024px) {
-  h3 {
+  h3, .h3 {
+    line-height: 10rem;
     font-size: clamp(10rem, 5vw, 10rem);
   }
 }
 
-h4 {
+h4, .h4 {
   font-weight: 600;
   color: #084DB5;
   font-family: "Chonburi";
   letter-spacing: 1px;
+  line-height: 3rem;
   font-size: clamp(1.5rem, 7vw, 1.5rem);
 }
 
-h5 {
+h5, .h5 {
   font-family: "Chonburi";
   color: #084DB5;
   font-size: clamp(3rem, 7vw, 3rem);
 }
 
-h6 {
+h6, .h6 {
+  font-family: "Anonymous Pro";
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 @media (min-width: 767px) {
-  h6 {
+  h6, .h6 {
     font-size: 1rem;
   }
 }
@@ -956,7 +968,7 @@ li {
 
 .title__light {
   color: #E2ECFB;
-  text-shadow: 3px 1px #084DB5;
+  text-shadow: 6px 1px #084DB5;
   margin-left: 2rem;
 }
 
@@ -1111,6 +1123,11 @@ a.has-hover-state.hover-state-dark:focus {
   margin-bottom: 0;
 }
 
+.button__wrapper a {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
 @media (min-width: 767px) {
   .button__wrapper {
     margin: 2.2rem;
@@ -1243,11 +1260,15 @@ header .logo {
   -webkit-box-ordinal-group: initial;
       -ms-flex-order: initial;
           order: initial;
+  margin-left: 0;
 }
 
 @media (min-width: 561px) {
   header {
     text-align: left;
+  }
+  header .logo {
+    margin-left: 1rem;
   }
 }
 
@@ -1534,7 +1555,7 @@ header .logo {
   margin: 2rem auto 0 auto;
   display: -ms-grid;
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 1rem;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
   width: 300px;
@@ -1554,11 +1575,11 @@ header .logo {
 }
 
 @media (min-width: 767px) {
-  .technology .technology {
+  .technology {
     padding: 6rem;
     margin-top: 4rem;
   }
-  .technology .technology h4 {
+  .technology h4 {
     font-size: clamp(2rem, 7vw, 2rem);
   }
 }
@@ -1596,14 +1617,14 @@ header .logo {
   .portfolio__grid {
     display: -ms-grid;
     display: grid;
-    grid-gap: 5px;
+    grid-gap: 1rem;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .grid-item {
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1742,6 +1763,7 @@ header .logo {
 .section__client p {
   margin: 2rem 1.5rem;
   font-size: 12px;
+  line-height: 24px;
 }
 
 .section__client p a {
@@ -1837,7 +1859,11 @@ footer:after {
 
 footer copyright {
   padding: 2rem 0 1.5rem 0;
+}
+
+footer copyright h6 {
   font-size: 11px;
+  font-weight: 100;
 }
 
 .footer__links {

@@ -114,7 +114,7 @@ for (const modal of portfolioContent) {
     </div>
     <div class="image__featured-right">
     ${modal.image_4.includes('.mov')
-    ? `<video width="1440" height="500" controls muted>
+    ? `<video width="1440" height="500" controls="muted">
         <source src="${modal.image_4}" type="video/mp4">
         <source src="${modal.image_4}" type="video/ogg">
       </video>`
@@ -129,7 +129,7 @@ for (const modal of portfolioContent) {
   const modalHTML = `
     <div class="modal hide" data-modal="${modalId}">
       <div class="video">
-        <video width="1440" height="500" controls muted>
+        <video width="1440" height="500" controls="muted">
           <source src="${modal.video}" type="video/mp4">
           <source src="${modal.video}" type="video/ogg">
         </video>
@@ -141,24 +141,18 @@ for (const modal of portfolioContent) {
         </ul>
       </navigation>
       <div class="title">
-        <h3 class="title__accent"><span class="title__dark">${modal.title_first}</span><span class="title__light">${modal.title_second}</span></h3>
+        <h2 class="title__accent h3"><span class="title__dark">${modal.title_first}</span><span class="title__light">${modal.title_second}</span></h2>
       </div>
-      <div class="quote">
-        ${modal.quote}
-      </div>
-      <div class="wrapper__large">
-        ${imagesOneHTML}
-      </div>
+      <div class="quote">${modal.quote}</div>
+      <div class="wrapper__large">${imagesOneHTML}</div>
       <div class="technology">
-        <h4>technology</h4>
+        <h3 class="h4">technology</h3>
         <ul class="portfolioDevStack"></ul>
       </div>
-      <div class="wrapper__large">
-        ${imagesTwoHTML}
-      </div>
-      <div class="button__wrapper">
+      <div class="wrapper__large">${imagesTwoHTML}</div>
+      <h4 class="button__wrapper">
         <a href="${modal.url}" title="External link to ${modal.title}'s website" target="_blank">View the site</a>
-      </div>
+      </h4>
     </div>
   `;
 
@@ -194,7 +188,7 @@ const techStackWithImages = [
 ]
 const techStackHTML = techStackWithImages
   .map(tech =>
-    `<li><img src="${tech.tech_image}" alt="Logo for ${tech.tech_name}" width="50" height="50" loading="lazy"></li>`)
+    `<li><img src="${tech.tech_image}" alt="Logo for ${tech.tech_name}" width="920" height="840" loading="lazy"></li>`)
   .join('');
 
 const portfolioTechStack = document.querySelectorAll('.portfolioDevStack');
