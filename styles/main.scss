@@ -455,7 +455,7 @@ body {
             @include background-dark-color-light();
         }
         .title {
-            &__light {
+            &__light { 
                 text-shadow: 3px 1px 6px $color-light;
             }
             &__dark {
