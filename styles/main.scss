@@ -300,7 +300,7 @@ main {
 // Accessibility: Increase Line Height & Font Size
 body {
     &.accessibility__increase__line-height {
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase):not(.ignore__line-increase) {
             line-height: 200% !important;
         }
         .title__accent {
@@ -311,6 +311,9 @@ body {
         }
         .accessibility__modal.open .accessibility__icon-close {
             bottom: 28rem;
+        }
+        .ignore__line-increase {
+            line-height: initial !important;
         }
         &.accessibility__increase__font-size {
             dialog button {
@@ -337,14 +340,20 @@ body.accessibility__increase__font-size {
         font-size: clamp(3rem, 3vw, 3rem) !important;
         line-height: 3.5rem;
     }
-    h4 {
+    h4, .h6 {
         font-size: clamp(2.5rem, 2.5vw, 2.5rem);
     }
-    h5, .h5 {
+    h5, .h5{
         font-size: clamp(5rem, 5vw, 5rem);
     }
     .logo .slash::before {
         left: -13px;
+    }
+    .footer__span {
+        font-size: xx-large;
+    }
+    .logo .footer__span .slash::before {
+        top: 14px;
     }
     header .logo span::before, header .logo span::after {
         left: 50px;
@@ -355,10 +364,10 @@ body.accessibility__increase__font-size {
     .section__client p {
         line-height: 3rem;
     }
-    .footer__span, .header__span {
-        font-size: xxx-large !important;
+    .header__span {
+        font-size: xxx-large;
     }
-    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5) {
+    *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5):not(.h6):not(.header__span):not(.footer__span) {
         font-size: x-large !important;
     }
     dialog button {
@@ -385,8 +394,17 @@ body.accessibility__increase__font-size {
             width: 50%;
             line-height: 6rem;
         }
+        .grid-item h4,.h6 {
+            font-size: clamp(2.5rem, 2.5vw, 2.5rem) !important;
+        }
         h2,h4,h5,.h5 {
             font-size: clamp(6rem, 6vw, 6rem) !important;
+        }
+        .footer__span, .header__span {
+            font-size: xx-large !important;
+        }
+        .footer__span .slash::before {
+            top: 17px;
         }
         .accessibility__modal.open .accessibility__icon-close {
             left: 29rem;
@@ -396,7 +414,7 @@ body.accessibility__increase__font-size {
                 left: 31px;
             }
         }
-        *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5) {
+        *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5):not(.h6):not(.ignore__font-increase) {
             font-size: xx-large !important;
         }
     }

@@ -204,7 +204,7 @@ video {
   background: #084DB5;
 }
 
-body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase) {
+body.accessibility__increase__line-height *:not(.title__accent):not(.title__dark):not(.title__light):not(.title):not(p):not(.logo):not(.ignore__font-increase):not(.ignore__line-increase) {
   line-height: 200% !important;
 }
 
@@ -218,6 +218,10 @@ body.accessibility__increase__line-height .quote p, body.accessibility__increase
 
 body.accessibility__increase__line-height .accessibility__modal.open .accessibility__icon-close {
   bottom: 28rem;
+}
+
+body.accessibility__increase__line-height .ignore__line-increase {
+  line-height: initial !important;
 }
 
 body.accessibility__increase__line-height.accessibility__increase__font-size dialog button {
@@ -243,7 +247,7 @@ body.accessibility__increase__font-size h2 {
   line-height: 3.5rem;
 }
 
-body.accessibility__increase__font-size h4 {
+body.accessibility__increase__font-size h4, body.accessibility__increase__font-size .h6 {
   font-size: clamp(2.5rem, 2.5vw, 2.5rem);
 }
 
@@ -253,6 +257,14 @@ body.accessibility__increase__font-size h5, body.accessibility__increase__font-s
 
 body.accessibility__increase__font-size .logo .slash::before {
   left: -13px;
+}
+
+body.accessibility__increase__font-size .footer__span {
+  font-size: xx-large;
+}
+
+body.accessibility__increase__font-size .logo .footer__span .slash::before {
+  top: 14px;
 }
 
 body.accessibility__increase__font-size header .logo span::before, body.accessibility__increase__font-size header .logo span::after {
@@ -267,11 +279,11 @@ body.accessibility__increase__font-size .section__client p {
   line-height: 3rem;
 }
 
-body.accessibility__increase__font-size .footer__span, body.accessibility__increase__font-size .header__span {
-  font-size: xxx-large !important;
+body.accessibility__increase__font-size .header__span {
+  font-size: xxx-large;
 }
 
-body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5) {
+body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.ignore__font-increase):not(.h5):not(.h6):not(.header__span):not(.footer__span) {
   font-size: x-large !important;
 }
 
@@ -300,8 +312,17 @@ body.accessibility__increase__font-size .accessibility__modal.open .accessibilit
     width: 50%;
     line-height: 6rem;
   }
+  body.accessibility__increase__font-size .grid-item h4, body.accessibility__increase__font-size .h6 {
+    font-size: clamp(2.5rem, 2.5vw, 2.5rem) !important;
+  }
   body.accessibility__increase__font-size h2, body.accessibility__increase__font-size h4, body.accessibility__increase__font-size h5, body.accessibility__increase__font-size .h5 {
     font-size: clamp(6rem, 6vw, 6rem) !important;
+  }
+  body.accessibility__increase__font-size .footer__span, body.accessibility__increase__font-size .header__span {
+    font-size: xx-large !important;
+  }
+  body.accessibility__increase__font-size .footer__span .slash::before {
+    top: 17px;
   }
   body.accessibility__increase__font-size .accessibility__modal.open .accessibility__icon-close {
     left: 29rem;
@@ -309,7 +330,7 @@ body.accessibility__increase__font-size .accessibility__modal.open .accessibilit
   body.accessibility__increase__font-size header .logo span:before, body.accessibility__increase__font-size header .logo span:after {
     left: 31px;
   }
-  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5) {
+  body.accessibility__increase__font-size *:not(.title__accent):not(.title__dark):not(.title__light):not(h5):not(h4):not(h2):not(.h5):not(.h6):not(.ignore__font-increase) {
     font-size: xx-large !important;
   }
 }
