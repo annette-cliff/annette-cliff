@@ -18,11 +18,7 @@
   },
   "homepage": "https://github.com/annette-cliff/annette-cliff/layout/index.html",
   "dependencies": {
-    "gulp-minify": "^3.1.0",
-    "minify": "^10.5.2"
+    "uglify-js": "^3.17.4"
   },
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-responsive": "^3.0.1"
-  }
+  "devDependencies": {}
 }

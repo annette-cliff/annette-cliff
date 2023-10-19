@@ -8,20 +8,16 @@
 
         <!-- SEO -->
         <meta name="description" content="Annette Cliff is an experienced front-end web developer who specializes in building Shopify themes.">
-
         <!-- Favicon -->
         <link rel="icon" href="../assets/favicon/favicon.webp" type="image/x-icon" defer>
-
         <!-- Styles: Main -->
         <link rel="preload" href="../styles/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="../styles/main.css"></noscript>
-
         <!-- Scripts: Main -->
-        <script type="module" src="../scripts/main.js" async defer="defer"></script>
-
+        <link rel="preload" as="script" async href="../scripts/main.js">
+        <script type="module" src="../scripts/main.js" defer="defer"></script>
         <!-- Scripts: Web3Forms -->
         <script src="https://web3forms.com/client/script.js" async defer="defer"></script>
-
         <!-- Fonts: Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,9 +26,13 @@
     </head>
 
     <body>
-        <nav><a href="#mainContent" aria-label="Skip to main content" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a></nav>
+        <nav>
+            <a href="#mainContent" aria-label="Skip to main content" title="Skip to the main content of the page" class="button__main-content">Skip to main content</a>
+        </nav>
         <header class="section__header">
-            <h1 class="logo"><a class="ignore__font-increase" href="../layout/index.html" title="Navigate to home page"><span class="header__span ignore__font-increase">ac</span></a></h1>
+            <h1 class="logo">
+                <a class="ignore__font-increase" href="../layout/index.html" title="Navigate to home page"><span class="header__span ignore__font-increase">ac</span></a>
+            </h1>
             <div id="clock">
                 <div class="grid grid__columns-2"><span class="span-2 ignore__line-increase">12</span><span class="ignore__line-increase">9</span><span class="justify-end ignore__line-increase">3</span><span class="span-2 ignore__line-increase">6</span></div>
                 <div class="hand" id="hour"></div><div class="hand" id="minute"></div><div class="hand" id="second"></div>
@@ -58,7 +58,7 @@
 
             <section id="portfolio" class="section__portfolio">
                 <article id="portfolioGrid" class="portfolio__grid"></article>
-                <article id="portfolioModal" class="portfolio__modal" tabindex="-1" title="portfolioModal" role="dialog" aria-hidden="true"></article>
+                <article id="portfolioModal" class="portfolio__modal" tabindex="-1" aria-label="portfolioModal" role="dialog" aria-hidden="true"></article>
             </section>
 
             <section id="clients" class="section__client">
