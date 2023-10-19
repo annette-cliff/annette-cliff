@@ -13,6 +13,7 @@ var portfolioContent = [
       title_first: 'Our Lady',
       title_second: 'of Rocco',
       video: '../assets/our-lady-of-rocco/video.mov',
+      video_mobile: '../assets/our-lady-of-rocco/video-mobile.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media size. Additionally, we created the functionality to 'Quick Add' a product to cart on the collections and homepage using a snippet to include on the appropriate templates.</p>",
       image_1: '../assets/our-lady-of-rocco/image_1.webp',
       image_1_ratio_width: '2864',
@@ -43,6 +44,7 @@ var portfolioContent = [
       title_first: 'Puppets &',
       title_second: 'Puppets',
       video: '../assets/puppets-and-puppets/video.mov',
+      video_mobile: '../assets/puppets-and-puppets/video-mobile.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Lemonade was to build the new theme and adhere to the design (referencing an InDesign file) to include new fonts, styles, and functionality.</p> <p>The goal was to emphasize the editorial imagery so we created unique sections and included an image snippet that allowed various image sizes based on media width. The product templates were designed so that the product images could be scrolled through while the main information remains sticky. Additionally, we added a hover state for the logo to display a custom gif.</p>",
       image_1: '../assets/puppets-and-puppets/image_1.webp',
       image_1_ratio_width: '722',
@@ -70,6 +72,7 @@ var portfolioContent = [
       title_first: 'Bethel',
       title_second: 'China',
       video: '../assets/bethel-china/video.mov',
+      video_mobile: '../assets/bethel-china/video-mobile.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to showcase the successes of the children while also making it easy to donate by including the DonorBox donation form on multiple pages. We also included the ability to add a video transcript which amplifies the importance of accessibility in websites while echoing the work that Bethel does for children with visual impairments.</p>",
       image_1: '../assets/bethel-china/image_1.webp',
       image_1_ratio_width: '2880',
@@ -100,6 +103,7 @@ var portfolioContent = [
       title_first: 'Blackcraft',
       title_second: 'Cult',
       video: '../assets/blackcraft-cult/video.mov',
+      video_mobile: '../assets/blackcraft-cult/video-mobile.mov',
       quote: "<p>This was a 'full build' project which included a new custom built theme. My task while employed at Fuel Made was to build the new theme and adhere to the design (referencing a Figma file) to include new fonts, styles, and functionality.</p> <p>The goal was to include an array of custom filtering options for each collection template. Additionally, we included a free shipping meter which subtracts the total price in cart from the free shipping meter amount. This dynamically updates if a product is added, the quantity of a current product in the cart is increased/decreased or removed entirely.</p>",
       image_1: '../assets/blackcraft-cult/image_1.webp',
       image_1_ratio_width: '1678',
@@ -190,9 +194,13 @@ for (const modal of portfolioContent) {
   const modalHTML = `
     <div class="modal hide" data-modal="${modalId}">
       <div class="video">
-        <video width="1440" height="500" controls="muted">
+        <video class="desktop-only" width="1440" height="500" controls="muted">
           <source src="${modal.video}" type="video/mp4">
           <source src="${modal.video}" type="video/ogg">
+        </video>
+        <video class="mobile-only" width="388" height="826" controls="muted">
+          <source src="${modal.video_mobile}" type="video/mp4">
+          <source src="${modal.video_mobile}" type="video/ogg">
         </video>
       </div>
       <navigation class="breadcrumbs">
