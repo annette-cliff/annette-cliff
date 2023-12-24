@@ -25,7 +25,7 @@ var footerMenus = [
     { 
         menu: 'menu_2',
         title: 'Email', 
-        url: 'mailto:annettecliff@gmail.com' 
+        url: 'mailto:annettecliff.work@gmail.com' 
     },
     { 
         menu: 'menu_2',
