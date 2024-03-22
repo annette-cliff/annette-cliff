@@ -207,7 +207,7 @@ const clientSlideshowButtonsHTML = document.getElementById('clientSlideshowButto
 
 const clientSlideshowContent = clientSlideshow 
     .map(slide => `<div class="slide ${slide.has_class} ${slide.agency == 'Lemonade' ? 'show' : 'hide'}" data-agency="${slide.agency}">
-                        <a href="${slide.url}" title="External link to ${slide.client_name}'s website">
+                        <a href="${slide.url}" title="External link to ${slide.client_name}'s website" target="blank">
                             <picture>
                                 <source type="image/webp" srcset="${slide.logo}" media="(min-width: 600px)" />
                                 <img src="${slide.logo}" alt="${slide.client_name}'s logo" width="250" height="250" loading="lazy">
